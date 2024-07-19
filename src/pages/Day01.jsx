@@ -17,12 +17,12 @@ const Day01 = () => {
           <div className="max-w-xl lg:max-w-3xl">
             <a className="inline-block" href="#">
               <span className="sr-only">Home</span>
-              <img src={fmUILogo} alt="fmUI Logo" />
+              <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
             </a>
-            <h1 className="mt-6 text-2xl font-bold text-neutral-200 sm:text-3xl md:text-4xl">
+            <h1 className="mt-6 text-2xl font-bold sm:text-3xl md:text-4xl">
               Welcome to fmUI
             </h1>
-            <p className="mt-4 leading-relaxed text-neutral-300">
+            <p className="mt-4 leading-relaxed">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
               quibusdam aperiam voluptatum.
             </p>
@@ -79,21 +79,21 @@ const Day01 = () => {
                 />
               </div>
               <div className="col-span-6">
-                <p className="text-sm text-neutral-300">
+                <p className="text-sm ">
                   By creating an account, you agree to our
-                  <a href="#" className="text-neutral-200 underline"> terms and conditions </a>
+                  <a href="#" className="underline"> terms and conditions </a>
                   and
-                  <a href="#" className="text-neutral-200 underline"> privacy policy</a>.
+                  <a href="#" className="underline"> privacy policy</a>.
                 </p>
               </div>
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                 <Button
-                  styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                  styles={'text-neutral-900 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
                   label={'Create an account'}
                 />
-                <p className="mt-4 text-sm text-neutral-300 sm:mt-0">
+                <p className="mt-4 text-sm sm:mt-0">
                   Already have an account?
-                  <a href="#" className="text-neutral-200 underline"> Log in</a>.
+                  <a href="#" className="underline"> Log in</a>.
                 </p>
               </div>
             </form>
