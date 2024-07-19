@@ -10,9 +10,9 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
+      className='bg-neutral-900'
     >
-      <h1 className='bg-indigo-500 font-bold text-2xl p-12 text-white uppercase'>This is a test.</h1>
-      <div className='grid lg:grid-cols-3 grid-cols-2'>
+      <div className='grid lg:grid-cols-3 grid-cols-2 gap-3'>
         {Cards.map((card, index) => (
           <Card
             key={index}
