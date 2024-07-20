@@ -1,9 +1,11 @@
 import React from 'react'
 import { fmUILogo, unionPay, visa, masterCard, discoverCard, amExCard } from '../assets'
 import { InputField, Toggle, Select } from '../components'
+import useLenisScroll from '../hooks/useLenisScroll'
 import { motion } from 'framer-motion'
 
 const Day02 = () => {
+  useLenisScroll();
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -1,9 +1,11 @@
 import React from 'react'
 import { fmUILogo } from '../assets'
 import { InputField, Checkbox, Button } from '../components'
+import useLenisScroll from '../hooks/useLenisScroll'
 import { motion } from 'framer-motion'
 
 const Day01 = () => {
+  useLenisScroll();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -93,7 +95,7 @@ const Day01 = () => {
                     <a href="#" className="text-neutral-200 underline"> privacy policy</a>.
                   </p>
                 </div>
-                <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
+                <div className="col-span-6 flex sm:items-center gap-4">
                   <Button
                     styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
                     label={'Create an account'}

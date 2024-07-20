@@ -9,7 +9,7 @@ const Select = ({ id, label, options = [], required = false }) => {
       <select
         name={id}
         id={id}
-        className="block rounded-md w-full bg-neutral-800 border border-neutral-600/60 transition duration-300 ease-in-out focus:ring-1 focus:ring-neutral-400 focus:border-neutral-400 text-sm py-2.5 px-3 text-neutral-200 placeholder:text-neutral-400/70"
+        className="block rounded-md w-full bg-neutral-800 border border-neutral-600/60 transition duration-300 ease-in-out focus:ring-1 focus:ring-neutral-400 focus:border-neutral-400 text-sm py-2.5 px-3 text-neutral-300"
         required={required}
       >
         {options.length > 0 ? (

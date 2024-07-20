@@ -1,9 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import useLenisScroll from '../hooks/useLenisScroll'
 import { Card } from '../components'
 import { Cards } from '../data'
 
 const Home = () => {
+  useLenisScroll();
   return (
     <motion.div
       initial={{ opacity: 0 }}
