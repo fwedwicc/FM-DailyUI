@@ -1,6 +1,7 @@
 import React from 'react'
-import { fmUILogo, unionPay, visa, masterCard, discoverCard, amExCard } from '../assets'
-import { InputField, Toggle, Select } from '../components'
+import { fmUILogo } from '../assets'
+import { unionPay, visa, masterCard, discoverCard, amExCard } from '../assets/day02'
+import { InputField, Toggle, Select, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import { motion } from 'framer-motion'
 
@@ -300,11 +301,75 @@ const Day02 = () => {
                   </div>
                 </form>
               </div>
-              <div className='lg:col-span-3 col-span-1 space-y-4'>
+              {/* Review and Confirm */}
+              <div className='lg:col-span-3 col-span-1 space-y-6'>
                 <span className='inline-flex items-center gap-3 text-neutral-300 lg:text-xl text-md'>
                   <span className='rounded-md border border-neutral-500 px-2 py-1 font-bold'>3</span>
                   <h2>Review and Confirm</h2>
                 </span>
+                <div className='w-full p-6 rounded-md space-y-4 bg-neutral-700/50 border border-neutral-600 text-neutral-300'>
+                  <span className='block font-bold text-[1.3rem]'>Plus</span>
+                  <div className='space-y-1'>
+                    <span>
+                      Annual
+                      <span className='ms-2 bg-green-700 text-xs rounded-sm text-white px-2 py-1.5'>SAVE $36</span>
+                    </span>
+                    <div className='flex justify-between'>
+                      <span>
+                        <span className='line-through me-1.5'>$14.99</span>
+                        $11.99 x 12 months
+                      </span>
+                      <span>$143.88/year</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div className='flex justify-between'>
+                      <span>Tax</span>
+                      <span>-</span>
+                    </div>
+                    <span className='text-xs'>(Based on Postal Code)</span>
+                  </div>
+                  <div className='flex items-end justify-between gap-4 pb-3'>
+                    <div className='w-full'>
+                      <InputField
+                        id="promo-code"
+                        label="Have a promo code?"
+                        type="text"
+                        placeholder="XX XX XX"
+                        required={false}
+                      />
+                    </div>
+                    <Button
+                      styles={'py-[0.6rem] text-neutral-200 bg-transarent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                      label={'Apply'}
+                    />
+                  </div>
+                  <div className='border-t border-neutral-600 pt-5'>
+                    <div className='flex justify-between'>
+                      <span>Today's total</span>
+                      <span>$0</span>
+                    </div>
+                    <div className='flex justify-between'>
+                      <span>
+                        <strong className='me-1.5'>Total</strong>
+                        charged July 27
+                      </span>
+                      <span>US$143.88</span>
+                    </div>
+                  </div>
+                </div>
+                <Button
+                  styles={'w-full text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                  label={'Start 7-day free trial'}
+                />
+                <div className='p-4 space-y-2 text-xs text-neutral-300 bg-neutral-700/20 border border-neutral-600/40 rounded-md'>
+                  <span className='block'>
+                    By selecting <strong>Start 7-day free trial</strong>, you agree to the fmUI <a href="#" className='underline'>Terms of Service</a> and authorize this recurring charge to begin on July 27, 2024 and renew annually. Your 7-day free trial starts today. Cancel your subscription at any time in your payment and plan settings.
+                  </span>
+                  <span className='block'>
+                    This site is protected by reCAPTCHA and the Google <a href="#" className='underline'>Privacy Policy</a> and <a href="#" className='underline'>Terms of Service</a> apply.
+                  </span>
+                </div>
               </div>
             </div>
           </div>
