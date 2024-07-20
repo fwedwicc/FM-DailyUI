@@ -9,6 +9,7 @@ export default {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@codaworks/react-glow/tailwind')
   ],
 }
 
