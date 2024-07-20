@@ -1,6 +1,6 @@
 import React from 'react'
-import { fmUILogo } from '../assets'
-import { Toggle } from '../components'
+import { fmUILogo, unionPay, visa, masterCard, discoverCard, amExCard } from '../assets'
+import { InputField, Toggle, Select } from '../components'
 import { motion } from 'framer-motion'
 
 const Day02 = () => {
@@ -12,7 +12,7 @@ const Day02 = () => {
       transition={{ duration: 0.5 }}
     >
       <section className="bg-neutral-800">
-        <div className="lg:min-h-screen lg:px-48 md:px-32 px-8 lg:py-20 py-8">
+        <div className="lg:min-h-screen lg:px-32 md:px-24 px-8 lg:py-20 py-8">
           <a className="inline-block" href="#">
             <span className="sr-only">Home</span>
             <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
@@ -207,6 +207,103 @@ const Day02 = () => {
                   </div>
                 </div>
               </label>
+            </div>
+          </div>
+          <div className='mt-12'>
+            <div className='grid lg:grid-cols-8 md:grid-cols-1 grid-cols-1 gap-8'>
+              {/* Payment Method */}
+              <div className='lg:col-span-5 col-span-1 space-y-8'>
+                <span className='inline-flex items-center gap-3 text-neutral-300 lg:text-xl text-md'>
+                  <span className='rounded-md border border-neutral-500 px-2 py-1 font-bold'>2</span>
+                  <h2>Payment Method</h2>
+                </span>
+                <form action="#" className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 lg:gap-4 gap-3">
+                  <div className="col-span-2">
+                    <InputField
+                      id="card-number"
+                      label="Card Number"
+                      type="text"
+                      required={true}
+                    />
+                    <div className='flex items-center gap-1'>
+                      <img src={visa} alt="Visa Card" className='w-auto lg:h-12 h-10' />
+                      <img src={masterCard} alt="Master Card" className='w-auto lg:h-10 h-8' />
+                      <img src={discoverCard} alt="Discover Card" className='w-auto lg:h-12 h-10' />
+                      <img src={amExCard} alt="American Express Card" className='w-auto lg:h-12 h-10' />
+                      <img src={unionPay} alt="Unionpay Card" className='w-auto lg:h-12 h-10' />
+                    </div>
+                  </div>
+                  <div className="col-span-1">
+                    <InputField
+                      id="exp-date"
+                      label="Expiration date"
+                      type="text"
+                      placeholder="MM/YY"
+                      required={true}
+                    />
+                  </div>
+                  <div className="col-span-1">
+                    <InputField
+                      id="cvv"
+                      label="CVV"
+                      type="text"
+                      required={true}
+                    />
+                  </div>
+                  <div className="col-start-1 col-span-2">
+                    <InputField
+                      id="first-name"
+                      label="First name"
+                      type="text"
+                      placeholder="John"
+                      required={true}
+                    />
+                  </div>
+                  <div className="col-span-2">
+                    <InputField
+                      id="last-name"
+                      label="Last name"
+                      type="text"
+                      placeholder="Doe"
+                      required={true}
+                    />
+                  </div>
+                  <div className="col-start-1 col-span-2">
+                    <Select
+                      id="country"
+                      label="Country"
+                      options={[
+                        { value: '', label: 'Choose a country' },
+                        { value: 'AU', label: 'Australia' },
+                        { value: 'CA', label: 'Canada' },
+                        { value: 'CN', label: 'China' },
+                        { value: 'FR', label: 'France' },
+                        { value: 'DE', label: 'Germany' },
+                        { value: 'IN', label: 'India' },
+                        { value: 'JP', label: 'Japan' },
+                        { value: 'PH', label: 'Philippines' },
+                        { value: 'GB', label: 'United Kingdom' },
+                        { value: 'US', label: 'United States' },
+                      ]}
+                      required={true}
+                    />
+                  </div>
+                  <div className="col-span-2">
+                    <InputField
+                      id="postal-code"
+                      label="Postal code"
+                      type="text"
+                      required={true}
+                    />
+                  </div>
+                </form>
+              </div>
+              <div className='lg:col-span-3 col-span-1 space-y-4'>
+                <span className='inline-flex items-center gap-3 text-neutral-300 lg:text-xl text-md'>
+                  <span className='rounded-md border border-neutral-500 px-2 py-1 font-bold'>3</span>
+                  <h2>Review and Confirm</h2>
+                </span>
+              </div>
             </div>
           </div>
         </div>

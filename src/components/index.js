@@ -2,6 +2,7 @@ import Button from "./Button"
 import Card from "./Card"
 import Checkbox from "./Checkbox"
 import InputField from "./InputField"
+import Select from "./Select"
 import Toggle from "./Toggle"
 
 export {
@@ -9,5 +10,6 @@ export {
   Card,
   Checkbox,
   InputField,
+  Select,
   Toggle,
 }
