@@ -9,5 +9,5 @@ export {
   visa,
   masterCard,
   discoverCard,
-  amExCard,
+  amExCard
 }
