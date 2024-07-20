@@ -1,5 +1,4 @@
-import { fmUILogo } from '../assets';
-import { day01Thumbnail, day02Thumbnail } from '../assets/thumbnails';
+import { defaultThumbnail, day01Thumbnail, day02Thumbnail } from '../assets/thumbnails';
 
 export const Cards = [];
 
@@ -18,7 +17,7 @@ const images = [
   day02Thumbnail, // Day02
 ];
 
-const defaultImage = fmUILogo;
+const defaultImage = defaultThumbnail;
 
 for (let day = 1; day <= 100; day++) {
   const titleIndex = day - 1;
@@ -28,10 +27,9 @@ for (let day = 1; day <= 100; day++) {
   Cards.push({
     link: `/day${day.toString().padStart(2, '0')}`, // ensures day format like '/day01', '/day02', ..., '/day100'
     day: day.toString().padStart(2, '0'), // ensures day format like '01', '02', ..., '100'
-    title: titles[titleIndex] || 'Not yet prompted',
-    desc: descriptions[descIndex] || 'This challenge is not yet prompted',
+    title: titles[titleIndex] || 'Upcoming Challenge',
+    desc: descriptions[descIndex] ? `Prompt: ${descriptions[descIndex]}` : 'This challenge has not yet been revealed. Stay tuned for updates!',
     img: images[imgIndex] || defaultImage, // default image path
   });
 }
 
-console.log(Cards); // Check the Cards array to ensure the img property is correct
