@@ -1,8 +1,38 @@
-# React + Vite
+# FM DailyUI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FM DailyUI is a curated collection of 100 Days of UI challenge prompts from https://www.dailyui.co, showcasing creative and innovative UI designs using my design system; fmUI.
 
-Currently, two official plugins are available:
+Image Overview ~ Under Construction
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+
+- [Technologies Used](#technologies-used)
+- [Contact](#contact)
+- [Author](#author)
+- [License](#license)
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- React
+- TailwindCSS
+- GSAP
+- Framer Motion
+
+## Contact
+
+Feel free to reach out to me through the following platforms:
+
+- **Email:** [moreno.frederick.capiral@gmail.com](mailto:moreno.frederick.capiral@gmail.com)
+- **LinkedIn:** [Frederick Moreno](https://www.linkedin.com/in/frederick-moreno/)
+- **GitHub:** [fwedwicc](https://github.com/fwedwicc)
+
+## Author
+
+- **Frederick Moreno** - _Initial work_ - [fwedwicc](https://github.com/fwedwicc)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/fwedwicc/FM-DailyUi/blob/main/LICENSE) file for details.
