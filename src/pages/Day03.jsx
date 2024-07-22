@@ -14,8 +14,8 @@ const Day03 = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="bg-neutral-800">
-        <main>
-          <nav className='flex items-center justify-between h-[15vh] border'>
+        <main className='bg-landing-hero bg-cover bg-center bg-no-repeat'>
+          <nav className='flex items-center justify-between h-[15vh] px-24'>
             <a className="inline-block" href="#">
               <span className="sr-only">Home</span>
               <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
@@ -45,7 +45,7 @@ const Day03 = () => {
               />
             </div>
           </nav>
-          <section className='h-[85vh] flex flex-col gap-5 justify-center items-center border lg:px-24 px-12'>
+          <section className='h-[85vh] flex flex-col gap-5 justify-center items-center lg:px-24 px-12'>
             <span className='text-green-500 text-xs uppercase'>Find job in your town</span>
             <div className='text-center space-y-1.5'>
               <h1 className="text-3xl font-bold text-neutral-200 sm:text-4xl md:text-5xl">
@@ -91,10 +91,11 @@ const Day03 = () => {
               <span className='text-neutral-300 text-xs'>Try Product Designer, Software Engineer, etc.</span>
             </div>
           </section>
-          <section className='h-screen'>
-
-          </section>
         </main>
+
+        <section className='h-screen'>
+
+        </section>
       </div>
     </motion.div>
   )

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'landing-hero': "url('/src/assets/hero-bg.jpg')", // Day03
+        'landing-hero': "url('/src/assets/day03/hero-bg.png')" //Day03
       },
     },
   },
