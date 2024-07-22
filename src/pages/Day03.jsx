@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { fmUILogo } from '../assets'
+import { logo01, logo02, logo03, logo04 } from '../assets/day03';
 import { Button, InputField, Select } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import { motion } from 'framer-motion'
@@ -49,12 +50,31 @@ const Day03 = () => {
     return (
       <div className='space-y-3'>
         <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
-          <span className='rounded-full py-2 px-3.5 me-2.5 bg-green-600 font-bold text-lg'>{num}</span>
+          <span className='rounded-full py-2 px-3.5 me-4 bg-green-600 font-bold text-lg'>{num}</span>
           {title}
         </h1>
         <p className="leading-relaxed text-neutral-400">
           {desc}
         </p>
+      </div>
+    )
+  }
+
+  const FeaturedJob = ({ styles, status, jobTitle, location, logo }) => {
+    return (
+      <div className='border border-neutral-700/50 hover:bg-neutral-600/20 transition duration-300 ease-in-out rounded-md lg:p-6 p-4 cursor-pointer flex flex-col justify-between space-y-3'>
+        <div className='space-y-3'>
+          <span className={`${styles} text-xs uppercase`}>{status}</span>
+          <div>
+            <h1 className="text-lg font-medium text-neutral-300 lg:text-xl">
+              {jobTitle}
+            </h1>
+            <p className="leading-relaxed text-neutral-400 text-xs">
+              {location}
+            </p>
+          </div>
+        </div>
+        <img src={logo} alt="Logoipsum" className='w-[8rem] lg:w-[10rem] h-auto' />
       </div>
     )
   }
@@ -273,6 +293,55 @@ const Day03 = () => {
                 num='3'
                 title='Get interview call'
                 desc="Once your application is reviewed, you'll receive notifications for interview opportunities directly through our platform."
+              />
+            </div>
+          </div>
+        </section>
+        <section className='flex bg-neutral-900/40 justify-center items-center lg:px-24 px-12 py-16'>
+          <div className='flex flex-col gap-6 w-full'>
+            <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+              Feature Jobs
+            </h1>
+            <div className='flex justify-between items-end lg:gap-0 gap-12'>
+              <p className="leading-relaxed text-neutral-400">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br className='lg:block hidden' /> Eligendi nam dolorum aliquam,
+                quibusdam aperiam voluptatum.
+              </p>
+              <a href="#" className='flex items-center gap-1 text-green-500 font-semibold'>
+                Explore all jobs
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </div>
+            <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-6 gap-4'>
+              <FeaturedJob
+                styles='text-green-500'
+                status='Full-time'
+                jobTitle='Senior Software Engineer'
+                location='New York, USA'
+                logo={logo01}
+              />
+              <FeaturedJob
+                styles='text-indigo-500'
+                status='Remote'
+                jobTitle='Product Designer'
+                location='Lake Colby, UK'
+                logo={logo02}
+              />
+              <FeaturedJob
+                styles='text-green-500'
+                status='Full-time'
+                jobTitle='UX Designer'
+                location='California, USA'
+                logo={logo03}
+              />
+              <FeaturedJob
+                styles='text-red-500'
+                status='Part-time'
+                jobTitle='Full-Stack Web Developer'
+                location='Katlynburgh, Sweden'
+                logo={logo04}
               />
             </div>
           </div>
