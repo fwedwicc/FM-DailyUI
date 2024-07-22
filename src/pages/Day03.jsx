@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import { fmUILogo } from '../assets'
 import { Button, InputField, Select } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
@@ -6,6 +7,7 @@ import { motion } from 'framer-motion'
 
 const Day03 = () => {
   useLenisScroll();
+  const [isOpen, setIsOpen] = useState(false);
 
   const FeatureCard = ({ desc, title, svg, styles }) => {
     return (
@@ -66,28 +68,53 @@ const Day03 = () => {
     >
       <div className="bg-neutral-800">
         <main className='bg-landing-hero bg-cover bg-center bg-no-repeat'>
-          <nav className='flex items-center justify-between h-[15vh] px-24'>
+          <nav className='relative flex items-center justify-between h-[15vh] lg:px-24 px-12'>
             <a className="inline-block" href="#">
               <span className="sr-only">Home</span>
               <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
             </a>
-            <ul className='text-neutral-300 flex gap-9'>
-              <li>
-                <a href="#">Demos</a>
-              </li>
-              <li>
-                <a href="#">Pages</a>
-              </li>
-              <li>
-                <a href="#">Support</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
+            {/* Desktop Navigation */}
+            <ul className='hidden md:flex text-neutral-300 gap-9'>
+              <li><a href="#">Demos</a></li>
+              <li><a href="#">Pages</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Contact</a></li>
             </ul>
-            <div className='flex gap-3'>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className='md:hidden flex items-center p-2 rounded-md focus:bg-neutral-700 hover:bg-neutral-700 justify-center text-neutral-300 transition duration-300 ease-in-out focus:outline-none'
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 6h15m-15 6h15m-15 6h15" />
+              </svg>
+            </button>
+            {/* Mobile Dropdown Menu */}
+            {isOpen && (
+              <div className='absolute top-full right-12 -mt-8 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-lg md:hidden'>
+                <ul className='text-neutral-300 text-center'>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out rounded-t-lg'>Demos</a></li>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out'>Pages</a></li>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out'>Support</a></li>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out'>Contact</a></li>
+                </ul>
+                <div className='flex flex-col gap-2 p-4'>
+                  <Button
+                    styles={'text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
+                    label={'Login'}
+                  />
+                  <Button
+                    styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                    label={'Sign up'}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Desktop Buttons */}
+            <div className='hidden md:flex gap-3'>
               <Button
-                styles={'text-neutral-200 bg-transarent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
+                styles={'text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
                 label={'Login'}
               />
               <Button
