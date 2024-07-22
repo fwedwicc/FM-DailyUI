@@ -79,6 +79,22 @@ const Day03 = () => {
     )
   }
 
+  const NewsCard = ({ img, category, title }) => {
+    return (
+      <div className='space-y-4 border border-neutral-700/60 hover:bg-neutral-700/60 cursor-pointer transition duration-300 ease-in-out rounded-lg lg:p-4 p-2.5'>
+        <img src={img} alt='Illsutration Photo' className='w-full h-auto object-contain rounded-md flex-grow' />
+        <div className='lg:px-6 px-3'>
+          <p className="leading-relaxed text-neutral-400">
+            {category}
+          </p>
+          <h1 className="text-base font-medium text-neutral-300 lg:text-lg">
+            {title}
+          </h1>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -345,6 +361,42 @@ const Day03 = () => {
               />
             </div>
           </div>
+        </section>
+        <section className='flex flex-col justify-center items-center lg:px-24 px-12 py-16 gap-16'>
+          <div className='text-center space-y-3'>
+            <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+              News that helps
+            </h1>
+            <p className="leading-relaxed text-neutral-400">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br className='lg:block hidden' /> Eligendi nam dolorum aliquam,
+              quibusdam aperiam voluptatum.
+            </p>
+          </div>
+          <div className='grid lg:grid-cols-3 grid-cols-2 lg:gap-6 gap-3'>
+            <NewsCard
+              img='https://images.unsplash.com/photo-1653669487003-7d89b2020f3c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              category='Career'
+              title='How to win any job you want. Get started with 5 steps.'
+            />
+            <NewsCard
+              img='https://images.unsplash.com/photo-1598257006626-48b0c252070d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              category='Lifestyle'
+              title='10 ways to reduce your office work depression.'
+            />
+            <div className='lg:col-span-1 col-span-2'>
+              <NewsCard
+                img='https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                category='Career'
+                title='Why should you work as a team even on small projects.'
+              />
+            </div>
+          </div>
+          <a href="#" className='flex items-center gap-1 text-green-500 font-semibold'>
+            Explore all
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </a>
         </section>
       </div>
     </motion.div>
