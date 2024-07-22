@@ -25,7 +25,7 @@ const Day03 = () => {
 
   const CategoryCard = ({ title, totalJobs }) => {
     return (
-      <div className='group flex justify-between items-center p-8 rounded-lg bg-neutral-800 border border-neutral-700/40 hover:bg-green-800 hover:border-green-600/40 cursor-pointer transition duration-300 ease-in-out'>
+      <div className='group flex justify-between items-center lg:p-8 md:p-6 p-4 rounded-lg bg-neutral-800 border border-neutral-700/40 hover:bg-green-800 hover:border-green-600/40 cursor-pointer transition duration-300 ease-in-out'>
         <div className='space-y-3'>
           <h1 className="text-lg font-medium text-neutral-300 lg:text-xl">
             {title}
@@ -34,11 +34,25 @@ const Day03 = () => {
             {totalJobs} Jobs
           </p>
         </div>
-        <button className='rounded-full p-3 bg-green-700 opacity-0 group-hover:opacity-100 transition duration-300'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-white">
+        <button className='rounded-full lg:p-3 p-2 bg-green-700 opacity-0 group-hover:opacity-100 transition duration-300'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lg:size-6 size-5 text-white">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
         </button>
+      </div>
+    )
+  }
+
+  const Steps = ({ num, title, desc }) => {
+    return (
+      <div className='space-y-3'>
+        <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+          <span className='rounded-full py-2 px-3.5 me-2.5 bg-green-600 font-bold text-lg'>{num}</span>
+          {title}
+        </h1>
+        <p className="leading-relaxed text-neutral-400">
+          {desc}
+        </p>
       </div>
     )
   }
@@ -157,9 +171,9 @@ const Day03 = () => {
             <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
               Jobs by category
             </h1>
-            <div className='flex justify-between items-end'>
+            <div className='flex justify-between items-end lg:gap-0 gap-12'>
               <p className="leading-relaxed text-neutral-400">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br /> Eligendi nam dolorum aliquam,
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br className='lg:block hidden' /> Eligendi nam dolorum aliquam,
                 quibusdam aperiam voluptatum.
               </p>
               <a href="#" className='flex items-center gap-1 text-green-500 font-semibold'>
@@ -169,7 +183,7 @@ const Day03 = () => {
                 </svg>
               </a>
             </div>
-            <div className='grid grid-cols-3 gap-6'>
+            <div className='grid lg:grid-cols-3 grid-cols-2 lg:gap-6 gap-4'>
               <CategoryCard
                 title='Design'
                 totalJobs='47'
@@ -193,6 +207,45 @@ const Day03 = () => {
               <CategoryCard
                 title='Customer Support'
                 totalJobs='34'
+              />
+            </div>
+          </div>
+        </section>
+        <section className='flex flex-col justify-center items-center lg:px-24 px-12 py-16 gap-16'>
+          <div className='text-center space-y-3'>
+            <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+              Find jobs with 3 easy steps
+            </h1>
+            <p className="leading-relaxed text-neutral-400">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br className='lg:block hidden' /> Eligendi nam dolorum aliquam,
+              quibusdam aperiam voluptatum.
+            </p>
+          </div>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
+            <div className='h-[30rem] w-auto'>
+              <div className='h-full w-full p-3 bg-neutral-700/10 rounded-lg border border-neutral-700'>
+                <img
+                  src="https://images.unsplash.com/photo-1661956602139-ec64991b8b16?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Illustration Photo"
+                  className='h-full w-full object-cover rounded-[calc(0.375rem-3px)]'
+                />
+              </div>
+            </div>
+            <div className='gap-12 flex flex-col justify-center h-full'>
+              <Steps
+                num='1'
+                title='Search for a job'
+                desc='Begin your journey by browsing through a curated list of job opportunities tailored to your skills and interests.'
+              />
+              <Steps
+                num='2'
+                title='Apply with our website'
+                desc='Submit your application effortlessly through our streamlined process. Upload your resume, cover letter, and other relevant documents with just a few clicks.'
+              />
+              <Steps
+                num='3'
+                title='Get interview call'
+                desc="Once your application is reviewed, you'll receive notifications for interview opportunities directly through our platform."
               />
             </div>
           </div>
