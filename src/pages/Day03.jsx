@@ -353,7 +353,7 @@ const Day03 = () => {
                 logo={logo03}
               />
               <FeaturedJob
-                styles='text-red-500'
+                styles='text-orange-500'
                 status='Part-time'
                 jobTitle='Full-Stack Web Developer'
                 location='Katlynburgh, Sweden'
@@ -397,6 +397,42 @@ const Day03 = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
           </a>
+        </section>
+        <section className='flex bg-neutral-900/40 flex-col justify-center items-center lg:px-24 px-12 py-16 gap-16'>
+          <div className='text-center space-y-6'>
+            <div className='inline-flex rounded-full lg:p-3 p-2 bg-green-600 text-white'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+              </svg>
+            </div>
+            <div className='space-y-3'>
+              <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                Get our latest updates
+              </h1>
+              <p className="leading-relaxed text-neutral-400">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br className='lg:block hidden' /> Eligendi nam dolorum aliquam,
+                quibusdam aperiam voluptatum.
+              </p>
+            </div>
+            <div className='flex border border-neutral-700 bg-neutral-900 rounded-[0.8rem] p-2 w-full max-w-xl'>
+              <InputField
+                styles={'me-2'}
+                id="email"
+                type="text"
+                placeholder="john.doe@email.com"
+                required={false}
+              />
+              <Button
+                styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                label={'Subscribe'}
+              />
+            </div>
+            <div>
+              <span className='text-neutral-300 text-xs'>We'll never share your details with third parties. <br />
+                View our<span className='text-green-500'> Privacy Policy</span> for more info.
+              </span>
+            </div>
+          </div>
         </section>
       </div>
     </motion.div>
