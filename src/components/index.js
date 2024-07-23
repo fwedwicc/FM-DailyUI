@@ -3,6 +3,7 @@ import Card from "./Card"
 import Checkbox from "./Checkbox"
 import InputField from "./InputField"
 import Select from "./Select"
+import Tooltip from "./Tooltip"
 import Toggle from "./Toggle"
 
 export {
@@ -11,5 +12,6 @@ export {
   Checkbox,
   InputField,
   Select,
+  Tooltip,
   Toggle,
 }
