@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { fmUILogo } from '../assets'
 import useLenisScroll from '../hooks/useLenisScroll'
-import { InputField, Tooltip, Select, Button } from '../components'
+import { InputField, Tooltip, Select, Button, Toggle } from '../components'
+import { Doughnut } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip as ChartTooltip,
+  Legend
+} from 'chart.js';
+ChartJS.register(ArcElement, ChartTooltip, Legend);
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Day04 = () => {
@@ -68,6 +76,45 @@ const Day04 = () => {
     )
   }
 
+  const data = {
+    labels: ['Category 1', 'Category 2', 'Category 3'],
+    datasets: [
+      {
+        data: [70, 20, 10],
+        backgroundColor: ['#22c55e', '#6366f1', '#f97316'],
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  const options = {
+    cutout: '80%',
+    plugins: {
+      tooltip: {
+        enabled: false,
+      },
+      legend: {
+        display: false,
+      },
+    },
+  };
+
+  const tableData = [
+    { year: '2024', principal: '$2,059.73', interest: '$7,066.24', balance: '$337,940.27' },
+    { year: '2025', principal: '$7,181.35', interest: '$23,846.94', balance: '$332,818.65' },
+    { year: '2026', principal: '$12,565.00', interest: '$40,365.61', balance: '$327,435.00' },
+    { year: '2027', principal: '$18,224.09', interest: '$56,608.84', balance: '$321,775.91' },
+    { year: '2028', principal: '$24,172.72', interest: '$72,562.54', balance: '$315,827.28' },
+    { year: '2029', principal: '$30,425.68', interest: '$88,211.90', balance: '$309,574.32' },
+    { year: '2030', principal: '$36,998.56', interest: '$103,541.34', balance: '$303,001.44' },
+    { year: '2031', principal: '$43,907.72', interest: '$118,534.51', balance: '$296,092.28' },
+    { year: '2032', principal: '$51,170.36', interest: '$133,174.18', balance: '$288,829.64' },
+    { year: '2033', principal: '$58,804.58', interest: '$147,442.29', balance: '$281,195.42' },
+    { year: '2034', principal: '$66,829.37', interest: '$161,319.82', balance: '$273,170.63' },
+    { year: '2035', principal: '$75,264.73', interest: '$174,786.78', balance: '$264,735.27' },
+    { year: '2036', principal: '$84,131.66', interest: '$187,822.17', balance: '$255,868.34' },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -88,13 +135,13 @@ const Day04 = () => {
               </h1>
               <div>
                 <p className="leading-relaxed text-neutral-300">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit, <br className='lg:block hidden' /> Eligendi nam dolorum aliquam quibusdam.
+                  Calculate your monthly mortgage payments with ease, <br className='lg:block hidden' /> and get detailed insights on your loan.
                 </p>
               </div>
             </div>
           </div>
           <div className='grid lg:grid-cols-7 grid-cols-1 gap-4'>
-            <div className='lg:col-span-2 col-span-1 bg-neutral-700/20 border border-neutral-700/50 p-4 rounded-md space-y-5'>
+            <div className='lg:col-span-2 col-span-1 bg-neutral-700/20 border border-neutral-700/50 p-4 rounded-md space-y-5 self-start'>
               <div>
                 <InputField
                   id="home-price"
@@ -331,8 +378,16 @@ const Day04 = () => {
                         </a>
                       </div>
                       <div className='grid lg:grid-cols-2 grid-cols-1'>
-                        <div className='col-span-1'>
-
+                        <div className='col-span-1 flex justify-center items-start py-12'>
+                          <div className="relative lg:w-52 lg:h-52 md:h-44 md:w-44 h-40 w-40">
+                            <Doughnut data={data} options={options} />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="text-center">
+                                <span className="text-3xl font-bold text-neutral-200">$2,171</span>
+                                <span className="block text-sm text-neutral-400">/mo</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         <div className='col-span-1'>
                           <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
@@ -549,7 +604,91 @@ const Day04 = () => {
                           </div>
                         </div>
                       </div>
-
+                      <div className='space-y-4'>
+                        <h1 className="text-2xl font-bold text-neutral-200 sm:text-3xl md:text-4xl">
+                          Amortization schedule breakdown
+                        </h1>
+                        <p className="leading-relaxed text-neutral-300">
+                          This table lists how much principal and interest are paid in each scheduled mortgage payment.
+                        </p>
+                      </div>
+                      <div className='space-y-3'>
+                        <div className='flex justify-between'>
+                          <div className='flex'>
+                            <div>
+                              <InputField
+                                id="first-payment"
+                                label="First payment"
+                                type="text"
+                                value='Jul 2024'
+                                required={false}
+                              />
+                            </div>
+                            <div className='ms-4'>
+                              <p className="leading-relaxed text-sm text-neutral-300 ms-10">
+                                Last payment
+                              </p>
+                              <h1 className="text-2xl font-medium text-neutral-300 sm:text-xl md:text-3xl inline-flex gap-3 items-center mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                                Jul 2054
+                              </h1>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='flex justify-end'>
+                          <Toggle>
+                            <span className="ms-3 text-sm font-medium text-neutral-300">
+                              Expand all years
+                            </span>
+                          </Toggle>
+                        </div>
+                        <div className="overflow-x-auto rounded-lg border border-neutral-700/60">
+                          <table className="min-w-full divide-y divide-neutral-700">
+                            <thead className="bg-neutral-900/40">
+                              <tr>
+                                <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                                  Year
+                                </th>
+                                <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                                  Principal
+                                </th>
+                                <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                                  Interest
+                                </th>
+                                <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                                  Remaining Balance
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody className="bg-neutral-700/10 divide-y divide-neutral-700/60">
+                              {tableData.map((row, index) => (
+                                <tr key={index}>
+                                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-100">{row.year}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-300">{row.principal}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-300">{row.interest}</td>
+                                  <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-300">{row.balance}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                        <div className='py-5 flex items-center gap-8'>
+                          <a href="#" className='flex items-center gap-2.5 text-green-500 text-xs text-nowrap'>
+                            Export as CSV
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                            </svg>
+                          </a>
+                          <a href="#" className='flex items-center gap-2.5 text-green-500 text-xs text-nowrap'>
+                            Printer-friendly version
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
