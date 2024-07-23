@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Day01, Day02, Day03, Day04 } from '../pages';
+import { Home, Day01, Day02, Day03, Day04, Day05 } from '../pages';
 
 export const routes = [
   { path: '/', element: React.createElement(Home), index: true },
@@ -8,4 +8,5 @@ export const routes = [
   { path: '/day02', element: React.createElement(Day02) },
   { path: '/day03', element: React.createElement(Day03) },
   { path: '/day04', element: React.createElement(Day04) },
+  { path: '/day05', element: React.createElement(Day05) },
 ];
