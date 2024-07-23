@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { fmUILogo } from '../assets'
 import useLenisScroll from '../hooks/useLenisScroll'
-import { InputField, Tooltip } from '../components'
+import { InputField, Tooltip, Select, Button } from '../components'
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Day04 = () => {
@@ -102,6 +102,162 @@ const Day04 = () => {
                     </svg>
                   </Tooltip>
                 </GroupedInput>
+              </div>
+              <div>
+                <Select
+                  id="loan-term"
+                  label="Loan term"
+                  options={[
+                    { value: '30y', label: '30 years' },
+                    { value: '20y', label: '20 years' },
+                    { value: '15y', label: '15 years' },
+                    { value: '10y', label: '10 years' },
+                    { value: '5y', label: '5 years' }
+                  ]}
+                  required={false}
+                >
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content='Loan term: The amount of time or number of years that you will have to repay a loan. Longer term mortages can make your monthly payment amount smaller than shorter term loans by stretching out your payments over more years.'
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </Select>
+              </div>
+              <div>
+                <div className="relative w-full">
+                  <div className="pointer-events-none absolute inset-y-0 end-0 mt-6 flex items-center pe-3">
+                    <span className='text-neutral-400 font-bold'>%</span>
+                  </div>
+                  <InputField
+                    styles='w-full rounded-md bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 pe-10 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70'
+                    id="interest-rate"
+                    label="Interest Rate"
+                    type="text"
+                    value='5'
+                    required={false}
+                  >
+                    <Tooltip
+                      styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                      content="Interest rate: Amount you'll pay each year to borrow the money for your loan, expressed as a percentage."
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                      </svg>
+                    </Tooltip>
+                  </InputField>
+                </div>
+              </div>
+              <div>
+                <InputField
+                  id="zip-code"
+                  label="ZIP code"
+                  type="text"
+                  value='3022'
+                  required={false}
+                />
+              </div>
+              <div className='text-center flex items-center w-full py-4'>
+                <hr className='h-px w-full border-neutral-600/70' />
+                <p className='text-neutral-300 text-xs text-nowrap px-3'>
+                  Taxes, insurance, HOA fees
+                </p>
+                <hr className='h-px w-full border-neutral-600/70' />
+              </div>
+              <div>
+                <Select
+                  id="credit-score"
+                  label="Credit score"
+                  options={[
+                    { value: '740+', label: '740+' },
+                    { value: '720-739', label: '720 - 739' },
+                    { value: '700-719', label: '700 - 719' },
+                    { value: '680-699', label: '680 - 699' },
+                    { value: '660-679', label: '660 - 679' }
+                  ]}
+                  required={false}
+                >
+                </Select>
+              </div>
+              <div>
+                <InputField
+                  id="ptpm"
+                  label="Property tax per month"
+                  type="text"
+                  value='$280'
+                  required={false}
+                >
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content="Property tax: Any tax on real estate or certain other forms of property."
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </InputField>
+              </div>
+              <div>
+                <InputField
+                  id="ptphipm"
+                  label="Property tax per Homeowner's insurance per month"
+                  type="text"
+                  value='$66'
+                  required={false}
+                >
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content="Homeowners insurance: Financial protection that you purchase from an insurance provider. It helps pay for losses if a covered disaster or other damaging event affects your home."
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </InputField>
+              </div>
+              <div>
+                <InputField
+                  id="pmi"
+                  label="PMI per month"
+                  type="text"
+                  value='$0'
+                  required={false}
+                >
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content="Private mortgage insurance (PMI): Insurance policy that compensates lenders for losses from a mortgage loan default."
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </InputField>
+              </div>
+              <div>
+                <InputField
+                  id="hoa"
+                  label="HOA fees per month"
+                  type="text"
+                  value='$0'
+                  required={false}
+                >
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content="Homeowner's association (HOA) fee: Monthly or quarterly fee assessed by the HOA to pay for the services that it provides."
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </InputField>
+              </div>
+              <div className='pt-4'>
+                <Button
+                  styles={'w-full text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                  label={'Update'}
+                />
               </div>
             </div>
             <div className='lg:col-span-5 col-span-1'>

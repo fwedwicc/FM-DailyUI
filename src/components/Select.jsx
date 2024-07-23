@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Select = ({ id, label, options = [], required = false, styles }) => {
+const Select = ({ id, label, options = [], required = false, styles, children }) => {
   return (
     <>
-      <label htmlFor={id} className="block text-sm font-medium text-neutral-300 mb-1.5">
-        {label}
-      </label>
+      <div className='flex items-center justify-between'>
+        <label htmlFor={id} className="block text-sm font-medium text-neutral-300 mb-1.5">
+          {label}
+        </label>
+        {children}
+      </div>
       <select
         name={id}
         id={id}
