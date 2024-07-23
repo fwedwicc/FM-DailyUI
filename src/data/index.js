@@ -5,13 +5,15 @@ export const Cards = [];
 const titles = [
   'Sign Up', // Day01 
   'Credit Card Checkout', // Day02
-  'Landing Page' // Day03
+  'Landing Page', // Day03
+  'Calculation', // Day04
 ];
 
 const descriptions = [
   'Create a sign up page, modal, form, or app screen related to signing up for something. It could be for a volunteer event, contest registration, a giveaway, or anything you can image.', // Day01
   "Design a credit card checkout form or page. Don't forget the important elements such as the numbers, dates, security numbers, etc.", // Day02
-  "What's the main focus? Is it for a book, an album, a mobile app, a SaaS product? Consider important landing page elements (Headlines, call-to-action buttons, typography, clarity, etc.)" // Day03
+  "What's the main focus? Is it for a book, an album, a mobile app, a SaaS product? Consider important landing page elements (Headlines, call-to-action buttons, typography, clarity, etc.)", // Day03
+  "Design a calculation element or interface. Is it a standard calculator, a scientific one, or specialty calculator for something such as a home mortgage or auto loan? Is it to forecast a calculation such as for a credit score? Is it for a phone, a tablet, a web app?" // Day04
 ];
 
 const images = [
