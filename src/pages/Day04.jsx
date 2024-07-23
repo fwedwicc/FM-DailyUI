@@ -48,6 +48,26 @@ const Day04 = () => {
     )
   }
 
+  const PercentInput = ({ id, value }) => {
+    return (
+      <div className='flex gap-3 items-center'>
+        <span className='text-neutral-300'>+</span>
+        <div className="relative w-full max-w-[7rem]">
+          <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
+            <span className='text-neutral-400 font-bold'>%</span>
+          </div>
+          <input
+            id={id}
+            type='text'
+            className={`w-full rounded-md bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 pe-10 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70`}
+            required='false'
+            value={value}
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -73,7 +93,7 @@ const Day04 = () => {
               </div>
             </div>
           </div>
-          <div className='grid lg:grid-cols-7 grid-cols-1 gap-10'>
+          <div className='grid lg:grid-cols-7 grid-cols-1 gap-4'>
             <div className='lg:col-span-2 col-span-1 bg-neutral-700/20 border border-neutral-700/50 p-4 rounded-md space-y-5'>
               <div>
                 <InputField
@@ -292,9 +312,87 @@ const Day04 = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className='p-6'
+                      className='p-6 space-y-6'
                     >
-                      <h1>1Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsum impedit nostrum, fuga asperiores dolore eaque corrupti debitis at rerum autem, molestias adipisci nulla dolores voluptatibus, vitae necessitatibus vel expedita!</h1>
+                      <div className='flex justify-between items-start'>
+                        <div className='space-y-2'>
+                          <h1 className="text-2xl font-bold text-neutral-200 sm:text-3xl md:text-4xl">
+                            Monthly payment breakdown
+                          </h1>
+                          <p className="leading-relaxed text-neutral-300">
+                            Based on national average rates
+                          </p>
+                        </div>
+                        <a href="#" className='flex items-center gap-1 text-green-500 text-xs text-nowrap'>
+                          Advertiser disclosure
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                          </svg>
+                        </a>
+                      </div>
+                      <div className='grid grid-cols-2'>
+                        <div className='col-span-1'>
+
+                        </div>
+                        <div className='col-span-1'>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-indigo-500'></span>
+                              Principal & interest
+                            </span>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              $1,825.19
+                            </span>
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-green-500'></span>
+                              Property tax
+                            </span>
+                            <PercentInput
+                              id='property-tax'
+                              value='$280'
+                            />
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-orange-500'></span>
+                              Homeowner's insurance
+                            </span>
+                            <PercentInput
+                              id='homeowner-insurance'
+                              value='$66'
+                            />
+                          </div>
+                          <div className='text-center flex items-center w-full pt-8'>
+                            <hr className='h-px w-full border-neutral-600/70' />
+                            <p className='text-neutral-300 text-xs text-nowrap px-3'>
+                              Additional filters
+                            </p>
+                            <hr className='h-px w-full border-neutral-600/70' />
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-blue-500'></span>
+                              PMI
+                            </span>
+                            <PercentInput
+                              id='pmi'
+                              value='$0'
+                            />
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-green-500'></span>
+                              HOA fees
+                            </span>
+                            <PercentInput
+                              id='hoa-fees'
+                              value='$0'
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
                   ) : (
                     <motion.div
