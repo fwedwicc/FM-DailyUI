@@ -52,7 +52,7 @@ const Day04 = () => {
     return (
       <div className='flex gap-3 items-center'>
         <span className='text-neutral-300'>+</span>
-        <div className="relative w-full max-w-[7rem]">
+        <div className="relative w-full max-w-[8rem]">
           <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
             <span className='text-neutral-400 font-bold'>%</span>
           </div>
@@ -330,7 +330,7 @@ const Day04 = () => {
                           </svg>
                         </a>
                       </div>
-                      <div className='grid grid-cols-2'>
+                      <div className='grid lg:grid-cols-2 grid-cols-1'>
                         <div className='col-span-1'>
 
                         </div>
@@ -373,7 +373,7 @@ const Day04 = () => {
                           </div>
                           <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
                             <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
-                              <span className='w-3 h-3 flex rounded-full bg-blue-500'></span>
+                              <span className='w-3 h-3 flex rounded-full bg-indigo-500'></span>
                               PMI
                             </span>
                             <PercentInput
@@ -401,9 +401,155 @@ const Day04 = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className='p-6'
+                      className='p-6 space-y-12'
                     >
-                      <h1>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsum impedit nostrum, fuga asperiores dolore eaque corrupti debitis at rerum autem, molestias adipisci nulla dolores voluptatibus, vitae necessitatibus vel expedita!</h1>
+                      <div className='space-y-4'>
+                        <h1 className="text-2xl font-bold text-neutral-200 sm:text-3xl md:text-4xl">
+                          Amortization for mortgage loan
+                        </h1>
+                        <p className="leading-relaxed text-neutral-300">
+                          Amortization is paying off debt over time in equal installments. As the term of your mortgage loan progresses, a larger share of your payment goes toward paying down the principal until the loan is paid in full at the end of your term.
+                        </p>
+                      </div>
+                      <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-7'>
+                        <div className='flex flex-col gap-2'>
+                          <span className="leading-relaxed text-neutral-400 text-sm">
+                            Loan amount
+                          </span>
+                          <span className='inline-flex text-green-500'>
+                            $
+                            <h1 className="text-2xl font-medium ms-1 text-neutral-300 sm:text-xl md:text-3xl">
+                              340,000
+                            </h1>
+                          </span>
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                          <span className="leading-relaxed text-neutral-400 text-sm">
+                            Total interest paid
+                          </span>
+                          <span className='inline-flex text-green-500'>
+                            $
+                            <h1 className="text-2xl font-medium ms-1 text-neutral-300 sm:text-xl md:text-3xl">
+                              317,070
+                            </h1>
+                          </span>
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                          <span className="leading-relaxed text-neutral-400 text-sm">
+                            Total cost of loan
+                          </span>
+                          <span className='inline-flex text-green-500'>
+                            $
+                            <h1 className="text-2xl font-medium ms-1 text-neutral-300 sm:text-xl md:text-3xl">
+                              657,070
+                            </h1>
+                          </span>
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                          <span className="leading-relaxed text-neutral-400 text-sm">
+                            Payoff date
+                          </span>
+                          <h1 className="text-2xl font-medium text-neutral-300 sm:text-xl md:text-3xl">
+                            Jul 2054
+                          </h1>
+                        </div>
+                      </div>
+                      <div className='grid lg:grid-cols-2 grid-cols-1 gap-6'>
+                        <div className='col-span-1'>
+                          <div className='flex justify-end pb-3 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300">
+                              As of March 2036
+                            </span>
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-indigo-500'></span>
+                              Principal paid
+                            </span>
+                            <PercentInput
+                              id='principal-paid'
+                              value='$47,494'
+                            />
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-green-500'></span>
+                              Interest paid
+                            </span>
+                            <PercentInput
+                              id='interest-paid'
+                              value='$213,495'
+                            />
+                          </div>
+                          <div className='flex justify-between items-center py-6 border-b border-neutral-600/40'>
+                            <span className="leading-relaxed text-neutral-300 inline-flex gap-3 items-center">
+                              <span className='w-3 h-3 flex rounded-full bg-orange-500'></span>
+                              Loan balance
+                            </span>
+                            <PercentInput
+                              id='loan-balance'
+                              value='$260,357'
+                            />
+                          </div>
+                        </div>
+                        <div className='col-span-1'>
+                          <div className='bg-neutral-700/20 border border-neutral-700/50 p-4 rounded-md space-y-5 grid grid-cols-5'>
+                            <div className="col-span-5 mb-3">
+                              <strong className="block leading-relaxed text-neutral-300">
+                                Optional: Make extra payments
+                              </strong>
+                              <span className="leading-relaxed text-neutral-400 text-sm">
+                                By adding extra payments, you can pay off your loan and save on interest.
+                              </span>
+                            </div>
+                            <div className='col-span-5'>
+                              <InputField
+                                styles='placeholder:text-neutral-300'
+                                id="loan-start-date"
+                                label="Loan start date"
+                                type="date"
+                                required={false}
+                              />
+                            </div>
+                            <div className='col-span-5'>
+                              <InputField
+                                id="amtmp"
+                                label="Additional amount to monthly payment"
+                                type="text"
+                                value='$0'
+                                required={false}
+                              />
+                            </div>
+                            <div className='col-span-5'>
+                              <InputField
+                                id="ayp"
+                                label="Additional yearly payment"
+                                type="text"
+                                value='$0'
+                                required={false}
+                              />
+                            </div>
+                            <div className='col-span-3'>
+                              <InputField
+                                id="otapo"
+                                label="One-time payment"
+                                type="text"
+                                value='$0'
+                                required={false}
+                              />
+                            </div>
+                            <div className='col-span-2 ms-3'>
+                              <InputField
+                                id="otapo-date"
+                                label="Date"
+                                type="date"
+                                required={false}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     </motion.div>
                   )}
                 </AnimatePresence>
