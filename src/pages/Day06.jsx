@@ -81,6 +81,49 @@ const Day06 = () => {
     }
   ];
 
+  const PagesCardData = [
+    {
+      "img": "https://media.licdn.com/dms/image/C560BAQFmuLSyL1nlPA/company-logo_100_100/0/1678231359044/github_logo?e=1729728000&v=beta&t=tPw2-W4_XiZ_ghwqL8O4qSC8OnwTbFA7YHD8Wbsu6Uo",
+      "title": "GitHub",
+      "desc": "Software Development",
+      "followers": "4,229,291",
+    },
+    {
+      "img": "https://media.licdn.com/dms/image/C560BAQE88xCsONDULQ/company-logo_100_100/0/1630652622688/microsoft_logo?e=1729728000&v=beta&t=fH3-IirmB0Zv8z-7EVn4f7r25rn2SeFnYr22vDRIBNQ",
+      "title": "Microsoft",
+      "desc": "Software Development",
+      "followers": "23,051,408",
+    },
+    {
+      "img": "https://media.licdn.com/dms/image/D4E0BAQGDdPiPwHLOBg/company-logo_100_100/0/1703827515439?e=1729728000&v=beta&t=nNT3L4W_DaAjlLt3qA49R7-aMKNZaBAs7Kk0zmyrylI",
+      "title": "AWS Training & Certification",
+      "desc": "IT Services and IT Consulting",
+      "followers": "1,181,077,077",
+    },
+    {
+      "img": "https://media.licdn.com/dms/image/C4D0BAQHiNSL4Or29cg/company-logo_100_100/0/1631311446380?e=1729728000&v=beta&t=sC9yWs3HfyRabF0wz7-pHlGVLCNB6zs6EV6E6UXSMS8",
+      "title": "Google",
+      "desc": "Software Development",
+      "followers": "33,609,006",
+    },
+  ]
+
+  const EducationData = [
+    {
+      "img": "https://media.licdn.com/dms/image/D560BAQGgWoG-MY2X0g/company-logo_100_100/0/1704727987180/qcu_logo?e=1729728000&v=beta&t=u4hhEH5WyjH7MEj_6ZdJmaILDuq-3p6BPTVKKdZteKE",
+      "school": "Quezon City University",
+      "program": "Bachelor of Science - BS, Information Technology",
+      "year": "2022 - 2026",
+      "skills": "Software Systems Engineering, Project Management and +3 skills",
+    },
+    {
+      "img": "https://media.licdn.com/dms/image/C560BAQEbhr3bpmnUlQ/company-logo_100_100/0/1642674964290/bestlink_college_of_the_philippines_logo?e=1729728000&v=beta&t=XAFJMUvw-RzZIiGdKgt0OAOHobBkrYEE0Op_wXZs3Fo",
+      "school": "Bestlink College of the Philippines",
+      "program": "Senior High School, Information and Communication Technology",
+      "year": "2019 - 2021",
+      "skills": "Self Learning, Learning Management and +2 skills",
+    },
+  ]
 
   return (
     <motion.div
@@ -394,44 +437,131 @@ const Day06 = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className='col-span-1 border-t border-neutral-700/60 lg:pl-8 py-8 space-y-4 self-start'>
-              <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
-                People also viewed
-              </h1>
-              <div className='space-y-2'>
-                {PeopleAlsoViewedData.map((card, index) => {
-                  return (
-                    <div className='flex justify-between items-center pl-6 p-4 hover:bg-neutral-700/40 transition duration-300 ease-in-out rounded-md cursor-pointer' key={index}>
-                      <div className='space-y-4'>
-                        <div className='flex items-center gap-5'>
-                          <img className="size-10 border-2 border-neutral-600 rounded-full" src={card.img} alt="Sample Avatar Profile" />
-                          <div className='flex flex-col items-start'>
-                            <span className="leading-relaxed text-neutral-300">
-                              {card.name}
-                            </span>
-                            <span className="leading-relaxed font-thin text-sm text-neutral-400 line-clamp-1">
-                              {card.bio}
-                            </span>
+              <div className='border-t lg:border-b lg:border-r border-neutral-700/60 pt-10 lg:pr-10 space-y-3'>
+                <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                  Education
+                </h1>
+                <div className='divide-y divide-neutral-700/50'>
+                  {EducationData.map((educ, index) => {
+                    return (
+                      <div className='flex items-start pl-6 py-8' key={index}>
+                        <div className='space-y-4'>
+                          <div className='flex items-start gap-7'>
+                            <img className="size-16 border-2 border-neutral-600 rounded-full" src={educ.img} alt="Sample Profile" />
+                            <div className='flex flex-col items-start gap-5'>
+                              <div className='space-y-1'>
+                                <a href='#' className="leading-relaxed text-neutral-200 hover:text-green-500 transition duration-300 ease-in-out text-lg lg:text-xl">
+                                  {educ.school}
+                                </a>
+                                <span className="leading-relaxed font-thin text-sm text-neutral-300 line-clamp-1">
+                                  {educ.program}
+                                </span>
+                                <span className="leading-relaxed font-thin text-sm text-neutral-400 line-clamp-1">
+                                  {educ.year}
+                                </span>
+                              </div>
+                              <span className="text-neutral-300 inline-flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-orange-500">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
+                                </svg>
+                                {educ.skills}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <Button
-                        styles={'flex items-center px-2 text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-                        </svg>
-                      </Button>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
-              <Button
-                styles={'w-full text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
-                label={'Show more'}
-              >
-              </Button>
+            </div>
+            <div className='col-span-1 self-start'>
+              <div className='border-t border-neutral-700/60 lg:pl-8 py-8 space-y-4'>
+                <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                  People also viewed
+                </h1>
+                <div className='space-y-2'>
+                  {PeopleAlsoViewedData.map((card, index) => {
+                    return (
+                      <div className='flex justify-between items-center pl-6 p-4 hover:bg-neutral-700/40 transition duration-300 ease-in-out rounded-md cursor-pointer' key={index}>
+                        <div className='space-y-4'>
+                          <div className='flex items-center gap-5'>
+                            <img className="size-10 border-2 border-neutral-600 rounded-full" src={card.img} alt="Sample Avatar Profile" />
+                            <div className='flex flex-col items-start'>
+                              <span className="leading-relaxed text-neutral-300">
+                                {card.name}
+                              </span>
+                              <span className="leading-relaxed font-thin text-sm text-neutral-400 line-clamp-1">
+                                {card.bio}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <Button
+                          styles={'flex items-center px-2 text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                          </svg>
+                        </Button>
+                      </div>
+                    )
+                  })}
+                </div>
+                <Button
+                  styles={'w-full text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                  label={'Show more'}
+                >
+                </Button>
+              </div>
+              <div className='border-t lg:border-b border-neutral-700/60 lg:pl-8 py-8 space-y-4'>
+                <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                  You might like
+                </h1>
+                <span className="leading-relaxed text-neutral-400 text-sm">
+                  Pages for you
+                </span>
+                <div className='space-y-2'>
+                  {PagesCardData.map((pages, index) => {
+                    return (
+                      <div className='flex items-start pl-6 p-4 hover:bg-neutral-700/40 transition duration-300 ease-in-out rounded-md cursor-pointer' key={index}>
+                        <div className='space-y-4'>
+                          <div className='flex items-start gap-5'>
+                            <img className="size-10 border-2 border-neutral-600 rounded-full" src={pages.img} alt="Sample Profile" />
+                            <div className='flex flex-col items-start gap-2'>
+                              <div>
+                                <span className="leading-relaxed text-neutral-300">
+                                  {pages.title}
+                                </span>
+                                <span className="leading-relaxed font-thin text-sm text-neutral-300 line-clamp-1">
+                                  {pages.desc}
+                                </span>
+                                <span className="leading-relaxed font-thin text-sm text-neutral-400 line-clamp-1">
+                                  {pages.followers} followers
+                                </span>
+                              </div>
+                              <Button
+                                styles={'flex items-center gap-2.5 text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                                label={'Follow'}
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                  <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
+                                </svg>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+                <Button
+                  styles={'w-full text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                  label={'Show more'}
+                >
+                </Button>
+              </div>
             </div>
           </div>
 
