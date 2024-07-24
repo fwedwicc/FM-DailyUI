@@ -13,10 +13,10 @@ const Day05 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-neutral-800 h-screen grid lg:grid-cols-12 grid-cols-1">
+      <section className="bg-neutral-800 lg:h-screen md:h-auto h-auto grid lg:grid-cols-12 grid-cols-1">
         <div className="lg:col-span-8 col-span-1 border flex flex-col justify-between">
-          <div className='h-full flex justify-center items-center'>
-            <img src={fmUILogo} alt="fmUILogo" />
+          <div className='h-full flex justify-center items-center p-20'>
+            <img src={fmUILogo} alt="fmUILogo" className='w-[25rem] h-auto md:w-[30rem] lg:w-[50rem]' />
           </div>
           <div className='h-20 border flex'>
             <div className='border w-full flex items-center justify-center'>
@@ -28,27 +28,24 @@ const Day05 = () => {
           </div>
         </div>
         <div className="lg:col-span-4 col-span-1 border flex flex-col justify-between flex-grow">
-          <div className='space-y-5 py-6 px-9'>
+          <div className='space-y-7 p-12'>
             <img src={fmUILogo0103} alt="fmUILogo" />
             <p className="leading-relaxed text-sm text-neutral-300">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-              quibusdam aperiam voluptatum et consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-              quibusdam aperiam voluptatum m et consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-              quibusdam aperiam voluptatum.
+              fmUI is an extensive collection of free Tailwind CSS components and templates created specifically for your forthcoming project. With a diverse set of components and sample pages, you are able to develop websites, web apps, and much more. Explore our selection to improve your development process with simplicity and flexibility.
             </p>
           </div>
           <div className='grid grid-cols-2 grid-rows-2 border flex-grow'>
-            <div className='flex justify-center items-center border'>
-              <img src={fmUILogo0103} alt="fmUILogo" />
+            <div className='flex justify-center items-center border lg:p-4 md:p-16 p-20'>
+              <img src={fmUILogo0103} alt="fmUILogo" className='flex-shrink-0' />
             </div>
-            <div className='flex justify-center items-center border'>
-              <img src={fmUILogo02} alt="fmUILogo" />
+            <div className='flex justify-center items-center border lg:p-4 md:p-16 p-20'>
+              <img src={fmUILogo02} alt="fmUILogo" className='flex-shrink-0' />
             </div>
-            <div className='flex justify-center items-center border'>
-              <img src={fmUILogo0103} alt="fmUILogo" />
+            <div className='flex justify-center items-center border lg:p-4 md:p-16 p-20'>
+              <img src={fmUILogo0103} alt="fmUILogo" className='flex-shrink-0' />
             </div>
-            <div className='flex justify-center items-center border'>
-              <img src={fmUILogo04} alt="fmUILogo" />
+            <div className='flex justify-center items-center border lg:p-4 md:p-16 p-20'>
+              <img src={fmUILogo04} alt="fmUILogo" className='flex-shrink-0' />
             </div>
           </div>
           <div className='border h-auto flex justify-center items-center py-[1.60rem]'>
