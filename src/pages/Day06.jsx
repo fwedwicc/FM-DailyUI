@@ -2,11 +2,37 @@ import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll';
 import { fmAvatar, qcuLogo, profileBackground } from '../assets/day06';
 import { Button } from '../components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Day06 = () => {
   useLenisScroll();
+  const [activeTab, setActiveTab] = useState('posts');
   const [isOpen, setIsOpen] = useState(false);
+
+
+  const PeopleAlsoViewedData = [
+    {
+      "img": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-2.jpg?raw=true",
+      "name": "John Reyes",
+      "bio": "Computer Science major at Quezon City University. Aspiring Software Engineer.",
+    },
+    {
+      "img": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-4.jpg?raw=true",
+      "name": "Maria Santos",
+      "bio": "Information Technology student at Quezon City University. Passionate about UI/UX Design.",
+    },
+    {
+      "img": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-5.jpg?raw=true",
+      "name": "Michael Cruz",
+      "bio": "Engineering student at Quezon City University. Enthusiastic about robotics and AI.",
+    },
+    {
+      "img": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-3.jpg?raw=true",
+      "name": "Angelica Flores",
+      "bio": "Multimedia Arts student at Quezon City University. Focused on graphic design and animation.",
+    }
+  ];
+
 
   return (
     <motion.div
@@ -123,7 +149,6 @@ const Day06 = () => {
                   179+ Connections
                 </a>
               </div>
-
             </div>
             <div className='space-y-4 flex flex-col lg:items-end md:items-start items-start'>
               <div className="text-neutral-300 font-semibold text-lg inline-flex items-center gap-3">
@@ -132,7 +157,7 @@ const Day06 = () => {
               </div>
               <div className='border border-neutral-600/40 bg-neutral-700/40 p-4 rounded-md'>
                 <h2 className="leading-relaxed text-neutral-300 font-semibold">
-                  Highlights
+                  Open to work
                 </h2>
                 <p className="leading-relaxed text-neutral-300">
                   Web Developer, React Developer, Front-end Developer and UI/UX Designer roles
@@ -143,6 +168,135 @@ const Day06 = () => {
               </div>
             </div>
           </div>
+          <div className='grid lg:grid-cols-3 grid-cols-1'>
+            <div className='lg:col-span-2 col-span-1 self-start'>
+              <div className='border-y border-neutral-700/60 py-10 pr-10 space-y-3'>
+                <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                  About
+                </h1>
+                <p className="leading-relaxed text-neutral-400 pb-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, nulla id! Doloremque eum a libero quidem sapiente quia! Quas quisquam, delectus consectetur blanditiis ex quis aut accusamus amet quia nisi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illum voluptatem neque dignissimos quae voluptas quisquam perspiciatis repellendus. Commodi quia maxime a beatae tempora iusto, quidem eius.
+                </p>
+                <div className='py-5 px-7 flex justify-between items-center border-neutral-600/40 bg-neutral-700/40 rounded-md'>
+                  <div className='space-y-3'>
+                    <h1 className="text-lg text-neutral-300 lg:text-xl inline-flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-orange-500">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
+                      </svg>
+                      Top skills
+                    </h1>
+                    <p className="leading-relaxed text-neutral-300">
+                      Web Development • Front-End Development • Responsive Web Design • User Interface Design • User Experience Design
+                    </p>
+                  </div>
+                  <a href="#" className='border border-green-500 hover:bg-green-500/20 transition duration-300 ease-in-out p-2.5 rounded-full text-green-500'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div className='border-y border-neutral-700/60 py-10 pr-10 space-y-3'>
+                <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                  Activity
+                </h1>
+                <span className="leading-relaxed text-neutral-400 text-sm pb-4">
+                  1,083 followers
+                </span>
+                <div>
+                  <div className='space-x-2 flex'>
+                    <div className='inline-flex p-1.5 border border-neutral-700/80 gap-2 rounded-[0.4rem]'>
+                      <motion.button
+                        className={`inline-flex justify-center items-center gap-2.5 px-4 py-2 rounded-md ${activeTab === 'posts' ? 'text-neutral-800 bg-neutral-200 font-semibold' : 'text-neutral-300 bg-transparent hover:bg-neutral-700/40 transition duration-300 ease-in-out'
+                          }`}
+                        onClick={() => setActiveTab('posts')}
+                        whileTap={{ scale: 0.95 }}
+                      >
+
+                        Posts
+                      </motion.button>
+                      <motion.button
+                        className={`inline-flex justify-center items-center gap-2.5 px-4 py-2 rounded-md ${activeTab === 'comments' ? 'text-neutral-800 bg-neutral-200 font-semibold' : 'text-neutral-300 bg-transparent hover:bg-neutral-700/40 transition duration-300 ease-in-out'
+                          }`}
+                        onClick={() => setActiveTab('comments')}
+                        whileTap={{ scale: 0.95 }}
+                      >
+
+                        Comments
+                      </motion.button>
+                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <AnimatePresence mode="wait">
+                      {activeTab === 'posts' ? (
+                        <motion.div
+                          key="payment"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className='p-6 space-y-6'
+                        >
+                          1
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="comments"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className='p-6 space-y-12'
+                        >
+                          2
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='col-span-1 border-y border-l border-neutral-700/60 pl-8 py-8 space-y-4 self-start'>
+              <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
+                People also viewed
+              </h1>
+              <div className='space-y-2'>
+                {PeopleAlsoViewedData.map((card, index) => {
+                  return (
+                    <div className='flex justify-between items-center pl-6 p-4 hover:bg-neutral-700/40 transition duration-300 ease-in-out rounded-md cursor-pointer' key={index}>
+                      <div className='space-y-4'>
+                        <div className='flex items-center gap-5'>
+                          <img className="size-10 border-2 border-neutral-600 rounded-full" src={card.img} alt="Sample Avatar Profile" />
+                          <div className='flex flex-col items-start'>
+                            <span className="leading-relaxed text-neutral-300">
+                              {card.name}
+                            </span>
+                            <span className="leading-relaxed font-thin text-sm text-neutral-400 line-clamp-1">
+                              {card.bio}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <Button
+                        styles={'flex items-center px-2 text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                        </svg>
+                      </Button>
+                    </div>
+                  )
+                })}
+              </div>
+              <Button
+                styles={'w-full text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                label={'Show more'}
+              >
+              </Button>
+            </div>
+          </div>
+
         </div>
       </section>
     </motion.div>
