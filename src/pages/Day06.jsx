@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll';
+import { fmAvatar, qcuLogo, profileBackground } from '../assets/day06';
 import { Button } from '../components';
 import { motion } from 'framer-motion';
 
@@ -15,19 +16,26 @@ const Day06 = () => {
       transition={{ duration: 0.5 }}
     >
       <section className="bg-neutral-800 relative">
-        <div className='lg:h-56 md:h-48 h-40 w-full border absolute -z-0'></div>
+        <div className='lg:h-60 md:h-52 h-44 w-full absolute -z-0'>
+          <img
+            src={profileBackground}
+            alt="Background Image"
+            className='object-cover h-full w-full'
+            style={{ aspectRatio: '16/9' }}
+          />
+        </div>
         <div className="relative h-auto lg:px-32 md:px-24 px-8 lg:py-20 py-8 z-10 space-y-8">
-          <div className='flex justify-between items-end lg:pt-16 md:pt-20 pt-12'>
+          <div className='flex justify-between items-center lg:pt-16 md:pt-20 pt-12'>
             <div>
               <div className="relative inline-block">
-                <img className="w-36 h-36 p-1.5 rounded-full ring-4 ring-green-500" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Sample Avatar Profile" />
-                <div className="absolute bottom-0 right-[-6rem] flex items-center space-x-2 bg-neutral-700 border border-neutral-600/70 py-1 px-2 rounded-full">
+                <img className="size-48 p-1.5 rounded-full ring-4 ring-green-500" src={fmAvatar} alt="Frederick Moreno - Avatar Profile" />
+                <div className="absolute bottom-0 right-[-5rem] flex items-center space-x-2 bg-neutral-700 border border-neutral-600/70 py-1 px-2 rounded-full">
                   <span className="w-3 h-3 bg-green-400 rounded-full"></span>
                   <span className="text-xs text-neutral-200 whitespace-nowrap">Available for work</span>
                 </div>
               </div>
             </div>
-            <div className='flex gap-3 relative'>
+            <div className='flex gap-3 relative pt-20'>
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -78,19 +86,61 @@ const Day06 = () => {
               </Button>
             </div>
           </div>
-          <div className='flex justify-between items-center'>
-            <div>
-              <h1 className="text-3xl font-medium text-neutral-200 sm:text-4xl md:text-5xl">
-                Frederick Moreno
-              </h1>
-              <p className="leading-relaxed text-neutral-300">
-                Front-end Developer | UI/UX Designer | BSIT Student
-              </p>
+          <div className='flex lg:justify-between lg:items-center items-start flex-col lg:flex-row justify-start gap-7'>
+            <div className='space-y-5'>
+              <span className='flex items-center gap-3'>
+                <h1 className="text-3xl font-medium text-neutral-200 sm:text-4xl md:text-5xl text-nowrap">
+                  Frederick Moreno
+                </h1>
+                <span className='font-thin text-lg text-neutral-400'>(He/Him)</span>
+                <span className='inline-flex gap-2 items-center font-medium text-sm text-neutral-300 px-3 py-1 border border-green-700 bg-green-900/40 rounded-full'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-green-500">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                  </svg>
+                  Verified
+                </span>
+              </span>
+              <div className='space-y-1'>
+                <span className="block leading-relaxed text-neutral-300">
+                  Front-end Developer | UI/UX Designer | BSIT Student
+                </span>
+                <span className="block leading-relaxed text-neutral-300">
+                  National Capital Region, Philippines
+                  <span className='mx-3 text-neutral-400'>•</span>
+                  <a href="#" className='text-blue-500 text-sm font-semibold text-nowrap'>
+                    Contact info
+                  </a>
+                </span>
+              </div>
+              <div className='flex items-center gap-3'>
+                <div className="flex -space-x-2">
+                  <img className="size-9 border-2 border-neutral-300 rounded-full" src="https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-2.jpg?raw=true" alt="Sample Avatar Profile" />
+                  <img className="size-9 border-2 border-neutral-300 rounded-full" src="https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-3.jpg?raw=true" />
+                  <img className="size-9 border-2 border-neutral-300 rounded-full" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Sample Avatar Profile" />
+                  <span className="flex items-center justify-center size-9 text-xs font-medium text-white bg-neutral-700 border-2 border-neutral-300 rounded-full">+99</span>
+                </div>
+                <a href="#" className='text-neutral-300 text-sm text-nowrap'>
+                  179+ Connections
+                </a>
+              </div>
+
             </div>
-            <div>
-              <p className="leading-relaxed text-neutral-300">
+            <div className='space-y-4 flex flex-col lg:items-end md:items-start items-start'>
+              <div className="text-neutral-300 font-semibold text-lg inline-flex items-center gap-3">
+                <img src={qcuLogo} alt="QCU Logo" className='w-12 h-auto' />
                 Quezon City University
-              </p>
+              </div>
+              <div className='border border-neutral-600/40 bg-neutral-700/40 p-4 rounded-md'>
+                <h2 className="leading-relaxed text-neutral-300 font-semibold">
+                  Highlights
+                </h2>
+                <p className="leading-relaxed text-neutral-300">
+                  Web Developer, React Developer, Front-end Developer and UI/UX Designer roles
+                </p>
+                <a href="#" className='text-blue-500 text-sm font-semibold text-nowrap'>
+                  Show details
+                </a>
+              </div>
             </div>
           </div>
         </div>
