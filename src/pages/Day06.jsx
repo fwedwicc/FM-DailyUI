@@ -10,6 +10,54 @@ const Day06 = () => {
   const [isOpen, setIsOpen] = useState(false);
 
 
+  const PostCardData = [
+    {
+      "week": "2w",
+      "media": "https://media.licdn.com/dms/image/D4D1FAQFr_Z77TktgwA/feedshare-document-cover-images_480/0/1720547090794?e=1722405600&v=beta&t=g5XVVMuDk3fuEq9kiY7ggU3_YgyeSdPL_CYykJB7gOY",
+      "title": "React Div",
+      "page": 9,
+      "desc": "Sample Desc",
+      "likes": 715,
+      "comments": 41,
+      "reposts": 104,
+    },
+    {
+      "week": "3w",
+      "media": "https://media.licdn.com/dms/image/D561FAQE3kFZHyjsXFw/feedshare-document-cover-images_480/0/1719407850568?e=1722405600&v=beta&t=PFVhv4rfDsz-mxuQTdeZYa9yEjivqt470iNl2AnYgGI",
+      "title": "Front-end Developer Roadmap",
+      "page": 21,
+      "desc": "Sample Desc",
+      "likes": 646,
+      "comments": 28,
+      "reposts": 166,
+    },
+    {
+      "week": "1mo",
+      "media": "https://media.licdn.com/dms/image/D4E10AQHDcxdmGULccw/image-shrink_160/0/1717448401853?e=1722405600&v=beta&t=QGre56NwbknY3ePxld35ZtcmlZ-3Vv7JB73l4Dlm5oU",
+      "title": "Unlock your potential without unlocking the dime!",
+      "page": 17,
+      "desc": "Sample Desc",
+      "likes": "1,566",
+      "comments": 34,
+      "reposts": 34,
+    }
+  ]
+
+  const CommentCardData = [
+    {
+      "week": "1mo",
+      "desc": "Sample text"
+    },
+    {
+      "week": "1mo",
+      "desc": "Sample text"
+    },
+    {
+      "week": "1mo",
+      "desc": "Sample text"
+    },
+  ]
+
   const PeopleAlsoViewedData = [
     {
       "img": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-2.jpg?raw=true",
@@ -170,7 +218,7 @@ const Day06 = () => {
           </div>
           <div className='grid lg:grid-cols-3 grid-cols-1'>
             <div className='lg:col-span-2 col-span-1 self-start'>
-              <div className='border-y border-neutral-700/60 py-10 pr-10 space-y-3'>
+              <div className='border-t lg:border-r border-neutral-700/60 py-10 lg:pr-10 space-y-3'>
                 <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
                   About
                 </h1>
@@ -197,7 +245,7 @@ const Day06 = () => {
                   </a>
                 </div>
               </div>
-              <div className='border-y border-neutral-700/60 py-10 pr-10 space-y-3'>
+              <div className='border-t lg:border-r border-neutral-700/60 py-10 lg:pr-10 space-y-3'>
                 <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
                   Activity
                 </h1>
@@ -227,7 +275,7 @@ const Day06 = () => {
                       </motion.button>
                     </div>
                   </div>
-                  <div className="mt-3">
+                  <div>
                     <AnimatePresence mode="wait">
                       {activeTab === 'posts' ? (
                         <motion.div
@@ -236,9 +284,78 @@ const Day06 = () => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          className='p-6 space-y-6'
+                          className='pt-6'
                         >
-                          1
+                          {PostCardData.map((post, index) => {
+                            return (
+                              <div className='space-y-4 border-b border-neutral-700/60 py-7' key={index}>
+                                <span className="leading-relaxed text-neutral-400 text-sm">
+                                  <span className='text-neutral-200'>Frederick Moreno</span> reposted this • {post.week}
+                                </span>
+                                <div className='flex gap-6'>
+                                  <div className='w-32 h-32'>
+                                    <img src={post.media} alt="Post Thumbnail" className='object-cover h-full w-full rounded-md' />
+                                  </div>
+                                  <div className='flex flex-col items-start space-y-2.5 w-full'>
+                                    <div className='flex justify-between items-center w-full'>
+                                      <p className="leading-relaxed text-neutral-200 text-lg lg:text-xl">
+                                        {post.title}
+                                      </p>
+                                      <a href="#" className='text-blue-500 text-sm font-semibold text-nowrap'>
+                                        Show more
+                                      </a>
+                                    </div>
+                                    <div>
+                                      <p className="leading-relaxed text-neutral-300 text-sm">
+                                        {post.desc}
+                                      </p>
+                                      <span className="leading-relaxed text-neutral-400 text-sm">
+                                        {post.page} Pages
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='flex justify-between items-center'>
+                                  <div className='inline-flex gap-3 items-center'>
+                                    <div className="flex -space-x-1">
+                                      <span className="flex items-center justify-center size-7 text-xs font-medium bg-blue-600 rounded-full text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                                          <path d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
+                                        </svg>
+                                      </span>
+                                      <span className="flex items-center justify-center size-7 text-xs font-medium bg-yellow-600 rounded-full text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                                          <path d="M12 .75a8.25 8.25 0 0 0-4.135 15.39c.686.398 1.115 1.008 1.134 1.623a.75.75 0 0 0 .577.706c.352.083.71.148 1.074.195.323.041.6-.218.6-.544v-4.661a6.714 6.714 0 0 1-.937-.171.75.75 0 1 1 .374-1.453 5.261 5.261 0 0 0 2.626 0 .75.75 0 1 1 .374 1.452 6.712 6.712 0 0 1-.937.172v4.66c0 .327.277.586.6.545.364-.047.722-.112 1.074-.195a.75.75 0 0 0 .577-.706c.02-.615.448-1.225 1.134-1.623A8.25 8.25 0 0 0 12 .75Z" />
+                                          <path fillRule="evenodd" d="M9.013 19.9a.75.75 0 0 1 .877-.597 11.319 11.319 0 0 0 4.22 0 .75.75 0 1 1 .28 1.473 12.819 12.819 0 0 1-4.78 0 .75.75 0 0 1-.597-.876ZM9.754 22.344a.75.75 0 0 1 .824-.668 13.682 13.682 0 0 0 2.844 0 .75.75 0 1 1 .156 1.492 15.156 15.156 0 0 1-3.156 0 .75.75 0 0 1-.668-.824Z" clipRule="evenodd" />
+                                        </svg>
+                                      </span>
+                                      <span className="flex items-center justify-center size-7 text-xs font-medium bg-red-600 rounded-full text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                                          <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                                        </svg>
+                                      </span>
+                                    </div>
+                                    <span className="leading-relaxed text-neutral-400 text-sm">
+                                      {post.likes}
+                                    </span>
+                                  </div>
+                                  <div className='space-x-4'>
+                                    <a href="#" className='text-blue-500 hover:underline text-sm font-semibold text-nowrap'>
+                                      {post.comments} comments
+                                    </a>
+                                    <a href="#" className='text-blue-500 hover:underline text-sm font-semibold text-nowrap'>
+                                      {post.reposts} reposts
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          })}
+                          <Button
+                            styles={'mt-7 w-full text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                            label={'Show more'}
+                          >
+                          </Button>
                         </motion.div>
                       ) : (
                         <motion.div
@@ -247,9 +364,30 @@ const Day06 = () => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          className='p-6 space-y-12'
+                          className='pt-6'
                         >
-                          2
+                          {CommentCardData.map((comment, index) => {
+                            return (
+                              <div className='space-y-3 border-b border-neutral-700/60 py-7 w-full' key={index}>
+                                <span className="leading-relaxed text-neutral-400 text-sm">
+                                  <span className='text-neutral-200'>Frederick Moreno</span> reposted this • {comment.week}
+                                </span>
+                                <div className='flex justify-between items-center'>
+                                  <p className="leading-relaxed text-neutral-300">
+                                    {comment.desc}
+                                  </p>
+                                  <a href="#" className='text-blue-500 text-sm font-semibold text-nowrap'>
+                                    Show more
+                                  </a>
+                                </div>
+                              </div>
+                            )
+                          })}
+                          <Button
+                            styles={'mt-7 w-full text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                            label={'Show more'}
+                          >
+                          </Button>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -257,7 +395,7 @@ const Day06 = () => {
                 </div>
               </div>
             </div>
-            <div className='col-span-1 border-y border-l border-neutral-700/60 pl-8 py-8 space-y-4 self-start'>
+            <div className='col-span-1 border-t border-neutral-700/60 lg:pl-8 py-8 space-y-4 self-start'>
               <h1 className="text-xl font-medium text-neutral-300 lg:text-2xl">
                 People also viewed
               </h1>
