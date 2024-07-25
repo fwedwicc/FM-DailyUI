@@ -36,6 +36,16 @@ const Day07 = () => {
     )
   }
 
+  const ColorRadio = ({ id, color, disabled, checked }) => {
+    return (
+      <div>
+        <input type="radio" id={id} name="brand" class="hidden peer" disabled={disabled} checked={checked} />
+        <label for={id} class={`px-[19px] py-[9.7px] bg-${color} rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-[2.5px] peer-checked:ring-${color} transition duration-300 ease-in-out`}>
+        </label>
+      </div>
+    )
+  }
+
   const SectionContainer = ({ child1, child2 }) => {
     return (
       <div className='border-b border-neutral-700/70 py-8 grid lg:grid-cols-9 md:grid-cols-1 grid-cols-1 gap-6'>
@@ -143,41 +153,21 @@ const Day07 = () => {
                 child2={
                   <div className='space-y-7'>
                     <div className='flex gap-4 items-center'>
-                      <div>
-                        <input type="radio" id="neutral" name="brand" class="hidden peer" disabled />
-                        <label for="neutral" class="px-[19px] py-[9.7px] bg-neutral-200 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-neutral-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div>
-                      <div>
-                        <input type="radio" id="neutral" name="brand" class="hidden peer" disabled />
-                        <label for="neutral" class="px-[19px] py-[9.7px] bg-neutral-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-neutral-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div>
-                      <div>
-                        <input type="radio" id="violet" name="brand" class="hidden peer" disabled />
-                        <label for="violet" class="px-[19px] py-[9.7px] bg-violet-500 rounded-full cursor-pointer peer-checked:border-violet-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-violet-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div>
-                      <div>
-                        <input type="radio" id="indigo" name="brand" class="hidden peer" disabled />
-                        <label for="indigo" class="px-[19px] py-[9.7px] bg-indigo-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-indigo-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div>
-                      <div>
-                        <input type="radio" id="blue" name="brand" class="hidden peer" disabled />
-                        <label for="blue" class="px-[19px] py-[9.7px] bg-blue-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-blue-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div>
-                      <div>
-                        <input type="radio" id="emerald" name="brand" class="hidden peer" disabled />
-                        <label for="emerald" class="px-[19px] py-[9.7px] bg-emerald-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-emerald-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div>
-                      <div>
+                      <ColorRadio id="neutral-light" color="neutral-200" disabled={true} checked={false} />
+                      <ColorRadio id="neutral-dark" color="neutral-500" disabled={true} checked={false} />
+                      <ColorRadio id="violet" color="violet-500" disabled={true} checked={false} />
+                      <ColorRadio id="indigo" color="indigo-500" disabled={true} checked={false} />
+                      <ColorRadio id="indigo" color="indigo-500" disabled={true} checked={false} />
+                      <ColorRadio id="blue" color="blue-500" disabled={true} checked={false} />
+                      <ColorRadio id="emerald" color="emerald-500" disabled={true} checked={false} />
+                      <ColorRadio id="green" color="green-500" disabled={false} checked={true} />
+
+
+                      {/* <div>
                         <input type="radio" id="green" name="brand" class="hidden peer" checked />
                         <label for="green" class="px-[19px] py-[9.7px] bg-green-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-[2.5px] peer-checked:ring-green-500 transition duration-300 ease-in-out">
                         </label>
-                      </div>
+                      </div> */}
                     </div>
                     <div className='inline-flex items-center gap-3'>
                       <span className="leading-relaxed text-neutral-400 text-sm">
