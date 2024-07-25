@@ -10,7 +10,8 @@ const titles = [
   'Landing Page', // Day03
   'Calculation', // Day04
   'App Icon', // Day05
-  'User Profile' // Day06
+  'User Profile', // Day06
+  'User Profile', // Day07
 ];
 
 const descriptions = [
@@ -20,6 +21,7 @@ const descriptions = [
   "Design a calculation element or interface. Is it a standard calculator, a scientific one, or specialty calculator for something such as a home mortgage or auto loan? Is it to forecast a calculation such as for a credit score? Is it for a phone, a tablet, a web app?", // Day04
   "Design an app icon. What best represents the brand or product? Or is it incredibly unique? Does it look great at a distance and does it stand out when put on your home screen alongside other apps?", // Day05
   "Design a user profile and be mindful of the most important data, names, imagery, placement, etc. Is it for a serious profile? A social profile? (It's up to you!)", // Day06
+  "Design settings for something. Is it for security or privacy settings? Game settings? Light mode vs. dark mode? System settings (sound, notifications, screen time, Wi-Fi, etc.? What is it and what are the most important settings?", // Day07
 ];
 
 const images = [
