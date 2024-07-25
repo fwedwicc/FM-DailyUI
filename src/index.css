@@ -29,3 +29,28 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   @apply bg-neutral-500/40 rounded-[3px];
 }
+
+input[type="range"].custom-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  cursor: pointer;
+}
+
+input[type="range"].custom-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  cursor: pointer;
+}
+
+input[type="range"].custom-range::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  cursor: pointer;
+}

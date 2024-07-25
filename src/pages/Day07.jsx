@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
 import { InputField, Checkbox, Button, Toggle } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
@@ -6,6 +6,12 @@ import { motion } from 'framer-motion'
 
 const Day07 = () => {
   useLenisScroll();
+
+  const [value, setValue] = useState(3);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
   const CustomTab = () => {
     const label = [
@@ -267,15 +273,20 @@ const Day07 = () => {
                 child2={
                   <div className='flex md:flex-nowrap flex-wrap items-start gap-4'>
                     {ThemeContent.map((content, index) => {
+                      const activeTheme = content.theme === "Night theme";
                       return (
-                        <div className="inline-flex w-full md:max-w-sm flex-col items-start rounded-lg border border-neutral-700" key={index}>
-                          <div className="flex items-center border-b border-neutral-700 w-full py-4 px-5">
-                            <div className='inline-flex gap-2 items-center text-neutral-300'>
+                        <div
+                          className={`inline-flex w-full md:max-w-sm flex-col items-start rounded-lg border ${activeTheme ? 'border-green-500/40 border-2 bg-green-800/10' : 'border-neutral-700'}`}
+                          key={index}
+                        >
+                          <div className={`flex flex-wrap gap-3 justify-between items-center border-b ${activeTheme ? 'border-green-500/40 py-[14px]' : 'border-neutral-700 py-[15px]'} w-full px-5`}>
+                            <div className={`inline-flex gap-2 items-center ${activeTheme ? 'text-green-500' : 'text-neutral-300'}`}>
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d={content.icon} />
                               </svg>
-                              <span className='font-medium'>{content.theme}</span>
+                              <span className='font-medium text-neutral-300'>{content.theme}</span>
                             </div>
+                            <span className={`text-xs text-neutral-300 px-2.5 py-1 border border-green-700 bg-green-900/40 rounded-md ${activeTheme ? '' : 'hidden'}`}>Active</span>
                           </div>
                           <div className='w-full p-4 space-y-5'>
                             <span className="text-xs font-thin text-neutral-400">
@@ -286,11 +297,10 @@ const Day07 = () => {
                               {content.variant}
                             </p>
                             <div className='flex flex-wrap items-center gap-3'>
-                              {ThemeIcon.map((icon, index) => (
-                                <div key={index}>
+                              {ThemeIcon.map((icon, iconIndex) => (
+                                <div key={iconIndex}>
                                   <img
-                                    className={`size-9 border border-neutral-500 rounded-full ${index === content.index ? 'border-[3px] border-neutral-700 ring-[2px] ring-green-500' : ''
-                                      }`}
+                                    className={`size-9 border border-neutral-500 rounded-full ${iconIndex === content.index ? 'border-[3px] border-neutral-700 ring-[2px] ring-green-500' : ''}`}
                                     src={icon}
                                     alt="Theme Icon"
                                   />
@@ -299,9 +309,48 @@ const Day07 = () => {
                             </div>
                           </div>
                         </div>
-                      )
+                      );
                     })}
-
+                  </div>
+                }
+              />
+              {/* Text Size */}
+              <SectionContainer
+                child1={
+                  <div className='space-y-2'>
+                    <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
+                      Text size
+                    </h1>
+                    <p className="leading-relaxed text-neutral-400 text-sm">
+                      Choose a text size that fits for you.
+                    </p>
+                  </div>
+                }
+                child2={
+                  <div className="flex md:flex-nowrap flex-wrap items-start gap-4">
+                    <div className='flex flex-col gap-6 w-full'>
+                      <input
+                        id="minmax-range"
+                        type="range"
+                        min="0"
+                        max="4"
+                        value={value}
+                        onChange={handleChange}
+                        className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-neutral-700 custom-range
+                        "
+                      />
+                      <div className="flex justify-between w-full">
+                        {[20, 40, 60, 80, 100].map((label, index) => (
+                          <span
+                            key={index}
+                            className={`text-xs font-medium ${index === 1 ? 'pl-3' : 'px-0'} ${index === 2 ? 'pl-4' : 'px-0'} ${index === 3 ? 'pl-4' : 'px-0'}  ${value == (index * 1) ? 'text-green-500' : 'text-neutral-400'
+                              }`}
+                          >
+                            {label}%
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 }
               />
