@@ -59,6 +59,13 @@ const Day07 = () => {
     )
   }
 
+  const BotAvatar = [
+    'https://avatars.githubusercontent.com/u/84505567?v=4',
+    'https://avatars.githubusercontent.com/u/98326799?v=4',
+    'https://avatars.githubusercontent.com/u/92199408?v=4',
+    'https://avatars.githubusercontent.com/u/823537?v=4',
+  ]
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -119,7 +126,7 @@ const Day07 = () => {
                   </div>
                 }
                 child2={
-                  <div className='flex gap-5'>
+                  <div className='flex gap-8'>
                     <div className='px-[1.8rem] py-[3.2rem] rounded-full border border-neutral-400 bg-green-600 self-start flex justify-center items-center flex-shrink-0'>
                       <img src={fmUILogo} alt="fmUILogo" className='w-20 h-auto' />
                     </div>
@@ -138,6 +145,38 @@ const Day07 = () => {
                   </div>
                 }
               />
+              {/* Bot Appearance */}
+              <SectionContainer
+                child1={
+                  <div className='space-y-2'>
+                    <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
+                      Bot Avatar
+                    </h1>
+                    <p className="leading-relaxed text-neutral-400 text-sm">
+                      Change the look of your bot companion.
+                    </p>
+                  </div>
+                }
+                child2={
+                  <div className='flex flex-wrap items-center gap-5'>
+                    {BotAvatar.map((avatar, index) => (
+                      <div key={index}>
+                        <img
+                          className={`size-14 border-2 border-neutral-300 rounded-full ${index === 2 ? 'border-4 border-neutral-700 ring-[2.5px] ring-green-500' : ''
+                            }`}
+                          src={avatar}
+                          alt="Bot Avatar"
+                        />
+                      </div>
+                    ))}
+                    <button className='size-14 flex justify-center items-center transition duration-300 ease-in-out bg-neutral-700/70 hover:bg-neutral-600/60 rounded-full focus:ring-2 focus:ring-neutral-700 text-neutral-400'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+                    </button>
+                  </div>
+                }
+              />
               {/* Brand Color */}
               <SectionContainer
                 child1={
@@ -152,22 +191,13 @@ const Day07 = () => {
                 }
                 child2={
                   <div className='space-y-7'>
-                    <div className='flex gap-4 items-center'>
+                    <div className='flex flex-wrap gap-4 items-center'>
                       <ColorRadio id="neutral-light" color="neutral-200" disabled={true} checked={false} />
                       <ColorRadio id="neutral-dark" color="neutral-500" disabled={true} checked={false} />
-                      <ColorRadio id="violet" color="violet-500" disabled={true} checked={false} />
+                      <ColorRadio id="red" color="red-500" disabled={true} checked={false} />
+                      <ColorRadio id="orange" color="orange-500" disabled={true} checked={false} />
                       <ColorRadio id="indigo" color="indigo-500" disabled={true} checked={false} />
-                      <ColorRadio id="indigo" color="indigo-500" disabled={true} checked={false} />
-                      <ColorRadio id="blue" color="blue-500" disabled={true} checked={false} />
-                      <ColorRadio id="emerald" color="emerald-500" disabled={true} checked={false} />
                       <ColorRadio id="green" color="green-500" disabled={false} checked={true} />
-
-
-                      {/* <div>
-                        <input type="radio" id="green" name="brand" class="hidden peer" checked />
-                        <label for="green" class="px-[19px] py-[9.7px] bg-green-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-[2.5px] peer-checked:ring-green-500 transition duration-300 ease-in-out">
-                        </label>
-                      </div> */}
                     </div>
                     <div className='inline-flex items-center gap-3'>
                       <span className="leading-relaxed text-neutral-400 text-sm">
@@ -187,7 +217,6 @@ const Day07 = () => {
               />
 
             </div>
-
           </div>
         </div>
       </section>
