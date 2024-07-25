@@ -36,6 +36,19 @@ const Day07 = () => {
     )
   }
 
+  const SectionContainer = ({ child1, child2 }) => {
+    return (
+      <div className='border-b border-neutral-700/70 py-8 grid lg:grid-cols-9 md:grid-cols-1 grid-cols-1 gap-6'>
+        <div className='md:col-span-3 col-span-1'>
+          {child1}
+        </div>
+        <div className='md:col-span-5 col-span-1'>
+          {child2}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -46,7 +59,7 @@ const Day07 = () => {
       <section className="bg-neutral-800 p-12 md:px-16 px-8 lg:py-20 py-8">
         <div className='flex justify-center items-center'>
           {/* Modal */}
-          <div className='w-full border border-neutral-600/50 bg-neutral-700/20 rounded-md max-w-7xl p-8 space-y-5'>
+          <div className='w-full border border-neutral-600/50 bg-neutral-700/20 rounded-xl max-w-7xl p-8 space-y-5'>
             {/* Header */}
             <div className='space-y-7'>
               <div className='flex justify-between items-start'>
@@ -73,7 +86,7 @@ const Day07 = () => {
                       Appearance
                     </h1>
                     <p className="leading-relaxed text-neutral-400">
-                      Select how you would like your interface look. Select a theme or sync with your system and have automatic theme switching.
+                      Select how you would like your interface look and feels in your browser.
                     </p>
                   </div>
                   <button className='size-9 flex justify-center items-center transition duration-300 ease-in-out hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 flex-shrink-0'>
@@ -84,8 +97,8 @@ const Day07 = () => {
                 </div>
               </div>
               {/* Company Logo */}
-              <div className='border-b border-neutral-700/70 py-8 grid md:grid-cols-9 grid-cols-1 gap-6'>
-                <div className='md:col-span-3 col-span-1'>
+              <SectionContainer
+                child1={
                   <div className='space-y-2'>
                     <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
                       Company Logo
@@ -94,16 +107,30 @@ const Day07 = () => {
                       Update what fits in your company's logo.
                     </p>
                   </div>
-                </div>
-                <div className='md:col-span-5 col-span-1'>
-                  <p className="leading-relaxed text-neutral-300">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, rerum aspernatur ipsum dignissimos maxime qui, nemo amet ipsam sequi commodi nam! Sint error fuga fugit. Veniam quam accusamus quibusdam laboriosam.
-                  </p>
-                </div>
-              </div>
+                }
+                child2={
+                  <div className='flex gap-5'>
+                    <div className='px-[1.8rem] py-[3.2rem] rounded-full border border-neutral-400 bg-green-600 self-start flex justify-center items-center flex-shrink-0'>
+                      <img src={fmUILogo} alt="fmUILogo" className='w-20 h-auto' />
+                    </div>
+                    <div className="flex items-center justify-center w-full">
+                      <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full border-2 border-neutral-600 border-dashed rounded-lg cursor-pointer bg-neutral-700/60 hover:bg-neutral-600/60 text-neutral-400 transition duration-300 ease-in-out">
+                        <div className="flex flex-col items-center justify-center pt-5 pb-6 md:px-4 px-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8 mb-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                          </svg>
+                          <p className="mb-2 text-sm text-center"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                          <p className="text-xs text-center">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                        </div>
+                        <input id="dropzone-file" type="file" className="hidden" />
+                      </label>
+                    </div>
+                  </div>
+                }
+              />
               {/* Brand Color */}
-              <div className='border-b border-neutral-700/70 py-8 grid md:grid-cols-9 grid-cols-1 gap-6'>
-                <div className='md:col-span-3 col-span-1'>
+              <SectionContainer
+                child1={
                   <div className='space-y-2'>
                     <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
                       Brand Color
@@ -112,13 +139,63 @@ const Day07 = () => {
                       Select or customize your brand color.
                     </p>
                   </div>
-                </div>
-                <div className='md:col-span-5 col-span-1'>
-                  <p className="leading-relaxed text-neutral-300">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, rerum aspernatur ipsum dignissimos maxime qui, nemo amet ipsam sequi commodi nam! Sint error fuga fugit. Veniam quam accusamus quibusdam laboriosam.
-                  </p>
-                </div>
-              </div>
+                }
+                child2={
+                  <div className='space-y-7'>
+                    <div className='flex gap-4 items-center'>
+                      <div>
+                        <input type="radio" id="neutral" name="brand" class="hidden peer" disabled />
+                        <label for="neutral" class="px-[19px] py-[9.7px] bg-neutral-200 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-neutral-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                      <div>
+                        <input type="radio" id="neutral" name="brand" class="hidden peer" disabled />
+                        <label for="neutral" class="px-[19px] py-[9.7px] bg-neutral-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-neutral-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                      <div>
+                        <input type="radio" id="violet" name="brand" class="hidden peer" disabled />
+                        <label for="violet" class="px-[19px] py-[9.7px] bg-violet-500 rounded-full cursor-pointer peer-checked:border-violet-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-violet-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                      <div>
+                        <input type="radio" id="indigo" name="brand" class="hidden peer" disabled />
+                        <label for="indigo" class="px-[19px] py-[9.7px] bg-indigo-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-indigo-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                      <div>
+                        <input type="radio" id="blue" name="brand" class="hidden peer" disabled />
+                        <label for="blue" class="px-[19px] py-[9.7px] bg-blue-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-blue-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                      <div>
+                        <input type="radio" id="emerald" name="brand" class="hidden peer" disabled />
+                        <label for="emerald" class="px-[19px] py-[9.7px] bg-emerald-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-4 peer-checked:ring-emerald-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                      <div>
+                        <input type="radio" id="green" name="brand" class="hidden peer" checked />
+                        <label for="green" class="px-[19px] py-[9.7px] bg-green-500 rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-[2.5px] peer-checked:ring-green-500 transition duration-300 ease-in-out">
+                        </label>
+                      </div>
+                    </div>
+                    <div className='inline-flex items-center gap-3'>
+                      <span className="leading-relaxed text-neutral-400 text-sm">
+                        Custom Color:
+                      </span>
+                      <InputField
+                        styles={'max-w-[7rem]'}
+                        id="hex"
+                        type="text"
+                        value='#22c55e'
+                        required={false}
+                      />
+                      <span className="flex w-3 h-3 ms-2 bg-green-500 rounded-full"></span>
+                    </div>
+                  </div>
+                }
+              />
+
             </div>
 
           </div>
