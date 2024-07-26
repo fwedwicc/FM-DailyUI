@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -11,7 +11,7 @@ const titles = [
   'Calculation', // Day04
   'App Icon', // Day05
   'User Profile', // Day06
-  'User Profile', // Day07
+  'Settings', // Day07
 ];
 
 const descriptions = [
@@ -31,6 +31,7 @@ const images = [
   day04Thumbnail, // Day04
   day05Thumbnail, // Day05
   day06Thumbnail, // Day06
+  day07Thumbnail, // Day06
 ];
 
 const defaultImage = defaultThumbnail;

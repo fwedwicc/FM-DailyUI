@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
-import { InputField, Checkbox, Button, Toggle } from '../components'
+import { InputField, Select, Toggle, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import { motion } from 'framer-motion'
 
@@ -39,16 +39,6 @@ const Day07 = () => {
           );
         })}
       </nav>
-    )
-  }
-
-  const ColorRadio = ({ id, color, disabled, checked }) => {
-    return (
-      <div>
-        <input type="radio" id={id} name="brand" class="hidden peer" disabled={disabled} checked={checked} />
-        <label for={id} class={`px-[19px] py-[9.7px] bg-${color} rounded-full cursor-pointer peer-checked:border-neutral-700 peer-checked:border-4 peer-checked:ring-[2.5px] peer-checked:ring-${color} transition duration-300 ease-in-out`}>
-        </label>
-      </div>
     )
   }
 
@@ -230,12 +220,13 @@ const Day07 = () => {
                 child2={
                   <div className='space-y-7'>
                     <div className='flex flex-wrap gap-4 items-center'>
-                      <ColorRadio id="neutral-light" color="neutral-200" disabled={true} checked={false} />
-                      <ColorRadio id="neutral-dark" color="neutral-500" disabled={true} checked={false} />
-                      <ColorRadio id="red" color="red-500" disabled={true} checked={false} />
-                      <ColorRadio id="orange" color="orange-500" disabled={true} checked={false} />
-                      <ColorRadio id="indigo" color="indigo-500" disabled={true} checked={false} />
-                      <ColorRadio id="green" color="green-500" disabled={false} checked={true} />
+                      <span className="flex size-11 bg-neutral-200 rounded-full cursor-pointer"></span>
+                      <span className="flex size-11 bg-neutral-700 rounded-full cursor-pointer"></span>
+                      <span className="flex size-11 bg-red-500 rounded-full cursor-pointer"></span>
+                      <span className="flex size-11 bg-orange-500 rounded-full cursor-pointer"></span>
+                      <span className="flex size-11 bg-indigo-500 rounded-full cursor-pointer"></span>
+                      <span className="flex size-11 bg-cyan-500 rounded-full cursor-pointer"></span>
+                      <span className="flex size-11 bg-green-500 rounded-full ring-[2.5px] ring-green-500 border-4 border-neutral-700 cursor-pointer"></span>
                     </div>
                     <div className='inline-flex items-center gap-3'>
                       <span className="leading-relaxed text-neutral-400 text-sm">
@@ -300,7 +291,7 @@ const Day07 = () => {
                               {ThemeIcon.map((icon, iconIndex) => (
                                 <div key={iconIndex}>
                                   <img
-                                    className={`size-9 border border-neutral-500 rounded-full ${iconIndex === content.index ? 'border-[3px] border-neutral-700 ring-[2px] ring-green-500' : ''}`}
+                                    className={`size-9 border border-neutral-500 cursor-pointer rounded-full ${iconIndex === content.index ? 'border-[3px] border-neutral-700 ring-[2px] ring-green-500' : ''}`}
                                     src={icon}
                                     alt="Theme Icon"
                                   />
@@ -354,12 +345,87 @@ const Day07 = () => {
                   </div>
                 }
               />
-
+              {/* Contrast */}
+              <SectionContainer
+                child1={
+                  <div className='space-y-2'>
+                    <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
+                      Contrast
+                    </h1>
+                    <p className="leading-relaxed text-neutral-400 text-sm">
+                      Customize the contrast base on your taste.
+                    </p>
+                  </div>
+                }
+                child2={
+                  <div className="flex md:flex-nowrap flex-wrap items-start gap-4">
+                    <input id="default-range" type="range" value="50" className="w-full md:max-w-sm h-2 rounded-lg appearance-none cursor-pointer bg-neutral-700 custom-range" />
+                  </div>
+                }
+              />
+              {/* Sidebar Appearance */}
+              <SectionContainer
+                child1={
+                  <div className='space-y-2'>
+                    <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
+                      Sidebar apperance
+                    </h1>
+                    <p className="leading-relaxed text-neutral-400 text-sm">
+                      Change the look of your sidebar.
+                    </p>
+                  </div>
+                }
+                child2={
+                  <div className="flex flex-col md:flex-nowrap flex-wrap items-start gap-6">
+                    <Toggle>
+                      <span className="ms-3 text-sm font-medium text-neutral-300">
+                        Transparent sidebar
+                      </span>
+                    </Toggle>
+                    <Toggle>
+                      <span className="ms-3 text-sm font-medium text-neutral-300">
+                        Expanded sidebar
+                      </span>
+                    </Toggle>
+                    <div className='w-full md:max-w-sm '>
+                      <Select
+                        id="loan-term"
+                        options={[
+                          { value: 'rc', label: 'Recent changes' },
+                          { value: 'sc', label: 'Some changes' },
+                          { value: 'sc', label: 'Some changes' },
+                          { value: 'sc', label: 'Some changes' },
+                        ]}
+                        required={false}
+                      ></Select>
+                    </div>
+                  </div>
+                }
+              />
+              {/* Modal Footer */}
+              <div className='pt-7'>
+                <div className='flex flex-wrap-reverse md:gap-4 gap-2 justify-between'>
+                  <Button
+                    styles={' flex items-center gap-2.5 text-red-300 bg-red-500/10 hover:bg-red-700/20 border-red-700/60 focus:ring-red-500/60'}
+                    label={'Reset to default'}
+                  />
+                  <div className='flex self-start md:gap-4 gap-2'>
+                    <Button
+                      styles={'flex items-center gap-2.5 text-neutral-200 bg-neutral-700/50 hover:bg-neutral-700 border-none focus:ring-neutral-600/60'}
+                      label={'Cancel'}
+                    />
+                    <Button
+                      styles={'flex items-center gap-2.5 text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                      label={'Save changes'}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </motion.div>
+    </motion.div >
   )
 }
 
