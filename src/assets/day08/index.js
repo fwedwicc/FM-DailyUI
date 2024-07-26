@@ -1,5 +1,5 @@
-import astronautClay from './astronaut-illustration.png'
+import bot404 from './bot-404-illustration.png'
 
 export {
-  astronautClay
+  bot404
 }

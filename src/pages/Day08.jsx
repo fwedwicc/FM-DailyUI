@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
-import { astronautClay } from '../assets/day08'
-import { InputField, Checkbox, Button } from '../components'
+import { bot404 } from '../assets/day08'
+import { Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
@@ -43,6 +43,10 @@ const Day08 = () => {
     {
       "label": "Documentation",
       "desc": "Dive in to learn all about our product."
+    },
+    {
+      "label": "Career",
+      "desc": "Explore our selection in careers."
     },
     {
       "label": "Support",
@@ -120,7 +124,7 @@ const Day08 = () => {
             </button>
             {/* Mobile Dropdown Menu */}
             {isOpen && (
-              <div className='absolute top-full right-12 -mt-8 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-lg md:hidden'>
+              <div className='absolute top-full right-12 mt-4 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-lg md:hidden'>
                 <ul className='text-neutral-300 text-center'>
                   {['Careers', 'Job Search', 'News', 'Support'].map((link, index) => (
                     <li key={index}><a href="#" className={`${index === 0 ? 'rounded-t-lg' : 'rounded-none'} block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out`}>{link}</a></li>
@@ -151,9 +155,9 @@ const Day08 = () => {
             </div>
           </nav>
           {/* Title and Description */}
-          <div className='lg:h-[89vh] h-auto lg:px-24 px-12 py-16 flex flex-wrap-reverse justify-around items-center'>
-            <div className='space-y-5'>
-              <h1 className="md:text-[16rem] text-[8rem] leading-none font-bold text-neutral-200">
+          <div className='lg:h-[89vh] h-auto lg:px-24 px-12 py-16 flex flex-wrap lg:flex-nowrap justify-center md:gap-24 gap-12 items-center'>
+            <div className='space-y-5 lg:text-left text-center flex flex-col lg:items-start items-center'>
+              <h1 className="lg:text-[20rem] md:text-[16rem] text-[14rem] leading-none font-bold text-neutral-200">
                 404
               </h1>
               <div className='space-y-2'>
@@ -162,10 +166,23 @@ const Day08 = () => {
                 </h1>
                 <p className="leading-relaxed text-neutral-400 text-sm">
                   Sorry, the page you're looking for doesn't exist or <br />
-                  has been removed. Here are some helpful links:
+                  has been removed. Here's helpful link:
                 </p>
               </div>
-              <div className='space-y-4'>
+              <Button
+                styles={'flex items-center gap-2.5 text-neutral-200 bg-transparent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+                label={'Take me home'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+              </Button>
+            </div>
+            <div className='w-full max-w-lg space-y-8'>
+              <div className='w-full h-[17rem] border border-neutral-600 bg-neutral-700/20 p-3 rounded-xl'>
+                <img src={bot404} alt="Bot 404 Illustration" className='object-cover w-full h-full rounded-lg' />
+              </div>
+              <div className='space-y-8'>
                 {heroLink.map((link, index) => (
                   <div className='space-y-[1px]' key={index}>
                     <a href="#" className='flex items-center gap-1 text-green-500 font-semibold'>
@@ -180,9 +197,6 @@ const Day08 = () => {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className=''>
-              <img src={astronautClay} alt="Astronaut clay" className='w-[20rem] h-auto grayscale' />
             </div>
           </div>
         </div>
