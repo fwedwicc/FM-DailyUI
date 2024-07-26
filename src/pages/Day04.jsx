@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { fmUILogo } from '../assets'
 import useLenisScroll from '../hooks/useLenisScroll'
+import useScrollToTop from '../hooks/useScrollToTop';
 import { InputField, Tooltip, Select, Button, Toggle } from '../components'
 import { Doughnut } from 'react-chartjs-2';
 import {
@@ -14,6 +15,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Day04 = () => {
   useLenisScroll();
+  useScrollToTop();
+
   const [activeTab, setActiveTab] = useState('payment');
 
   const GroupedInput = ({ id, label, children, type, styles, placeholder, required, value1, value2 }) => {

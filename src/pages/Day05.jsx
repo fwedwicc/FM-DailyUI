@@ -1,11 +1,13 @@
 import React from 'react'
 import { fmUILogo, fmUILogo0103, fmUILogo02, fmUILogo04 } from '../assets/day05'
 import useLenisScroll from '../hooks/useLenisScroll'
+import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
-
 
 const Day05 = () => {
   useLenisScroll();
+  useScrollToTop();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -4,10 +4,13 @@ import { fmUILogo } from '../assets'
 import { logo01, logo02, logo03, logo04 } from '../assets/day03';
 import { Button, InputField, Select } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
+import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
 
 const Day03 = () => {
   useLenisScroll();
+  useScrollToTop();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const FeatureCard = ({ desc, title, svg, styles }) => {

@@ -2,10 +2,13 @@ import React from 'react'
 import { fmUILogo } from '../assets'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
+import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
 
 const Day01 = () => {
   useLenisScroll();
+  useScrollToTop();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

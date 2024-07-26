@@ -3,10 +3,13 @@ import { fmUILogo } from '../assets'
 import { unionPay, visa, masterCard, discoverCard, amExCard } from '../assets/day02'
 import { InputField, Toggle, Select, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
+import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
 
 const Day02 = () => {
   useLenisScroll();
+  useScrollToTop();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

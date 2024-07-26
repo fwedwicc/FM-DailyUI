@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll';
+import useScrollToTop from '../hooks/useScrollToTop';
 import { fmAvatar, qcuLogo, profileBackground } from '../assets/day06';
 import { Button } from '../components';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Day06 = () => {
   useLenisScroll();
+  useScrollToTop();
+
   const [activeTab, setActiveTab] = useState('posts');
   const [isOpen, setIsOpen] = useState(false);
-
 
   const PostCardData = [
     {
