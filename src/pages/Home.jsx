@@ -3,9 +3,12 @@ import { motion } from 'framer-motion'
 import useLenisScroll from '../hooks/useLenisScroll'
 import { Card } from '../components'
 import { Cards } from '../data'
+import useScrollRestoration from '../hooks/useScrollRestoration';
 
 const Home = () => {
   useLenisScroll();
+  useScrollRestoration();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

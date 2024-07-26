@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
 import { InputField, Select, Toggle, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
+import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
 
 const Day07 = () => {
   useLenisScroll();
+  useScrollToTop();
 
   const [value, setValue] = useState(3);
 
