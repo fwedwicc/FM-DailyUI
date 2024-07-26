@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
+import { astronautClay } from '../assets/day08'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -8,6 +9,8 @@ import { motion } from 'framer-motion'
 const Day08 = () => {
   useLenisScroll();
   useScrollToTop();
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const LinkList = ({ title, names = [] }) => {
     return (
@@ -43,11 +46,81 @@ const Day08 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-neutral-800 lg:h-screen h-auto flex flex-col justify-between">
-        <div className='h-full bg-neutral-800 border'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, architecto! Nobis, libero. Ratione, repellendus consequatur, vero, alias omnis in aperiam quam quis hic eaque ad et fugit doloremque mollitia vel. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit voluptatum dolorem aut et blanditiis sapiente, itaque cum, doloribus repudiandae minima, laborum illum ea quasi soluta iusto sequi eligendi quo officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident alias vitae, mollitia minus consequuntur incidunt quaerat rerum amet sapiente ut dolores accusantium, veritatis neque repellat nisi. Impedit ex dolorum voluptate!
+      <section className="bg-neutral-800">
+        <div className='h-screen'>
+          {/* Navigation bar */}
+          <nav className='relative flex items-center justify-between pt-[2.5rem]  lg:px-24 px-12'>
+            <a className="inline-block" href="#">
+              <span className="sr-only">Home</span>
+              <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
+            </a>
+            {/* Desktop Navigation */}
+            <ul className='hidden md:flex text-neutral-300 gap-9'>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Job Search</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className='md:hidden flex items-center p-2 rounded-md focus:bg-neutral-700 hover:bg-neutral-700 justify-center text-neutral-300 transition duration-300 ease-in-out focus:outline-none'
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 6h15m-15 6h15m-15 6h15" />
+              </svg>
+            </button>
+            {/* Mobile Dropdown Menu */}
+            {isOpen && (
+              <div className='absolute top-full right-12 -mt-8 w-48 bg-neutral-800 border border-neutral-700 rounded-lg shadow-lg md:hidden'>
+                <ul className='text-neutral-300 text-center'>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out rounded-t-lg'>Careers</a></li>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out'>Job Search</a></li>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out'>News</a></li>
+                  <li><a href="#" className='block px-4 py-2 hover:bg-neutral-700 transition duration-300 ease-in-out'>Support</a></li>
+                </ul>
+                <div className='flex flex-col gap-2 p-4'>
+                  <Button
+                    styles={'text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
+                    label={'Login'}
+                  />
+                  <Button
+                    styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                    label={'Sign up'}
+                  />
+                </div>
+              </div>
+            )}
+            {/* Desktop Buttons */}
+            <div className='hidden md:flex gap-3'>
+              <Button
+                styles={'text-neutral-200 bg-transparent hover:bg-neutral-700 border-none focus:ring-neutral-200/60'}
+                label={'Login'}
+              />
+              <Button
+                styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                label={'Sign up'}
+              />
+            </div>
+          </nav>
+          {/* Title and Description */}
+          <div className='h-[89vh] lg:px-24 px-12 flex justify-center items-center'>
+            <div className='flex'>
+              <div>
+                <h1 className="md:text-[16rem] text-[8rem] leading-none font-bold text-neutral-200">
+                  404
+                </h1>
+                <p className="leading-relaxed text-neutral-300">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
+                  quibusdam aperiam voluptatum.
+                </p>
+              </div>
+              <img src={astronautClay} alt="Astronaut clay" className='w-[20rem] h-auto grayscale' />
+            </div>
+          </div>
         </div>
-        <footer className='border lg:px-24 px-12 py-8 bg-neutral-900 grid lg:grid-cols-7 grid-cols-1 lg:gap-24 gap-8'>
+        {/* Footer */}
+        <footer className='lg:px-24 px-12 py-16 bg-neutral-950/40 grid lg:grid-cols-7 grid-cols-1 gap-24'>
           <div className='lg:col-span-2 col-span-1 space-y-5'>
             <a className="inline-block" href="#">
               <span className="sr-only">Home</span>
@@ -72,21 +145,22 @@ const Day08 = () => {
               <Link
                 link='#'
                 svg='M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z'
+
               />
             </ul>
           </div>
           <div className='lg:col-span-5 col-span-1 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 gap-12'>
             <LinkList
               title='Company'
-              names={['About us', 'Contact us', 'Careers']}
+              names={['About us', 'Contact us', 'Careers', 'Press']}
             />
             <LinkList
               title='Product'
-              names={['Features', 'Pricing', 'News']}
+              names={['Features', 'Pricing', 'News', 'Help Desk', 'Support']}
             />
             <LinkList
               title='Services'
-              names={['Content Writing', 'SEO for Business', 'UI Design']}
+              names={['Digital Marketing', 'Content Writing', 'SEO for Business', 'UI Design']}
             />
             <LinkList
               title='Legal'
@@ -94,7 +168,6 @@ const Day08 = () => {
             />
           </div>
         </footer>
-
       </section>
     </motion.div>
   )
