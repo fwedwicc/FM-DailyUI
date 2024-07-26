@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail,
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -33,7 +33,8 @@ const images = [
   day04Thumbnail, // Day04
   day05Thumbnail, // Day05
   day06Thumbnail, // Day06
-  day07Thumbnail, // Day06
+  day07Thumbnail, // Day07
+  day08Thumbnail, // Day08
 ];
 
 const defaultImage = defaultThumbnail;
