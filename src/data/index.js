@@ -12,7 +12,8 @@ const titles = [
   'App Icon', // Day05
   'User Profile', // Day06
   'Settings', // Day07
-  '404 Page Design' // Day08
+  '404 Page Design', // Day08
+  'Music Player', // Day09
 ];
 
 const descriptions = [
@@ -24,6 +25,7 @@ const descriptions = [
   "Design a user profile and be mindful of the most important data, names, imagery, placement, etc. Is it for a serious profile? A social profile? (It's up to you!)", // Day06
   "Design settings for something. Is it for security or privacy settings? Game settings? Light mode vs. dark mode? System settings (sound, notifications, screen time, Wi-Fi, etc.? What is it and what are the most important settings?", // Day07
   "Design a 404 page - that's not boring! Does it suit the brand's style? Is it user-friendly? It might sound mundane, but not everything can be flashy or glamorous. Every day millions of people will be landing on 404 pages. You have an opportunity to help them in a way that's useful and aesthetically pleasing. (It's up to you!)", // Day08
+  "Design a music player. It could be browser based or an app (i.e. Pandora, Spotify, SoundCloud, etc.) or in a standalone product like in a car dashboard, jukebox, etc. Consider the controls, placements, imagery such as the artist or album cover, etc. Also, consider the device type that's playing the music.", // Day09
 ];
 
 const images = [
