@@ -15,6 +15,29 @@ const Day09 = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const ProfileWidget = ({ styles }) => {
+    return (
+      <div className={`${styles} items-center gap-8`}>
+        <a href='#' className='font-medium text-green-400 text-sm px-2.5 py-1 border border-green-700 bg-green-900/40 rounded-md inline-flex items-center gap-1'>
+          My account
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </a>
+        <div className='gap-4 flex items-center'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-neutral-300">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
+          </svg>
+          <img
+            className="size-10 border-2 border-neutral-300 rounded-full"
+            src="https://avatars.githubusercontent.com/u/84505567?v=4"
+            alt="Bot Avatar"
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -24,21 +47,43 @@ const Day09 = () => {
     >
       <section className="bg-neutral-800 flex">
         <aside
-          className={`fixed h-screen bg-neutral-700 w-64 transition-transform transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          className={`fixed h-screen bg-neutral-700 w-64 transition-transform transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
         >
           {/* Sidebar */}
         </aside>
-        <main className="flex-1 ml-0 lg:ml-64 lg:mt-0 mt-[4.5rem] bg-neutral-800">
+        <main className="flex-1 ml-0 lg:ml-64 p-6 bg-neutral-800">
           {/* Sidebar Toggle Button for Medium Screens */}
-          <button
-            className="lg:hidden fixed top-4 left-4 p-2 bg-neutral-700 text-white rounded-md z-50"
-            onClick={toggleSidebar}
-          >
-            {isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
-          </button>
+          <div className='flex justify-between'>
+            <button
+              className="lg:hidden p-2 bg-neutral-700 text-white rounded-md z-50"
+              onClick={toggleSidebar}
+            >
+              {isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
+            </button>
+            {/* Profile widget for small screen*/}
+            <ProfileWidget styles={'lg:hidden flex'} />
+          </div>
           {/* Main Content */}
-          <h1>sss</h1>
+          <div className='flex justify-between items-center lg:mt-0 mt-5'>
+            {/* Search bar */}
+            <div className='w-full lg:max-w-md max-w-xs relative'>
+              <input
+                id="search"
+                type='text'
+                placeholder='Search by artists, songs, or albums'
+                className={`w-full rounded-md bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 pe-10 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70`}
+                required='false'
+              />
+              <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 text-neutral-300">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </div>
+            </div>
+            {/* Profile widget for large screen*/}
+            <ProfileWidget styles={'hidden lg:flex'} />
+          </div>
         </main>
       </section>
     </motion.div>
