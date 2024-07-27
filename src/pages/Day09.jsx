@@ -15,6 +15,47 @@ const Day09 = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const navLink = {
+    firstLinks: [
+      {
+        "label": "Feed",
+        "icon": "M2.25 12L11.204 3.045c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+      },
+      {
+        "label": "Playlists",
+        "icon": "M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+      },
+      {
+        "label": "Stats",
+        "icon": "M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+      }
+    ],
+    secondLinks: [
+      {
+        "label": "Favorites",
+        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+      },
+      {
+        "label": "Listen later",
+        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+      },
+      {
+        "label": "History",
+        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+      },
+      {
+        "label": "Podcasts",
+        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+      }
+    ],
+    thirdLinks: [
+      {
+        "label": "Profile",
+        "icon": "M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25zm0 12a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5zm0 1.5c-2.07 0-6.75 1.054-6.75 3.125V19.5h13.5v-.625c0-2.071-4.68-3.125-6.75-3.125z"
+      }
+    ]
+  };
+
   const ProfileWidget = ({ styles }) => {
     return (
       <div className={`${styles} items-center gap-8`}>
@@ -49,12 +90,58 @@ const Day09 = () => {
       <section className="bg-neutral-800 flex">
         {/* Sidebar */}
         <aside
-          className={`fixed h-screen bg-[#202020] w-64 transition-transform transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          className={`fixed h-screen bg-[#202020] w-64 space-y-4 transition-transform lg:pt-0 pt-11 transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
         >
-
+          <a className="inline-block pl-8 pt-12" href="#">
+            <span className="sr-only">Home</span>
+            <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
+          </a>
+          <div className='space-y-8 p-3'>
+            <ul className='space-y-1.5'>
+              {navLink.firstLinks.map((link, index) => (
+                <li
+                  className={`${index == 0 ? 'text-green-500 font-bold bg-green-500/10' : 'text-neutral-200 hover:bg-neutral-700/50'} inline-flex items-center gap-3 w-full px-4 py-2.5 text-sm rounded-md transition duration-300 ease-in-out cursor-pointer`}
+                  key={index}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-5"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d={link.icon} />
+                  </svg>
+                  <a href="#">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+            <ul className='space-y-1.5'>
+              <li className='text-neutral-500 text-xs uppercase mb-2'>Your music</li>
+              {navLink.secondLinks.map((link, index) => (
+                <li
+                  className={'text-neutral-200 hover:bg-neutral-700/50 inline-flex items-center gap-3 w-full px-4 py-2.5 text-sm rounded-md transition duration-300 ease-in-out cursor-pointer'}
+                  key={index}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-5"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d={link.icon} />
+                  </svg>
+                  <a href="#">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </aside>
-        <main className="flex-1 ml-0 lg:ml-64 p-4 lg:bg-[#202020] bg-neutral-800">
+        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 lg:bg-[#202020] bg-neutral-800">
           <div className='bg-neutral-800 lg:rounded-md rounded-none lg:p-6 p-0'>
             {/* Sidebar Toggle Button for Medium Screens */}
             <div className='flex justify-between'>
