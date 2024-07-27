@@ -33,26 +33,30 @@ const Day09 = () => {
     secondLinks: [
       {
         "label": "Favorites",
-        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+        "icon": "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
       },
       {
         "label": "Listen later",
-        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+        "icon": "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       },
       {
         "label": "History",
-        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+        "icon": "M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
       },
       {
         "label": "Podcasts",
-        "icon": "M4 6.25A2.25 2.25 0 016.25 4h11.5A2.25 2.25 0 0120 6.25v11.5A2.25 2.25 0 0117.75 20H6.25A2.25 2.25 0 014 17.75V6.25zM9 7.25h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 11h6a.75.75 0 010 1.5H9a.75.75 0 010-1.5zM9 14.75h3a.75.75 0 010 1.5H9a.75.75 0 010-1.5z"
+        "icon": "M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
       }
     ],
     thirdLinks: [
       {
-        "label": "Profile",
-        "icon": "M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25zm0 12a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5zm0 1.5c-2.07 0-6.75 1.054-6.75 3.125V19.5h13.5v-.625c0-2.071-4.68-3.125-6.75-3.125z"
-      }
+        "label": "Rock",
+        "color": "orange"
+      },
+      {
+        "label": "Pop",
+        "color": "green"
+      },
     ]
   };
 
@@ -90,14 +94,15 @@ const Day09 = () => {
       <section className="bg-neutral-800 flex">
         {/* Sidebar */}
         <aside
-          className={`fixed h-screen bg-[#202020] w-64 space-y-4 transition-transform lg:pt-0 pt-11 transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          className={`fixed overflow-auto h-screen bg-[#202020] w-64 space-y-4 transition-transform lg:pt-0 pt-11 transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
         >
           <a className="inline-block pl-8 pt-12" href="#">
             <span className="sr-only">Home</span>
             <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
           </a>
-          <div className='space-y-8 p-3'>
+          <div className='space-y-5 p-3'>
+            {/* First Links */}
             <ul className='space-y-1.5'>
               {navLink.firstLinks.map((link, index) => (
                 <li
@@ -118,6 +123,7 @@ const Day09 = () => {
                 </li>
               ))}
             </ul>
+            {/* Second Links */}
             <ul className='space-y-1.5'>
               <li className='text-neutral-500 text-xs uppercase mb-2'>Your music</li>
               {navLink.secondLinks.map((link, index) => (
@@ -139,10 +145,31 @@ const Day09 = () => {
                 </li>
               ))}
             </ul>
+            {/* Third Links */}
+            <ul className='space-y-1.5'>
+              <li className='text-neutral-500 text-xs uppercase mb-2'>Your playlist</li>
+              {navLink.thirdLinks.map((link, index) => (
+                <li
+                  className={'text-neutral-200 hover:bg-neutral-700/50 inline-flex items-center gap-3 w-full px-4 py-2.5 text-sm rounded-md transition duration-300 ease-in-out cursor-pointer'}
+                  key={index}
+                >
+                  <span className={`flex w-3 h-3 ms-2 bg-${link.color}-500 rounded-full`}></span>
+                  <a href="#">{link.label}</a>
+                </li>
+              ))}
+              <li className='pt-2'>
+                <a href="#" className='flex items-center justify-center gap-1 text-green-500 text-sm font-medium'>
+                  Create new playlist
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </aside>
         <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 lg:bg-[#202020] bg-neutral-800">
-          <div className='bg-neutral-800 lg:rounded-md rounded-none lg:p-6 p-0'>
+          <div className='bg-neutral-800 lg:rounded-xl rounded-none lg:p-6 p-0'>
             {/* Sidebar Toggle Button for Medium Screens */}
             <div className='flex justify-between'>
               <button
