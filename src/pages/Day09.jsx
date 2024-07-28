@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
-import { mj01, queen01, beatles01, acdc01, metallica01 } from '../assets/day09'
+import {
+  mj01, queen01, beatles01, acdc01, metallica01, elton01, john01, scorpions01, beegees01, rollingStones01, dailyMix01, dailyMix02, dailyMix03
+} from '../assets/day09'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop'
@@ -128,7 +130,7 @@ const Day09 = () => {
   const ProfileWidget = ({ styles }) => {
     return (
       <div className={`${styles} items-center gap-8`}>
-        <a href='#' className='font-medium text-green-400 text-sm px-2.5 py-1 border border-green-700 bg-green-900/40 rounded-md inline-flex items-center gap-1'>
+        <a href='#' className='font-medium text-green-500 text-sm px-2.5 py-1 border border-green-700 bg-green-900/40 rounded-md inline-flex items-center gap-1'>
           My account
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ms-1">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -331,7 +333,7 @@ const Day09 = () => {
                         <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                           Queen
                         </h1>
-                        <p className="leading-relaxed text-neutral-400 text-xs">
+                        <p className="leading-relaxed text-neutral-300 text-xs">
                           52.6M Monthly listeners
                         </p>
                       </div>
@@ -344,17 +346,17 @@ const Day09 = () => {
                     </svg>
                   </a>
                   <div className='col-span-1 grid grid-cols-2 gap-4'>
-                    <a href='#' className='relative group bg-neutral-700/30 border border-neutral-600/30 rounded-lg flex items-center justify-center max-h-[20rem]'>
+                    <a href='#' className='relative group bg-gradient-to-bl from-green-700/20 to-green-500/50 border border-green-500/30 rounded-lg flex items-center justify-center max-h-[20rem]'>
                       <div className='absolute top-4 left-4'>
-                        <p className="leading-relaxed text-neutral-400 text-xs">
-                          69 tracks | 4 hours 37 minutes
-                        </p>
                         <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                           Playlist of the day
                         </h1>
+                        <p className="leading-relaxed text-neutral-300 text-xs">
+                          The Beatles | Abbey Road
+                        </p>
                       </div>
                       <div className='size-40 mt-24 mb-12'>
-                        <img src={beatles01} alt="The Beatles - Abbey Road" className='object-cover rounded-lg' />
+                        <img src={beatles01} alt="The Beatles - Abbey Road" className='object-cover rounded-lg shadow-2xl shadow-green-500/70' />
                       </div>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                         <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
@@ -373,7 +375,7 @@ const Day09 = () => {
                         <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                           Highway to Hell
                         </h1>
-                        <p className="leading-relaxed text-neutral-400 text-xs">
+                        <p className="leading-relaxed text-neutral-300 text-xs">
                           AC/DC | 2024
                         </p>
                       </div>
@@ -546,7 +548,6 @@ const Day09 = () => {
                       <path fillRule="evenodd" d={icon} clipRule="evenodd" />
                     </svg>
                   )}
-
                 </button>
               ))}
               <div className="w-full md:max-w-[7rem] max-w-[4rem] bg-neutral-700 rounded-full h-[4px]">
