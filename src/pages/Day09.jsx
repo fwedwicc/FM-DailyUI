@@ -72,6 +72,44 @@ const Day09 = () => {
     'M12 5.25c1.213 0 2.415.046 3.605.135a3.256 3.256 0 0 1 3.01 3.01c.044.583.077 1.17.1 1.759L17.03 8.47a.75.75 0 1 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06l-1.752 1.751c-.023-.65-.06-1.296-.108-1.939a4.756 4.756 0 0 0-4.392-4.392 49.422 49.422 0 0 0-7.436 0A4.756 4.756 0 0 0 3.89 8.282c-.017.224-.033.447-.046.672a.75.75 0 1 0 1.497.092c.013-.217.028-.434.044-.651a3.256 3.256 0 0 1 3.01-3.01c1.19-.09 2.392-.135 3.605-.135Zm-6.97 6.22a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.752-1.751c.023.65.06 1.296.108 1.939a4.756 4.756 0 0 0 4.392 4.392 49.413 49.413 0 0 0 7.436 0 4.756 4.756 0 0 0 4.392-4.392c.017-.223.032-.447.046-.672a.75.75 0 0 0-1.497-.092c-.013.217-.028.434-.044.651a3.256 3.256 0 0 1-3.01 3.01 47.953 47.953 0 0 1-7.21 0 3.256 3.256 0 0 1-3.01-3.01 47.759 47.759 0 0 1-.1-1.759L6.97 15.53a.75.75 0 0 0 1.06-1.06l-3-3Z',
   ]
 
+  const songDatas = [
+    {
+      "img": mj01,
+      "song": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Test",
+      "duration": "1:40"
+    },
+    {
+      "img": mj01,
+      "song": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Test",
+      "duration": "1:40"
+    },
+    {
+      "img": mj01,
+      "song": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Test",
+      "duration": "1:40"
+    },
+    {
+      "img": mj01,
+      "song": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Test",
+      "duration": "1:40"
+    },
+    {
+      "img": mj01,
+      "song": "Billie Jean",
+      "artist": "Michael Jackson",
+      "album": "Test",
+      "duration": "1:40"
+    }
+  ]
+
   const ProfileWidget = ({ styles }) => {
     return (
       <div className={`${styles} items-center gap-8`}>
@@ -319,7 +357,7 @@ const Day09 = () => {
                 </div>
                 {/* Middle Part */}
                 <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
-                  <div className='col-span-1 border'>
+                  <div className='col-span-1'>
                     <div className='flex justify-between items-center py-3'>
                       <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                         Recently played
@@ -327,6 +365,45 @@ const Day09 = () => {
                       <p className="leading-relaxed text-neutral-400 text-xs">
                         Show all
                       </p>
+                    </div>
+                    <div className='space-y-1'>
+                      {songDatas.map((track, index) => (
+                        <div className='flex items-center justify-between w-full hover:bg-neutral-700/40 p-2 transition duration-300 ease-in-out rounded-md cursor-pointer' key={index}>
+                          <div className='flex items-center gap-3'>
+                            <div className='lg:w-10 w-8 h-auto'>
+                              <img src={track.img} alt="Album preview" className='object-cover rounded-md w-full h-full flex-shrink-0' />
+                            </div>
+                            <div>
+                              <h1 className="font-medium text-neutral-200 text-md">
+                                {track.song}
+                              </h1>
+                              <p className="leading-relaxed text-neutral-400 text-xs">
+                                {track.artist}
+                              </p>
+                            </div>
+                          </div>
+                          <div className='flex gap-12 items-center'>
+                            <p className="leading-relaxed text-neutral-400 text-xs">
+                              {track.album}
+                            </p>
+                            <p className="leading-relaxed text-neutral-400 text-xs">
+                              {track.duration}
+                            </p>
+                            <div className='flex items-center gap-3'>
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 text-green-500 ms-3 cursor-pointer">
+                                <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                              </svg>
+                              <button
+                                className='flex items-center p-2 rounded-md focus:bg-neutral-700 hover:bg-neutral-700 justify-center text-neutral-300 transition duration-300 ease-in-out focus:outline-none'
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                  <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                   <div className='col-span-1'>
