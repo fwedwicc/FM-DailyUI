@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
-import { mj01, queen01, beatles01, acdc01 } from '../assets/day09'
+import { mj01, queen01, beatles01, acdc01, metallica01 } from '../assets/day09'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop'
@@ -135,7 +135,7 @@ const Day09 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-neutral-800 flex">
+      <section className="bg-[#202020] flex">
         {/* Sidebar */}
         <aside
           className={`fixed overflow-auto h-screen bg-[#202020] w-64 space-y-4 transition-transform lg:pt-0 pt-11 transform z-50 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -212,7 +212,7 @@ const Day09 = () => {
             </ul>
           </div>
         </aside>
-        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 pb-48 lg:bg-[#202020] bg-neutral-800">
+        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 lg:mb-[5rem] mb-[10rem] lg:bg-[#202020] bg-neutral-800">
           <div className='bg-neutral-800 lg:rounded-xl rounded-none lg:p-6 p-0'>
             {/* Sidebar Toggle Button for Medium Screens */}
             <button
@@ -256,7 +256,7 @@ const Day09 = () => {
                 <ProfileWidget styles={'hidden lg:flex'} />
               </div>
               {/* Main */}
-              <div className=''>
+              <div className='space-y-4'>
                 {/* Upper part */}
                 <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
                   <div className='relative col-span-1 max-h-[20rem]'>
@@ -317,6 +317,47 @@ const Day09 = () => {
                     </div>
                   </div>
                 </div>
+                {/* Middle Part */}
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
+                  <div className='col-span-1 border'>
+                    <div className='flex justify-between items-center py-3'>
+                      <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                        Recently played
+                      </h1>
+                      <p className="leading-relaxed text-neutral-400 text-xs">
+                        Show all
+                      </p>
+                    </div>
+                  </div>
+                  <div className='col-span-1'>
+                    <div className='flex justify-between items-center py-3'>
+                      <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                        Made for you
+                      </h1>
+                      <p className="leading-relaxed text-neutral-400 text-xs">
+                        AC/DC | 2024
+                      </p>
+                    </div>
+                    <div className='flex gap-3'>
+                      <div className='w-full h-[13rem]'>
+                        <div className='h-full'>
+                          <img src="https://scpr.brightspotcdn.com/dims4/default/0edc928/2147483647/strip/true/crop/640x583+0+0/resize/880x802!/quality/90/?url=http%3A%2F%2Fscpr-brightspot.s3.us-west-2.amazonaws.com%2Flegacy%2Fi%2Fd209ed114d5699684f140f7910a0a07d%2F5b2c36474488b300092713af-original.jpg" alt="Guns n' roses band" className='object-cover rounded-lg w-full h-full' />
+                        </div>
+                        <p className="leading-relaxed font-medium text-neutral-300 text-md text-center">
+                          Guns n' Roses
+                        </p>
+                      </div>
+                      <div className='w-full h-[13rem]'>
+                        <img src={metallica01} alt="Metallica Band" className='object-cover rounded-lg w-full h-full' />
+                      </div>
+                      <div className='w-full h-[13rem]'>
+                        <img src="https://www.riffx.fr/wp-content/uploads/2019/01/Nirvana-In-Utero-a-20-ans--433x350.jpg" alt="Nirvana Band" className='object-cover rounded-lg w-full h-full' />
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                {/* Lower Part */}
               </div>
             </div>
           </div>
