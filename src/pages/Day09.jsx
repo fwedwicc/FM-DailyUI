@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
-import { mj01 } from '../assets/day09'
+import { mj01, queen01, beatles01, acdc01 } from '../assets/day09'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop'
@@ -212,7 +212,7 @@ const Day09 = () => {
             </ul>
           </div>
         </aside>
-        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 lg:bg-[#202020] bg-neutral-800">
+        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 pb-48 lg:bg-[#202020] bg-neutral-800">
           <div className='bg-neutral-800 lg:rounded-xl rounded-none lg:p-6 p-0'>
             {/* Sidebar Toggle Button for Medium Screens */}
             <button
@@ -256,7 +256,67 @@ const Day09 = () => {
                 <ProfileWidget styles={'hidden lg:flex'} />
               </div>
               {/* Main */}
-              <div className='bg-neutral-600'>
+              <div className=''>
+                {/* Upper part */}
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
+                  <div className='relative col-span-1 max-h-[20rem]'>
+                    <img src={queen01} alt="Queen band" className='object-cover w-full h-[20rem] rounded-lg' />
+                    <div className='absolute top-4 left-4'>
+                      <p className="leading-relaxed text-neutral-400 text-xs">
+                        69 tracks | 4 hours 37 minutes
+                      </p>
+                      <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                        Playlist of the day
+                      </h1>
+                    </div>
+                    <div className='absolute bottom-4 px-4 flex justify-between items-end w-full'>
+                      <div>
+                        <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                          Playlist of the day
+                        </h1>
+                        <p className="leading-relaxed text-neutral-400 text-xs">
+                          69 tracks | 4 hours 37 minutes
+                        </p>
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 text-green-500 ms-3 cursor-pointer">
+                        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className='col-span-1 grid grid-cols-2 gap-4'>
+                    <div className='bg-neutral-700/30 border border-neutral-600/30 relative rounded-lg flex items-center justify-center max-h-[20rem]'>
+                      <div className='absolute top-4 left-4'>
+                        <p className="leading-relaxed text-neutral-400 text-xs">
+                          69 tracks | 4 hours 37 minutes
+                        </p>
+                        <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                          Playlist of the day
+                        </h1>
+                      </div>
+                      <div className='size-40 mt-24 mb-12'>
+                        <img src={beatles01} alt="The Beatles - Abbey Road" className='object-cover rounded-lg' />
+                      </div>
+                    </div>
+                    <div className="relative rounded-lg max-h-[20rem] flex flex-col h-full">
+                      <div className="flex-grow h-full">
+                        <img src={acdc01} alt="AC/DC - Highway to Hell" className="object-cover rounded-lg h-full w-full" />
+                      </div>
+                      <div className='absolute top-4 left-4'>
+                        <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                          Top Chart Album
+                        </h1>
+                      </div>
+                      <div className='absolute bottom-4 left-4'>
+                        <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                          Highway to Hell
+                        </h1>
+                        <p className="leading-relaxed text-neutral-400 text-xs">
+                          AC/DC | 2024
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
