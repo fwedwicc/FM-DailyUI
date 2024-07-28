@@ -291,19 +291,26 @@ const Day09 = () => {
               {/* Header */}
               <div className='flex justify-between items-center'>
                 {/* Search bar */}
-                <div className='w-full lg:max-w-md max-w-xs relative'>
-                  <input
-                    id="search"
-                    type='text'
-                    placeholder='Search by artists, songs, or albums'
-                    className={`w-full rounded-md bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 pe-10 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70`}
-                    required={false}
-                  />
-                  <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 text-neutral-300">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>
+                <div className='flex items-center gap-4 lg:max-w-md w-full max-w-xs'>
+                  <div className='w-full relative'>
+                    <input
+                      id="search"
+                      type='text'
+                      placeholder='Search by artists, songs, or albums'
+                      className={`w-full rounded-md bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 pe-10 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70`}
+                      required={false}
+                    />
+                    <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 text-neutral-300">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                      </svg>
+                    </div>
                   </div>
+                  <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                    </svg>
+                  </button>
                 </div>
                 {/* Profile widget for large screen*/}
                 <ProfileWidget styles={'hidden lg:flex'} />
@@ -315,20 +322,17 @@ const Day09 = () => {
                   <a href='#' className='relative group col-span-1 max-h-[20rem]'>
                     <img src={queen01} alt="Queen band" className='object-cover w-full h-[20rem] rounded-lg' />
                     <div className='absolute top-4 left-4'>
-                      <p className="leading-relaxed text-neutral-400 text-xs">
-                        69 tracks | 4 hours 37 minutes
-                      </p>
                       <h1 className="font-normal text-neutral-200 text-md md:text-xl">
-                        Playlist of the day
+                        Your Top Artist
                       </h1>
                     </div>
                     <div className='absolute bottom-4 px-4 flex justify-between items-end w-full'>
                       <div>
                         <h1 className="font-normal text-neutral-200 text-md md:text-xl">
-                          Playlist of the day
+                          Queen
                         </h1>
                         <p className="leading-relaxed text-neutral-400 text-xs">
-                          69 tracks | 4 hours 37 minutes
+                          52.6M Monthly listeners
                         </p>
                       </div>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 text-green-500 ms-3 cursor-pointer">
@@ -356,7 +360,7 @@ const Day09 = () => {
                         <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
                       </svg>
                     </a>
-                    <div className="relative group rounded-lg max-h-[20rem] flex flex-col h-full">
+                    <a href='#' className="relative group rounded-lg max-h-[20rem] flex flex-col h-full">
                       <div className="flex-grow h-full">
                         <img src={acdc01} alt="AC/DC - Highway to Hell" className="object-cover rounded-lg h-full w-full" />
                       </div>
@@ -376,7 +380,7 @@ const Day09 = () => {
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                         <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
                       </svg>
-                    </div>
+                    </a>
                   </div>
                 </div>
                 {/* Middle Part */}
@@ -398,7 +402,7 @@ const Day09 = () => {
                               <img src={track.img} alt="Album preview" className='object-cover rounded-md w-full h-full flex-shrink-0' />
                             </div>
                             <div>
-                              <h1 className="font-medium text-neutral-200 text-md">
+                              <h1 className={`${index === 0 ? 'text-green-500' : 'text-neutral-200'} font-medium text-md`}>
                                 {track.song}
                               </h1>
                               <p className="leading-relaxed text-neutral-400 text-xs">
@@ -414,9 +418,15 @@ const Day09 = () => {
                               {track.duration}
                             </p>
                             <div className='flex items-center gap-3'>
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 text-green-500 ms-3 cursor-pointer">
-                                <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-                              </svg>
+                              {index === 2 || index === 3 ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-neutral-400 ms-3 cursor-pointer">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                              ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 text-green-500 ms-3 cursor-pointer">
+                                  <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                                </svg>
+                              )}
                               <button
                                 className='flex items-center p-2 rounded-md focus:bg-neutral-700 hover:bg-neutral-700 justify-center text-neutral-300 transition duration-300 ease-in-out focus:outline-none'
                               >
@@ -429,11 +439,27 @@ const Day09 = () => {
                         </div>
                       ))}
                     </div>
+                    <div className='mt-4 border p-6 rounded-xl w-full grid grid-cols-2'>
+                      <div className='space-y-5'>
+                        <div className='space-y-1'>
+                          <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                            Check the power of [untitled]
+                          </h1>
+                          <p className="leading-relaxed text-neutral-400">
+                            Enjoy uninterrupted music streaming with our premium subscription.
+                          </p>
+                        </div>
+                        <Button
+                          styles={'flex items-center gap-2.5 text-white bg-green-600 hover:bg-green-700 border-green-500/60 focus:ring-green-300'}
+                          label={'Upgrade'}
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div className='col-span-1'>
                     <div className='flex justify-between items-center py-3'>
                       <h1 className="font-normal text-neutral-200 text-md md:text-xl">
-                        Made for you
+                        Jump back in
                       </h1>
                       <a href='#' className="leading-relaxed text-neutral-400 hover:text-green-500 transition duration-300 text-xs">
                         Show all
@@ -442,7 +468,7 @@ const Day09 = () => {
                     <div className='flex gap-3'>
                       {playlistCard.map((card, index) => (
                         <a href='#' className='relative w-full space-y-1 p-2 rounded-lg hover:bg-neutral-700/40 transition duration-300 ease-in-out group' key={index}>
-                          <div className='h-[13rem]'>
+                          <div className='h-[11rem]'>
                             <img src={card.img} alt="Band Preview" className='object-cover rounded-md w-full h-full' />
                           </div>
                           <p className="leading-relaxed font-medium text-neutral-300 text-md text-center group-hover:text-green-500 transition duration-300 ease-in-out">
@@ -454,10 +480,33 @@ const Day09 = () => {
                         </a>
                       ))}
                     </div>
+                    <div className='mt-2'>
+                      <div className='flex justify-between items-center py-3'>
+                        <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                          Jump back in 2
+                        </h1>
+                        <a href='#' className="leading-relaxed text-neutral-400 hover:text-green-500 transition duration-300 text-xs">
+                          Show all
+                        </a>
+                      </div>
+                      <div className='flex gap-3'>
+                        {playlistCard.map((card, index) => (
+                          <a href='#' className='relative w-full space-y-1 p-2 rounded-lg hover:bg-neutral-700/40 transition duration-300 ease-in-out group' key={index}>
+                            <div className='h-[13rem]'>
+                              <img src={card.img} alt="Band Preview" className='object-cover rounded-md w-full h-full' />
+                            </div>
+                            <p className="leading-relaxed font-medium text-neutral-300 text-md text-center group-hover:text-green-500 transition duration-300 ease-in-out">
+                              {card.artist}
+                            </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-11 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                              <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
+                            </svg>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-
                 </div>
-                {/* Lower Part */}
               </div>
             </div>
           </div>
