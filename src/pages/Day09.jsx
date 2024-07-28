@@ -110,6 +110,21 @@ const Day09 = () => {
     }
   ]
 
+  const playlistCard = [
+    {
+      "img": "https://scpr.brightspotcdn.com/dims4/default/0edc928/2147483647/strip/true/crop/640x583+0+0/resize/880x802!/quality/90/?url=http%3A%2F%2Fscpr-brightspot.s3.us-west-2.amazonaws.com%2Flegacy%2Fi%2Fd209ed114d5699684f140f7910a0a07d%2F5b2c36474488b300092713af-original.jpg",
+      "artist": "Guns n' Roses",
+    },
+    {
+      "img": metallica01,
+      "artist": "Metallica",
+    },
+    {
+      "img": "https://www.riffx.fr/wp-content/uploads/2019/01/Nirvana-In-Utero-a-20-ans--433x350.jpg",
+      "artist": "Nirvana",
+    }
+  ]
+
   const ProfileWidget = ({ styles }) => {
     return (
       <div className={`${styles} items-center gap-8`}>
@@ -297,7 +312,7 @@ const Day09 = () => {
               <div className='space-y-4'>
                 {/* Upper part */}
                 <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
-                  <div className='relative col-span-1 max-h-[20rem]'>
+                  <a href='#' className='relative group col-span-1 max-h-[20rem]'>
                     <img src={queen01} alt="Queen band" className='object-cover w-full h-[20rem] rounded-lg' />
                     <div className='absolute top-4 left-4'>
                       <p className="leading-relaxed text-neutral-400 text-xs">
@@ -320,9 +335,12 @@ const Day09 = () => {
                         <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
                       </svg>
                     </div>
-                  </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-20 text-green-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                      <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
+                    </svg>
+                  </a>
                   <div className='col-span-1 grid grid-cols-2 gap-4'>
-                    <div className='bg-neutral-700/30 border border-neutral-600/30 relative rounded-lg flex items-center justify-center max-h-[20rem]'>
+                    <a href='#' className='relative group bg-neutral-700/30 border border-neutral-600/30 rounded-lg flex items-center justify-center max-h-[20rem]'>
                       <div className='absolute top-4 left-4'>
                         <p className="leading-relaxed text-neutral-400 text-xs">
                           69 tracks | 4 hours 37 minutes
@@ -334,8 +352,11 @@ const Day09 = () => {
                       <div className='size-40 mt-24 mb-12'>
                         <img src={beatles01} alt="The Beatles - Abbey Road" className='object-cover rounded-lg' />
                       </div>
-                    </div>
-                    <div className="relative rounded-lg max-h-[20rem] flex flex-col h-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
+                      </svg>
+                    </a>
+                    <div className="relative group rounded-lg max-h-[20rem] flex flex-col h-full">
                       <div className="flex-grow h-full">
                         <img src={acdc01} alt="AC/DC - Highway to Hell" className="object-cover rounded-lg h-full w-full" />
                       </div>
@@ -352,6 +373,9 @@ const Day09 = () => {
                           AC/DC | 2024
                         </p>
                       </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -362,9 +386,9 @@ const Day09 = () => {
                       <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                         Recently played
                       </h1>
-                      <p className="leading-relaxed text-neutral-400 text-xs">
+                      <a href='#' className="leading-relaxed text-neutral-400 hover:text-green-500 transition duration-300 text-xs">
                         Show all
-                      </p>
+                      </a>
                     </div>
                     <div className='space-y-1'>
                       {songDatas.map((track, index) => (
@@ -411,25 +435,24 @@ const Day09 = () => {
                       <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                         Made for you
                       </h1>
-                      <p className="leading-relaxed text-neutral-400 text-xs">
-                        AC/DC | 2024
-                      </p>
+                      <a href='#' className="leading-relaxed text-neutral-400 hover:text-green-500 transition duration-300 text-xs">
+                        Show all
+                      </a>
                     </div>
                     <div className='flex gap-3'>
-                      <div className='w-full h-[13rem]'>
-                        <div className='h-full'>
-                          <img src="https://scpr.brightspotcdn.com/dims4/default/0edc928/2147483647/strip/true/crop/640x583+0+0/resize/880x802!/quality/90/?url=http%3A%2F%2Fscpr-brightspot.s3.us-west-2.amazonaws.com%2Flegacy%2Fi%2Fd209ed114d5699684f140f7910a0a07d%2F5b2c36474488b300092713af-original.jpg" alt="Guns n' roses band" className='object-cover rounded-lg w-full h-full' />
-                        </div>
-                        <p className="leading-relaxed font-medium text-neutral-300 text-md text-center">
-                          Guns n' Roses
-                        </p>
-                      </div>
-                      <div className='w-full h-[13rem]'>
-                        <img src={metallica01} alt="Metallica Band" className='object-cover rounded-lg w-full h-full' />
-                      </div>
-                      <div className='w-full h-[13rem]'>
-                        <img src="https://www.riffx.fr/wp-content/uploads/2019/01/Nirvana-In-Utero-a-20-ans--433x350.jpg" alt="Nirvana Band" className='object-cover rounded-lg w-full h-full' />
-                      </div>
+                      {playlistCard.map((card, index) => (
+                        <a href='#' className='relative w-full space-y-1 p-2 rounded-lg hover:bg-neutral-700/40 transition duration-300 ease-in-out group' key={index}>
+                          <div className='h-[13rem]'>
+                            <img src={card.img} alt="Band Preview" className='object-cover rounded-md w-full h-full' />
+                          </div>
+                          <p className="leading-relaxed font-medium text-neutral-300 text-md text-center group-hover:text-green-500 transition duration-300 ease-in-out">
+                            {card.artist}
+                          </p>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-11 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
+                          </svg>
+                        </a>
+                      ))}
                     </div>
                   </div>
 
