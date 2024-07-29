@@ -14,6 +14,7 @@ const titles = [
   'Settings', // Day07
   '404 Page Design', // Day08
   'Music Player', // Day09
+  'Social Share' // Day10
 ];
 
 const descriptions = [
@@ -26,6 +27,7 @@ const descriptions = [
   "Design settings for something. Is it for security or privacy settings? Game settings? Light mode vs. dark mode? System settings (sound, notifications, screen time, Wi-Fi, etc.? What is it and what are the most important settings?", // Day07
   "Design a 404 page - that's not boring! Does it suit the brand's style? Is it user-friendly? It might sound mundane, but not everything can be flashy or glamorous. Every day millions of people will be landing on 404 pages. You have an opportunity to help them in a way that's useful and aesthetically pleasing. (It's up to you!)", // Day08
   "Design a music player. It could be browser based or an app (i.e. Pandora, Spotify, SoundCloud, etc.) or in a standalone product like in a car dashboard, jukebox, etc. Consider the controls, placements, imagery such as the artist or album cover, etc. Also, consider the device type that's playing the music.", // Day09
+  "Design a social share button/icon and be mindful of the size, imagery, placement, and purpose for sharing. It could be to share an article snippet, or a simple link with a photo.", // Day10
 ];
 
 const images = [
