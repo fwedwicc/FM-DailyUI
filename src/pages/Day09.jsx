@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
 import {
-  mj01, queen01, beatles01, acdc01, metallica01, elton01, john01, scorpions01, beegees01, rollingStones01, dailyMix01, dailyMix02, dailyMix03
+  mj01, queen01, beatles01, acdc01, metallica01, elton01, john01, scorpions01, beegees01, rollingStones01, dailyMix01, dailyMix02, dailyMix03, musicBox
 } from '../assets/day09'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
@@ -79,36 +79,36 @@ const Day09 = () => {
       "img": mj01,
       "song": "Billie Jean",
       "artist": "Michael Jackson",
-      "album": "Test",
-      "duration": "1:40"
+      "album": "Thriller",
+      "duration": "4:54"
     },
     {
-      "img": mj01,
-      "song": "Billie Jean",
-      "artist": "Michael Jackson",
-      "album": "Test",
-      "duration": "1:40"
+      "img": elton01,
+      "song": "Goodbye Yellow Brick Road",
+      "artist": "Elton John",
+      "album": "GYBR",
+      "duration": "3:12"
     },
     {
-      "img": mj01,
-      "song": "Billie Jean",
-      "artist": "Michael Jackson",
-      "album": "Test",
-      "duration": "1:40"
+      "img": john01,
+      "song": "Imagine",
+      "artist": "John Lennon",
+      "album": "Imagine",
+      "duration": "3:07"
     },
     {
-      "img": mj01,
-      "song": "Billie Jean",
-      "artist": "Michael Jackson",
-      "album": "Test",
-      "duration": "1:40"
+      "img": beegees01,
+      "song": "How Deep is Your Love",
+      "artist": "Bee Gees",
+      "album": "Greatest",
+      "duration": "4:05"
     },
     {
-      "img": mj01,
-      "song": "Billie Jean",
-      "artist": "Michael Jackson",
-      "album": "Test",
-      "duration": "1:40"
+      "img": rollingStones01,
+      "song": "Paint It, Black",
+      "artist": "Rolling Stones",
+      "album": "Aftermath",
+      "duration": "3:22"
     }
   ]
 
@@ -125,6 +125,12 @@ const Day09 = () => {
       "img": "https://www.riffx.fr/wp-content/uploads/2019/01/Nirvana-In-Utero-a-20-ans--433x350.jpg",
       "artist": "Nirvana",
     }
+  ]
+
+  const dailyMixes = [
+    dailyMix01,
+    dailyMix02,
+    dailyMix03,
   ]
 
   const ProfileWidget = ({ styles }) => {
@@ -346,7 +352,7 @@ const Day09 = () => {
                     </svg>
                   </a>
                   <div className='col-span-1 grid grid-cols-2 gap-4'>
-                    <a href='#' className='relative group bg-gradient-to-bl from-green-700/20 to-green-500/50 border border-green-500/30 rounded-lg flex items-center justify-center max-h-[20rem]'>
+                    <a href='#' className='relative group bg-gradient-to-t from-teal-400/50 via-emerald-500/70 to-green-600/50  rounded-lg flex items-center justify-center max-h-[20rem]'>
                       <div className='absolute top-4 left-4'>
                         <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                           Playlist of the day
@@ -420,7 +426,7 @@ const Day09 = () => {
                               {track.duration}
                             </p>
                             <div className='flex items-center gap-3'>
-                              {index === 2 || index === 3 ? (
+                              {index === 2 || index === 4 ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 text-neutral-400 ms-3 cursor-pointer">
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                                 </svg>
@@ -441,20 +447,23 @@ const Day09 = () => {
                         </div>
                       ))}
                     </div>
-                    <div className='mt-4 border p-6 rounded-xl w-full grid grid-cols-2'>
-                      <div className='space-y-5'>
+                    <div className='mt-4 border-2 border-green-500/30 bg-gradient-to-bl from-lime-400/30 via-emerald-500/30 to-green-600/30 p-6 rounded-xl w-full grid grid-cols-2'>
+                      <div className='space-y-5 flex flex-col justify-center items-start'>
                         <div className='space-y-1'>
                           <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                             Check the power of [untitled]
                           </h1>
-                          <p className="leading-relaxed text-neutral-400">
+                          <p className="leading-relaxed text-neutral-300">
                             Enjoy uninterrupted music streaming with our premium subscription.
                           </p>
                         </div>
                         <Button
-                          styles={'flex items-center gap-2.5 text-white bg-green-600 hover:bg-green-700 border-green-500/60 focus:ring-green-300'}
+                          styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
                           label={'Upgrade'}
                         />
+                      </div>
+                      <div className='flex items-center justify-center'>
+                        <img src={musicBox} alt="Music Illustration" className='w-52 h-auto' />
                       </div>
                     </div>
                   </div>
@@ -469,7 +478,7 @@ const Day09 = () => {
                     </div>
                     <div className='flex gap-3'>
                       {playlistCard.map((card, index) => (
-                        <a href='#' className='relative w-full space-y-1 p-2 rounded-lg hover:bg-neutral-700/40 transition duration-300 ease-in-out group' key={index}>
+                        <div className='relative w-full space-y-1 p-2 rounded-lg hover:bg-neutral-700/40 transition duration-300 ease-in-out group' key={index}>
                           <div className='h-[11rem]'>
                             <img src={card.img} alt="Band Preview" className='object-cover rounded-md w-full h-full' />
                           </div>
@@ -479,28 +488,25 @@ const Day09 = () => {
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-11 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                             <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
                           </svg>
-                        </a>
+                        </div>
                       ))}
                     </div>
                     <div className='mt-2'>
                       <div className='flex justify-between items-center py-3'>
                         <h1 className="font-normal text-neutral-200 text-md md:text-xl">
-                          Jump back in 2
+                          Daily Mixes
                         </h1>
                         <a href='#' className="leading-relaxed text-neutral-400 hover:text-green-500 transition duration-300 text-xs">
                           Show all
                         </a>
                       </div>
                       <div className='flex gap-3'>
-                        {playlistCard.map((card, index) => (
+                        {dailyMixes.map((card, index) => (
                           <a href='#' className='relative w-full space-y-1 p-2 rounded-lg hover:bg-neutral-700/40 transition duration-300 ease-in-out group' key={index}>
                             <div className='h-[13rem]'>
-                              <img src={card.img} alt="Band Preview" className='object-cover rounded-md w-full h-full' />
+                              <img src={card} alt="Band Preview" className='object-cover rounded-md w-full h-full' />
                             </div>
-                            <p className="leading-relaxed font-medium text-neutral-300 text-md text-center group-hover:text-green-500 transition duration-300 ease-in-out">
-                              {card.artist}
-                            </p>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-11 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 text-green-500 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                               <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z" clipRule="evenodd" />
                             </svg>
                           </a>
