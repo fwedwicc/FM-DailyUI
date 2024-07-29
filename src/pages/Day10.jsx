@@ -194,10 +194,12 @@ const Day10 = () => {
                 <div className='space-y-[8px]'>
                   {[
                     {
+                      "icon": "M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z",
                       "label": "Anyone at Company Co. can view",
                       "action": "Change access",
                     },
                     {
+                      "icon": "M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM6.262 6.072a8.25 8.25 0 1 0 10.562-.766 4.5 4.5 0 0 1-1.318 1.357L14.25 7.5l.165.33a.809.809 0 0 1-1.086 1.085l-.604-.302a1.125 1.125 0 0 0-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 0 1-2.288 4.04l-.723.724a1.125 1.125 0 0 1-1.298.21l-.153-.076a1.125 1.125 0 0 1-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 0 1-.21-1.298L9.75 12l-1.64-1.64a6 6 0 0 1-1.676-3.257l-.172-1.03Z",
                       "label": "Anyone with the link can edit",
                       "action": "Set password",
                     }
@@ -205,11 +207,16 @@ const Day10 = () => {
                     const parts = row.label.split('Company Co.');
                     return (
                       <div className='flex justify-between items-center' key={index}>
-                        <span className="text-neutral-400 text-sm">
-                          {parts[0]}
-                          <span className={`${index === 1 ? 'hidden' : ''} text-green-500`}>Company Co.</span>
-                          {parts[1]}
-                        </span>
+                        <div className='flex items-center gap-3'>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4 text-neutral-300">
+                            <path fillRule="evenodd" d={row.icon} clipRule="evenodd" />
+                          </svg>
+                          <span className="text-neutral-400 text-sm">
+                            {parts[0]}
+                            <span className={`${index === 1 ? 'hidden' : ''} text-green-500`}>Company Co.</span>
+                            {parts[1]}
+                          </span>
+                        </div>
                         <a href='#' className="text-blue-500 font-semibold text-sm">
                           {row.action}
                         </a>
@@ -218,11 +225,16 @@ const Day10 = () => {
                   })}
                 </div>
               </div>
-              <div className='rounded-md bg-neutral-700/30 border border-neutral-600/40 p-4 space-y-4'>
+              <div className='rounded-md bg-neutral-700/30 border border-neutral-600/40 py-4 px-6 space-y-4'>
                 <div>
-                  <span className="leading-relaxed text-neutral-200 font-bold text-sm">
-                    4/10 team seats used
-                  </span>
+                  <div className='flex justify-between items-start'>
+                    <span className="leading-relaxed text-neutral-200 font-bold text-sm">
+                      4/10 team seats used
+                    </span>
+                    <a href='#' className="leading-relaxed text-green-500 font-bold text-sm">
+                      Manage
+                    </a>
+                  </div>
                   <p className="leading-relaxed text-neutral-400 text-sm">
                     You can upgrade your account to add more users to your team.
                   </p>
