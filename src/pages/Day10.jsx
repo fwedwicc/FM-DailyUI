@@ -1,7 +1,7 @@
 import React from 'react'
 import { fmUILogo } from '../assets'
 import { qrCode } from '../assets/day10'
-import { InputField, Button } from '../components'
+import { InputField, Button, Tooltip, Select } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
@@ -10,6 +10,33 @@ const Day10 = () => {
   useLenisScroll();
   useScrollToTop();
 
+  const recipeints = [
+    {
+      "avatar": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-3.jpg?raw=true",
+      "name": "Emma Johnson",
+      "email": "emma.johnson@email.com",
+      "access": "accepted",
+    },
+    {
+      "avatar": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-2.jpg?raw=true",
+      "name": "John Smith",
+      "email": "john.smith@email.com",
+      "access": "sent",
+    },
+    {
+      "avatar": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-4.jpg?raw=true",
+      "name": "Olivia Brown",
+      "email": "olivia.brown@email.com",
+      "access": "sent",
+    },
+    {
+      "avatar": "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-1.jpg?raw=true",
+      "name": "James Wilson",
+      "email": "james.wilson@email.com",
+      "access": "accepted",
+    }
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,12 +44,12 @@ const Day10 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 lg:py-12 py-8">
+      <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 lg:py-12 py-8 overflow-x-hidden">
         {/* Modal */}
-        <div className="border border-neutral-600/50 bg-neutral-700/20 rounded-xl max-w-7xl p-8 space-y-5 w-full">
-          <div className="grid lg:grid-cols-12 grid-cols-1 gap-5">
+        <div className="border border-neutral-600/50 bg-neutral-700/20 rounded-xl max-w-7xl p-3 space-y-5 w-full">
+          <div className="grid lg:grid-cols-12 grid-cols-1">
             {/* Left Content */}
-            <div className="lg:col-span-5 col-span-1 space-y-6">
+            <div className="lg:col-span-5 col-span-1 space-y-6 bg-neutral-600/10 px-8 py-6 rounded-md">
               <div>
                 <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
                   Your document is published
@@ -72,8 +99,84 @@ const Day10 = () => {
               </div>
             </div>
             {/* Right Content */}
-            <div className='lg:col-span-7 col-span-1 border'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur veniam velit adipisci porro consequatur deserunt atque ea reiciendis amet iure repellat, quae soluta quam voluptates tempore rerum pariatur fuga. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam ipsam commodi voluptas dicta quasi reiciendis animi tempore, corrupti, maiores, eaque ipsa esse ad fuga laboriosam? Ex porro doloremque reprehenderit? Suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, laborum. Id voluptate perferendis nisi fuga laboriosam consectetur obcaecati minus, vero sunt! Dolorum magni unde harum placeat officia cum, quasi excepturi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et nulla non exercitationem dolore velit facere, expedita hic dolor ratione soluta facilis inventore excepturi ex consequuntur aut porro praesentium cum dolorum.
+            <div className='lg:col-span-7 col-span-1 space-y-6 pl-8 pr-6 py-6'>
+              <div>
+                <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
+                  Invite people to your document
+                </h1>
+                <p className="leading-relaxed text-neutral-400 text-sm">
+                  We'll email them instructions and a link to create an accont.
+                </p>
+              </div>
+              <div>
+                <div className='flex items-end justify-between gap-3 pb-3'>
+                  <div className='w-full'>
+                    <InputField
+                      id="email-add"
+                      label="Email Address"
+                      type="text"
+                      placeholder='john.doe@email.com'
+                    />
+                  </div>
+                  <Button
+                    styles={'text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                    label={'Send invite'}
+                  />
+                </div>
+              </div>
+              <div className='space-y-2'>
+                <div className='flex justify-between items-center'>
+                  <p className="leading-relaxed text-neutral-300 text-sm">
+                    Recipeints
+                  </p>
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore id vero consequuntur saepe. Quia tempora."
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </div>
+                <div className='space-y-2'>
+                  {recipeints.map((row, index) => (
+                    <div className='flex justify-between items-center py-1' key={index}>
+                      <div className='flex items-center gap-4'>
+                        <img className="size-9 border-2 border-neutral-300 rounded-full" src={row.avatar} alt="Sample Avatar Profile" />
+                        <div className='flex flex-col'>
+                          <span className="text-neutral-300 text">
+                            {row.name}
+                          </span>
+                          <span className="text-neutral-400 text-sm">
+                            {row.email}
+                          </span>
+                        </div>
+                      </div>
+                      <div className='flex gap-3 items-center'>
+                        {row.access === "sent" ? (
+                          <span className="leading-relaxed text-nowrap text-neutral-300 px-2.5 py-[2px] rounded-full text-xs bg-neutral-700">
+                            Invite sent
+                          </span>
+                        ) : (
+                          <span className="leading-relaxed text-nowrap text-green-200 px-2.5 py-[2px] rounded-full text-xs bg-green-800/60">
+                            Invite accepted
+                          </span>
+                        )}
+                        <Select
+                          id="access"
+                          options={[
+                            { value: 'CV', label: 'Can view' },
+                            { value: 'CE', label: 'Can edit' },
+                            { value: 'A', label: 'Admin' },
+                            { value: 'DA', label: 'Default Access' },
+                          ]}
+                          required={true}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
