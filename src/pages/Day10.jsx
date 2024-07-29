@@ -92,14 +92,14 @@ const Day10 = () => {
                   </p>
                   <hr className='h-px w-full border-neutral-600/70' />
                 </div>
-                <img src={qrCode} alt="Sample QR Code" className='w-[25rem] h-auto' />
+                <img src={qrCode} alt="Sample QR Code" className='w-[25rem] h-auto lg:mt-12' />
                 <p className='text-neutral-300 text-center text-xs px-3 -mt-16'>
                   Scan this code with your phone to <br /> open your document in your browser.
                 </p>
               </div>
             </div>
             {/* Right Content */}
-            <div className='lg:col-span-7 col-span-1 space-y-6 pl-8 pr-6 py-6'>
+            <div className='lg:col-span-7 col-span-1 space-y-6 lg:pl-8 pl-6 pr-6 pt-6'>
               <div>
                 <h1 className="font-medium text-neutral-200 text-lg md:text-xl">
                   Invite people to your document
@@ -138,9 +138,9 @@ const Day10 = () => {
                     </svg>
                   </Tooltip>
                 </div>
-                <div className='space-y-2'>
+                <div className='space-y-0 lg:space-y-2'>
                   {recipeints.map((row, index) => (
-                    <div className='flex justify-between items-center py-1' key={index}>
+                    <div className='flex justify-between items-center lg:py-1 py-3 flex-wrap gap-3 w-full md:border-none border-b border-neutral-700' key={index}>
                       <div className='flex items-center gap-4'>
                         <img className="size-9 border-2 border-neutral-300 rounded-full" src={row.avatar} alt="Sample Avatar Profile" />
                         <div className='flex flex-col'>
@@ -177,10 +177,88 @@ const Day10 = () => {
                   ))}
                 </div>
               </div>
+              <div className='space-y-3'>
+                <div className='flex justify-between items-center'>
+                  <p className="leading-relaxed text-neutral-300">
+                    Access settings
+                  </p>
+                  <Tooltip
+                    styles='lg:-translate-x-1/2 -translate-x-[95%] left-1/2 w-72'
+                    content=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore id vero consequuntur saepe. Quia tempora."
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-blue-500 cursor-pointer">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                  </Tooltip>
+                </div>
+                <div className='space-y-[8px]'>
+                  {[
+                    {
+                      "label": "Anyone at Company Co. can view",
+                      "action": "Change access",
+                    },
+                    {
+                      "label": "Anyone with the link can edit",
+                      "action": "Set password",
+                    }
+                  ].map((row, index) => {
+                    const parts = row.label.split('Company Co.');
+                    return (
+                      <div className='flex justify-between items-center' key={index}>
+                        <span className="text-neutral-400 text-sm">
+                          {parts[0]}
+                          <span className={`${index === 1 ? 'hidden' : ''} text-green-500`}>Company Co.</span>
+                          {parts[1]}
+                        </span>
+                        <a href='#' className="text-blue-500 font-semibold text-sm">
+                          {row.action}
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className='rounded-md bg-neutral-700/30 border border-neutral-600/40 p-4 space-y-4'>
+                <div>
+                  <span className="leading-relaxed text-neutral-200 font-bold text-sm">
+                    4/10 team seats used
+                  </span>
+                  <p className="leading-relaxed text-neutral-400 text-sm">
+                    You can upgrade your account to add more users to your team.
+                  </p>
+                </div>
+                <div className="w-full bg-neutral-600 rounded-full h-1">
+                  <div className="bg-green-500 h-1 rounded-full" style={{ width: '40%' }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Footer */}
+          <div className='px-6 pb-2'>
+            <div className='flex flex-wrap-reverse justify-end md:gap-3 gap-2'>
+              <Button
+                styles={'flex items-center gap-2.5 text-neutral-200 bg-neutral-700/50 hover:bg-neutral-700 border-none focus:ring-neutral-600/60'}
+                label={'Get embed code'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                </svg>
+              </Button>
+              <Button
+                styles={'flex items-center gap-2.5 text-neutral-200 bg-neutral-700/50 hover:bg-neutral-700 border-none focus:ring-neutral-600/60'}
+                label={'Copy link'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                </svg>
+              </Button>
+              <Button
+                styles={'flex items-center gap-2.5 text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
+                label={'Done'}
+              />
             </div>
           </div>
         </div>
-
       </section>
     </motion.div >
   )
