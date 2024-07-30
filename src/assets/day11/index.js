@@ -1,5 +1,5 @@
-// import qrCode from './dummy-qr-code.png'
+import successBg from './success-smiley.png'
 
-// export {
-//   qrCode,
-// }
+export {
+  successBg,
+}
