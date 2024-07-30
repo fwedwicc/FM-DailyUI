@@ -1,5 +1,5 @@
 import React from 'react';
-import { successBg } from '../assets/day11';
+import { successBg, errorBg } from '../assets/day11';
 import useLenisScroll from '../hooks/useLenisScroll';
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion';
@@ -29,7 +29,7 @@ const Day11 = () => {
     }
   };
 
-  const PhoneMockup = ({ color, children }) => {
+  const PhoneMockup = ({ color, bg, children }) => {
     const { ring, border } = getColorClasses(color);
 
     return (
@@ -37,7 +37,7 @@ const Day11 = () => {
         {/* Phone Mockup */}
         <div className={clsx('relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2', ring, 'border-neutral-900')}>
           {/* Background Image */}
-          <img src={successBg} alt="Illustration Background" className='rounded-[1.5rem] absolute object-cover w-full h-full z-0' />
+          <img src={bg} alt="Illustration Background" className='rounded-[1.5rem] absolute object-cover w-full h-full z-0' />
           {/* Sound Buttons */}
           <div className='absolute top-20 -left-3 flex flex-col gap-3'>
             {[0, 1, 2].map((index) => (
@@ -84,13 +84,13 @@ const Day11 = () => {
       <div className='absolute w-full h-full pt-12 px-4 pb-11 rounded-[1.5rem] flex flex-col justify-between'>
         <div className="space-y-3 text-white">
           <div className='flex justify-between items-center'>
-            <button className='size-8 flex justify-center items-center hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-green-400 z-50 transition duration-300 ease-in-out'>
+            <button className='size-8 flex justify-center items-center hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                 <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
               </svg>
             </button>
-            <span className='text-xs text-center z-50'>DailyUI</span>
-            <button className='size-8 flex justify-center items-center hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-green-400 z-50 transition duration-300 ease-in-out'>
+            <span className='text-xs text-center z-50'>FM DailyUI</span>
+            <button className='size-8 flex justify-center items-center hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                 <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
               </svg>
@@ -128,7 +128,7 @@ const Day11 = () => {
       <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 py-8">
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* Success */}
-          <PhoneMockup color='green'>
+          <PhoneMockup color='green' bg={successBg}>
             {/* Content */}
             <Content
               label='Hooray!'
@@ -138,7 +138,7 @@ const Day11 = () => {
             />
           </PhoneMockup>
           {/* Error */}
-          <PhoneMockup color='red'>
+          <PhoneMockup color='red' bg={errorBg}>
             {/* Content */}
             <Content
               label='Oops!'
