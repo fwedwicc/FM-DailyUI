@@ -13,6 +13,7 @@
     "@codaworks/react-glow": "^1.0.6",
     "@studio-freight/lenis": "^1.0.42",
     "chart.js": "^4.4.3",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.3.7",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
