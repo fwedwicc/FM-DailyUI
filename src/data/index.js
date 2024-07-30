@@ -14,7 +14,8 @@ const titles = [
   'Settings', // Day07
   '404 Page Design', // Day08
   'Music Player', // Day09
-  'Social Share' // Day10
+  'Social Share', // Day10
+  'Flash Message', // Day11
 ];
 
 const descriptions = [
@@ -28,6 +29,7 @@ const descriptions = [
   "Design a 404 page - that's not boring! Does it suit the brand's style? Is it user-friendly? It might sound mundane, but not everything can be flashy or glamorous. Every day millions of people will be landing on 404 pages. You have an opportunity to help them in a way that's useful and aesthetically pleasing. (It's up to you!)", // Day08
   "Design a music player. It could be browser based or an app (i.e. Pandora, Spotify, SoundCloud, etc.) or in a standalone product like in a car dashboard, jukebox, etc. Consider the controls, placements, imagery such as the artist or album cover, etc. Also, consider the device type that's playing the music.", // Day09
   "Design a social share button/icon and be mindful of the size, imagery, placement, and purpose for sharing. It could be to share an article snippet, or a simple link with a photo.", // Day10
+  "Design a Flash Message with both the error message and success message. Is it for a sign up form? A download/upload message? Is it to promote a membership plan? ", // Day11
 ];
 
 const images = [
