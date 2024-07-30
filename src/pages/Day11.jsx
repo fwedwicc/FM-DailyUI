@@ -40,7 +40,7 @@ const Day11 = () => {
           <div className='absolute top-20 -left-3 flex flex-col gap-3'>
             {[0, 1, 2].map((index) => (
               <div
-                className={clsx('rounded-full w-2 bg-neutral-900 border-l-2', border, {
+                className={clsx('rounded-full w-2 bg-neutral-950 border-l-2', border, {
                   'h-7': index === 0,
                   'h-10': index !== 0,
                 })}
@@ -49,9 +49,9 @@ const Day11 = () => {
             ))}
           </div>
           {/* Power Button */}
-          <div className={clsx('absolute top-[9.2rem] border-r-2 -right-3 rounded-full h-16 w-2 bg-neutral-900', border)}></div>
+          <div className={clsx('absolute top-[9.2rem] border-r-2 -right-3 rounded-full h-16 w-2 bg-neutral-950', border)}></div>
           {/* Camera */}
-          <div className='absolute rounded-full h-5 w-20 top-3 left-1/2 transform -translate-x-1/2 bg-neutral-900'></div>
+          <div className='absolute rounded-full h-5 w-20 top-3 left-1/2 transform -translate-x-1/2 bg-neutral-950'></div>
           {/* Phone Header */}
           <div className='absolute w-full flex justify-between items-center pt-2.5 px-3.5'>
             <p className="leading-relaxed text-neutral-300 text-xs font-semibold">
@@ -69,15 +69,44 @@ const Day11 = () => {
               ))}
             </div>
           </div>
-          <div className='text-xs'>
-            {children}
-          </div>
+          {children}
           {/* Phone Navigation */}
           <div className='absolute rounded-full h-1.5 w-24 bottom-2 left-1/2 transform -translate-x-1/2 bg-neutral-900'></div>
         </div>
       </>
     );
   };
+
+  const Content = ({ label, message, button }) => {
+    return (
+      <div className='h-full pt-12 px-4 pb-11 bg-neutral-600/10 rounded-[1.5rem] flex flex-col justify-between'>
+        <div className='flex justify-between items-center'>
+          <button className='size-8 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+              <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
+            </svg>
+          </button>
+          <span className='text-xs text-center text-neutral-300'>DailyUI</span>
+          <button className='size-8 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+              <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        <div className='flex flex-col items-center justify-center gap-10'>
+          <div className='space-y-1'>
+            <h1 className="font-medium text-neutral-200 text-2xl md:text-4xl text-center">
+              {label}
+            </h1>
+            <p className='text-xs text-center text-neutral-300' dangerouslySetInnerHTML={{ __html: message }}></p>
+          </div>
+          <button className='text-neutral-800 text-xs bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60 inline-block shrink-0 px-4 py-1.5 transition duration-300 ease-in-out border font-semibold rounded-md focus:outline-none focus:ring-2 active:scale-95'>
+            {button}
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <motion.div
@@ -90,11 +119,21 @@ const Day11 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* Success */}
           <PhoneMockup color='green'>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, molestias numquam recusandae dolore laborum eligendi quaerat odit perferendis quasi, officia nihil molestiae vero accusamus est, esse suscipit quisquam porro eum?</p>
+            {/* Content */}
+            <Content
+              label='Hooray!'
+              message='Sit back and relax, <br /> your order is on the way.'
+              button='Continue'
+            />
           </PhoneMockup>
           {/* Error */}
           <PhoneMockup color='red'>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, molestias numquam recusandae dolore laborum eligendi quaerat odit perferendis quasi, officia nihil molestiae vero accusamus est, esse suscipit quisquam porro eum?</p>
+            {/* Content */}
+            <Content
+              label='Oops!'
+              message="Your order didn't go through, <br /> please try again."
+              button='Try again'
+            />
           </PhoneMockup>
         </div>
       </section>
