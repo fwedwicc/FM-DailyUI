@@ -17,7 +17,7 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className='bg-neutral-900'
     >
-      <div className='grid lg:grid-cols-3 grid-cols-2 gap-3 px-24 py-12'>
+      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-20 md:px-12 px-6 py-12'>
         {Cards.map((card, index) => (
           <Card
             key={index}

@@ -42,7 +42,7 @@ const Day11 = () => {
           <div className='absolute top-20 -left-3 flex flex-col gap-3'>
             {[0, 1, 2].map((index) => (
               <div
-                className={clsx('rounded-full w-2 bg-neutral-950 border-l-2', border, {
+                className={clsx('rounded-full w-2 bg-neutral-900 border-l-2', border, {
                   'h-7': index === 0,
                   'h-10': index !== 0,
                 })}
@@ -51,9 +51,9 @@ const Day11 = () => {
             ))}
           </div>
           {/* Power Button */}
-          <div className={clsx('absolute top-[9.2rem] border-r-2 -right-3 rounded-full h-16 w-2 bg-neutral-950', border)}></div>
+          <div className={clsx('absolute top-[9.2rem] border-r-2 -right-3 rounded-full h-16 w-2 bg-neutral-900', border)}></div>
           {/* Camera */}
-          <div className='absolute rounded-full h-5 w-20 top-3 left-1/2 transform -translate-x-1/2 bg-neutral-950'></div>
+          <div className='absolute rounded-full h-[1.3rem] w-20 top-3 left-1/2 transform -translate-x-1/2 bg-neutral-900'></div>
           {/* Phone Header */}
           <div className={`absolute w-full flex justify-between items-center pt-2.5 px-3.5 text-white`}>
             <p className="leading-relaxed text-xs font-semibold">
