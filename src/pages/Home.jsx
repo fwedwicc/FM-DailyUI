@@ -23,7 +23,7 @@ const Home = () => {
               <img src={FMLogo} alt="FM Logo" className='absolute top-0 left-0 w-6 h-auto' />
               <div className='space-y-7 lg:pt-0 pt-12'>
                 <span className='bg-green-900/50 text-green-400 rounded-full border border-green-400/40 lg:py-1.5 lg:px-2.5 py-1 px-1.5 inline-flex items-center text-nowrap gap-2 text-xs'>
-                  Featuring fmUI
+                  Featuring Dark fmUI
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-2 lg:size-3">
                     <path fillRule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clipRule="evenodd" />
                   </svg>
@@ -38,7 +38,7 @@ const Home = () => {
                 </div>
               </div>
               <div className='flex gap-3'>
-                {/* TODO: fmUI Live Link */}
+                {/* TODO: fmUI Link */}
                 <a href='#' target='_blank' rel='noopener noreferrer' className='w-auto relative inline-flex lg:h-10 h-8 overflow-hidden rounded-md p-[1px] hover:shadow-lg hover:shadow-green-500/10 transition duration-300 ease-in-out'>
                   <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#cbffd1_0%,#39b259_50%,#cdffcb_100%)]" />
                   <span className=' bg-green-600 hover:bg-green-700 inline-flex h-full w-full cursor-pointer items-center justify-center transition duration-300 ease-in-out rounded-md bg-base px-3 lg:px-3.5 py-1 text-xs lg:text-sm font-semibold text-white backdrop-blur-3xl gap-3 ${styles}'>
@@ -58,8 +58,9 @@ const Home = () => {
                   </span>
                 </a>
               </div>
+              {/* TODO: FM Portfolio Link */}
               <p className="text-xs leading-relaxed text-green-50/80">
-                Originally designed and developed by <a href='https://github.com/fwedwicc' className='text-green-500' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
+                Originally designed and developed by <a href='#' className='text-green-500' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
               </p>
             </div>
           </div>
@@ -84,7 +85,8 @@ const Home = () => {
               <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
             </svg>
             by
-            <a href='https://github.com/fwedwicc' className='text-green-500 ms-[5px]' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
+            {/* TODO: FM Portfolio Link */}
+            <a href='#' className='text-green-500 ms-[5px]' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
           </p></div>
         <ul className='flex items-center md:gap-2 gap-1'>
           {[
