@@ -14,9 +14,9 @@ const Home = () => {
   const Hero = () => {
     return (
       <main className="relative lg:h-screen h-auto grid lg:grid-cols-2 grid-cols-1" id='home'>
-        <img src={glowEllipse} alt="Glow Ellipse" className="absolute inset-0 z-0" />
+        <img src={glowEllipse} alt="Glow Ellipse" className="absolute inset-0 z-0" draggable="false" />
         <div className="rounded-2xl p-[1px] bg-border-gradient z-10 md:mt-10 mt-7 md:ml-10 ml-7">
-          <div className='relative rounded-2xl h-full md:p-16 p-7 bg-neutral-900'>
+          <div className='relative rounded-2xl h-full md:p-16 p-7 bg-neutral-900' draggable="false">
             <img src={glowEllipse} alt="Glow Ellipse" className="absolute inset-0 z-0 rounded-tl-2xl" />
             {/* Hero Content */}
             <div className="relative w-full h-full flex flex-col gap-10 justify-center">
@@ -38,8 +38,7 @@ const Home = () => {
                 </div>
               </div>
               <div className='flex gap-3'>
-                {/* TODO: fmUI Link */}
-                <a href='#' target='_blank' rel='noopener noreferrer' className='w-auto relative inline-flex lg:h-10 h-8 overflow-hidden rounded-md p-[1px] hover:shadow-lg hover:shadow-green-500/10 transition duration-300 ease-in-out'>
+                <a href='https://fwedwicc.github.io/fmUI/' target='_blank' rel='noopener noreferrer' className='w-auto relative inline-flex lg:h-10 h-8 overflow-hidden rounded-md p-[1px] hover:shadow-lg hover:shadow-green-500/10 transition duration-300 ease-in-out'>
                   <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#cbffd1_0%,#39b259_50%,#cdffcb_100%)]" />
                   <span className=' bg-green-600 hover:bg-green-700 inline-flex h-full w-full cursor-pointer items-center justify-center transition duration-300 ease-in-out rounded-md bg-base px-3 lg:px-3.5 py-1 text-xs lg:text-sm font-semibold text-white backdrop-blur-3xl gap-3 ${styles}'>
                     Visit fmUI
@@ -58,9 +57,8 @@ const Home = () => {
                   </span>
                 </a>
               </div>
-              {/* TODO: FM Portfolio Link */}
               <p className="text-xs leading-relaxed text-green-50/80">
-                Originally designed and developed by <a href='#' className='text-green-500' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
+                Originally designed and developed by <a href='https://fwedwicc.github.io/FM-Portfolio/' className='text-green-500' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
               </p>
             </div>
           </div>
@@ -85,8 +83,7 @@ const Home = () => {
               <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
             </svg>
             by
-            {/* TODO: FM Portfolio Link */}
-            <a href='#' className='text-green-500 ms-[5px]' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
+            <a href='https://fwedwicc.github.io/FM-Portfolio/' className='text-green-500 ms-[5px]' target='_blank' rel='noopener noreferrer'>Frederick Moreno</a>
           </p></div>
         <ul className='flex items-center md:gap-2 gap-1'>
           {[
@@ -100,8 +97,7 @@ const Home = () => {
               extra: "M7.2 8.809H4V19.5h3.2V8.809Z"
             },
             {
-              // TODO: Dribble link
-              link: "#",
+              link: "https://dribbble.com/fwedwic",
               icon: "M12 2a10 10 0 1 0 10 10A10.009 10.009 0 0 0 12 2Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.093 20.093 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM10 3.707a8.82 8.82 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.755 45.755 0 0 0 10 3.707Zm-6.358 6.555a8.57 8.57 0 0 1 4.73-5.981 53.99 53.99 0 0 1 3.168 4.941 32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.641 31.641 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM12 20.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 15.113 13a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
             },
             {
