@@ -19,7 +19,7 @@ const Home = () => {
           <div className='relative rounded-2xl h-full md:p-16 p-7 bg-neutral-900'>
             <img src={glowEllipse} alt="Glow Ellipse" className="absolute inset-0 z-0 rounded-tl-2xl" />
             {/* Hero Content */}
-            <div className="relative w-full h-full flex flex-col gap-8 justify-center">
+            <div className="relative w-full h-full flex flex-col gap-10 justify-center">
               <img src={FMLogo} alt="FM Logo" className='absolute top-0 left-0 w-6 h-auto' />
               <div className='space-y-7 lg:pt-0 pt-12'>
                 <span className='bg-green-900/50 text-green-400 rounded-full border border-green-400/40 lg:py-1.5 lg:px-2.5 py-1 px-1.5 inline-flex items-center text-nowrap gap-2 text-xs'>
@@ -28,8 +28,8 @@ const Home = () => {
                     <path fillRule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clipRule="evenodd" />
                   </svg>
                 </span>
-                <div className='space-y-2.5'>
-                  <h1 className="text-2xl font-bold text-green-50 sm:text-3xl md:text-4xl">
+                <div className='space-y-3.5'>
+                  <h1 className="text-2xl font-bold text-green-50 sm:text-4xl md:text-5xl">
                     <a href="https://www.dailyui.co/" className='underline hover:text-green-500 transition duration-300 ease-in-out' target='_blank' rel='noopener noreferrer'>Daily UI</a> Challenges with <span className='text-green-500'>fmUI</span>: <br /> 100 Days of Innovation
                   </h1>
                   <p className="text-sm leading-relaxed text-green-50/80">
