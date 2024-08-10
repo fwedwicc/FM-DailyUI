@@ -1,15 +1,39 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
+import { productLg, productSm01, productSm02, productSm03, productSm04 } from '../assets/day12'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
 
-const Day012 = () => {
+const Day12 = () => {
   useLenisScroll();
   useScrollToTop();
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const sizeOptions = [
+    {
+      label: 'XS',
+      id: 'option-1',
+    },
+    {
+      label: 'S',
+      id: 'option-2',
+    },
+    {
+      label: 'M',
+      id: 'option-3',
+    },
+    {
+      label: 'L',
+      id: 'option-4',
+    },
+    {
+      label: 'XL',
+      id: 'option-5',
+    }
+  ]
 
   return (
     <motion.div
@@ -108,11 +132,12 @@ const Day012 = () => {
             />
           </div>
         </nav>
-        <section className='lg:px-24 px-12 space-y-5'>
+        {/* First Section */}
+        <section className='lg:px-24 px-12 lg:pb-36 pb-20 space-y-5'>
           {/* Breadcrumbs */}
           <nav>
             <ol className='flex items-center gap-2.5 text-neutral-400'>
-              {['Men Fashion', 'Jacket & Coats', 'Chicago Oversized Biker Jacket'].map((link, index) => (
+              {['Women Fashion', 'Jacket & Coats', 'Chicago Oversized Biker Jacket'].map((link, index) => (
                 <>
                   <li key={index}>
                     <a href='#' className={`text-sm ${index === 2 ? 'text-neutral-200' : ''}`}>
@@ -127,15 +152,23 @@ const Day012 = () => {
             </ol>
           </nav>
           {/* Main grid */}
-          {/* <img src="https://eu.thefrankieshop.com/cdn/shop/products/CHICAGO-OVERSIZED-BIKER-JACKET-CHARCOAL-KOREA-03.jpg?v=1722868490&width=1944" alt="" className='object-cover w-full h-auto' /> */}
           <div className='grid lg:grid-cols-2 grid-cols-1 gap-14'>
-            <div className='col-span-1'>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi numquam possimus accusamus excepturi eum mollitia blanditiis incidunt iure nihil expedita, asperiores amet odit maiores facere impedit, aut distinctio animi pariatur!
+            <div className='col-span-1 flex flex-col gap-4'>
+              <div className='flex-grow flex-shrink-0 lg:h-full md:h-[30rem] h-[20rem] border-2 border-neutral-600/60 relative rounded-[8px]'>
+                <img src={productLg} alt="Product Overview" className='absolute object-cover w-full h-full rounded-[7px]' />
+              </div>
+              <div className='flex md:gap-4 gap-3'>
+                {[productSm01, productSm02, productSm03, productSm04].map((product, index) => (
+                  <div className='border-4 border-neutral-800 ring-2 ring-neutral-600/70 md:size-[5rem] size-[4rem] relative rounded-[4px] cursor-pointer' key={index}>
+                    <img src={product} alt="Product Overview" className='absolute object-cover w-full h-full rounded-[3px]' />
+                  </div>
+                ))}
+              </div>
             </div>
             <div className='col-span-1 space-y-7'>
               {/* Upper part */}
               <div className='space-y-2'>
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between items-center pb-2'>
                   <a href='#' className='flex items-center gap-4'>
                     <span className="inline-flex size-[38px] items-center justify-center rounded-full bg-neutral-900 text-sm font-semibold leading-none text-white">X</span>
                     <span className='text-neutral-300 text-sm font-semibold text-nowrap'>
@@ -203,28 +236,7 @@ const Day012 = () => {
                     Size
                   </span>
                   <div className='space-x-3 pb-2'>
-                    {[
-                      {
-                        label: 'XS',
-                        id: 'option-1',
-                      },
-                      {
-                        label: 'S',
-                        id: 'option-2',
-                      },
-                      {
-                        label: 'M',
-                        id: 'option-3',
-                      },
-                      {
-                        label: 'L',
-                        id: 'option-4',
-                      },
-                      {
-                        label: 'XL',
-                        id: 'option-5',
-                      }
-                    ].map((size, index) => (
+                    {sizeOptions.map((size, index) => (
                       <label htmlFor={size.id} className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800" key={index}>
                         <div className="flex items-center gap-3">
                           <input id={size.id} type="radio" name='size' className="hidden" checked={index === 3} />
@@ -275,9 +287,32 @@ const Day012 = () => {
             </div>
           </div>
         </section>
+        {/* Second Section */}
+        <section className=' bg-neutral-900/40 lg:px-24 px-12 py-12 space-y-12'>
+          <div className='gap-8 grid lg:grid-cols-2 grid-cols-1'>
+            <div className="flex flex-col text-3xl font-medium text-neutral-300 lg:text-4xl uppercase">
+              <span className='inline-flex items-center gap-3'>
+                <span className='text-nowrap'>
+                  Stylish Women's Coat
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="flex-shrink-0 size-12">
+                  <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                </svg>
+              </span>
+              <span>Your Outerwear Upgrade</span>
+            </div>
+            <p className="leading-relaxed text-neutral-400">
+              Discover ultimate comfort and style with our diverse collection of women's coats! Whether you're looking for a timeless trench coat or a cozy, insulated parka, we offer a wide range of options to keep you warm and fashionable throughout every season. Embrace the perfect blend of functionality and elegance, no matter the weather.
+            </p>
+          </div>
+          <div className='md:h-[45rem] h-[25rem] border'>
+
+          </div>
+
+        </section>
       </main>
     </motion.div >
   )
 }
 
-export default Day012
+export default Day12
