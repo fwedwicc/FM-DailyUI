@@ -16,6 +16,7 @@ const titles = [
   'Music Player', // Day09
   'Social Share', // Day10
   'Flash Message', // Day11
+  'E-commerce Shop', // Day12
 ];
 
 const descriptions = [
@@ -30,6 +31,7 @@ const descriptions = [
   "Design a music player. It could be browser based or an app (i.e. Pandora, Spotify, SoundCloud, etc.) or in a standalone product like in a car dashboard, jukebox, etc. Consider the controls, placements, imagery such as the artist or album cover, etc. Also, consider the device type that's playing the music.", // Day09
   "Design a social share button/icon and be mindful of the size, imagery, placement, and purpose for sharing. It could be to share an article snippet, or a simple link with a photo.", // Day10
   "Design a Flash Message with both the error message and success message. Is it for a sign up form? A download/upload message? Is it to promote a membership plan? ", // Day11
+  "Design an e-commerce shop. Is it simple for a local business or a large online retailer? Is it for clothing, shoes, handmade soap, or something else?", // Day12
 ];
 
 const images = [
