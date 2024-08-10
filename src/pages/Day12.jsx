@@ -76,7 +76,6 @@ const Day012 = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                   </svg>
                 </Button>
-
               </div>
             </div>
           )}
@@ -109,13 +108,13 @@ const Day012 = () => {
             />
           </div>
         </nav>
-        <section className='lg:px-24 px-12'>
+        <section className='lg:px-24 px-12 space-y-5'>
           {/* Breadcrumbs */}
           <nav>
             <ol className='flex items-center gap-2.5 text-neutral-400'>
               <li>
                 <a href='#' className='text-sm'>
-                  Woman Fashion
+                  Men Fashion
                 </a>
               </li>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">
@@ -131,11 +130,168 @@ const Day012 = () => {
               </svg>
               <li>
                 <a href='#' className='text-sm text-neutral-200'>
-                  Nadetta Coat Beige
+                  Chicago Oversized Biker Jacket
                 </a>
               </li>
             </ol>
           </nav>
+          {/* Main grid */}
+          {/* <img src="https://eu.thefrankieshop.com/cdn/shop/products/CHICAGO-OVERSIZED-BIKER-JACKET-CHARCOAL-KOREA-03.jpg?v=1722868490&width=1944" alt="" className='object-cover w-full h-auto' /> */}
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-14'>
+            <div className='col-span-1'>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi numquam possimus accusamus excepturi eum mollitia blanditiis incidunt iure nihil expedita, asperiores amet odit maiores facere impedit, aut distinctio animi pariatur!
+            </div>
+            <div className='col-span-1 space-y-7'>
+              {/* Upper part */}
+              <div className='space-y-2'>
+                <div className='flex justify-between items-center'>
+                  <a href='#' className='flex items-center gap-4'>
+                    <span className="inline-flex size-[38px] items-center justify-center rounded-full bg-neutral-900 text-sm font-semibold leading-none text-white">X</span>
+                    <span className='text-neutral-300 text-sm font-semibold text-nowrap'>
+                      Xolero
+                    </span>
+                  </a>
+                  <span className="leading-relaxed text-neutral-500 text-sm">
+                    ID: 24-HR23SK3900P
+                  </span>
+                </div>
+                <h1 className="text-2xl font-medium text-neutral-300 lg:text-3xl">
+                  Chicago Oversized Biker Jacket
+                </h1>
+                <div className='flex items-center gap-3'>
+                  <div class="flex items-center">
+                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg class="w-4 h-4 ms-1 text-neutral-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                  </div>
+                  <span className="leading-relaxed text-neutral-400 text-sm">
+                    (4.6 from 328 views)
+                  </span>
+                </div>
+              </div>
+              {/* Lower part */}
+              <div className='space-y-3'>
+                {/* Price */}
+                <div className='flex justify-between items-center'>
+                  <div className='flex flex-col gap-2'>
+                    <span className="leading-relaxed text-neutral-400 text-sm">
+                      Price
+                    </span>
+                    <span className="inline-flex items-center gap-4">
+                      <h1 className='font-medium text-neutral-300 text-3xl lg:text-5xl'>$350</h1>
+                      <span className='line-through text-neutral-500 text-2xl lg:text-4xl'>$600</span>
+                    </span>
+                  </div>
+                  <div className='flex items-end flex-col gap-2'>
+                    <span className="leading-relaxed text-neutral-400 text-sm">
+                      Quantity
+                    </span>
+                    <div className='border border-neutral-700 rounded-md text-neutral-300'>
+                      <button className='border-r border-neutral-700 px-2.5 py-1 focus:ring-2 focus:ring-neutral-400 transition duration-300 ease-in-out hover:bg-neutral-600/40 rounded-l-md'>-</button>
+                      <span className='px-2.5 py-1'>2</span>
+                      <button className='border-l border-neutral-700 px-2.5 py-1 focus:ring-2 focus:ring-neutral-400 transition duration-300 ease-in-out hover:bg-neutral-600/40 rounded-r-md'>+</button>
+                    </div>
+                  </div>
+                </div>
+                {/* Color */}
+                <div className='space-y-1.5'>
+                  <span className="leading-relaxed text-neutral-400 text-sm">
+                    Color
+                  </span>
+                  <div className='space-x-3'>
+                    <input type="radio" className="size-5 text-neutral-700 border border-neutral-200 focus:ring-neutral-700 focus:ring-2 cursor-pointer transition duration-300 ease-in-out" checked />
+                    <input type="radio" className="size-5 text-neutral-300 border border-neutral-200 focus:ring-neutral-700 focus:ring-2 cursor-pointer transition duration-300 ease-in-out" />
+                  </div>
+                </div>
+                {/* Size */}
+                <div className='space-y-1.5'>
+                  <span className="leading-relaxed text-neutral-400 text-sm">
+                    Size
+                  </span>
+                  <div className='space-x-3 pb-2'>
+                    <label htmlFor="option-1" className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800">
+                      <div className="flex items-center gap-3">
+                        <input id='option-1' type="radio" name='size' className="hidden" />
+                        <span className='font-medium text-sm'>XS</span>
+                      </div>
+                    </label>
+                    <label htmlFor="option-2" className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800">
+                      <div className="flex items-center gap-3">
+                        <input id='option-2' type="radio" name='size' className="hidden" />
+                        <span className='font-medium text-sm'>S</span>
+                      </div>
+                    </label>
+                    <label htmlFor="option-3" className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800">
+                      <div className="flex items-center gap-3">
+                        <input id='option-3' type="radio" name='size' className="hidden" checked />
+                        <span className='font-medium text-sm'>M</span>
+                      </div>
+                    </label>
+                    <label htmlFor="option-4" className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800">
+                      <div className="flex items-center gap-3">
+                        <input id='option-4' type="radio" name='size' className="hidden" />
+                        <span className='font-medium text-sm'>L</span>
+                      </div>
+                    </label>
+                    <label htmlFor="option-5" className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800">
+                      <div className="flex items-center gap-3">
+                        <input id='option-5' type="radio" name='size' className="hidden" />
+                        <span className='font-medium text-sm'>XL</span>
+                      </div>
+                    </label>
+                  </div>
+                  <a href='#' className="leading-relaxed text-blue-400 text-xs">
+                    Size guide
+                  </a>
+                </div>
+                <div>
+                  <div className='flex items-center gap-4 flex-grow pb-3'>
+                    <Button
+                      styles={'flex items-center justify-center gap-2.5 text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-none focus:ring-neutral-200/60 flex-grow'}
+                      label={'Buy now'}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                      </svg>
+                    </Button>
+                    <Button
+                      styles={'flex items-center justify-center gap-2.5 text-neutral-200 bg-neutral-700/50 hover:bg-neutral-700 border-none focus:ring-neutral-600/60 flex-grow'}
+                      label={'Add to cart'}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                      </svg>
+                    </Button>
+                    <button className='size-11 shrink-0 flex justify-center items-center text-red-500 bg-transarent border hover:bg-neutral-700 border-neutral-700 focus:ring-neutral-200/60 rounded-md focus:ring-2 z-50 transition duration-300 ease-in-out'>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <span className="inline-flex items-center gap-2 leading-relaxed text-green-500 text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                      <path d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 1 1 6 0h3a.75.75 0 0 0 .75-.75V15Z" />
+                      <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
+                      <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
+                    </svg>
+                    Free delivery on orders over $30.0
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </motion.div >
