@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
-import { productLg, productSm01, productSm02, productSm03, productSm04 } from '../assets/day12'
+import { productLg, productSm01, productSm02, productSm03, productSm04, fadeBg } from '../assets/day12'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -289,10 +289,11 @@ const Day12 = () => {
         </section>
         {/* Second Section */}
         <section className=' bg-neutral-900/40 lg:px-24 px-12 py-12 space-y-12'>
+          {/* Descriptions */}
           <div className='gap-8 grid lg:grid-cols-2 grid-cols-1'>
             <div className="flex flex-col text-3xl font-medium text-neutral-300 lg:text-4xl uppercase">
               <span className='inline-flex items-center gap-3'>
-                <span className='text-nowrap'>
+                <span>
                   Stylish Women's Coat
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="flex-shrink-0 size-12">
@@ -305,10 +306,95 @@ const Day12 = () => {
               Discover ultimate comfort and style with our diverse collection of women's coats! Whether you're looking for a timeless trench coat or a cozy, insulated parka, we offer a wide range of options to keep you warm and fashionable throughout every season. Embrace the perfect blend of functionality and elegance, no matter the weather.
             </p>
           </div>
-          <div className='md:h-[45rem] h-[25rem] border'>
-
+          {/* Product Image Overview */}
+          <div className='lg:h-[40rem] h-[50rem] grid lg:grid-cols-3 grid-cols-1 gap-8'>
+            {[
+              {
+                img: productSm01,
+                heading: 'Elegant Coat with the best materials',
+                label: '97% Polyester'
+              },
+              {
+                img: productSm03,
+                heading: 'Durable and strong stitches',
+                label: 'Neat Stitches'
+              },
+              {
+                img: productSm02,
+                heading: 'Sophisticated and Timeless Design',
+                label: 'Premium Quality Wool'
+              },
+            ].map((product, index) => (
+              <div className='relative border-2 border-neutral-600/60 rounded-[11px]' key={index}>
+                <img src={fadeBg} alt="Fade Effect" className='opacity-80 absolute object-cover w-full h-full rounded-[10px] z-10' />
+                <img src={product.img} alt="Product Overview" className='absolute object-cover w-full h-full rounded-[10px]' />
+                <div className='absolute bottom-7 px-7 z-20 space-y-2'>
+                  <p className="leading-relaxed text-neutral-300">
+                    {product.label}
+                  </p>
+                  <h1 className="text-2xl font-medium text-neutral-200 lg:text-3xl">
+                    {product.heading}
+                  </h1>
+                </div>
+              </div>
+            ))}
           </div>
-
+          <div className='gap-8 flex flex-wrap justify-around items-center'>
+            {/* Product Detail */}
+            <div className='space-y-4'>
+              <h1 className="text-2xl font-medium text-neutral-300 lg:text-3xl">
+                Product Detail
+              </h1>
+              <div className='flex gap-14'>
+                <ul className='list-disc list-inside text-neutral-300 space-y-2'>
+                  {['Midweight women fabric', 'Regular fit', 'Peak lapels', 'Drop shoulders', 'Front-flap pockets'].map((detail, index) => (
+                    <li key={index}>{detail}</li>
+                  ))}
+                </ul>
+                <ul className='list-disc list-inside text-neutral-300 space-y-2'>
+                  {['Laten zipper', 'Front illusion welt pocket', '97% polyester 3% elastine', 'Double-breasted front zipper closure', 'Dry Clean'].map((detail, index) => (
+                    <li key={index}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            {/* Size & Fit */}
+            <div className='space-y-4'>
+              <h1 className="text-2xl font-medium text-neutral-300 lg:text-3xl">
+                Size & Fit
+              </h1>
+              <div className='space-x-3'>
+                {sizeOptions.map((size, index) => (
+                  <label htmlFor={size.id} className="inline-flex flex-col cursor-pointer items-start rounded-md bg-neutral-700/50 text-neutral-300 py-2 px-3 transition hover:bg-neutral-700 has-[:checked]:bg-neutral-300 has-[:checked]:text-neutral-800" key={index}>
+                    <div className="flex items-center gap-3">
+                      <input id={size.id} type="radio" name='size' className="hidden" checked={index === 3} />
+                      <span className='font-medium text-sm'>{size.label}</span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+              <div className='flex gap-12'>
+                <div className='leading-relaxed text-neutral-400 space-y-1.5'>
+                  {['Shoulder', 'Bust', 'Length', 'Sleeve length'].map((label, index) => (
+                    <span className='block' key={index}>
+                      {label}
+                    </span>
+                  ))}
+                </div>
+                <div className='leading-relaxed text-neutral-300 space-y-1.5'>
+                  {['50cm / 19.75in', '124cm / 48.75in', '122cm / 48in', '64cm / 25.25in'].map((label, index) => (
+                    <span className='block' key={index}>
+                      :  &nbsp; &nbsp; &nbsp; {label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Third Section */}
+        <section className=' lg:px-24 px-12 py-12'>
+          <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate assumenda et facilis ducimus incidunt nostrum tempore eius, perferendis sunt voluptas harum, laboriosam voluptate minima veritatis quas reprehenderit, tempora repellendus! Adipisci!</h1>
         </section>
       </main>
     </motion.div >
