@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 const Day12 = () => {
   useLenisScroll();
-  // useScrollToTop();
+  useScrollToTop();
 
   const [isOpen, setIsOpen] = useState(false);
 

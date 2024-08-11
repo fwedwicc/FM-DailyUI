@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll';
 import useScrollToTop from '../hooks/useScrollToTop';
-import { fmAvatar, qcuLogo, profileBackground } from '../assets/day06';
+import { fmAvatar, qcuLogo, profileBackground, postThumbnail01, postThumbnail02, postThumbnail03 } from '../assets/day06';
 import { Button } from '../components';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -15,30 +15,30 @@ const Day06 = () => {
   const PostCardData = [
     {
       "week": "2w",
-      "media": "https://media.licdn.com/dms/image/D4D1FAQFr_Z77TktgwA/feedshare-document-cover-images_480/0/1720547090794?e=1722405600&v=beta&t=g5XVVMuDk3fuEq9kiY7ggU3_YgyeSdPL_CYykJB7gOY",
-      "title": "React Div",
+      "media": postThumbnail01,
+      "title": "Is Create React App Really Dead?",
       "page": 9,
-      "desc": "Sample Desc",
+      "desc": "Dive into the debate surrounding the future of Create React App. This article explores the reasons behind the rise and potential fall of CRA, and whether it's still a viable choice for modern web development.",
       "likes": 715,
       "comments": 41,
       "reposts": 104,
     },
     {
       "week": "3w",
-      "media": "https://media.licdn.com/dms/image/D561FAQE3kFZHyjsXFw/feedshare-document-cover-images_480/0/1719407850568?e=1722405600&v=beta&t=PFVhv4rfDsz-mxuQTdeZYa9yEjivqt470iNl2AnYgGI",
-      "title": "Front-end Developer Roadmap",
+      "media": postThumbnail02,
+      "title": "Figma to Tailwind in one click?",
       "page": 21,
-      "desc": "Sample Desc",
+      "desc": "Discover the latest tools that bridge the gap between design and code. Learn how Figma plugins can streamline your workflow by converting designs directly to Tailwind CSS, saving you time and effort.",
       "likes": 646,
       "comments": 28,
       "reposts": 166,
     },
     {
       "week": "1mo",
-      "media": "https://media.licdn.com/dms/image/D4E10AQHDcxdmGULccw/image-shrink_160/0/1717448401853?e=1722405600&v=beta&t=QGre56NwbknY3ePxld35ZtcmlZ-3Vv7JB73l4Dlm5oU",
-      "title": "Unlock your potential without unlocking the dime!",
+      "media": postThumbnail03,
+      "title": "15 VSCode Keyboard Shortcuts to Speed Up Your Code",
       "page": 17,
-      "desc": "Sample Desc",
+      "desc": "Boost your productivity with these essential VSCode keyboard shortcuts. This guide covers 15 shortcuts that can drastically reduce coding time, making your development process smoother and more efficient.",
       "likes": "1,566",
       "comments": 34,
       "reposts": 34,
@@ -48,17 +48,18 @@ const Day06 = () => {
   const CommentCardData = [
     {
       "week": "1mo",
-      "desc": "Sample text"
+      "desc": "Great insights on the future of React development! The points raised about Create React App really got me thinking about alternative tools."
     },
     {
       "week": "1mo",
-      "desc": "Sample text"
+      "desc": "I've been waiting for something like this! The ability to go from Figma to Tailwind in one click is a game-changer. Can't wait to try this out in my next project."
     },
     {
       "week": "1mo",
-      "desc": "Sample text"
+      "desc": "These VSCode shortcuts are lifesavers. I didn't even know some of these existed, and now I can't imagine coding without them!"
     },
-  ]
+  ];
+
 
   const PeopleAlsoViewedData = [
     {
@@ -338,8 +339,8 @@ const Day06 = () => {
                                   <span className='text-neutral-200'>Frederick Moreno</span> reposted this • {post.week}
                                 </span>
                                 <div className='flex gap-6'>
-                                  <div className='w-32 h-32'>
-                                    <img src={post.media} alt="Post Thumbnail" className='object-cover h-full w-full rounded-md' />
+                                  <div className='w-56 h-36 relative'>
+                                    <img src={post.media} alt="Post Thumbnail" className='absolute object-cover h-full w-full rounded-md' />
                                   </div>
                                   <div className='flex flex-col items-start space-y-2.5 w-full'>
                                     <div className='flex justify-between items-center w-full'>
