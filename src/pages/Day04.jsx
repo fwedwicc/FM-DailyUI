@@ -17,7 +17,7 @@ const Day04 = () => {
   useLenisScroll();
   useScrollToTop();
 
-  const [activeTab, setActiveTab] = useState('payment');
+  const [activeTab, setActiveTab] = useState('amortization');
 
   const GroupedInput = ({ id, label, children, type, styles, placeholder, required, value1, value2 }) => {
     return (
