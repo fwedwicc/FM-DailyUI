@@ -66,7 +66,32 @@ const Day12 = () => {
     },
   ];
 
+  const Link = ({ link, svg }) => {
+    return (
+      <li className='inline-flex'>
+        <a href={link} className='p-1.5 rounded-md group hover:bg-neutral-800 transition duration-300 ease-in-out'>
+          <svg className="size-6 group-hover:text-green-500 transition duration-300 ease-in-out" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d={svg} clip-rule="evenodd" />
+          </svg>
+        </a>
+      </li>
+    )
+  }
 
+  const LinkList = ({ title, names = [] }) => {
+    return (
+      <ul className='text-neutral-300 lg:text-base text-sm space-y-3'>
+        <li className='mb-7'>
+          <span className='text-neutral-400 font-thin'>{title}</span>
+        </li>
+        {names.map((name, index) => (
+          <li key={index}>
+            <a href="#">{name}</a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 
   return (
     <motion.div
@@ -517,8 +542,122 @@ const Day12 = () => {
             >
             </Button>
           </div>
-
         </section>
+        {/* Fourth Section */}
+        <section className='lg:px-24 px-12 py-12 space-y-5 bg-neutral-900/40'>
+          <div className='flex justify-between items-center'>
+            <h1 className="text-2xl font-medium text-neutral-300 lg:text-3xl">
+              Related Products
+            </h1>
+            <div className='flex md:gap-4 gap-3'>
+              <button className='rounded-full lg:p-3 p-2 text-neutral-200 bg-transarent hover:bg-neutral-700 border border-neutral-500 focus:ring-2 focus:ring-neutral-200/60 transition duration-300 ease-in-out'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lg:size-6 size-5 text-neutral-300">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+              </button>
+              <button className='rounded-full lg:p-3 p-2 text-neutral-200 bg-transarent hover:bg-neutral-700 border border-neutral-500 focus:ring-2 focus:ring-neutral-200/60 transition duration-300 ease-in-out'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lg:size-6 size-5 text-neutral-300">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div className='grid md:grid-cols-3 grid-cols-1 gap-5'>
+            {[
+              {
+                img: "https://eu.thefrankieshop.com/cdn/shop/products/FITZ-TRENCH-COAT-NAVY-KATE-16657.jpg?v=1693816753&width=1944",
+                name: "Fitz Trench Coat",
+                price: 299,
+                rating: "5.0 (1.2k Reviews)",
+              },
+              {
+                img: "https://eu.thefrankieshop.com/cdn/shop/files/NIKOLA-PADDED-TRENCH-COAT-GREY-ALEYNA-20230428-FRANKIE_SHOT-8_677.jpg?v=1696945228&width=1944",
+                name: "Nikola Padded Trench Coat",
+                price: 350,
+                rating: "4.9 (2k Reviews)",
+              },
+              {
+                img: "https://eu.thefrankieshop.com/cdn/shop/products/Decima-Trench-Coat-Black-9384.jpg?v=1675936497&width=1944",
+                name: "Decima Trench Coat",
+                price: 390,
+                rating: "5.0 (1.1k Reviews)",
+              },
+
+            ].map((product, index) => (
+              <a href='' className='border border-neutral-700/50 hover:bg-neutral-700/30 transition duration-300 ease-in-out p-4 rounded-xl space-y-3' key={index}>
+                <div className='relative w-full lg:h-[38rem] md:h-[20rem] h-[25rem]'>
+                  <img src={product.img} alt="Product Overview" className='absolute object-cover w-full h-full rounded-[8px]' />
+                </div>
+                <div className='space-y-1'>
+                  <div className='flex justify-between items-center'>
+                    <h1 className="text-xl font-medium text-neutral-300 lg:text2xl">
+                      {product.name}
+                    </h1>
+                    <span className="text-green-500 font-semibold text-md">
+                      ${product.price}
+                    </span>
+                  </div>
+                  <div className='flex gap-2'>
+                    <svg class='size-3.5 ms-1 text-yellow-300' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <span className="leading-relaxed text-neutral-400 text-xs">
+                      {product.rating}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+        {/* Footer */}
+        <footer className='lg:px-24 px-12 py-16 bg-neutral-950/40 grid lg:grid-cols-7 grid-cols-1 gap-24'>
+          <div className='lg:col-span-2 col-span-1 space-y-5'>
+            <a className="inline-block" href="#">
+              <span className="sr-only">Home</span>
+              <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
+            </a>
+            <p className="leading-relaxed text-neutral-400">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam quibusdam.
+            </p>
+            <ul className='flex gap-3 items-center text-neutral-200'>
+              <Link
+                link='#'
+                svg='M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z'
+              />
+              <Link
+                link='#'
+                svg='M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z'
+              />
+              <Link
+                link='#'
+                svg='M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z'
+              />
+              <Link
+                link='#'
+                svg='M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z'
+              />
+            </ul>
+          </div>
+          <div className='lg:col-span-5 col-span-1 grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 gap-12'>
+            <LinkList
+              title='Company'
+              names={['About Us', 'Contact Us', 'Our Story', 'Sustainability']}
+            />
+            <LinkList
+              title='Shop'
+              names={['New Arrivals', 'Best Sellers', 'Sale', 'Gift Cards', 'Size Guide']}
+            />
+            <LinkList
+              title='Customer Service'
+              names={['Shipping Information', 'Returns & Exchanges', 'FAQs', 'Track Order']}
+            />
+            <LinkList
+              title='Legal'
+              names={['Privacy Policy', 'Terms & Conditions', 'Return Policy']}
+            />
+          </div>
+        </footer>
       </main>
     </motion.div >
   )
