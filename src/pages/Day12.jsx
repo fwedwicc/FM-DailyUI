@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { fmUILogo } from '../assets'
 import { productLg, productSm01, productSm02, productSm03, productSm04, fadeBg } from '../assets/day12'
-import { InputField, Checkbox, Button } from '../components'
+import { InputField, Checkbox, Select, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
 
 const Day12 = () => {
   useLenisScroll();
-  useScrollToTop();
+  // useScrollToTop();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,6 +34,39 @@ const Day12 = () => {
       id: 'option-5',
     }
   ]
+
+  const Feedback = [
+    {
+      profile: "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-2.jpg?raw=true",
+      name: "John Doe",
+      date: "July 22, 2024",
+      message: "I recently purchased this product, and I must say I'm thoroughly impressed. The quality is top-notch, and it exceeded all my expectations. The fabric is soft and comfortable, yet durable enough to withstand daily wear. The stitching is precise, adding to the overall premium feel of the product. What truly stands out is the attention to detail.",
+      likes: 22,
+    },
+    {
+      profile: "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-4.jpg?raw=true",
+      name: "Jane Smith",
+      date: "August 3, 2024",
+      message: "After searching for the perfect addition to my wardrobe, I finally found this gem! The quality of this product is outstanding. The material feels luxurious, and the fit is absolutely perfect. I've received numerous compliments every time I wear it.",
+      likes: 38,
+    },
+    {
+      profile: "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-5.jpg?raw=true",
+      name: "Michael Brown",
+      date: "July 15, 2024",
+      message: "This product has quickly become a staple in my daily routine. The build quality is superb, and it's clear that this was made with care and precision. It's rare to find a product that combines both aesthetic appeal and functionality so well. The design is modern and sleek, and it goes well with almost anything in my closet.",
+      likes: 26,
+    },
+    {
+      profile: "https://github.com/themesberg/flowbite/blob/main/static/images/people/profile-picture-3.jpg?raw=true",
+      name: "Emily Davis",
+      date: "August 9, 2024",
+      message: "I'm absolutely in love with this product! From the moment I unpacked it, I could tell that it was something special. The attention to detail is remarkable, and it's evident that a lot of care went into its creation. The fabric is soft yet durable, and it drapes beautifully. What I love most is how versatile it is – it can easily be dressed up or down depending on the occasion. ",
+      likes: 79,
+    },
+  ];
+
+
 
   return (
     <motion.div
@@ -311,7 +344,7 @@ const Day12 = () => {
             {[
               {
                 img: productSm01,
-                heading: 'Elegant Coat with the best materials',
+                heading: 'Elegant coat with the best materials',
                 label: '97% Polyester'
               },
               {
@@ -321,7 +354,7 @@ const Day12 = () => {
               },
               {
                 img: productSm02,
-                heading: 'Sophisticated and Timeless Design',
+                heading: 'Sophisticated and timeless design',
                 label: 'Premium Quality Wool'
               },
             ].map((product, index) => (
@@ -393,8 +426,98 @@ const Day12 = () => {
           </div>
         </section>
         {/* Third Section */}
-        <section className=' lg:px-24 px-12 py-12'>
-          <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate assumenda et facilis ducimus incidunt nostrum tempore eius, perferendis sunt voluptas harum, laboriosam voluptate minima veritatis quas reprehenderit, tempora repellendus! Adipisci!</h1>
+        <section className='lg:px-24 px-12 py-12 space-y-5'>
+          {/* Review and Ratings Header */}
+          <div className='space-y-5'>
+            <h1 className="text-2xl font-medium text-neutral-300 lg:text-3xl">
+              Rating & Reviews (328)
+            </h1>
+            <div className='flex items-center justify-between'>
+              <span className="leading-relaxed text-neutral-400 text-sm">
+                Showing <span className='text-neutral-200'>4</span> results from totoal of <span className='text-neutral-200'>89</span> reviews
+              </span>
+              <div className='flex items-center gap-2 w-[14rem]'>
+                <span className="leading-relaxed text-neutral-400 text-sm text-nowrap">
+                  Filter by
+                </span>
+                <Select
+                  styles={'me-6'}
+                  id="city"
+                  options={[
+                    { value: 'Default', label: 'All ratings' },
+                    { value: '5', label: '5 star' },
+                    { value: '4', label: '4 star' },
+                    { value: '3', label: '3 star' },
+                    { value: '2', label: '2 star' },
+                    { value: '1', label: '1 star' },
+                  ]}
+                  required={true}
+                />
+              </div>
+            </div>
+          </div>
+          {/* Grid Feedbacks */}
+          <div className='grid lg:grid-cols-2 grid-cols-1 lg:gap-6'>
+            {Feedback.map((feedback, index) => (
+              <div className='flex gap-5 py-6 border-b border-neutral-600/50' key={index}>
+                <img className="size-11 border-2 border-neutral-600 rounded-full" src={feedback.profile} alt="Sample Avatar Profile" />
+                <div className='space-y-5'>
+                  <div className='space-y-1.5'>
+                    <div className='space-x-3.5'>
+                      <span className="text-neutral-200 font-medium text-nowrap">
+                        {feedback.name}
+                      </span>
+                      <span className="text-neutral-400 text-sm text-nowrap">
+                        {feedback.date}
+                      </span>
+                    </div>
+                    <div class="flex items-center">
+                      {[...Array(5)].map((_, index) => (
+                        <svg class='size-3 ms-1 text-yellow-300' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20" key={index}>
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <div className='space-y-5'>
+                    <p className="leading-relaxed text-sm text-neutral-300">
+                      {feedback.message}
+                    </p>
+                    <div className='flex items-center gap-5'>
+                      <a href='#' className="text-neutral-300 font-semibold text-sm text-nowrap">
+                        Reply
+                      </a>
+                      <a href='#' className="inline-flex items-center gap-2 text-blue-400 font-semibold text-sm text-nowrap">
+                        {index === 1 || index === 2 ? (
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                            <path d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
+                          </svg>
+                        ) : (
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
+                          </svg>
+                        )}
+                        {feedback.likes}
+                      </a>
+                      <a href="#" className='text-red-400'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className='flex items-center justify-center pt-6'>
+            <Button
+              styles={'inline-flex justify-center items-center gap-2 py-[0.6rem] text-neutral-200 bg-transarent hover:bg-neutral-700 border-neutral-500 focus:ring-neutral-200/60'}
+              label={'Show more'}
+            >
+            </Button>
+          </div>
+
         </section>
       </main>
     </motion.div >
