@@ -2,11 +2,11 @@
 
 FM DailyUI is an extensive compilation of 100 Days of UI challenge prompts from DailyUI. This project showcases a wide range of creative and innovative UI designs, each crafted using my custom design system, fmUI. It's a journey through diverse design challenges, highlighting the versatility and capabilities of fmUI in creating dynamic and visually appealing user interfaces.
 
-Image Overview ~ Under Construction
+<img src="https://github.com/fwedwicc/README-assets/blob/main/banners/FM-DailyUI-banner.png" width='100%' alt="FM DailyUI Overview"  />
 
 ## Table of Contents
 
-- [Technologies Used](#tech-stacks)
+- [Tech Stacks](#tech-stacks)
 - [Contact](#contact)
 - [Author](#author)
 - [License](#license)
