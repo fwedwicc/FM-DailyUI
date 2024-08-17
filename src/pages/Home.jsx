@@ -19,9 +19,11 @@ const Home = () => {
           <div className='relative rounded-2xl h-full md:p-16 p-7 bg-neutral-900' draggable="false">
             <img src={glowEllipse} alt="Glow Ellipse" className="absolute inset-0 z-0 rounded-tl-2xl" />
             {/* Hero Content */}
+            <div className='relative flex items-start justify-start'>
+              <img src={FMLogo} alt="FM Logo" className='w-6 h-auto' />
+            </div>
             <div className="relative w-full h-full flex flex-col gap-10 justify-center">
-              <img src={FMLogo} alt="FM Logo" className='absolute top-0 left-0 w-6 h-auto' />
-              <div className='space-y-7 lg:pt-0 pt-12'>
+              <div className='space-y-7 lg:pt-0 pt-10'>
                 <span className='bg-green-900/50 text-green-400 rounded-full border border-green-400/40 lg:py-1.5 lg:px-2.5 py-1 px-1.5 inline-flex items-center text-nowrap gap-2 text-xs'>
                   Featuring Dark fmUI
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-2 lg:size-3">
@@ -29,7 +31,7 @@ const Home = () => {
                   </svg>
                 </span>
                 <div className='space-y-3.5'>
-                  <h1 className="text-2xl font-bold text-green-50 sm:text-4xl md:text-5xl">
+                  <h1 className="text-2xl font-bold text-green-50 sm:text-3xl md:text-4xl">
                     <a href="https://www.dailyui.co/" className='underline hover:text-green-500 transition duration-300 ease-in-out' target='_blank' rel='noopener noreferrer'>Daily UI</a> Challenges with <span className='text-green-500'>fmUI</span>: <br /> 100 Days of Innovation
                   </h1>
                   <p className="text-sm leading-relaxed text-green-50/80">

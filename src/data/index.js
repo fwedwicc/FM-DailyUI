@@ -17,6 +17,7 @@ const titles = [
   'Social Share', // Day10
   'Flash Message', // Day11
   'E-commerce Shop', // Day12
+  'Direct Message', // Day13
 ];
 
 const descriptions = [
@@ -32,6 +33,7 @@ const descriptions = [
   "Design a social share button/icon and be mindful of the size, imagery, placement, and purpose for sharing. It could be to share an article snippet, or a simple link with a photo.", // Day10
   "Design a Flash Message with both the error message and success message. Is it for a sign up form? A download/upload message? Is it to promote a membership plan? ", // Day11
   "Design an e-commerce shop. Is it simple for a local business or a large online retailer? Is it for clothing, shoes, handmade soap, or something else?", // Day12
+  "Design a Direct Messaging app, profile, or chat box. Consider the parties involved in the messages, images, placement, and context of the messages. Are the messages for social purposes? Customer support?", // Day13
 ];
 
 const images = [
