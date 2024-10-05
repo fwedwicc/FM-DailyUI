@@ -15,6 +15,36 @@ const Day13 = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const ContactBox = () => {
+    return (
+      <div className='border flex items-center gap-3 py-1 px-1.5 rounded-md'>
+        <img
+          className="w-10 h-10 border-2 ring-2 ring-neutral-500 border-neutral-700 rounded-full cursor-pointer"
+          src="https://avatars.githubusercontent.com/u/84505567?v=4"
+          alt="Bot Avatar"
+        />
+        <div className='flex-grow w-full max-w-[85%]'>
+          <div className='flex items-center justify-between'>
+            <h1 className="text-neutral-200 text-sm md:text-base">
+              Joanah Marie Aldave
+            </h1>
+            <p className='leading-relaxed text-blue-400 text-xs'>
+              19:04
+            </p>
+          </div>
+          <div className='flex items-center justify-between'>
+            <p className="leading-relaxed text-neutral-300 text-sm truncate max-w-[85%]">
+              This is a sample messagesssssssssssssssssssssssssssssssss
+            </p>
+            <span className='text-white text-[11px] bg-red-500 rounded-full px-1.5 p-1 leading-none'>
+              3
+            </span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -62,9 +92,16 @@ const Day13 = () => {
                 <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                   Frederick Moreno
                 </h1>
-                <p className="leading-relaxed text-neutral-300 text-xs">
+                <p className="leading-relaxed text-neutral-300 text-sm">
                   @fwedwicc
                 </p>
+                <a href='' className='font-medium text-green-500 text-xs px-2 py-1 border border-green-700 bg-green-900/40 rounded-md inline-flex items-center gap-1 mt-1'>
+                  Basic Plan
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-2.5">
+                    <path fillRule="evenodd" d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" clipRule="evenodd" />
+                    <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
+                  </svg>
+                </a>
               </div>
             </div>
             {/* Search and other buttons */}
@@ -105,6 +142,19 @@ const Day13 = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            {/* Pinned Contact Boxes */}
+            <div className='space-y-1'>
+              <p className='text-neutral-400 text-xs'>Pinned</p>
+              <ContactBox />
+            </div>
+            {/* All Contact Boxes */}
+            <div className='space-y-1'>
+              <p className='text-neutral-400 text-xs'>All messages</p>
+              <ContactBox />
+              <ContactBox />
+              <ContactBox />
+              <ContactBox />
             </div>
           </aside>
           <div className="flex-grow h-full border text-wrap lg:pl-96">
