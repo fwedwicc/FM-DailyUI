@@ -33,7 +33,7 @@ const Day13 = () => {
             </p>
           </div>
           <div className='flex items-center justify-between'>
-            <p className="leading-relaxed text-neutral-300 text-sm truncate max-w-[85%]">
+            <p className="leading-relaxed text-neutral-400 text-sm truncate max-w-[85%]">
               This is a sample messagesssssssssssssssssssssssssssssssss
             </p>
             <span className='text-white text-[11px] bg-red-500 rounded-full px-1.5 p-1 leading-none'>
@@ -52,7 +52,7 @@ const Day13 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-neutral-800">
+      <section className="bg-[#202020]">
         <div className="flex lg:flex-row flex-col h-screen">
           {/* Nav buttons in mobile screens */}
           <div className='flex justify-between items-center lg:hidden p-4'>
@@ -157,11 +157,60 @@ const Day13 = () => {
               <ContactBox />
             </div>
           </aside>
-          <div className="flex-grow h-full border text-wrap lg:pl-96">
-            <p className='text-neutral-300'>Middle Contentssssssssssssssssssssssssss</p>
+          <div className="flex-grow h-full text-wrap lg:pl-[24.6rem] p-3">
+            <div className='relative h-full bg-neutral-800 rounded-t-2xl rounded-b-[1.7rem]'>
+              {/* Top Container */}
+              <div className='absolute top-0 border rounded-t-2xl w-full'>
+                <p className='text-neutral-300'>Top Container</p>
+              </div>
+              {/* Chat Contents */}
+              <div className='py-12 h-full'>hello</div>
+              {/* Bottom Container */}
+              <div className='absolute bottom-0 border w-full p-3'>
+                <div className='w-full relative'>
+                  <input
+                    id="search"
+                    type='text'
+                    placeholder='Type a message'
+                    className={`z-20 w-full rounded-full bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 ps-10 pe-36 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70`}
+                    required={false}
+                  />
+                  {/* Left Button */}
+                  <button className='absolute inset-y-0 start-0 ps-3 flex items-center text-neutral-400 hover:text-neutral-300 cursor-pointer transition duration-300 ease-in-out'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                    </svg>
+                  </button>
+                  {/* Right button groups */}
+                  <div className="absolute inset-y-0 end-0 flex items-center gap-3 pe-3">
+                    <button className='text-neutral-400 hover:text-neutral-300 cursor-pointer transition duration-300 ease-in-out'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                      </svg>
+                    </button>
+                    <button className='text-neutral-400 hover:text-neutral-300 cursor-pointer transition duration-300 ease-in-out'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+                      </svg>
+                    </button>
+                    <button className='text-neutral-400 hover:text-neutral-300 cursor-pointer transition duration-300 ease-in-out'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                      </svg>
+                    </button>
+                    <button className='text-neutral-400 hover:text-neutral-300 cursor-pointer transition duration-300 ease-in-out'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           {/* Right bar */}
-          <div className="lg:block hidden h-full border text-wrap p-6 w-full max-w-96">
+          <div className="lg:block hidden h-full border text-wrap p-6 w-full md:max-w-80 lg:max-w-96">
             <p className='text-neutral-300'>Right Content</p>
           </div>
         </div>
