@@ -60,17 +60,17 @@ const Day13 = () => {
                 "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, praesentium doloribus. Consectetur eveniet quaerat dicta quia perspiciatis velit dignissimos ullam tenetur.",
                 "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, praesentium doloribus."
               ].map((message, index) => (
-                <div className={`relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full max-w-lg`} key={index}>
+                <div className={`relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs`} key={index}>
                   <p className='text-neutral-300'>{message}</p>
                   {index === 1 ? (
-                    <div className='absolute -bottom-3 right-3 border rounded-full px-2 z-30 bg-neutral-700'>
+                    <div className='absolute -bottom-3 right-3 border rounded-full px-2 bg-neutral-700'>
                       reacts
                     </div>
                   ) : ('')}
                 </div>
               ))}
             </div>
-            <span className='leading-relaxed text-neutral-400 text-xs'>Lian T. • 12:04</span>
+            <span className='leading-relaxed text-neutral-400 text-xs'>Lian T. • 14:04</span>
           </div>
         </div>
       </div>
@@ -79,8 +79,37 @@ const Day13 = () => {
 
   const FredMessage = () => {
     return (
-      <div>
-        <p>Hellossssss</p>
+      <div className='flex justify-end items-end w-full'>
+        <div className='flex items-end gap-3'>
+          <div className='flex flex-col justify-end gap-1'>
+            <div className='relative rounded-l-2xl rounded-tr-2xl rounded-br-md border px-3 py-2 w-full md:max-w-lg max-w-xs'>
+              <p className='text-neutral-300'>Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+            </div>
+            <span className='leading-relaxed text-neutral-400 text-xs text-end'>You • 14:12</span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const KielMessage = () => {
+    return (
+      <div className='flex justify-start items-start w-full'>
+        <div className='flex items-end gap-3'>
+          <img
+            className="size-9 border border-neutral-700 rounded-full"
+            src="https://avatars.githubusercontent.com/u/84505567?v=4"
+            alt="Bot Avatar"
+          />
+          <div>
+            <div className='space-y-2'>
+              <div className="relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs">
+                <p className='text-neutral-300'>Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor, sit amet consectetur adipisicing.</p>
+              </div>
+            </div>
+            <span className='leading-relaxed text-neutral-400 text-xs'>Kiel Marice S. • 14:14</span>
+          </div>
+        </div>
       </div>
     )
   }
@@ -201,7 +230,7 @@ const Day13 = () => {
           <div className="flex-grow h-full text-wrap lg:pl-[24.6rem] p-3">
             <div className='relative h-full bg-neutral-800 rounded-t-2xl rounded-b-[1.7rem]'>
               {/* Top Container */}
-              <div className='flex justify-between items-center absolute top-0 border rounded-t-2xl w-full p-4 z-20'>
+              <div className='flex justify-between items-center absolute top-0 border bg-neutral-800/80 backdrop-blur-md rounded-t-2xl w-full p-4 z-20'>
                 <div className='flex items-center gap-5'>
                   <img
                     className="size-10 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
@@ -240,9 +269,14 @@ const Day13 = () => {
                 </div>
               </div>
               {/* Chat Contents */}
-              <div className='py-24 h-full overflow-auto z-30 flex flex-col justify-end items-end px-6'>
+              <div className='py-24 h-full overflow-auto z-30 flex flex-col justify-end items-end px-6 gap-y-2.5'>
+                <LianMessage />
+                <KielMessage />
+                <FredMessage />
+                Todeyyyyyy
                 <LianMessage />
                 <FredMessage />
+                <KielMessage />
               </div>
               {/* Bottom Container */}
               <div className='absolute bottom-0 border w-full p-3 z-20'>
