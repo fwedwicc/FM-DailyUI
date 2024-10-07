@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { TechCommrLogo } from '../assets/day13'
+import { fmUILogo } from '../assets'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
@@ -14,33 +15,39 @@ const Day13 = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const ContactBox = () => {
+  const ContactBox = ({ avatar, name, time, message, sent, story, indicator, active }) => {
     return (
-      <div className='flex items-center gap-3 py-1.5 px-2 rounded-md hover:bg-neutral-700/20 transition duration-300 ease-in-out cursor-pointer'>
+      <div className={`flex items-center gap-3 py-1.5 px-2 rounded-md ${active ? 'bg-neutral-700/20' : ''} hover:bg-neutral-700/20 transition duration-300 ease-in-out cursor-pointer`}>
         <img
-          className="w-10 h-10 border-2 ring-2 ring-neutral-500 border-neutral-700 rounded-full cursor-pointer"
-          src="https://avatars.githubusercontent.com/u/84505567?v=4"
+          className={`w-10 h-10 border-2 ring-2 ${story ? 'ring-green-500' : 'ring-neutral-500'} border-neutral-700 rounded-full cursor-pointer`}
+          src={avatar}
           alt="Bot Avatar"
         />
         <div className='flex-grow w-full max-w-[85%]'>
           <div className='flex items-center justify-between'>
             <h1 className="text-neutral-200 text-sm md:text-base">
-              Joanah Marie Aldave
+              {name}
             </h1>
             <p className='leading-relaxed text-blue-400 text-xs'>
-              19:04
+              {time}
             </p>
           </div>
           <div className='flex items-center justify-between'>
-            <p className="leading-relaxed text-neutral-400 text-sm truncate max-w-[85%]">
-              This is a sample messagesssssssssssssssssssssssssssssssss
+            <p className={`leading-relaxed ${sent ? 'text-neutral-400' : 'text-neutral-300'} text-sm truncate max-w-[85%]`}>
+              {message}
             </p>
-            <span className='text-white text-[11px] bg-red-500 rounded-full px-1.5 p-1 leading-none'>
-              3
-            </span>
+            {sent ? (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4 text-green-500">
+                <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
+              </svg>
+            ) : (
+              <span className='text-white text-[11px] bg-red-500 rounded-full px-1.5 p-1 leading-none'>
+                {indicator}
+              </span>
+            )}
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 
@@ -57,14 +64,18 @@ const Day13 = () => {
             <span className='leading-relaxed text-neutral-200 text-xs'>Lian T.</span>
             <div className='space-y-2'>
               {[
-                "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, praesentium doloribus. Consectetur eveniet quaerat dicta quia perspiciatis velit dignissimos ullam tenetur.",
-                "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+                "Yeah, minimal sounds good. We could use lightweight animations, so the site stays fast. Don’t forget to make it accessible, though.",
+                "We should make sure animations can be turned off for users who don’t like too much motion."
               ].map((message, index) => (
-                <div className={`relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs`} key={index}>
-                  <p className='text-neutral-300'>{message}</p>
+                <div className={`relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md bg-neutral-700 px-3 py-2 w-full md:max-w-lg max-w-xs`} key={index}>
+                  <p className='text-neutral-200'>{message}</p>
                   {index === 1 ? (
-                    <div className='absolute -bottom-3 right-3 border rounded-full px-2 bg-neutral-700'>
-                      reacts
+                    <div className='absolute -bottom-3 right-3 flex rounded-full py-1 px-2 border border-neutral-600/80 bg-neutral-700 cursor-pointer'>
+                      {['💚', '👌', '🥰'].map((emoji) => (
+                        <span>
+                          {emoji}
+                        </span>
+                      ))}
                     </div>
                   ) : ('')}
                 </div>
@@ -82,7 +93,7 @@ const Day13 = () => {
       <div className='flex justify-end items-end w-full'>
         <div className='flex items-end gap-3'>
           <div className='flex flex-col justify-end items-end gap-1'>
-            <div className='relative rounded-l-2xl rounded-tr-2xl rounded-br-md border px-3 py-2 w-full md:max-w-lg max-w-xs'>
+            <div className='relative rounded-l-2xl rounded-tr-2xl rounded-br-md bg-neutral-900 px-3 py-2 w-full md:max-w-lg max-w-xs'>
               <p className='text-neutral-300'>{message}</p>
             </div>
             <span className='leading-relaxed text-neutral-400 text-xs text-end'>{time}</span>
@@ -104,8 +115,8 @@ const Day13 = () => {
           <div>
             <span className='leading-relaxed text-neutral-200 text-xs'>Kiel Marice S.</span>
             <div className='space-y-2'>
-              <div className="relative rounded-r-2xl rounded-tl-2xl rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs">
-                <p className='text-neutral-300'>{message}</p>
+              <div className="relative rounded-r-2xl rounded-tl-2xl rounded-bl-md bg-neutral-700 px-3 py-2 w-full md:max-w-lg max-w-xs">
+                <p className='text-neutral-200'>{message}</p>
               </div>
             </div>
             <span className='leading-relaxed text-neutral-400 text-xs'>{time}</span>
@@ -142,10 +153,16 @@ const Day13 = () => {
                 </svg>
               )}
             </button>
+            {/* fmUI Logo */}
+            <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
             {/* Button for Right bar */}
             <button
               className="lg:hidden py-2 size-9 flex justify-center items-center bg-neutral-600/50 backdrop-blur-sm hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out"
-            />
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+              </svg>
+            </button>
           </div>
           {/* Left Container */}
           <aside
@@ -215,19 +232,99 @@ const Day13 = () => {
               </div>
             </div>
             {/* Pinned Contact Boxes */}
-            <div className='space-y-2'>
-              <p className='text-neutral-400 text-xs'>Pinned</p>
-              <ContactBox />
+            <div className='space-y-2 pt-3'>
+              <p className='flex items-center gap-1 text-neutral-400 text-xs'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                  <path fillRule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clipRule="evenodd" />
+                </svg>
+                Pinned
+              </p>
+              <ContactBox
+                avatar="https://avatars.githubusercontent.com/u/92199408?v=4"
+                story={false}
+                name={'Joanah Marie Aldave'}
+                time={'11:09'}
+                message={'You: Hey! Are we still on for today?'}
+                sent={true}
+              />
             </div>
             {/* All Contact Boxes */}
             <div className='space-y-2'>
-              <p className='text-neutral-400 text-xs'>All messages</p>
-              <ContactBox />
-              <ContactBox />
-              <ContactBox />
-              <ContactBox />
-              <ContactBox />
-              <ContactBox />
+              <p className='flex items-center gap-1 text-neutral-400 text-xs'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                  <path fillRule="evenodd" d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clipRule="evenodd" />
+                </svg>
+                All messages
+              </p>
+              {[
+                {
+                  active: true,
+                  avatar: TechCommrLogo,
+                  story: true,
+                  name: "Tech-Commr",
+                  time: "14:12",
+                  message: "Kiel: Sounds perfect! Let’s do it that way. Thanks, everyone! 🙌",
+                  sent: true,
+                },
+                {
+                  avatar: "https://avatars.githubusercontent.com/u/92199409?v=4",
+                  story: true,
+                  name: "Alexandra Smith",
+                  time: "13:32",
+                  message: "Hey! Are we still on for today? Let me know if there's any change in the plan. I might be late by 10 minutes, but I’ll keep you posted.",
+                  sent: false,
+                  indicator: 4,
+                },
+                {
+                  avatar: "https://avatars.githubusercontent.com/u/92199412?v=4",
+                  story: false,
+                  name: "Michael Johnson",
+                  time: "13:15",
+                  message: "You: Sure, I'll be there at 5pm. Looking forward to catching up after such a long time. Let me know if you need anything before I arrive.",
+                  sent: true,
+                  indicator: 2,
+                },
+                {
+                  avatar: "https://avatars.githubusercontent.com/u/92199496?v=4",
+                  story: false,
+                  name: "Samantha Brown",
+                  time: "12:45",
+                  message: "Did you get the files I sent? I think we need to review the second section before the presentation. Let me know if you want me to make any edits.",
+                  sent: false,
+                  indicator: 6,
+                },
+                {
+                  avatar: "https://avatars.githubusercontent.com/u/92109408?v=4",
+                  story: true,
+                  name: "Daniel White",
+                  time: "11:58",
+                  message: "Let's grab lunch tomorrow! We can discuss the new project and brainstorm some ideas. I have a few concepts in mind that could be interesting to explore.",
+                  sent: false,
+                  indicator: 3,
+                },
+                {
+                  avatar: "https://avatars.githubusercontent.com/u/32199408?v=4",
+                  story: false,
+                  name: "Emily Davis",
+                  time: "10:21",
+                  message: "You: I'll review it and get back to you. It looks good so far, but I'll need a little more time to go through everything thoroughly.",
+                  sent: true,
+                  indicator: 4,
+                },
+              ].map((contact, index) => (
+                <ContactBox
+                  key={index}
+                  active={contact.active}
+                  avatar={contact.avatar}
+                  story={contact.story}
+                  name={contact.name}
+                  time={contact.time}
+                  message={contact.message}
+                  sent={contact.sent}
+                  indicator={contact.indicator}
+                />
+              ))}
+
             </div>
           </aside>
           <div className="flex-grow h-full text-wrap lg:pl-[24.6rem] p-3">
@@ -274,11 +371,15 @@ const Day13 = () => {
               {/* Chat Contents */}
               <div className='py-24 h-full overflow-auto z-30 flex flex-col justify-end items-end px-6 gap-y-1'>
                 <KielMessage
-                  message={'Lorem ipsum dolor, sit amet consectetur adipisicin.'}
+                  message={'So, I’ve been reviewing the mockups and thinking about the direction we should take for the site. We’ve got the content down, but the overall look and feel are still up in the air. 🤔 I’m torn between going for a clean, minimalistic design or adding some animations to make the user experience more dynamic. '}
+                  time={'Yesterday • 06:58'}
+                />
+                <KielMessage
+                  message={'Minimal or animations for the new site? 🤔'}
                   time={'Yesterday • 07:26'}
                 />
                 <FredMessage
-                  message={'Lorem ipsum dolor, sit amet consectetur.'}
+                  message={'I’d say keep it minimal but add a few animations for interactions. That way, it stays clean but still feels modern.'}
                   time={'Yesterday • 07:28'}
                 />
                 <div className='w-full'>
@@ -286,11 +387,11 @@ const Day13 = () => {
                 </div>
                 <LianMessage />
                 <FredMessage
-                  message={'Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor.'}
+                  message={"Agreed! We can use 'prefers-reduced-motion' for that. I will sketch up a few wireframes and we’ll go from there. 📝"}
                   time={'Today • 14:08'}
                 />
                 <KielMessage
-                  message={'Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor, sit amet consectetur adipisicing.'}
+                  message={'Sounds perfect! Let’s do it that way. Thanks, everyone! 🙌'}
                   time={'Today • 14:12'}
                 />
               </div>
@@ -341,7 +442,7 @@ const Day13 = () => {
           {/* Right bar */}
           <div className="lg:block hidden h-full text-wrap p-3 pr-6 w-full md:min-w-80 lg:min-w-96 md:max-w-80 lg:max-w-96 overflow-auto custom-scrollbar">
             {/*  */}
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center mt-3'>
               <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
                   <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
@@ -367,7 +468,10 @@ const Day13 = () => {
                 <h1 className="text-center leading-none font-normal text-neutral-200 text-xl md:text-2xl">
                   Tech-Commr
                 </h1>
-                <span className="flex items-center gap-3 leading-none text-neutral-300 text-sm">
+                <span className="flex items-center gap-2 leading-none text-neutral-300 text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                    <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                  </svg>
                   3 members
                   <span>
                     <span className='inline-flex size-2 rounded-full bg-green-500 me-2'></span>
@@ -434,7 +538,7 @@ const Day13 = () => {
             <div className='mt-4 border-t border-neutral-700/80 pt-2 space-y-3'>
               <div className='flex items-center justify-between'>
                 <h1 className="font-normal text-neutral-200 text-md md:text-xl">
-                  3 Members
+                  All Members
                 </h1>
                 <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
