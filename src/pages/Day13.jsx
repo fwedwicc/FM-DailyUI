@@ -55,6 +55,7 @@ const Day13 = () => {
             alt="Bot Avatar"
           />
           <div>
+            <span className='leading-relaxed text-neutral-200 text-xs'>Lian T.</span>
             <div className='space-y-2'>
               {[
                 "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, praesentium doloribus. Consectetur eveniet quaerat dicta quia perspiciatis velit dignissimos ullam tenetur.",
@@ -70,7 +71,7 @@ const Day13 = () => {
                 </div>
               ))}
             </div>
-            <span className='leading-relaxed text-neutral-400 text-xs'>Lian T. • 14:04</span>
+            <span className='leading-relaxed text-neutral-400 text-xs'>Today • 14:04</span>
           </div>
         </div>
       </div>
@@ -81,11 +82,11 @@ const Day13 = () => {
     return (
       <div className='flex justify-end items-end w-full'>
         <div className='flex items-end gap-3'>
-          <div className='flex flex-col justify-end gap-1'>
+          <div className='flex flex-col justify-end items-end gap-1'>
             <div className='relative rounded-l-2xl rounded-tr-2xl rounded-br-md border px-3 py-2 w-full md:max-w-lg max-w-xs'>
               <p className='text-neutral-300'>Lorem ipsum dolor, sit amet consectetur adipisicing</p>
             </div>
-            <span className='leading-relaxed text-neutral-400 text-xs text-end'>You • 14:12</span>
+            <span className='leading-relaxed text-neutral-400 text-xs text-end'>Today • 14:12</span>
           </div>
         </div>
       </div>
@@ -102,12 +103,13 @@ const Day13 = () => {
             alt="Bot Avatar"
           />
           <div>
+            <span className='leading-relaxed text-neutral-200 text-xs'>Kiel Marice S.</span>
             <div className='space-y-2'>
               <div className="relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs">
                 <p className='text-neutral-300'>Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor, sit amet consectetur adipisicing.</p>
               </div>
             </div>
-            <span className='leading-relaxed text-neutral-400 text-xs'>Kiel Marice S. • 14:14</span>
+            <span className='leading-relaxed text-neutral-400 text-xs'>Today • 14:14</span>
           </div>
         </div>
       </div>
@@ -269,10 +271,12 @@ const Day13 = () => {
                 </div>
               </div>
               {/* Chat Contents */}
-              <div className='py-24 h-full overflow-auto z-30 flex flex-col justify-end items-end px-6 gap-y-2.5'>
+              <div className='py-24 h-full overflow-auto z-30 flex flex-col justify-end items-end px-6 gap-y-1'>
                 <KielMessage />
                 <FredMessage />
-                Todeyyyyyy
+                <div className='w-full'>
+                  <div class="py-3 flex items-center text-sm text-neutral-500 before:flex-1 before:border-t before:border-neutral-700 before:me-4 after:flex-1 after:border-t after:border-neutral-700 after:ms-4">Today at 14:04</div>
+                </div>
                 <LianMessage />
                 <FredMessage />
                 <KielMessage />
@@ -322,7 +326,7 @@ const Day13 = () => {
             </div>
           </div>
           {/* Right bar */}
-          <div className="lg:block hidden h-full border text-wrap p-3 w-full md:min-w-80 lg:min-w-96 md:max-w-80 lg:max-w-96">
+          <div className="lg:block hidden h-full border text-wrap p-3 w-full md:min-w-80 lg:min-w-96 md:max-w-80 lg:max-w-96 overflow-auto custom-scrollbar">
             {/*  */}
             <div className='flex justify-between items-center border'>
               <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
@@ -342,7 +346,7 @@ const Day13 = () => {
             {/*  */}
             <div className='flex flex-col items-center gap-3 mt-3'>
               <img
-                className="size-20 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
+                className="size-16 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
                 src="https://avatars.githubusercontent.com/u/84505567?v=4"
                 alt="Bot Avatar"
               />
@@ -412,6 +416,57 @@ const Day13 = () => {
                   </svg>
                 </button>
               ))}
+            </div>
+            {/*  */}
+            <div className='mt-4 border-t pt-2 space-y-3'>
+              <div className='flex items-center justify-between'>
+                <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                  3 Members
+                </h1>
+                <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                    <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+              <div className='space-y-2'>
+                <button className='w-full py-2.5 text-sm flex justify-center gap-2 items-center bg-neutral-700/30 rounded-md focus:ring-2 focus:ring-neutral-700 text-green-500 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                    <path d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z" />
+                  </svg>
+                  Add member
+                </button>
+                <div className='space-y-2'>
+                  {[
+                    { name: "Lian T.", username: "@liant" },
+                    { name: "Frederick M.", username: "@fredm" },
+                    { name: "Kiel Marice S.", username: "@kielmarices" }
+                  ].map((member, index) => (
+                    <a href='' className='border flex items-center gap-3 p-2 rounded-md hover:bg-neutral-700/40 transition duration-300 ease-in-out' key={index}>
+                      <img
+                        className="size-9 border border-neutral-700 rounded-full cursor-pointer"
+                        src="https://avatars.githubusercontent.com/u/84505567?v=4"
+                        alt="Bot Avatar"
+                      />
+                      <div className='flex-grow w-full max-w-[85%]'>
+                        <div className='flex items-center justify-between'>
+                          <div>
+                            <h1 className="text-neutral-200 text-sm md:text-base">
+                              {member.name}
+                            </h1>
+                            <p className="leading-none text-neutral-300 text-sm">
+                              {member.username}
+                            </p>
+                          </div>
+                          <p className='leading-relaxed text-blue-400 text-xs'>
+                            Admin
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

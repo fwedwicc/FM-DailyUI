@@ -54,3 +54,12 @@ input[type="range"].custom-range::-ms-thumb {
   background-color: #22c55e;
   cursor: pointer;
 }
+
+.custom-scrollbar {
+  @apply overflow-y-auto
+  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:rounded-full
+  [&::-webkit-scrollbar-track]:bg-neutral-800
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  [&::-webkit-scrollbar-thumb]:bg-neutral-500/40;
+}
