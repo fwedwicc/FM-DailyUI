@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { fmUILogo } from '../assets'
-import { InputField, Checkbox, Button } from '../components'
+import { TechCommrLogo } from '../assets/day13'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
@@ -17,7 +16,7 @@ const Day13 = () => {
 
   const ContactBox = () => {
     return (
-      <div className='border flex items-center gap-3 py-1 px-1.5 rounded-md'>
+      <div className='flex items-center gap-3 py-1.5 px-2 rounded-md hover:bg-neutral-700/20 transition duration-300 ease-in-out cursor-pointer'>
         <img
           className="w-10 h-10 border-2 ring-2 ring-neutral-500 border-neutral-700 rounded-full cursor-pointer"
           src="https://avatars.githubusercontent.com/u/84505567?v=4"
@@ -59,7 +58,7 @@ const Day13 = () => {
             <div className='space-y-2'>
               {[
                 "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, praesentium doloribus. Consectetur eveniet quaerat dicta quia perspiciatis velit dignissimos ullam tenetur.",
-                "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, praesentium doloribus."
+                "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
               ].map((message, index) => (
                 <div className={`relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs`} key={index}>
                   <p className='text-neutral-300'>{message}</p>
@@ -78,38 +77,38 @@ const Day13 = () => {
     )
   }
 
-  const FredMessage = () => {
+  const FredMessage = ({ message, time }) => {
     return (
       <div className='flex justify-end items-end w-full'>
         <div className='flex items-end gap-3'>
           <div className='flex flex-col justify-end items-end gap-1'>
             <div className='relative rounded-l-2xl rounded-tr-2xl rounded-br-md border px-3 py-2 w-full md:max-w-lg max-w-xs'>
-              <p className='text-neutral-300'>Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+              <p className='text-neutral-300'>{message}</p>
             </div>
-            <span className='leading-relaxed text-neutral-400 text-xs text-end'>Today • 14:12</span>
+            <span className='leading-relaxed text-neutral-400 text-xs text-end'>{time}</span>
           </div>
         </div>
       </div>
     )
   }
 
-  const KielMessage = () => {
+  const KielMessage = ({ message, time }) => {
     return (
       <div className='flex justify-start items-start w-full'>
         <div className='flex items-end gap-3'>
           <img
             className="size-9 border border-neutral-700 rounded-full"
-            src="https://avatars.githubusercontent.com/u/84505567?v=4"
+            src="https://avatars.githubusercontent.com/u/98326799?v=4"
             alt="Bot Avatar"
           />
           <div>
             <span className='leading-relaxed text-neutral-200 text-xs'>Kiel Marice S.</span>
             <div className='space-y-2'>
-              <div className="relative rounded-r-2xl rounded-tl-2xl ${index === 1 ? 'rounded-tl-md' : ''} rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs">
-                <p className='text-neutral-300'>Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor, sit amet consectetur adipisicing.</p>
+              <div className="relative rounded-r-2xl rounded-tl-2xl rounded-bl-md border px-3 py-2 w-full md:max-w-lg max-w-xs">
+                <p className='text-neutral-300'>{message}</p>
               </div>
             </div>
-            <span className='leading-relaxed text-neutral-400 text-xs'>Today • 14:14</span>
+            <span className='leading-relaxed text-neutral-400 text-xs'>{time}</span>
           </div>
         </div>
       </div>
@@ -150,14 +149,14 @@ const Day13 = () => {
           </div>
           {/* Left Container */}
           <aside
-            className={`fixed overflow-auto p-3 h-full bg-[#202020] w-96 space-y-2 transition-transform lg:pt-3 pt-16 transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+            className={`fixed overflow-auto custom-scrollbar pl-6 p-3 h-full bg-[#202020] w-96 space-y-2 transition-transform lg:pt-3 pt-16 transform z-40 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
               } lg:translate-x-0`}
           >
             {/* Avatar, name, and username */}
             <div className='flex gap-4 p-4'>
               <img
                 className="size-12 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
-                src="https://avatars.githubusercontent.com/u/84505567?v=4"
+                src="https://avatars.githubusercontent.com/u/823537?v=4"
                 alt="Bot Avatar"
               />
               <div>
@@ -216,13 +215,15 @@ const Day13 = () => {
               </div>
             </div>
             {/* Pinned Contact Boxes */}
-            <div className='space-y-1'>
+            <div className='space-y-2'>
               <p className='text-neutral-400 text-xs'>Pinned</p>
               <ContactBox />
             </div>
             {/* All Contact Boxes */}
-            <div className='space-y-1'>
+            <div className='space-y-2'>
               <p className='text-neutral-400 text-xs'>All messages</p>
+              <ContactBox />
+              <ContactBox />
               <ContactBox />
               <ContactBox />
               <ContactBox />
@@ -232,12 +233,12 @@ const Day13 = () => {
           <div className="flex-grow h-full text-wrap lg:pl-[24.6rem] p-3">
             <div className='relative h-full bg-neutral-800 rounded-t-2xl rounded-b-[1.7rem]'>
               {/* Top Container */}
-              <div className='flex justify-between items-center absolute top-0 border bg-neutral-800/80 backdrop-blur-md rounded-t-2xl w-full p-4 z-20'>
+              <div className='flex justify-between items-center border-b border-neutral-700/40 absolute top-0 bg-neutral-800/80 backdrop-blur-md rounded-t-2xl w-full p-4 z-20'>
                 <div className='flex items-center gap-5'>
                   <img
                     className="size-10 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
-                    src="https://avatars.githubusercontent.com/u/84505567?v=4"
-                    alt="Bot Avatar"
+                    src={TechCommrLogo}
+                    alt="Tech-Commr Logo"
                   />
                   <div>
                     <h1 className="leading-none font-normal text-neutral-200 text-md md:text-xl">
@@ -272,17 +273,29 @@ const Day13 = () => {
               </div>
               {/* Chat Contents */}
               <div className='py-24 h-full overflow-auto z-30 flex flex-col justify-end items-end px-6 gap-y-1'>
-                <KielMessage />
-                <FredMessage />
+                <KielMessage
+                  message={'Lorem ipsum dolor, sit amet consectetur adipisicin.'}
+                  time={'Yesterday • 07:26'}
+                />
+                <FredMessage
+                  message={'Lorem ipsum dolor, sit amet consectetur.'}
+                  time={'Yesterday • 07:28'}
+                />
                 <div className='w-full'>
                   <div class="py-3 flex items-center text-sm text-neutral-500 before:flex-1 before:border-t before:border-neutral-700 before:me-4 after:flex-1 after:border-t after:border-neutral-700 after:ms-4">Today at 14:04</div>
                 </div>
                 <LianMessage />
-                <FredMessage />
-                <KielMessage />
+                <FredMessage
+                  message={'Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor.'}
+                  time={'Today • 14:08'}
+                />
+                <KielMessage
+                  message={'Lorem ipsum dolor, sit amet consectetur adipisicin gLorem ipsum dolor, sit amet consectetur adipisicing.'}
+                  time={'Today • 14:12'}
+                />
               </div>
               {/* Bottom Container */}
-              <div className='absolute bottom-0 border w-full p-3 z-20'>
+              <div className='absolute bottom-0 w-full p-3 z-20'>
                 <div className='w-full relative'>
                   <input
                     id="search"
@@ -326,9 +339,9 @@ const Day13 = () => {
             </div>
           </div>
           {/* Right bar */}
-          <div className="lg:block hidden h-full border text-wrap p-3 w-full md:min-w-80 lg:min-w-96 md:max-w-80 lg:max-w-96 overflow-auto custom-scrollbar">
+          <div className="lg:block hidden h-full text-wrap p-3 pr-6 w-full md:min-w-80 lg:min-w-96 md:max-w-80 lg:max-w-96 overflow-auto custom-scrollbar">
             {/*  */}
-            <div className='flex justify-between items-center border'>
+            <div className='flex justify-between items-center'>
               <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
                   <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
@@ -344,11 +357,11 @@ const Day13 = () => {
               </button>
             </div>
             {/*  */}
-            <div className='flex flex-col items-center gap-3 mt-3'>
+            <div className='flex flex-col items-center gap-3 mt-5'>
               <img
                 className="size-16 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
-                src="https://avatars.githubusercontent.com/u/84505567?v=4"
-                alt="Bot Avatar"
+                src={TechCommrLogo}
+                alt="Tech-Commr Logo"
               />
               <div className='space-y-1'>
                 <h1 className="text-center leading-none font-normal text-neutral-200 text-xl md:text-2xl">
@@ -364,7 +377,7 @@ const Day13 = () => {
               </div>
             </div>
             {/*  */}
-            <div className='flex gap-3 w-full border mt-4'>
+            <div className='flex gap-3 w-full mt-4'>
               {[
                 {
                   label: "Audio", path: "M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
@@ -379,7 +392,7 @@ const Day13 = () => {
                   label: "Leave", path: "M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z"
                 }
               ].map((action, index) => (
-                <button className='px-4 py-3 flex gap-2 flex-col flex-grow justify-center items-center bg-neutral-700/40 hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out' key={index}>
+                <button className={`px-4 py-3 flex gap-2 flex-col flex-grow justify-center items-center bg-neutral-700/40 hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 ${index === 3 ? 'hover:text-red-500' : 'hover:text-green-500'} z-50 transition duration-300 ease-in-out`} key={index}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                     <path fillRule="evenodd" d={action.path} clipRule="evenodd" />
                   </svg>
@@ -390,7 +403,7 @@ const Day13 = () => {
               ))}
             </div>
             {/*  */}
-            <div className='flex flex-col w-full gap-2.5 mt-2.5 border'>
+            <div className='flex flex-col w-full gap-2.5 mt-2.5'>
               {[
                 {
                   label: "Media, files & links", path: "M18.97 3.659a2.25 2.25 0 0 0-3.182 0l-10.94 10.94a3.75 3.75 0 1 0 5.304 5.303l7.693-7.693a.75.75 0 0 1 1.06 1.06l-7.693 7.693a5.25 5.25 0 1 1-7.424-7.424l10.939-10.94a3.75 3.75 0 1 1 5.303 5.304L9.097 18.835l-.008.008-.007.007-.002.002-.003.002A2.25 2.25 0 0 1 5.91 15.66l7.81-7.81a.75.75 0 0 1 1.061 1.06l-7.81 7.81a.75.75 0 0 0 1.054 1.068L18.97 6.84a2.25 2.25 0 0 0 0-3.182Z"
@@ -402,23 +415,23 @@ const Day13 = () => {
                   label: "Channel settings", path: "M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"
                 }
               ].map((action, index) => (
-                <button className='px-4 py-3 flex gap-2 flex-grow justify-between items-center bg-neutral-700/40 hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out' key={index}>
+                <button className='group px-4 py-3 flex gap-2 flex-grow justify-between items-center bg-neutral-700/10 hover:bg-neutral-700/30 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out' key={index}>
                   <div className='flex items-center gap-3'>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={`size-5 ${index === 0 ? 'text-yellow-500' : index === 1 ? 'text-blue-500' : ''}`}>
                       <path fillRule="evenodd" d={action.path} clipRule="evenodd" />
                     </svg>
                     <p className="text-neutral-300 text-sm">
                       {action.label}
                     </p>
                   </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4 group-hover:text-green-500">
                     <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
                   </svg>
                 </button>
               ))}
             </div>
             {/*  */}
-            <div className='mt-4 border-t pt-2 space-y-3'>
+            <div className='mt-4 border-t border-neutral-700/80 pt-2 space-y-3'>
               <div className='flex items-center justify-between'>
                 <h1 className="font-normal text-neutral-200 text-md md:text-xl">
                   3 Members
@@ -438,14 +451,14 @@ const Day13 = () => {
                 </button>
                 <div className='space-y-2'>
                   {[
-                    { name: "Lian T.", username: "@liant" },
-                    { name: "Frederick M.", username: "@fredm" },
-                    { name: "Kiel Marice S.", username: "@kielmarices" }
+                    { name: "Lian T.", username: "@liant", avatar: "https://avatars.githubusercontent.com/u/84505567?v=4" },
+                    { name: "Frederick M.", username: "@fredm", avatar: "https://avatars.githubusercontent.com/u/823537?v=4" },
+                    { name: "Kiel Marice S.", username: "@kielmarices", avatar: "https://avatars.githubusercontent.com/u/98326799?v=4" }
                   ].map((member, index) => (
-                    <a href='' className='border flex items-center gap-3 p-2 rounded-md hover:bg-neutral-700/40 transition duration-300 ease-in-out' key={index}>
+                    <a href='#' className='flex items-center gap-3 p-2 rounded-md hover:bg-neutral-700/20 transition duration-300 ease-in-out' key={index}>
                       <img
                         className="size-9 border border-neutral-700 rounded-full cursor-pointer"
-                        src="https://avatars.githubusercontent.com/u/84505567?v=4"
+                        src={member.avatar}
                         alt="Bot Avatar"
                       />
                       <div className='flex-grow w-full max-w-[85%]'>
@@ -454,7 +467,7 @@ const Day13 = () => {
                             <h1 className="text-neutral-200 text-sm md:text-base">
                               {member.name}
                             </h1>
-                            <p className="leading-none text-neutral-300 text-sm">
+                            <p className="leading-none text-neutral-400 text-sm">
                               {member.username}
                             </p>
                           </div>
