@@ -66,7 +66,7 @@ const Day14 = () => {
 
   const AppNav = ({ active }) => {
     return (
-      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-[7px] rounded-b-[1.2rem] p-1 border gap-1'>
+      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-[7px] rounded-b-[1.2rem] p-1 border gap-1 bg-neutral-800'>
         {[
           'M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z',
           'M2.625 6.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0A.75.75 0 0 1 8.25 6h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75ZM2.625 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 12a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12A.75.75 0 0 1 7.5 12Zm-4.875 5.25a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75Z',
@@ -104,22 +104,47 @@ const Day14 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* Timer Overview */}
           <PhoneMockup>
-            {/* Content */}
             <div className='relative border h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
               <AppHeader />
-              <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ipsum nisi earum reiciendis hic vero ratione alias aut illo, enim exercitationem! Soluta, nostrum. Harum alias iste delectus quisquam cum.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ips</p>
+              {/* Content */}
+              <div className='pt-4'>
+                <p className='text-sm text-neutral-200'>Wait langggg</p>
+              </div>
               {/* Bottom Navigation */}
               <AppNav active={'task'} />
             </div>
           </PhoneMockup>
           {/* Tasks Overview */}
           <PhoneMockup>
-            {/* Content */}
             <div className='border h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
               <AppHeader />
-              <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ipsum nisi earum reiciendis hic vero ratione alias aut illo, enim exercitationem! Soluta, nostrum. Harum alias iste delectus quisquam cum.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ips</p>
+              {/* Content */}
+              <div className='pt-6 flex flex-col items-center justify-center space-y-12'>
+                <div className='border p-2 w-full max-w-[14rem]'>
+                  test
+                </div>
+                <div className='size-56 border rounded-full flex justify-center items-center'>
+                  test
+                </div>
+                <div className='border w-full flex justify-evenly'>
+                  {[
+                    { label: "test", icon: 'M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z' },
+                    { label: "test", icon: 'M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z' },
+                    { label: "test", icon: 'M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z' }
+                  ].map((button, index) => (
+                    <div className='flex flex-col items-center' key={index}>
+                      <button className='p-3 border rounded-full'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                          <path fillRule="evenodd" d={button.icon} clipRule="evenodd" />
+                        </svg>
+                      </button>
+                      {button.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
               {/* Bottom Navigation */}
               <AppNav active={'timer'} />
             </div>
