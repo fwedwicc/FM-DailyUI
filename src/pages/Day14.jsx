@@ -8,11 +8,10 @@ const Day14 = () => {
   useScrollToTop();
 
   const PhoneMockup = ({ children }) => {
-
     return (
       <>
         {/* Phone Mockup */}
-        <div className='relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2 ring-neutral-400 border-neutral-900'>
+        <div className='relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2 ring-neutral-400 bg-neutral-700/40 border-neutral-900'>
           {/* Sound Buttons */}
           <div className='absolute top-20 -left-3 flex flex-col gap-3'>
             {[0, 1, 2].map((index) => (
@@ -43,12 +42,50 @@ const Day14 = () => {
             </div>
           </div>
           {children}
-          {/* Phone Navigation */}
-          <div className='absolute rounded-full h-1.5 w-24 bottom-2 left-1/2 transform -translate-x-1/2 bg-neutral-600'></div>
         </div>
       </>
     );
   };
+
+  const AppHeader = () => {
+    return (
+      <div className='flex justify-between items-center border'>
+        <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+            <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
+          </svg>
+        </button>
+        <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+            <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    )
+  }
+
+  const AppNav = () => {
+    return (
+      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-b-[1.2rem] p-1 border gap-1'>
+        {[
+          'M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z',
+          'M2.625 6.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0A.75.75 0 0 1 8.25 6h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75ZM2.625 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 12a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12A.75.75 0 0 1 7.5 12Zm-4.875 5.25a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75Z',
+          ['M12.75 3a.75.75 0 0 1 .75-.75 8.25 8.25 0 0 1 8.25 8.25.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75V3Z', 'M2.25 13.5a8.25 8.25 0 0 1 8.25-8.25.75.75 0 0 1 .75.75v6.75H18a.75.75 0 0 1 .75.75 8.25 8.25 0 0 1-16.5 0Z'],
+          'M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z',
+        ].map((nav, index) => (
+          <button className={`text-neutral-400 border flex flex-grow items-center justify-center py-2.5 rounded-md ${index === 0 ? 'rounded-bl-2xl' : index === 3 ? 'rounded-br-2xl' : ''}`} key={index}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+              {Array.isArray(nav) ? (
+                nav.map((d, i) => <path key={i} strokeLinecap="round" strokeLinejoin="round" d={d} />)
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d={nav} />
+              )}
+            </svg>
+          </button>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <motion.div
@@ -61,21 +98,25 @@ const Day14 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* Timer Overview */}
           <PhoneMockup>
-            {/* <Content
-              label='Hooray!'
-              message='Sit back and relax, <br /> your order is on the way.'
-              button='Continue'
-              color='dark'
-            /> */}
+            {/* Content */}
+            <div className='relative border h-full px-3.5 pt-12 overflow-hidden'>
+              {/* Header */}
+              <AppHeader />
+              <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ipsum nisi earum reiciendis hic vero ratione alias aut illo, enim exercitationem! Soluta, nostrum. Harum alias iste delectus quisquam cum.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ips</p>
+              {/* Bottom Navigation */}
+              <AppNav />
+            </div>
           </PhoneMockup>
           {/* Tasks Overview */}
           <PhoneMockup>
-            {/* <Content
-              label='Oops!'
-              message="Your order didn't go through, <br /> please try again."
-              button='Try again'
-              color='light'
-            /> */}
+            {/* Content */}
+            <div className='border h-full px-3.5 pt-12 overflow-hidden'>
+              {/* Header */}
+              <AppHeader />
+              <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ipsum nisi earum reiciendis hic vero ratione alias aut illo, enim exercitationem! Soluta, nostrum. Harum alias iste delectus quisquam cum.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ips</p>
+              {/* Bottom Navigation */}
+              <AppNav />
+            </div>
           </PhoneMockup>
         </div>
       </section>
