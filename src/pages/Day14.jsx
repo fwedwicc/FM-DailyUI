@@ -50,35 +50,41 @@ const Day14 = () => {
   const AppHeader = () => {
     return (
       <div className='flex justify-between items-center border'>
+        <img
+          className="size-8 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
+          src="https://avatars.githubusercontent.com/u/943537?v=4"
+          alt="Bot Avatar"
+        />
         <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
-            <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
-          </svg>
-        </button>
-        <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
-            <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
           </svg>
         </button>
       </div>
     )
   }
 
-  const AppNav = () => {
+  const AppNav = ({ active }) => {
     return (
-      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-b-[1.2rem] p-1 border gap-1'>
+      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-[7px] rounded-b-[1.2rem] p-1 border gap-1'>
         {[
           'M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z',
           'M2.625 6.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0A.75.75 0 0 1 8.25 6h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75ZM2.625 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 12a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12A.75.75 0 0 1 7.5 12Zm-4.875 5.25a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75Z',
           ['M12.75 3a.75.75 0 0 1 .75-.75 8.25 8.25 0 0 1 8.25 8.25.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75V3Z', 'M2.25 13.5a8.25 8.25 0 0 1 8.25-8.25.75.75 0 0 1 .75.75v6.75H18a.75.75 0 0 1 .75.75 8.25 8.25 0 0 1-16.5 0Z'],
           'M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z',
         ].map((nav, index) => (
-          <button className={`text-neutral-400 border flex flex-grow items-center justify-center py-2.5 rounded-md ${index === 0 ? 'rounded-bl-2xl' : index === 3 ? 'rounded-br-2xl' : ''}`} key={index}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+          <button
+            className={`text-neutral-400 border flex flex-grow items-center justify-center py-2.5 rounded-md hover:bg-green-500/10 transition duration-300 
+            ${active === 'task' && index === 1 ? '!text-green-500 bg-green-500/10' : ''} 
+            ${active === 'timer' && index === 0 ? '!text-green-500 bg-green-500/10' : ''} 
+            ${index === 0 ? 'rounded-bl-2xl' : index === 3 ? 'rounded-br-2xl' : ''}`}
+            key={index}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
               {Array.isArray(nav) ? (
-                nav.map((d, i) => <path key={i} strokeLinecap="round" strokeLinejoin="round" d={d} />)
+                nav.map((d, i) => <path key={i} fillRule="evenodd" clipRule="evenodd" d={d} />)
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d={nav} />
+                <path fillRule="evenodd" clipRule="evenodd" d={nav} />
               )}
             </svg>
           </button>
@@ -104,7 +110,7 @@ const Day14 = () => {
               <AppHeader />
               <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ipsum nisi earum reiciendis hic vero ratione alias aut illo, enim exercitationem! Soluta, nostrum. Harum alias iste delectus quisquam cum.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ips</p>
               {/* Bottom Navigation */}
-              <AppNav />
+              <AppNav active={'task'} />
             </div>
           </PhoneMockup>
           {/* Tasks Overview */}
@@ -115,7 +121,7 @@ const Day14 = () => {
               <AppHeader />
               <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ipsum nisi earum reiciendis hic vero ratione alias aut illo, enim exercitationem! Soluta, nostrum. Harum alias iste delectus quisquam cum.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem laborum ips</p>
               {/* Bottom Navigation */}
-              <AppNav />
+              <AppNav active={'timer'} />
             </div>
           </PhoneMockup>
         </div>
