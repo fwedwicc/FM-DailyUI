@@ -74,7 +74,7 @@ const Day14 = () => {
           'M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z',
         ].map((nav, index) => (
           <button
-            className={`text-neutral-400 bg-neutral-600/50 flex flex-grow items-center justify-center py-3 rounded-sm hover:bg-green-500/10 transition duration-300 
+            className={`text-neutral-400 bg-neutral-600/50 flex flex-grow items-center justify-center py-3 rounded-sm hover:bg-neutral-800/10 transition duration-300 
             ${active === 'task' && index === 1 ? '!text-green-500 !bg-neutral-800/50' : ''} 
             ${active === 'timer' && index === 0 ? '!text-green-500 !bg-neutral-800/50' : ''} 
             ${index === 0 ? 'rounded-l-[1.6rem]' : index === 3 ? 'rounded-r-[1.6rem]' : ''}`}
@@ -104,16 +104,16 @@ const Day14 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* Task Overview */}
           <PhoneMockup>
-            <div className='relative border h-full px-3.5 pt-12 overflow-hidden'>
+            <div className='relative h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
               <AppHeader />
               {/* Content */}
               <div className='pt-5 space-y-3'>
                 <h1 className="font-normal text-neutral-200 text-md md:text-xl">
-                  Welcome back, Fred!
+                  Welcome back, Fred! 👋🏻
                 </h1>
-                <div className='border flex flex-col gap-4 rounded-xl p-3.5'>
-                  <p className="text-neutral-300 text-center text-sm">
+                <div className='bg-neutral-700 flex flex-col gap-4 rounded-xl p-3.5'>
+                  <p className="text-neutral-200 text-center text-sm">
                     Your today's focus time
                   </p>
                   <div className='flex justify-evenly items-center'>
@@ -124,7 +124,7 @@ const Day14 = () => {
                     ].map((block, index) => (
                       <>
                         <div className='flex flex-col gap-1 items-center justify-center' key={index}>
-                          <span className='border size-11 flex justify-center items-center rounded-xl font-semibold text-green-500'>
+                          <span className='border border-neutral-600 bg-neutral-800/50 size-11 flex justify-center items-center rounded-xl font-semibold text-green-500'>
                             {block.time}
                           </span>
                           <span className='text-neutral-400 text-[0.6rem] uppercase'>{block.label}</span>
@@ -134,9 +134,9 @@ const Day14 = () => {
                     ))}
                   </div>
                 </div>
-                <button className='flex justify-between items-center pl-4 p-2 w-full border rounded-lg text-neutral-300 text-sm'>
+                <button className='flex justify-between items-center pl-4 p-2 w-full bg-green-500/20 hover:bg-green-500/30 transition duration-300 ease-in-out rounded-lg text-neutral-200 text-sm'>
                   What are you working on?
-                  <span className='p-2 border rounded-full text-green-00 bg-neutral-600/30 hover:bg-neutral-600/50 transition duration-300 ease-in-out'>
+                  <span className='p-2 rounded-full text-white bg-green-500'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
@@ -154,35 +154,28 @@ const Day14 = () => {
                 </div>
                 <div className='space-y-1'>
                   {[
-                    { emoji: "🎹", label: "Piano Practice" },
-                    { emoji: "🎹", label: "Piano Practice" }
+                    { emoji: "💻", label: "Learn Programming" },
+                    { emoji: "✍🏻", label: "Drawing Session" }
                   ].map((block, index) => (
-                    <div className='flex items-center justify-between border p-2 w-full rounded-xl' key={index}>
+                    <div className='flex items-center justify-between bg-neutral-700/30 hover:bg-neutral-700/50 p-2 w-full rounded-xl cursor-pointer transition duration-300 ease-in-out' key={index}>
                       <div className='flex gap-2.5'>
-                        <div className='border py-1 px-1.5 text-lg rounded-md'>
+                        <div className='border border-neutral-600 bg-neutral-600/50 py-1 px-1.5 text-lg rounded-md'>
                           {block.emoji}
                         </div>
                         <div className='space-y-1'>
                           <p className="text-neutral-300 text-sm">
                             {block.label}
                           </p>
-                          <div className='flex items-center gap-1 text-neutral-300'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
+                          <div className='flex items-center gap-1 text-green-500'>
+                            {["M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"].map((icon, index) => (
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4" key={index}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                              </svg>
+                            ))}
                           </div>
                         </div>
                       </div>
-                      <button className='size-8 flex justify-center items-center text-neutral-200 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                      <button className='size-8 flex justify-center items-center text-green-500 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                           <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
                         </svg>
@@ -230,7 +223,6 @@ const Day14 = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
                           </svg>
                         ))}
-
                       </div>
                     </div>
                   </div>
