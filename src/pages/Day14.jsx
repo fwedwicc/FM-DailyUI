@@ -55,7 +55,7 @@ const Day14 = () => {
           src="https://avatars.githubusercontent.com/u/943537?v=4"
           alt="Bot Avatar"
         />
-        <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-200 z-50 transition duration-300 ease-in-out'>
+        <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
           </svg>
@@ -108,8 +108,98 @@ const Day14 = () => {
               {/* Header */}
               <AppHeader />
               {/* Content */}
-              <div className='pt-4'>
-                <p className='text-sm text-neutral-200'>Wait langggg</p>
+              <div className='pt-5 space-y-3'>
+                <h1 className="font-normal text-neutral-200 text-md md:text-xl">
+                  Welcome back, Fred!
+                </h1>
+                <div className='border flex flex-col gap-4 rounded-xl p-3.5'>
+                  <p className="text-neutral-300 text-center text-sm">
+                    Your today's focus time
+                  </p>
+                  <div className='flex justify-evenly items-center'>
+                    {[
+                      { time: "04", label: "Hour" },
+                      { time: "19", label: "Minutes" },
+                      { time: "47", label: "Seconds" }
+                    ].map((block, index) => (
+                      <>
+                        <div className='flex flex-col gap-1 items-center justify-center' key={index}>
+                          <span className='border size-11 flex justify-center items-center rounded-xl font-semibold text-green-500'>
+                            {block.time}
+                          </span>
+                          <span className='text-neutral-400 text-[0.6rem] uppercase'>{block.label}</span>
+                        </div>
+                        <span className={`text-neutral-300 mb-5 text-2xl ${index === 2 ? 'hidden' : ''}`}>:</span>
+                      </>
+                    ))}
+                  </div>
+                </div>
+                <button className='flex justify-between items-center pl-4 p-2 w-full border rounded-lg text-neutral-300 text-sm'>
+                  What are you working on?
+                  <span className='p-2 border rounded-full text-green-00 bg-neutral-600/30 hover:bg-neutral-600/50 transition duration-300 ease-in-out'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </span>
+                </button>
+                <div className='flex justify-between items-center pt-1'>
+                  <p className="leading-relaxed text-neutral-300 text-xs">
+                    Today's task (2)
+                  </p>
+                  <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                    </svg>
+                  </button>
+                </div>
+                <div className='space-y-1'>
+                  {[
+                    { emoji: "🎹", label: "Piano Practice" },
+                    { emoji: "🎹", label: "Piano Practice" }
+                  ].map((block, index) => (
+                    <div className='flex items-center justify-between border p-2 w-full rounded-xl' key={index}>
+                      <div className='flex gap-2.5'>
+                        <div className='border py-1 px-1.5 text-lg rounded-md'>
+                          {block.emoji}
+                        </div>
+                        <div className='space-y-1'>
+                          <p className="text-neutral-300 text-sm">
+                            {block.label}
+                          </p>
+                          <div className='flex items-center gap-1 text-neutral-300'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <button className='size-8 flex justify-center items-center text-neutral-200 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                          <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                        </svg>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className='flex justify-between items-center pt-1'>
+                  <p className="leading-relaxed text-neutral-300 text-xs">
+                    All task (6)
+                  </p>
+                  <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
               {/* Bottom Navigation */}
               <AppNav active={'task'} />
@@ -147,19 +237,25 @@ const Day14 = () => {
                       </div>
                     </div>
                   </div>
-                  <button className='size-8 flex justify-center items-center text-neutral-200 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-300 z-50 transition duration-300 ease-in-out'>
+                  <button className='size-8 flex justify-center items-center text-neutral-200 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                     <svg className="size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                       <path fill-rule="evenodd" d="M14.516 6.743c-.41-.368-.443-1-.077-1.41a.99.99 0 0 1 1.405-.078l5.487 4.948.007.006A2.047 2.047 0 0 1 22 11.721a2.06 2.06 0 0 1-.662 1.51l-5.584 5.09a.99.99 0 0 1-1.404-.07 1.003 1.003 0 0 1 .068-1.412l5.578-5.082a.05.05 0 0 0 .015-.036.051.051 0 0 0-.015-.036l-5.48-4.942Zm-6.543 9.199v-.42a4.168 4.168 0 0 0-2.715 2.415c-.154.382-.44.695-.806.88a1.683 1.683 0 0 1-2.167-.571 1.705 1.705 0 0 1-.279-1.092V15.88c0-3.77 2.526-7.039 5.967-7.573V7.57a1.957 1.957 0 0 1 .993-1.838 1.931 1.931 0 0 1 2.153.184l5.08 4.248a.646.646 0 0 1 .012.011l.011.01a2.098 2.098 0 0 1 .703 1.57 2.108 2.108 0 0 1-.726 1.59l-5.08 4.25a1.933 1.933 0 0 1-2.929-.614 1.957 1.957 0 0 1-.217-1.04Z" clip-rule="evenodd" />
                     </svg>
                   </button>
                 </div>
-                <div className='size-56 border rounded-full flex flex-col gap-1 justify-center items-center'>
-                  <h1 className="font-normal text-neutral-200 text-5xl">
-                    02 : 19
-                  </h1>
-                  <p className="leading-relaxed text-neutral-300 text-sm">
-                    2 of 4 sessions
-                  </p>
+                <div className="relative size-56 border">
+                  <svg className="-rotate-90 size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-neutral-700" strokeWidth="1" strokeLinecap="round"></circle>
+                    <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-green-500" strokeWidth="1.5" strokeDasharray="56.25 100" strokeLinecap="round"></circle>
+                  </svg>
+                  <div className="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                    <h1 className="font-normal text-green-500 text-4xl">
+                      14 : 07
+                    </h1>
+                    <p className="leading-relaxed text-neutral-300 text-sm">
+                      1 of 4 sessions
+                    </p>
+                  </div>
                 </div>
                 <div className='border w-full flex justify-evenly'>
                   {[
