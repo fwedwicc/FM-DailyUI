@@ -49,7 +49,7 @@ const Day14 = () => {
 
   const AppHeader = () => {
     return (
-      <div className='flex justify-between items-center border'>
+      <div className='flex justify-between items-center pl-2'>
         <img
           className="size-8 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
           src="https://avatars.githubusercontent.com/u/943537?v=4"
@@ -66,7 +66,7 @@ const Day14 = () => {
 
   const AppNav = ({ active }) => {
     return (
-      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-[7px] rounded-b-[1.2rem] p-1 border gap-1 bg-neutral-800'>
+      <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-[1.6rem] rounded-b-[1.6rem] p-1 gap-1 bg-neutral-700'>
         {[
           'M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z',
           'M2.625 6.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0A.75.75 0 0 1 8.25 6h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75ZM2.625 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 12a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12A.75.75 0 0 1 7.5 12Zm-4.875 5.25a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875 0a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5h-12a.75.75 0 0 1-.75-.75Z',
@@ -74,10 +74,10 @@ const Day14 = () => {
           'M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z',
         ].map((nav, index) => (
           <button
-            className={`text-neutral-400 border flex flex-grow items-center justify-center py-2.5 rounded-md hover:bg-green-500/10 transition duration-300 
-            ${active === 'task' && index === 1 ? '!text-green-500 bg-green-500/10' : ''} 
-            ${active === 'timer' && index === 0 ? '!text-green-500 bg-green-500/10' : ''} 
-            ${index === 0 ? 'rounded-bl-2xl' : index === 3 ? 'rounded-br-2xl' : ''}`}
+            className={`text-neutral-400 bg-neutral-600/50 flex flex-grow items-center justify-center py-3 rounded-sm hover:bg-green-500/10 transition duration-300 
+            ${active === 'task' && index === 1 ? '!text-green-500 !bg-neutral-800/50' : ''} 
+            ${active === 'timer' && index === 0 ? '!text-green-500 !bg-neutral-800/50' : ''} 
+            ${index === 0 ? 'rounded-l-[1.6rem]' : index === 3 ? 'rounded-r-[1.6rem]' : ''}`}
             key={index}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
@@ -102,7 +102,7 @@ const Day14 = () => {
     >
       <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 py-8">
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
-          {/* Timer Overview */}
+          {/* Task Overview */}
           <PhoneMockup>
             <div className='relative border h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
@@ -205,45 +205,42 @@ const Day14 = () => {
               <AppNav active={'task'} />
             </div>
           </PhoneMockup>
-          {/* Tasks Overview */}
+          {/* Timer Overview */}
           <PhoneMockup>
-            <div className='border h-full px-3.5 pt-12 overflow-hidden'>
+            <div className='h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
               <AppHeader />
               {/* Content */}
-              <div className='pt-6 flex flex-col items-center justify-center space-y-12'>
-                <div className='flex items-center justify-between border p-2 w-full max-w-[16rem] rounded-xl'>
+              <div className='pt-8 flex flex-col items-center justify-center space-y-10'>
+                <div className='flex items-center justify-between bg-neutral-700 p-2 w-full max-w-[16rem] rounded-xl'>
                   <div className='flex gap-2.5'>
-                    <div className='border py-1 px-1.5 text-lg rounded-md'>
+                    <div className='border border-neutral-600 bg-neutral-600/50 py-1 px-1.5 text-lg rounded-md'>
                       🎹
                     </div>
                     <div className='space-y-1'>
                       <p className="text-neutral-300 text-sm">
                         Piano Practice
                       </p>
-                      <div className='flex items-center gap-1 text-neutral-300'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                      <div className='flex items-center gap-1 text-green-500'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                          <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clipRule="evenodd" />
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
+                        {["M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"].map((icon, index) => (
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4" key={index}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                          </svg>
+                        ))}
+
                       </div>
                     </div>
                   </div>
-                  <button className='size-8 flex justify-center items-center text-neutral-200 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                  <button className='size-8 flex justify-center items-center text-neutral-300 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                     <svg className="size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                       <path fill-rule="evenodd" d="M14.516 6.743c-.41-.368-.443-1-.077-1.41a.99.99 0 0 1 1.405-.078l5.487 4.948.007.006A2.047 2.047 0 0 1 22 11.721a2.06 2.06 0 0 1-.662 1.51l-5.584 5.09a.99.99 0 0 1-1.404-.07 1.003 1.003 0 0 1 .068-1.412l5.578-5.082a.05.05 0 0 0 .015-.036.051.051 0 0 0-.015-.036l-5.48-4.942Zm-6.543 9.199v-.42a4.168 4.168 0 0 0-2.715 2.415c-.154.382-.44.695-.806.88a1.683 1.683 0 0 1-2.167-.571 1.705 1.705 0 0 1-.279-1.092V15.88c0-3.77 2.526-7.039 5.967-7.573V7.57a1.957 1.957 0 0 1 .993-1.838 1.931 1.931 0 0 1 2.153.184l5.08 4.248a.646.646 0 0 1 .012.011l.011.01a2.098 2.098 0 0 1 .703 1.57 2.108 2.108 0 0 1-.726 1.59l-5.08 4.25a1.933 1.933 0 0 1-2.929-.614 1.957 1.957 0 0 1-.217-1.04Z" clip-rule="evenodd" />
                     </svg>
                   </button>
                 </div>
-                <div className="relative size-56 border">
+                <div className="relative size-56 border border-dashed border-neutral-500 rounded-full">
                   <svg className="-rotate-90 size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-neutral-700" strokeWidth="1" strokeLinecap="round"></circle>
                     <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-green-500" strokeWidth="1.5" strokeDasharray="56.25 100" strokeLinecap="round"></circle>
@@ -257,14 +254,14 @@ const Day14 = () => {
                     </p>
                   </div>
                 </div>
-                <div className='border w-full flex justify-evenly'>
+                <div className='w-full flex justify-evenly'>
                   {[
                     { label: "Reset", icon: 'M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z' },
                     { label: "Pause", icon: 'M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z' },
                     { label: "Stop", icon: 'M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z' }
                   ].map((button, index) => (
                     <div className='flex flex-col gap-1 items-center' key={index}>
-                      <button className='p-3 border rounded-full text-neutral-300 bg-neutral-600/30 hover:bg-neutral-600/50 transition duration-300 ease-in-out'>
+                      <button className='p-3 rounded-full text-neutral-300 bg-neutral-600/30 hover:bg-neutral-600/60 transition duration-300 ease-in-out'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                           <path fillRule="evenodd" d={button.icon} clipRule="evenodd" />
                         </svg>
