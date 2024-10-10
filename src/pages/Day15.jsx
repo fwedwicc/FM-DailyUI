@@ -17,17 +17,17 @@ const Day15 = () => {
     return (
       <>
         {/* Phone Mockup */}
-        <div className='relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2 ring-neutral-400 bg-neutral-700/40 border-neutral-900'>
+        <div className={`relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2 ${isChecked ? 'ring-green-500' : 'ring-neutral-400'} bg-neutral-700/40 border-neutral-900`}>
           {/* Sound Buttons */}
           <div className='absolute top-20 -left-3 flex flex-col gap-3'>
             {[0, 1, 2].map((index) => (
               <div
-                className={`rounded-full w-2 bg-neutral-900 border-neutral-400 border-l-2 ${index === 0 ? 'h-7' : 'h-10'}`} key={index}>
+                className={`rounded-full w-2 bg-neutral-900 ${isChecked ? 'border-green-500' : 'border-neutral-400'} border-l-2 ${index === 0 ? 'h-7' : 'h-10'}`} key={index}>
               </div>
             ))}
           </div>
           {/* Power Button */}
-          <div className='absolute top-[9.2rem] border-neutral-400 border-r-2 -right-3 rounded-full h-16 w-2 bg-neutral-900'></div>
+          <div className={`absolute top-[9.2rem] ${isChecked ? 'border-green-500' : 'border-neutral-400'} border-r-2 -right-3 rounded-full h-16 w-2 bg-neutral-900`}></div>
           {/* Camera */}
           <div className='absolute rounded-full h-[1.3rem] w-20 top-3 left-1/2 transform -translate-x-1/2 bg-neutral-900'></div>
           {/* Phone Header */}
@@ -71,15 +71,22 @@ const Day15 = () => {
               className="sr-only peer"
             />
             <div
-              className={`relative w-9 h-5 transition duration-300 ease-in-out rounded-full 
+              className={`relative w-[5.5rem] h-12 rounded-full 
               peer-focus:ring-neutral-300 ${isChecked ? 'bg-green-500' : 'bg-gray-400'}`}
             >
               <div
-                className={`absolute top-[2px] left-[2px] w-4 h-4 bg-white border border-neutral-300 rounded-full transition-translate 
-                duration-300 ease-in-out ${isChecked ? 'translate-x-full' : ''}`}
-              ></div>
+                className={`absolute top-[4px] left-[4px] w-10 h-10 bg-white border border-neutral-300 rounded-full ${isChecked ? 'translate-x-full' : ''}`}
+              >
+                {isChecked ? (
+                  <div className='size-6 bg-black absolute top-3 left-3 rounded-full'></div>
+                ) : (
+                  <div className='w-4 h-1.5 bg-black absolute top-4 left-[11px] rounded-full'></div>
+                )}
+              </div>
             </div>
           </label>
+
+
           <div className={`flex w-24 ${isChecked ? 'bg-green-500' : 'bg-neutral-700'}`}>ss</div>
         </PhoneMockup>
       </section>
