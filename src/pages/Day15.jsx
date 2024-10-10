@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
+import { DinoOn } from '../assets/day15'
 import { motion } from 'framer-motion'
 
 const Day15 = () => {
@@ -17,7 +18,7 @@ const Day15 = () => {
     return (
       <>
         {/* Phone Mockup */}
-        <div className={`relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2 ${isChecked ? 'ring-green-500' : 'ring-neutral-400'} bg-neutral-700/40 border-neutral-900`}>
+        <div className={`relative border-[0.5rem] h-[40rem] w-[21.5rem] rounded-[2rem] ring-2 z-50 ${isChecked ? 'ring-green-500' : 'ring-neutral-400'} bg-neutral-700/40 border-neutral-900`}>
           {/* Sound Buttons */}
           <div className='absolute top-20 -left-3 flex flex-col gap-3'>
             {[0, 1, 2].map((index) => (
@@ -61,34 +62,39 @@ const Day15 = () => {
       transition={{ duration: 0.5 }}
     >
       <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 py-8">
-        {/* 1st */}
         <PhoneMockup>
-          <label className="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={handleChange}
-              className="sr-only peer"
-            />
-            <div
-              className={`relative w-[5.5rem] h-12 rounded-full 
-              peer-focus:ring-neutral-300 ${isChecked ? 'bg-green-500' : 'bg-gray-400'}`}
-            >
-              <div
-                className={`absolute top-[4px] left-[4px] w-10 h-10 bg-white border border-neutral-300 rounded-full ${isChecked ? 'translate-x-full' : ''}`}
-              >
-                {isChecked ? (
-                  <div className='size-6 bg-black absolute top-3 left-3 rounded-full'></div>
-                ) : (
-                  <div className='w-4 h-1.5 bg-black absolute top-4 left-[11px] rounded-full'></div>
-                )}
-              </div>
+          <div className='absolute'>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi minus nihil assumenda qui magni modi id, mollitia corporis debitis illum quis soluta possimus ducimus, deleniti quos reprehenderit! Dolores, dolorem impedit?</p>
+          </div>
+          <div className='relative h-full'>
+            <div className='absolute left-1/2 transform -translate-x-1/2 bottom-[4.4rem]'>
+              <label className="inline-flex items-center cursor-pointer z-50">
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={handleChange}
+                  className="sr-only peer"
+                />
+                <div
+                  className={`relative w-[9.5rem] h-[5.5rem] rounded-full border 
+                peer-focus:ring-neutral-300 ${isChecked ? 'bg-green-500' : 'bg-gray-400'}`}
+                >
+                  <div
+                    className={`absolute top-[10px] left-[10px] w-16 h-16 bg-white border border-neutral-300 rounded-full ${isChecked ? 'translate-x-full' : ''}`}
+                  >
+                    {isChecked ? (
+                      <div className='size-6 bg-neutral-900 absolute top-1.5 left-3 rounded-full'></div>
+                    ) : (
+                      <div className='w-4 h-1.5 bg-neutral-900 absolute transform left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full'></div>
+                    )}
+                  </div>
+                </div>
+              </label>
+              <img src={DinoOn} alt="" className='w-[11.3rem] absolute h-auto top-[47.5px] left-[4.5rem] -z-10' />
             </div>
-          </label>
-
-
-          <div className={`flex w-24 ${isChecked ? 'bg-green-500' : 'bg-neutral-700'}`}>ss</div>
+          </div>
         </PhoneMockup>
+
       </section>
     </motion.div>
   )
