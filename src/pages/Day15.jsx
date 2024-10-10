@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
@@ -6,6 +6,12 @@ import { motion } from 'framer-motion'
 const Day15 = () => {
   useLenisScroll();
   useScrollToTop();
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   const PhoneMockup = ({ children }) => {
     return (
@@ -55,16 +61,27 @@ const Day15 = () => {
       transition={{ duration: 0.5 }}
     >
       <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 py-8">
-        <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
-          {/* 1st */}
-          <PhoneMockup>
-            Test
-          </PhoneMockup>
-          {/* 2nd */}
-          <PhoneMockup>
-            Test
-          </PhoneMockup>
-        </div>
+        {/* 1st */}
+        <PhoneMockup>
+          <label className="inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleChange}
+              className="sr-only peer"
+            />
+            <div
+              className={`relative w-9 h-5 transition duration-300 ease-in-out rounded-full 
+              peer-focus:ring-neutral-300 ${isChecked ? 'bg-green-500' : 'bg-gray-400'}`}
+            >
+              <div
+                className={`absolute top-[2px] left-[2px] w-4 h-4 bg-white border border-neutral-300 rounded-full transition-translate 
+                duration-300 ease-in-out ${isChecked ? 'translate-x-full' : ''}`}
+              ></div>
+            </div>
+          </label>
+          <div className={`flex w-24 ${isChecked ? 'bg-green-500' : 'bg-neutral-700'}`}>ss</div>
+        </PhoneMockup>
       </section>
     </motion.div>
   )
