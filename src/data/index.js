@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail,
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail,
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -20,6 +20,7 @@ const titles = [
   'Direct Message', // Day13
   'Countdown Timer', // Day14
   'On/Off Switch', // Day15
+  'Pop-up Overlay', // Day16
 ];
 
 const descriptions = [
@@ -38,6 +39,7 @@ const descriptions = [
   "Design a Direct Messaging app, profile, or chat box. Consider the parties involved in the messages, images, placement, and context of the messages. Are the messages for social purposes? Customer support?", // Day13
   "Is it for an app? An interface for an oven or cooking device? A sport related countdown such as on a scoreboard? Or is it a launch countdown for NASA, race cars, or something else?", // Day14
   "Consider what's being turned on/off and how it should be done. Is it a push-to-start electric vehicle? A control panel for a smart refrigerator or some other touch-panel display?", // Day15
+  "Is it for a newsletter sign-up form ? Is it an ad overlay? A gated subscription page such as for premium news or member-only access?", // Day16
 ];
 
 const images = [
@@ -55,6 +57,7 @@ const images = [
   day12Thumbnail, // Day12
   day13Thumbnail, // Day13
   day14Thumbnail, // Day14
+  day15Thumbnail, // Day15
 ];
 
 const defaultImage = defaultThumbnail;
