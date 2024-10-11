@@ -43,7 +43,7 @@ const Day15 = () => {
               4:17
             </p>
             <div className='flex items-center gap-1.5'>
-              {[ /* Icons */].map((icon, index) => (
+              {['M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z', 'M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.062 0 8.25 8.25 0 0 0-11.667 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.204 3.182a6 6 0 0 1 8.486 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0 3.75 3.75 0 0 0-5.304 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182a1.5 1.5 0 0 1 2.122 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0l-.53-.53a.75.75 0 0 1 0-1.06Z', 'M3.75 6.75a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 0 0-3-3h-15Zm15 1.5a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-6a1.5 1.5 0 0 1 1.5-1.5h15Z'].map((icon, index) => (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={`${index === 2 ? 'size-4' : 'size-3'}`} key={index}>
                   <path d={icon} />
                 </svg>
@@ -83,9 +83,38 @@ const Day15 = () => {
             </div>
           </label>
           {checked ? (
-            <img src={DinoOn} alt="" className='w-[11.3rem] absolute h-auto top-[47.5px] left-[4.5rem] -z-10' />
+            <img src={DinoOn} alt="" draggable={false} className='w-[11.3rem] absolute h-auto top-[47.5px] left-[4.5rem] -z-10' />
           ) : (
-            <img src={DinoOff} alt="" className='w-[11.3rem] absolute h-auto top-[47.5px] right-[4.5rem] -z-10' />
+            <img src={DinoOff} alt="" draggable={false} className='w-[11.3rem] absolute h-auto top-[47.5px] right-[4.5rem] -z-10' />
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  const Content = ({ checked }) => {
+    return (
+      <div className='absolute h-full w-full'>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-6 space-y-3'>
+          <h1 className="font-normal text-neutral-200 text-5xl text-center leading-[3.5rem]">
+            {checked ? (
+              <>
+                <span className={`py-[1px] px-2.5 rounded-xl ${checked ? 'bg-green-500' : 'bg-neutral-600'}`}>Roars</span> <br /> Unleashed!
+              </>
+            ) : (
+              <>
+                <span className={`py-[1px] px-2.5 rounded-xl ${checked ? 'bg-green-500' : 'bg-neutral-600'}`}>Silent</span> <br /> Jungle
+              </>
+            )}
+          </h1>
+          {checked ? (
+            <p className="text-neutral-300 text-sm text-center">
+              You’re all set to receive updates and alerts from the dino world. Keep your ears open for the next roar!
+            </p>
+          ) : (
+            <p className="text-neutral-300 text-sm text-center">
+              Notifications are off. Enjoy some peace and quiet while the dinos roam without interruption.
+            </p>
           )}
         </div>
       </div>
@@ -103,9 +132,9 @@ const Day15 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* On */}
           <PhoneMockup isChecked={isCheckedFirst} handleChange={handleChangeFirst}>
-            <div className='absolute'>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi minus nihil assumenda qui magni modi id, mollitia corporis debitis illum quis soluta possimus ducimus, deleniti quos reprehenderit! Dolores, dolorem impedit?</p>
-            </div>
+            <Content
+              checked={isCheckedFirst}
+            />
             <DinoToggle
               checked={isCheckedFirst}
               handle={handleChangeFirst}
@@ -113,9 +142,9 @@ const Day15 = () => {
           </PhoneMockup>
           {/* Off */}
           <PhoneMockup isChecked={isCheckedSecond} handleChange={handleChangeSecond}>
-            <div className='absolute'>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-            </div>
+            <Content
+              checked={isCheckedSecond}
+            />
             <DinoToggle
               checked={isCheckedSecond}
               handle={handleChangeSecond}
