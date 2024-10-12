@@ -1,5 +1,5 @@
 import React from 'react'
-import { fmUILogo02, UICompilation } from '../assets/day16'
+import { fmUILogo02, UICompilation, GoogleLogo, AppleLogo, GitHubLogo } from '../assets/day16'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -30,15 +30,16 @@ const Day16 = () => {
             Enter your fmIU account details
           </p>
           <div className='flex gap-2 mt-8'>
-            <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
-              Google
-            </button>
-            <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
-              Google
-            </button>
-            <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
-              Google
-            </button>
+            {[
+              { icon: GoogleLogo, label: "Google" },
+              { icon: AppleLogo, label: "Apple" },
+              { icon: GitHubLogo, label: "GitHub" },
+            ].map((button, index) => (
+              <button className='py-2 flex justify-center items-center gap-2 w-full text-sm border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out' key={index}>
+                <img src={button.icon} alt={button.label} className='w-5 h-auto' />
+                {button.label}
+              </button>
+            ))}
           </div>
           <div class="pt-4 pb-2 flex items-center text-sm text-neutral-500 before:flex-1 before:border-t before:border-neutral-700 before:me-4 after:flex-1 after:border-t after:border-neutral-700 after:ms-4">or</div>
           <form action="#" className="space-y-4">
@@ -66,7 +67,7 @@ const Day16 = () => {
             <div className='space-y-3 pt-2'>
               <Button
                 styles={'w-full text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
-                label={'Get started'}
+                label={'Login'}
               />
               <p className="mt-4 text-center text-sm text-neutral-300 sm:mt-0">
                 Don't have an account? <a href="" className="text-green-500 underline">Register here</a>
