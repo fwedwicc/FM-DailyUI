@@ -2,7 +2,7 @@ import React from 'react'
 
 const Checkbox = ({ id, label }) => {
   return (
-    <label htmlFor={id} className="flex gap-4">
+    <label htmlFor={id} className="flex gap-3">
       <input
         type="checkbox"
         id={id}

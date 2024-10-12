@@ -1,6 +1,5 @@
 import React from 'react'
-import { fmUILogo } from '../assets'
-import { UICompilation } from '../assets/day16'
+import { fmUILogo02, UICompilation } from '../assets/day16'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -22,50 +21,59 @@ const Day16 = () => {
         {/* Modal */}
         <div className="z-50 relative border border-neutral-700 bg-[#272727] rounded-xl max-w-lg p-12 gap-5 w-full">
           <div className='bg-neutral-800 border-neutral-700/80 absolute left-1/2 transform -translate-x-1/2 -top-[3.4rem] size-28 flex items-center justify-center border rounded-full'>
-            <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
+            <img src={fmUILogo02} alt="fmUI Logo" className='w-16 h-auto' />
           </div>
-          <h1 className="mt-6 text-2xl text-center font-bold text-neutral-200 sm:text-3xl md:text-4xl">
+          <h1 className="mt-10 text-2xl text-center font-bold text-neutral-200 sm:text-3xl md:text-4xl">
             Welcome to fmUI
           </h1>
-          <p className="mt-4 leading-relaxed text-neutral-300">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-            quibusdam aperiam voluptatum.
+          <p className="leading-relaxed text-neutral-400 text-center">
+            Enter your fmIU account details
           </p>
-          <form action="#" className="mt-8">
-            <div>
-              <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
-                Google
-              </button>
+          <div className='flex gap-2 mt-8'>
+            <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
+              Google
+            </button>
+            <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
+              Google
+            </button>
+            <button className='py-2 w-full border rounded-md text-neutral-200 bg-neutral-700/80 hover:bg-neutral-600/60 border-neutral-600 transition duration-300 ease-in-out'>
+              Google
+            </button>
+          </div>
+          <div class="pt-4 pb-2 flex items-center text-sm text-neutral-500 before:flex-1 before:border-t before:border-neutral-700 before:me-4 after:flex-1 after:border-t after:border-neutral-700 after:ms-4">or</div>
+          <form action="#" className="space-y-4">
+            <div className='space-y-1'>
+              <InputField
+                id="email"
+                type="email"
+                placeholder="Email or username"
+                required={true}
+              />
+              <InputField
+                id="password"
+                type="password"
+                placeholder="Password"
+                required={true}
+              />
+              <div className='flex justify-between items-center pt-1.5'>
+                <Checkbox
+                  id="marketing"
+                  label={'Keep me signed in'}
+                />
+                <a href="" className='underline text-green-500 md:text-sm text-xs'>Forgot password</a>
+              </div>
             </div>
-            <InputField
-              id="email"
-              type="email"
-              placeholder="Email or username"
-              required={true}
-            />
-            <InputField
-              id="password"
-              type="password"
-              placeholder="Password"
-              required={true}
-            />
-            <Checkbox
-              id="marketing"
-              label={'ss'}
-            />
-            <div>
+            <div className='space-y-3 pt-2'>
               <Button
                 styles={'w-full text-neutral-800 bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60'}
                 label={'Get started'}
               />
-              <p className="mt-4 text-sm text-neutral-300 sm:mt-0">
-                Already have an account?
-                <a href="#" className="text-neutral-200 underline"> Log in</a>.
+              <p className="mt-4 text-center text-sm text-neutral-300 sm:mt-0">
+                Don't have an account? <a href="" className="text-green-500 underline">Register here</a>
               </p>
             </div>
           </form>
         </div>
-
       </section>
     </motion.div>
   )
