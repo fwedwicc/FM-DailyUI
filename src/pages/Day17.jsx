@@ -20,13 +20,29 @@ const Day17 = () => {
           {/* Customer and Vendor Details */}
           <div className='flex flex-col min-w-4xl w-full p-4 z-10 space-y-4'>
             {/* Headline and Description */}
-            <div>
-              <h1 className="font-medium text-neutral-200 text-2xl md:text-4xl">
-                Thank you for your purchase!
+            <div className='flex flex-col items-center'>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="text-green-500 size-10">
+                <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
+              </svg>
+              <h1 className="font-medium text-neutral-200 text-2xl md:text-4xl mt-3">
+                Payment Success!
               </h1>
-              <p className="leading-relaxed text-neutral-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam molestiae explicabo quidem maxime quisquam earum, tenetur ipsum saep.
+              <p className="leading-relaxed text-center text-neutral-300">
+                Thank you for your purchase. Your order is on its way
               </p>
+              <div className='mt-4'>
+                {[
+                  { label: "Order No.:", data: "24-WP128JI83P" },
+                  { label: "Receive Date:", data: "October 18, 2024" },
+                  { label: "Status:", data: "Processing" },
+                ].map((detail, index) => (
+                  <p className="leading-relaxed text-neutral-300 text-center" key={index}>
+                    <span className='text-neutral-400'>
+                      {detail.label} </span>
+                    {detail.data}
+                  </p>
+                ))}
+              </div>
             </div>
             {/* Vendor Details */}
             <div className='space-y-1'>
@@ -71,7 +87,6 @@ const Day17 = () => {
                   { label: "Email:", data: "michael.johnson@example.com" },
                   { label: "Phone:", data: "+1 (555) 789-0123" },
                   { label: "Shipping Address:", data: "456 Oak Street, Apt 14C, CA 90210 United States" },
-                  { label: "Loyalty Points:", data: "200 points available" },
                 ].map((detail, index) => (
                   <p className="leading-relaxed text-neutral-300" key={index}>
                     <span className='text-neutral-400'>
@@ -80,6 +95,25 @@ const Day17 = () => {
                   </p>
                 ))}
               </div>
+            </div>
+            {/* Container's Footer */}
+            <div className='flex flex-col items-center w-full'>
+              <div class="flex w-full items-center text-sm text-neutral-500 before:flex-1 before:border-t before:border-neutral-700 before:me-4 after:flex-1 after:border-t after:border-neutral-700 after:ms-4">
+                <div className='size-16 rounded-full flex justify-center items-center bg-neutral-700 text-green-500'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                    <path fillRule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <p className="leading-relaxed text-neutral-200 text-lg md:text-xl mt-3">
+                ShopEase
+              </p>
+              <p className="leading-relaxed text-neutral-300">
+                Shop More, Save More!
+              </p>
+              <p className='text-xs text-neutral-400 text-center max-w-sm'>
+                Explore thousands of products across various categories. Enjoy unbeatable deals, fast shipping, and a seamless shopping experience.
+              </p>
             </div>
           </div>
           {/* Purchase Summary */}
