@@ -1,5 +1,6 @@
 import React from 'react'
 import { fmUILogo } from '../assets'
+import { UICompilation } from '../assets/day16'
 import { InputField, Checkbox, Button } from '../components'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -16,15 +17,14 @@ const Day16 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="relative bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 lg:py-12 py-8 overflow-x-hidden">
-        <img src="https://placeholder.co/300x300" alt="" className='opacity-50 absolute object-cover w-full h-full' />
+      <section className="relative bg-neutral-900/70 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 lg:py-12 py-8 overflow-x-hidden">
+        <img src={UICompilation} alt="FM DailyUI Complication" className='opacity-50 absolute object-cover w-full h-full' />
         {/* Modal */}
-        <div className="z-50 border border-neutral-600 bg-[#303030] rounded-xl max-w-lg p-12 gap-5 w-full">
-          <a className="inline-block" href="#">
-            <span className="sr-only">Home</span>
+        <div className="z-50 relative border border-neutral-700 bg-[#272727] rounded-xl max-w-lg p-12 gap-5 w-full">
+          <div className='bg-neutral-800 border-neutral-700/80 absolute left-1/2 transform -translate-x-1/2 -top-[3.4rem] size-28 flex items-center justify-center border rounded-full'>
             <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
-          </a>
-          <h1 className="mt-6 text-2xl font-bold text-neutral-200 sm:text-3xl md:text-4xl">
+          </div>
+          <h1 className="mt-6 text-2xl text-center font-bold text-neutral-200 sm:text-3xl md:text-4xl">
             Welcome to fmUI
           </h1>
           <p className="mt-4 leading-relaxed text-neutral-300">
