@@ -21,6 +21,7 @@ const titles = [
   'Countdown Timer', // Day14
   'On/Off Switch', // Day15
   'Pop-up Overlay', // Day16
+  'Purchase Receipt', // Day17
 ];
 
 const descriptions = [
@@ -40,6 +41,7 @@ const descriptions = [
   "Is it for an app? An interface for an oven or cooking device? A sport related countdown such as on a scoreboard? Or is it a launch countdown for NASA, race cars, or something else?", // Day14
   "Consider what's being turned on/off and how it should be done. Is it a push-to-start electric vehicle? A control panel for a smart refrigerator or some other touch-panel display?", // Day15
   "Is it for a newsletter sign-up form ? Is it an ad overlay? A gated subscription page such as for premium news or member-only access?", // Day16
+  "What was purchased? On what date? How much was the item? And from what source and vendor? Consider other elements such as a customer support info, a tracking number or receipt number, business location/phone number/website, pictures if needed, and any other related elements.", // Day17
 ];
 
 const images = [
