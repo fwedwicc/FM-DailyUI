@@ -46,19 +46,19 @@ const Day17 = () => {
               </div>
             </div>
             {/* Vendor Details */}
-            <div className='space-y-1'>
+            <div className='space-y-2'>
               <p className="leading-relaxed text-neutral-400">
                 Vendor Details
               </p>
-              <div className='flex gap-3 border p-3.5 pr-5 rounded-xl'>
+              <div className='flex gap-3 bg-neutral-700/30 p-3.5 pr-5 rounded-xl'>
                 {/* Company Logo */}
-                <div className='flex items-center justify-center rounded-md size-36 shrink-0 bg-neutral-900'>
+                <div className='flex items-center justify-center rounded-md size-36 shrink-0 bg-neutral-900 border border-neutral-700'>
                   <span className="leading-relaxed text-neutral-200 font-black text-5xl">
                     X
                   </span>
                 </div>
                 {/* Company Information */}
-                <div className='border w-full'>
+                <div className='w-full'>
                   <span className="leading-relaxed text-neutral-200 text-lg md:text-xl">
                     Xolero
                   </span>
@@ -85,9 +85,9 @@ const Day17 = () => {
             </div>
             {/* Customer Summary */}
             <div className='space-y-2 pb-3'>
-              <div className='flex items-center border-b pb-1.5'>
+              <div className='flex items-center border-b border-neutral-700 pb-1.5'>
                 <p className="leading-relaxed text-neutral-200 text-md md:text-lg">
-                  Customer profile
+                  Customer Details
                 </p>
               </div>
               <div>
@@ -130,59 +130,61 @@ const Day17 = () => {
             <h1 className="font-medium text-center text-neutral-200 text-xl md:text-2xl">
               Purchase Summary
             </h1>
-            <div className='mt-4 space-y-1'>
+            <div className='mt-4 space-y-2'>
               {/* Receipt No. and Purchase Date */}
               <div className='flex justify-between items-center'>
                 <p className="leading-relaxed text-neutral-400 text-sm">
-                  Receipt No.: 24-UM1PHJ73S
+                  Receipt no.: 24-UM1PHJ73S
                 </p>
                 <p className="leading-relaxed text-neutral-400 text-sm">
-                  Purchase Date: 10/13/24
+                  Purchase date: 10/13/24
                 </p>
               </div>
               {/* Product Container */}
-              <div className='flex gap-3 border p-3.5 pr-5 rounded-xl'>
+              <div className='flex gap-3 bg-neutral-700/50 p-3.5 pr-5 rounded-xl'>
                 {/* Product Image */}
                 <div className='relative shrink-0 size-36'>
                   <img src={ProductImage} className='absolute object-cover w-full h-full rounded-md border border-neutral-700' alt="" />
                 </div>
                 {/* Prodcut Details */}
-                <div className='border w-full'>
+                <div className='w-full space-y-2'>
                   <span className="leading-relaxed text-neutral-200 text-lg md:text-xl">
                     Chicago Biker Jacket
                   </span>
-                  {[
-                    { label: "Color", data: "Glaze Black" },
-                    { label: "Size", data: "Medium" },
-                    { label: "Qty", data: 1 },
-                  ].map((info) => (
-                    <p className="leading-relaxed text-neutral-300">
-                      <span className='text-neutral-400'>
-                        {info.label}: </span>
-                      {info.data}
-                    </p>
-                  ))}
-                  <div className='flex items-end justify-between'>
-                    <p className="leading-none text-neutral-400">
-                      ID: 24-HR23SK3900P
-                    </p>
-                    <p className="leading-none text-green-500 text-2xl">
-                      $350
-                    </p>
+                  <div>
+                    {[
+                      { label: "Color", data: "Glaze Black" },
+                      { label: "Size", data: "Medium" },
+                      { label: "Qty", data: 1 },
+                    ].map((info) => (
+                      <p className="leading-relaxed text-neutral-300">
+                        <span className='text-neutral-400'>
+                          {info.label}: </span>
+                        {info.data}
+                      </p>
+                    ))}
+                    <div className='flex items-end justify-between'>
+                      <p className="leading-none text-neutral-400">
+                        ID: 24-HR23SK3900P
+                      </p>
+                      <p className="leading-none text-green-500 text-2xl">
+                        $350
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             {/* Payment Method Container */}
-            <div className='border p-3 pr-5 rounded-xl space-y-2'>
+            <div className='space-y-2'>
               <p className="leading-relaxed text-neutral-200 text-md md:text-lg">
                 Payment Method
               </p>
               <div className='flex gap-3'>
-                <div className='flex items-center justify-center p-4 border rounded-md'>
+                <div className='flex items-center justify-center p-4 border border-neutral-600/80 bg-neutral-700/30 rounded-md'>
                   <img src={MasterCard} className='shrink-0 w-16 h-auto' alt="" />
                 </div>
-                <div className='w-full border'>
+                <div className='w-full'>
                   {[
                     { label: "Card Type", data: "Mastercard" },
                     { label: "Card Number", data: "5555 5555 5555 4444" },
@@ -198,8 +200,8 @@ const Day17 = () => {
               </div>
             </div>
             {/* Price breakdown */}
-            <div className='space-y-2 pb-3'>
-              <div className='flex justify-between items-center border-b pb-1.5'>
+            <div className='space-y-2 pb-5'>
+              <div className='flex justify-between items-center border-b border-neutral-600 pb-1.5'>
                 <p className="leading-relaxed text-neutral-200 text-md md:text-lg">
                   Description
                 </p>
@@ -222,7 +224,7 @@ const Day17 = () => {
                   </div>
                 ))}
               </div>
-              <div className='flex justify-between items-center border-t pt-1.5'>
+              <div className='flex justify-between items-center border-t border-neutral-600 pt-1.5'>
                 <p className="leading-relaxed text-neutral-200 text-md md:text-lg">
                   Total
                 </p>
@@ -237,7 +239,7 @@ const Day17 = () => {
               <div className='flex size-9 bg-[#2b2b2b] rounded-full absolute transform -translate-y-1/2 right-[-2.63rem]'></div>
             </div>
             {/* QR for feedback */}
-            <div className='flex gap-2 flex-col items-center pt-3'>
+            <div className='flex gap-2 flex-col items-center pt-4'>
               <div className='relative size-24'>
                 <img src={QRCode} alt="QR Code" className='absolute rounded-sm object-cover w-full h-full' />
               </div>
