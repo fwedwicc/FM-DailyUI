@@ -1,6 +1,7 @@
 import React from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
+import { ProductImage, MasterCard, FacebookIcon, InstagramIcon, TikTokIcon, QRCode } from '../assets/day17';
 import { motion } from 'framer-motion'
 
 const Day17 = () => {
@@ -51,8 +52,10 @@ const Day17 = () => {
               </p>
               <div className='flex gap-3 border p-3.5 pr-5 rounded-xl'>
                 {/* Company Logo */}
-                <div className='relative shrink-0 size-36'>
-                  <img src="https://placehold.co/50x50" className='absolute object-cover w-full h-full rounded-md' alt="" />
+                <div className='flex items-center justify-center rounded-md size-36 shrink-0 bg-neutral-900'>
+                  <span className="leading-relaxed text-neutral-200 font-black text-5xl">
+                    X
+                  </span>
                 </div>
                 {/* Company Information */}
                 <div className='border w-full'>
@@ -60,16 +63,22 @@ const Day17 = () => {
                     Xolero
                   </span>
                   <p className="leading-relaxed text-neutral-300 mt-1">
-                    Business loc
+                    123 Fashion Avenue, NY 10018 US
                   </p>
-                  <p className="leading-relaxed text-neutral-300">
-                    Website
-                  </p>
-                  <p className="leading-relaxed text-neutral-300">
-                    Email
-                  </p>
-                  <div className='flex gap-1.5'>
-                    socials
+                  {["www.xolero.com", "support@xolero.com"].map((link) => (
+                    <a href="" className="flex items-center leading-relaxed text-green-500 underline text-sm">
+                      {link}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3.5 shrink-0 mt-[4px]">
+                        <path fillRule="evenodd" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z" clipRule="evenodd" />
+                      </svg>
+                    </a>
+                  ))}
+                  <div className='flex pt-3.5 gap-3'>
+                    {[FacebookIcon, InstagramIcon, TikTokIcon].map((social) => (
+                      <a href="">
+                        <img src={social} alt="Social Icons" className='w-5 h-auto' />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -124,33 +133,35 @@ const Day17 = () => {
             <div className='mt-4 space-y-1'>
               {/* Receipt No. and Purchase Date */}
               <div className='flex justify-between items-center'>
-                <p className="leading-relaxed text-neutral-400">
-                  Receipt No.:
+                <p className="leading-relaxed text-neutral-400 text-sm">
+                  Receipt No.: 24-UM1PHJ73S
                 </p>
-                <p className="leading-relaxed text-neutral-400">
-                  Purchase Date:
+                <p className="leading-relaxed text-neutral-400 text-sm">
+                  Purchase Date: 10/13/24
                 </p>
               </div>
               {/* Product Container */}
               <div className='flex gap-3 border p-3.5 pr-5 rounded-xl'>
                 {/* Product Image */}
                 <div className='relative shrink-0 size-36'>
-                  <img src="https://placehold.co/50x50" className='absolute object-cover w-full h-full rounded-md' alt="" />
+                  <img src={ProductImage} className='absolute object-cover w-full h-full rounded-md border border-neutral-700' alt="" />
                 </div>
                 {/* Prodcut Details */}
                 <div className='border w-full'>
                   <span className="leading-relaxed text-neutral-200 text-lg md:text-xl">
                     Chicago Biker Jacket
                   </span>
-                  <p className="leading-relaxed text-neutral-300 mt-1">
-                    Color
-                  </p>
-                  <p className="leading-relaxed text-neutral-300">
-                    Size
-                  </p>
-                  <p className="leading-relaxed text-neutral-300">
-                    Quantity
-                  </p>
+                  {[
+                    { label: "Color", data: "Glaze Black" },
+                    { label: "Size", data: "Medium" },
+                    { label: "Qty", data: 1 },
+                  ].map((info) => (
+                    <p className="leading-relaxed text-neutral-300">
+                      <span className='text-neutral-400'>
+                        {info.label}: </span>
+                      {info.data}
+                    </p>
+                  ))}
                   <div className='flex items-end justify-between'>
                     <p className="leading-none text-neutral-400">
                       ID: 24-HR23SK3900P
@@ -169,24 +180,20 @@ const Day17 = () => {
               </p>
               <div className='flex gap-3'>
                 <div className='flex items-center justify-center p-4 border rounded-md'>
-                  <img src="https://placehold.co/80x60" className='shrink-0' alt="" />
+                  <img src={MasterCard} className='shrink-0 w-16 h-auto' alt="" />
                 </div>
                 <div className='w-full border'>
-                  <p className="leading-relaxed text-neutral-300">
-                    <span className='text-neutral-400'>
-                      Card Type: </span>
-                    Mastercard
-                  </p>
-                  <p className="leading-relaxed text-neutral-300">
-                    <span className='text-neutral-400'>
-                      Card Number: </span>
-                    5555 5555 5555 4444
-                  </p>
-                  <p className="leading-relaxed text-neutral-300">
-                    <span className='text-neutral-400'>
-                      Cardholder Name: </span>
-                    John Doe
-                  </p>
+                  {[
+                    { label: "Card Type", data: "Mastercard" },
+                    { label: "Card Number", data: "5555 5555 5555 4444" },
+                    { label: "Cardholder Name", data: "John Doe" },
+                  ].map((info) => (
+                    <p className="leading-relaxed text-neutral-300">
+                      <span className='text-neutral-400'>
+                        {info.label}: </span>
+                      {info.data}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -203,7 +210,7 @@ const Day17 = () => {
               <div>
                 {[
                   { desc: "Chicago Biker Jacket", price: 350 },
-                  { desc: "Shipping Fee", price: 50.99 },
+                  { desc: "Standard Shipping (5-7 Days)", price: 50.99 },
                 ].map((line, index) => (
                   <div className='flex justify-between items-center' key={index}>
                     <p className="leading-relaxed text-neutral-300">
@@ -224,7 +231,7 @@ const Day17 = () => {
                 </p>
               </div>
             </div>
-            {/* QR for feedback */}
+            {/* Receipt Divider */}
             <div className='border-t border-dashed border-neutral-600 relative px-12'>
               <div className='flex size-9 bg-[#2b2b2b] rounded-full absolute transform -translate-y-1/2 left-[-2.63rem]'></div>
               <div className='flex size-9 bg-[#2b2b2b] rounded-full absolute transform -translate-y-1/2 right-[-2.63rem]'></div>
@@ -232,7 +239,7 @@ const Day17 = () => {
             {/* QR for feedback */}
             <div className='flex gap-2 flex-col items-center pt-3'>
               <div className='relative size-24'>
-                <img src={'https://placehold.co/50x50'} alt="" className='absolute rounded-sm object-cover w-full h-full' />
+                <img src={QRCode} alt="QR Code" className='absolute rounded-sm object-cover w-full h-full' />
               </div>
               <p className="text-neutral-400 text-xs text-center">
                 Scan the QR code for a chance to <br /> win a discount voucher or more surprises!
