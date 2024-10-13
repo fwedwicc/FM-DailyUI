@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail,
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail,
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -22,6 +22,7 @@ const titles = [
   'On/Off Switch', // Day15
   'Pop-up Overlay', // Day16
   'Purchase Receipt', // Day17
+  'Analytics Chart', // Day18
 ];
 
 const descriptions = [
@@ -35,13 +36,14 @@ const descriptions = [
   "Design a 404 page - that's not boring! Does it suit the brand's style? Is it user-friendly? It might sound mundane, but not everything can be flashy or glamorous. Every day millions of people will be landing on 404 pages. You have an opportunity to help them in a way that's useful and aesthetically pleasing. (It's up to you!)", // Day08
   "Design a music player. It could be browser based or an app (i.e. Pandora, Spotify, SoundCloud, etc.) or in a standalone product like in a car dashboard, jukebox, etc. Consider the controls, placements, imagery such as the artist or album cover, etc. Also, consider the device type that's playing the music.", // Day09
   "Design a social share button/icon and be mindful of the size, imagery, placement, and purpose for sharing. It could be to share an article snippet, or a simple link with a photo.", // Day10
-  "Design a Flash Message with both the error message and success message. Is it for a sign up form? A download/upload message? Is it to promote a membership plan? ", // Day11
+  "Design a Flash Message with both the error message and success message. Is it for a sign up form? A download/upload message? Is it to promote a membership plan?", // Day11
   "Design an e-commerce shop. Is it simple for a local business or a large online retailer? Is it for clothing, shoes, handmade soap, or something else?", // Day12
   "Design a Direct Messaging app, profile, or chat box. Consider the parties involved in the messages, images, placement, and context of the messages. Are the messages for social purposes? Customer support?", // Day13
   "Is it for an app? An interface for an oven or cooking device? A sport related countdown such as on a scoreboard? Or is it a launch countdown for NASA, race cars, or something else?", // Day14
   "Consider what's being turned on/off and how it should be done. Is it a push-to-start electric vehicle? A control panel for a smart refrigerator or some other touch-panel display?", // Day15
   "Is it for a newsletter sign-up form ? Is it an ad overlay? A gated subscription page such as for premium news or member-only access?", // Day16
   "What was purchased? On what date? How much was the item? And from what source and vendor? Consider other elements such as a customer support info, a tracking number or receipt number, business location/phone number/website, pictures if needed, and any other related elements.", // Day17
+  "Is it to be used for web or app usage, a health monitor, e-commerce or traffic analytics? Is it tracking sports or stock market performance?", // Day18
 ];
 
 const images = [
@@ -61,6 +63,7 @@ const images = [
   day14Thumbnail, // Day14
   day15Thumbnail, // Day15
   day16Thumbnail, // Day16
+  day17Thumbnail, // Day17
 ];
 
 const defaultImage = defaultThumbnail;
