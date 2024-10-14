@@ -2,11 +2,10 @@ import React from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
-import { Bar, Line } from 'react-chartjs-2';
-import { Chart as ChartJS, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-// Register required Chart.js components
-ChartJS.register(PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(ArcElement, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Utils = {
   months: ({ count }) => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].slice(0, count),
@@ -18,20 +17,71 @@ const Utils = {
   transparentize: (color, opacity) => color.replace('1)', `${opacity})`)
 };
 
+const DoughnutChart = () => {
+  // Dummy data for the chart
+  const DATA_COUNT = 5;
+  const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+  const data = {
+    labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: [50, 30, 10, 40, 70],  // Example data (replace with your data)
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(255, 159, 64, 0.6)',
+          'rgba(255, 205, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 205, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(54, 162, 235, 1)',
+        ],
+        borderWidth: 2,
+      },
+    ],
+  };
+
+  // Configuration options
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+  };
+
+  return (
+    <div style={{ width: '50%' }}>
+      <Doughnut data={data} options={options} />
+    </div>
+  );
+};
+
+
+
+// Line Chart Component
 const inputs = {
-  min: -100,
+  min: -50,
   max: 100,
   count: 12,
   decimals: 2,
   continuity: 1
 };
 
-// Generate labels for the chart
 const generateLabels = () => {
   return Utils.months({ count: inputs.count });
 };
 
-// Generate data for the chart
 const generateData = () => {
   return Utils.numbers(inputs);
 };
@@ -43,75 +93,32 @@ const LineChart = () => {
       {
         label: 'Dataset',
         data: generateData(),
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue),
-        fill: false,
-        tension: 0.4, // Enable smoothing by setting tension
+        borderColor: Utils.CHART_COLORS.blue,   // Line color
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.1), // Fill color
+        fill: 'start',  // Enable filling under the line
+        tension: 0.4,   // Smooth the line (curved lines)
       }
     ]
   };
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       filler: {
         propagate: false,
       },
+      legend: {
+        display: false,
+      },
       title: {
-        display: true,
-        text: (ctx) => 'Smooth Line Chart (tension: 0.4)',
+        display: false,
       }
     },
-    interaction: {
-      intersect: false, // Disable intersection to allow hovering without crossing
-    },
-  };
-
-  return <Line data={data} options={options} />;
-};
-
-const HorizontalBarChart = () => {
-  const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
-
-  const labels = Utils.months({ count: DATA_COUNT });
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.red,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-      },
-      {
-        label: 'Dataset 2',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-      },
-      {
-        label: 'Dataset 3',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-      },
-    ],
-  };
-
-  // Configuration options
-  const options = {
-    indexAxis: 'y', // Horizontal bars
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
-    responsive: true,
     scales: {
       y: {
         ticks: {
-          color: 'rgba(173, 172, 172, 0.9)',
+          color: 'rgba(173, 172, 172, 0.2)',
         },
         grid: {
           color: 'rgba(173, 172, 172, 0.1)',
@@ -120,7 +127,7 @@ const HorizontalBarChart = () => {
       },
       x: {
         ticks: {
-          color: 'rgba(173, 172, 172, 0.9)',
+          color: 'rgba(173, 172, 172, 0.4)',
         },
         grid: {
           color: 'rgba(173, 172, 172, 0.1)',
@@ -128,20 +135,13 @@ const HorizontalBarChart = () => {
         },
       },
     },
-    plugins: {
-      legend: {
-        position: 'right',
-      },
-      title: {
-        display: true,
-        text: 'Custom Horizontal Bar Chart with Colored Labels & Grid',
-      },
+    interaction: {
+      intersect: false,
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return <Line data={data} options={options} />;
 };
-
 
 const Day18 = () => {
   useLenisScroll();
@@ -154,10 +154,18 @@ const Day18 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h1 className='text-4xl text-neutral-300'>Horizontal Bar Chart Test</h1>
-      <HorizontalBarChart />
-      <h1 className='text-4xl text-neutral-300'>Radar Chart Test</h1>
-      <LineChart />
+      <main className='min-h-screen border'>
+        <div className='grid grid-cols-3'>
+          {/* Transaction Activity */}
+          <div className='col-span-2 border h-96 w-full p-4'>
+            <LineChart />
+          </div>
+          {/* Donut */}
+          <div className='col-span-1 border h-96 w-full flex justify-center items-center'>
+            <DoughnutChart />
+          </div>
+        </div>
+      </main>
     </motion.div>
   )
 }
