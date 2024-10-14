@@ -14,7 +14,10 @@ const Utils = {
   numbers: ({ count, min, max }) => Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min),
   CHART_COLORS: {
     red: 'rgba(255, 99, 132, 1)',
-    blue: 'rgba(54, 162, 235, 1)'
+    green: 'rgba(34, 197, 94, 1)',
+    darkGreen: 'rgba(22, 101, 52, 1)',
+    yellow: 'rgba(22, 101, 52, 1)',
+    blue: 'rgba(96, 165, 250, 1)'
   },
   transparentize: (color, opacity) => color.replace('1)', `${opacity})`)
 };
@@ -31,20 +34,13 @@ const DoughnutChart = () => {
         label: 'Dataset 1',
         data: [50, 30, 10, 40, 70],  // Example data (replace with your data)
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 205, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
+          'rgba(99, 102, 241)',
+          'rgba(250, 204, 21)',
+          'rgba(244, 63, 94)',
+          'rgba(59, 130, 246)',
+          'rgba(34, 197, 94)',
         ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(255, 205, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(54, 162, 235, 1)',
-        ],
-        borderWidth: 2,
+        borderWidth: 0,
       },
     ],
   };
@@ -93,13 +89,21 @@ const LineChart = () => {
     labels: generateLabels(),
     datasets: [
       {
-        label: 'Dataset',
+        label: 'Dataset 1',
         data: generateData(),
-        borderColor: Utils.CHART_COLORS.blue,   // Line color
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.1), // Fill color
-        fill: 'start',  // Enable filling under the line
-        tension: 0.4,   // Smooth the line (curved lines)
-      }
+        borderColor: Utils.CHART_COLORS.green,   // Line color
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.green, 0.2),
+        fill: 'start',
+        tension: 0.3,
+      },
+      {
+        label: 'Dataset 2',
+        data: generateData(),
+        borderColor: Utils.CHART_COLORS.darkGreen,   // Line color
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.darkGreen, 0.1),
+        fill: 'start',
+        tension: 0.3,
+      },
     ]
   };
 
@@ -156,20 +160,17 @@ const HorizontalBarChart = () => {
       {
         label: 'Dataset 1',
         data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.red,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-      },
-      {
-        label: 'Dataset 2',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+        backgroundColor: 'rgba(244, 63, 94)',
       },
       {
         label: 'Dataset 3',
         data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+        backgroundColor: 'rgba(251, 191, 36)',
+      },
+      {
+        label: 'Dataset 3',
+        data: Utils.numbers(NUMBER_CFG),
+        backgroundColor: 'rgba(96, 165, 250)',
       },
     ],
   };
@@ -179,7 +180,7 @@ const HorizontalBarChart = () => {
     indexAxis: 'y', // Horizontal bars
     elements: {
       bar: {
-        borderWidth: 1,
+        borderWidth: 0,
       },
     },
     responsive: true,
@@ -352,7 +353,7 @@ const Day18 = () => {
             </ul>
           </div>
         </aside>
-        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 lg:mb-[5rem] mb-[10rem] lg:bg-[#202020] bg-neutral-800">
+        <main className="flex-1 ml-0 lg:ml-64 lg:p-4 p-6 lg:pl-0 lg:bg-[#202020] bg-neutral-800 min-h-screen">
           <div className='bg-neutral-800 lg:rounded-xl rounded-none lg:p-6 p-0'>
             {/* Sidebar Toggle Button for Medium Screens */}
             <button
@@ -371,28 +372,61 @@ const Day18 = () => {
             </button>
             <div className='grid grid-cols-3 gap-5'>
               {/* Transaction Activity */}
-              <div className='col-span-2 h-72 w-full'>
-                <div className='rounded-lg bg-neutral-700/20 w-full h-full p-4'>
-                  <LineChart />
+              <div className='col-span-2 h-80 w-full'>
+                <div className='rounded-lg bg-neutral-700/20 w-full h-full py-4 px-5 space-y-3'>
+                  <div>
+                    <h3 className="text-neutral-200 text-lg md:text-xl">
+                      Transaction History
+                    </h3>
+                    <p className="text-neutral-400 text-sm">
+                      2023 - 2024
+                    </p>
+                  </div>
+                  <div className='h-[77%]'>
+                    <LineChart />
+                  </div>
                 </div>
               </div>
               {/* Donut */}
-              <div className='col-span-1 h-72 w-full'>
+              <div className='col-span-1 h-80 border w-full'>
+
                 <div className='rounded-lg bg-neutral-700/20 w-full h-full flex justify-center items-center p-4'>
                   <DoughnutChart />
                 </div>
               </div>
             </div>
-            <div className='grid grid-cols-3 mt-5'>
-              {/* Contribution Breakdown */}
-              <div className='col-span-1 h-72 w-full'>
-                <div className='rounded-lg bg-neutral-700/20 w-full h-full p-4'>
-                  <HorizontalBarChart />
-                </div>
-              </div>
+            <div className='grid grid-cols-2 mt-5 gap-5'>
               {/* Table */}
-              <div className='col-span-2 h-72 w-full p-4'>
+              <div className='col-span-1 h-80 w-full p-4 border'>
 
+              </div>
+              {/* Contribution Breakdown */}
+              <div className='col-span-1 h-80 w-full'>
+                <div className='rounded-lg bg-neutral-700/20 w-full h-full py-4 px-5 space-y-1'>
+                  <div>
+                    <h3 className="text-neutral-200 text-md md:text-lg">
+                      Contribution Breakdown
+                    </h3>
+                    <ul className='flex justify-center gap-6 mt-3'>
+                      {[
+                        { label: 'LT', color: "bg-yellow-500" },
+                        { label: 'FM', color: "bg-blue-500" },
+                        { label: 'KS', color: "bg-red-500" },
+                      ].map((link, index) => (
+                        <li
+                          className={'text-neutral-200 inline-flex items-center gap-2 text-sm'}
+                          key={index}
+                        >
+                          <span className={`flex w-2.5 h-2.5 ms-2 ${link.color} rounded-full`}></span>
+                          <span>{link.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className='h-[76%]'>
+                    <HorizontalBarChart />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
