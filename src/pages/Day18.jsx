@@ -143,6 +143,78 @@ const LineChart = () => {
   return <Line data={data} options={options} />;
 };
 
+const HorizontalBarChart = () => {
+  const DATA_COUNT = 5;
+  const NUMBER_CFG = { count: DATA_COUNT, min: -50, max: 50 };
+
+  const labels = Utils.months({ count: DATA_COUNT });
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.red,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+      },
+      {
+        label: 'Dataset 2',
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.blue,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+      },
+      {
+        label: 'Dataset 3',
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.blue,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+      },
+    ],
+  };
+
+  // Configuration options
+  const options = {
+    indexAxis: 'y', // Horizontal bars
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        ticks: {
+          color: 'rgba(173, 172, 172, 0.9)',
+        },
+        grid: {
+          color: 'rgba(173, 172, 172, 0.1)',
+          borderColor: 'rgba(255, 69, 0, 0.8)',
+        },
+      },
+      x: {
+        ticks: {
+          color: 'rgba(173, 172, 172, 0.9)',
+        },
+        grid: {
+          color: 'rgba(173, 172, 172, 0.1)',
+          borderColor: 'rgba(255, 69, 0, 0.8)',
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+  };
+
+  return <Bar data={data} options={options} />;
+};
+
 const Day18 = () => {
   useLenisScroll();
   useScrollToTop();
@@ -163,6 +235,16 @@ const Day18 = () => {
           {/* Donut */}
           <div className='col-span-1 border h-96 w-full flex justify-center items-center'>
             <DoughnutChart />
+          </div>
+        </div>
+        <div className='grid grid-cols-3'>
+          {/* Contribution Breakdown */}
+          <div className='col-span-1 border h-96 w-full flex justify-center items-center p-4'>
+            <HorizontalBarChart />
+          </div>
+          {/* Table */}
+          <div className='col-span-2 border h-96 w-full p-4'>
+
           </div>
         </div>
       </main>
