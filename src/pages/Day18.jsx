@@ -2,14 +2,14 @@ import React from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
-import { Bar, Radar } from 'react-chartjs-2';
-import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Bar, Line } from 'react-chartjs-2';
+import { Chart as ChartJS, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 // Register required Chart.js components
-ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Utils = {
-  months: ({ count }) => ['January', 'February', 'March', 'April', 'May', 'June', 'July'].slice(0, count),
+  months: ({ count }) => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].slice(0, count),
   numbers: ({ count, min, max }) => Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min),
   CHART_COLORS: {
     red: 'rgba(255, 99, 132, 1)',
@@ -18,61 +18,56 @@ const Utils = {
   transparentize: (color, opacity) => color.replace('1)', `${opacity})`)
 };
 
-const RadarChart = () => {
-  const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+const inputs = {
+  min: -100,
+  max: 100,
+  count: 12,
+  decimals: 2,
+  continuity: 1
+};
 
-  const labels = Utils.months({ count: DATA_COUNT });
+// Generate labels for the chart
+const generateLabels = () => {
+  return Utils.months({ count: inputs.count });
+};
+
+// Generate data for the chart
+const generateData = () => {
+  return Utils.numbers(inputs);
+};
+
+const LineChart = () => {
   const data = {
-    labels: labels,
+    labels: generateLabels(),
     datasets: [
       {
-        label: 'Dataset 1',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.red,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-      },
-      {
-        label: 'Dataset 2',
-        data: Utils.numbers(NUMBER_CFG),
+        label: 'Dataset',
+        data: generateData(),
         borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue),
+        fill: false,
+        tension: 0.4, // Enable smoothing by setting tension
       }
-    ],
+    ]
   };
 
-  // Radar Chart Configuration
   const options = {
     responsive: true,
-    scales: {
-      r: { // Radar charts use the 'r' scale for radial layout
-        angleLines: {
-          color: 'rgba(173, 172, 172, 0.5)', // Lines radiating from the center
-        },
-        grid: {
-          color: 'rgba(128, 128, 128, 0.2)', // Circular grid line color
-        },
-        pointLabels: {
-          color: '#FF6347', // Color of the labels around the radar
-        },
-        ticks: {
-          display: true,
-          color: 'rgba(173, 172, 172, 0.9)', // Tick marks on radar axes
-        },
-      },
-    },
     plugins: {
-      legend: {
-        position: 'right',
+      filler: {
+        propagate: false,
       },
       title: {
         display: true,
-        text: 'Custom Radar Chart with Colored Grid and Labels',
-      },
+        text: (ctx) => 'Smooth Line Chart (tension: 0.4)',
+      }
+    },
+    interaction: {
+      intersect: false, // Disable intersection to allow hovering without crossing
     },
   };
 
-  return <Radar data={data} options={options} />;
+  return <Line data={data} options={options} />;
 };
 
 const HorizontalBarChart = () => {
@@ -91,6 +86,12 @@ const HorizontalBarChart = () => {
       },
       {
         label: 'Dataset 2',
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.blue,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+      },
+      {
+        label: 'Dataset 3',
         data: Utils.numbers(NUMBER_CFG),
         borderColor: Utils.CHART_COLORS.blue,
         backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
@@ -156,7 +157,7 @@ const Day18 = () => {
       <h1 className='text-4xl text-neutral-300'>Horizontal Bar Chart Test</h1>
       <HorizontalBarChart />
       <h1 className='text-4xl text-neutral-300'>Radar Chart Test</h1>
-      <RadarChart />
+      <LineChart />
     </motion.div>
   )
 }
