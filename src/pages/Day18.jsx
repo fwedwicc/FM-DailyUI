@@ -237,40 +237,40 @@ const Day18 = () => {
   const navLink = {
     firstLinks: [
       {
-        "label": "Feed",
-        "icon": "M2.25 12L11.204 3.045c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+        label: "Dashboard",
+        icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
       },
       {
-        "label": "Playlists",
-        "icon": "M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+        label: "Transactions",
+        icon: "M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
       },
       {
-        "label": "Stats",
-        "icon": "M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
-      }
+        label: "Services",
+        icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
+      },
+      {
+        label: "Inquiries",
+        icon: "M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3"
+      },
     ],
     secondLinks: [
       {
-        "label": "Favorites",
-        "icon": "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+        label: "Extensions",
+        icon: "M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z"
       },
       {
-        "label": "History",
-        "icon": "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-      },
-      {
-        "label": "Podcasts",
-        "icon": "M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
+        label: "Reports",
+        icon: "M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
       }
     ],
     thirdLinks: [
       {
-        "label": "Rock",
-        "color": "orange"
+        label: "Business",
+        color: "orange"
       },
       {
-        "label": "Pop",
-        "color": "green"
+        label: "Students",
+        color: "green"
       },
     ]
   };
@@ -311,6 +311,7 @@ const Day18 = () => {
           <div className='space-y-5 p-3'>
             {/* First Links */}
             <ul className='space-y-1.5'>
+              <li className='text-neutral-500 text-xs uppercase mb-2'>General</li>
               {navLink.firstLinks.map((link, index) => (
                 <li
                   className={`${index == 0 ? 'text-green-500 font-bold bg-green-500/10' : 'text-neutral-200 hover:bg-neutral-700/50'} inline-flex items-center gap-3 w-full px-4 py-2.5 text-sm rounded-md transition duration-300 ease-in-out cursor-pointer`}
@@ -332,7 +333,7 @@ const Day18 = () => {
             </ul>
             {/* Second Links */}
             <ul className='space-y-1.5'>
-              <li className='text-neutral-500 text-xs uppercase mb-2'>Your music</li>
+              <li className='text-neutral-500 text-xs uppercase mb-2'>Other Tools</li>
               {navLink.secondLinks.map((link, index) => (
                 <li
                   className={'text-neutral-200 hover:bg-neutral-700/50 inline-flex items-center gap-3 w-full px-4 py-2.5 text-sm rounded-md transition duration-300 ease-in-out cursor-pointer'}
@@ -354,7 +355,7 @@ const Day18 = () => {
             </ul>
             {/* Third Links */}
             <ul className='space-y-1.5'>
-              <li className='text-neutral-500 text-xs uppercase mb-2'>Your playlist</li>
+              <li className='text-neutral-500 text-xs uppercase mb-2'>Your Audience</li>
               {navLink.thirdLinks.map((link, index) => (
                 <li
                   className={'text-neutral-200 hover:bg-neutral-700/50 inline-flex items-center gap-3 w-full px-4 py-2.5 text-sm rounded-md transition duration-300 ease-in-out cursor-pointer'}
@@ -366,7 +367,7 @@ const Day18 = () => {
               ))}
               <li className='pt-2'>
                 <a href="#" className='flex items-center justify-center gap-1 text-green-500 text-sm font-medium'>
-                  Create new playlist
+                  Create new
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                   </svg>
@@ -529,21 +530,21 @@ const Day18 = () => {
                   <table className="min-w-full divide-y divide-neutral-700">
                     <thead className="bg-neutral-900/40">
                       <tr>
-                        <th scope='col' className='px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider'>
+                        <th scope='col' className='px-5 py-3 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider'>
                           <Checkbox
                             id="na"
                           />
                         </th>
-                        <th scope="col" className="pr-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                        <th scope="col" className="pr-5 py-3 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
                           Service
                         </th>
-                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                        <th scope="col" className="px-5 py-3 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
                           Revenue
                         </th>
-                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                        <th scope="col" className="px-5 py-3 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
                           Inquries
                         </th>
-                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                        <th scope="col" className="px-5 py-3 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
                           Feedback
                         </th>
                       </tr>
@@ -551,15 +552,15 @@ const Day18 = () => {
                     <tbody className="bg-neutral-700/10 divide-y divide-neutral-700/60">
                       {tableData.map((row, index) => (
                         <tr key={index}>
-                          <td className="pl-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-300">
+                          <td className="pl-5 py-3 whitespace-nowrap text-sm font-medium text-neutral-300">
                             <Checkbox
                               id="na"
                             />
                           </td>
-                          <td className="pr-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-300">{row.service}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.revenue}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.inquiry}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.feedback}</td>
+                          <td className="pr-5 py-3 whitespace-nowrap text-sm font-medium text-neutral-300">{row.service}</td>
+                          <td className="px-5 py-3 whitespace-nowrap text-sm text-neutral-400">{row.revenue}</td>
+                          <td className="px-5 py-3 whitespace-nowrap text-sm text-neutral-400">{row.inquiry}</td>
+                          <td className="px-5 py-3 whitespace-nowrap text-sm text-neutral-400">{row.feedback}</td>
                         </tr>
                       ))}
                     </tbody>
