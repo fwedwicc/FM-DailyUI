@@ -8,6 +8,13 @@ import { Chart as ChartJS, ArcElement, PointElement, LineElement, Filler, Catego
 
 ChartJS.register(ArcElement, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
+const tableData = [
+  { service: 'Web Development', revenue: '₱700,000', inquiry: '150', feedback: '140' },
+  { service: 'Programming', revenue: '₱500,000', inquiry: '120', feedback: '110' },
+  { service: 'Graphic Design', revenue: '₱400,000', inquiry: '100', feedback: '95' },
+  { service: 'Paperworks', revenue: '₱300,000', inquiry: '80', feedback: '75' },
+  { service: 'Database Management', revenue: '₱100,000', inquiry: '50', feedback: '45' },
+]
 
 const Utils = {
   months: ({ count }) => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].slice(0, count),
@@ -28,10 +35,10 @@ const DoughnutChart = () => {
   const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
 
   const data = {
-    labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+    labels: ['Programming', 'Paperworks', 'Database Management', 'Graphic Design', 'Web Development'],
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Service',
         data: [50, 30, 10, 40, 70],  // Example data (replace with your data)
         backgroundColor: [
           'rgba(99, 102, 241)',
@@ -59,9 +66,7 @@ const DoughnutChart = () => {
   };
 
   return (
-    <div style={{ width: '50%' }}>
-      <Doughnut data={data} options={options} />
-    </div>
+    <Doughnut data={data} options={options} />
   );
 };
 
@@ -374,13 +379,20 @@ const Day18 = () => {
               {/* Transaction Activity */}
               <div className='col-span-2 h-80 w-full'>
                 <div className='rounded-lg bg-neutral-700/20 w-full h-full py-4 px-5 space-y-3'>
-                  <div>
-                    <h3 className="text-neutral-200 text-lg md:text-xl">
-                      Transaction History
-                    </h3>
-                    <p className="text-neutral-400 text-sm">
-                      2023 - 2024
-                    </p>
+                  <div className='flex justify-between items-start'>
+                    <div>
+                      <h3 className="text-neutral-200 text-lg md:text-xl">
+                        Transaction History
+                      </h3>
+                      <p className="text-neutral-400 text-sm">
+                        2023 - 2024
+                      </p>
+                    </div>
+                    <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                        <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+                      </svg>
+                    </button>
                   </div>
                   <div className='h-[77%]'>
                     <LineChart />
@@ -388,17 +400,70 @@ const Day18 = () => {
                 </div>
               </div>
               {/* Donut */}
-              <div className='col-span-1 h-80 border w-full'>
-
-                <div className='rounded-lg bg-neutral-700/20 w-full h-full flex justify-center items-center p-4'>
-                  <DoughnutChart />
+              <div className='col-span-1 h-80 w-full'>
+                <div className='rounded-lg bg-neutral-700/20 w-full h-full px-5 py-4'>
+                  <h3 className="text-neutral-200 text-md md:text-lg">
+                    Most Availed Services
+                  </h3>
+                  <ul className='flex flex-wrap justify-center gap-x-4 mt-7'>
+                    {[
+                      { label: 'WD', color: "bg-green-500" },
+                      { label: 'PR', color: "bg-indigo-500" },
+                      { label: 'PW', color: "bg-yellow-500" },
+                      { label: 'DBM', color: "bg-rose-500" },
+                      { label: 'GD', color: "bg-blue-500" },
+                    ].map((link, index) => (
+                      <li
+                        className={'text-neutral-400 inline-flex items-center gap-2 text-sm'}
+                        key={index}
+                      >
+                        <span className={`flex w-2.5 h-2.5 ms-2 ${link.color} rounded-full`}></span>
+                        <span>{link.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className='h-[63%] w-full justify-center items-center flex mt-4'>
+                    <DoughnutChart />
+                  </div>
                 </div>
               </div>
             </div>
             <div className='grid grid-cols-2 mt-5 gap-5'>
               {/* Table */}
-              <div className='col-span-1 h-80 w-full p-4 border'>
-
+              <div className='col-span-1 h-auto w-full space-y-3'>
+                <h3 className="text-neutral-200 text-lg md:text-xl">
+                  Top Services
+                </h3>
+                <div className="overflow-x-auto rounded-lg border border-neutral-700/60">
+                  <table className="min-w-full divide-y divide-neutral-700">
+                    <thead className="bg-neutral-900/40">
+                      <tr>
+                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                          Service
+                        </th>
+                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                          Revenue
+                        </th>
+                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                          Inquries
+                        </th>
+                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                          Feedback
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-neutral-700/10 divide-y divide-neutral-700/60">
+                      {tableData.map((row, index) => (
+                        <tr key={index}>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-300">{row.service}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.revenue}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.inquiry}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.feedback}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
               {/* Contribution Breakdown */}
               <div className='col-span-1 h-80 w-full'>
@@ -411,7 +476,7 @@ const Day18 = () => {
                       {[
                         { label: 'LT', color: "bg-yellow-500" },
                         { label: 'FM', color: "bg-blue-500" },
-                        { label: 'KS', color: "bg-red-500" },
+                        { label: 'KS', color: "bg-rose-500" },
                       ].map((link, index) => (
                         <li
                           className={'text-neutral-200 inline-flex items-center gap-2 text-sm'}
