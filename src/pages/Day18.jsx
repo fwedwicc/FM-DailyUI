@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
+import { Checkbox, Button } from '../components'
 import { fmUILogo } from '../assets'
 import { motion } from 'framer-motion'
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
@@ -9,11 +10,11 @@ import { Chart as ChartJS, ArcElement, PointElement, LineElement, Filler, Catego
 ChartJS.register(ArcElement, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const tableData = [
-  { service: 'Web Development', revenue: '₱700,000', inquiry: '150', feedback: '140' },
-  { service: 'Programming', revenue: '₱500,000', inquiry: '120', feedback: '110' },
-  { service: 'Graphic Design', revenue: '₱400,000', inquiry: '100', feedback: '95' },
-  { service: 'Paperworks', revenue: '₱300,000', inquiry: '80', feedback: '75' },
-  { service: 'Database Management', revenue: '₱100,000', inquiry: '50', feedback: '45' },
+  { service: 'Web Development', revenue: '₱724,712', inquiry: '150', feedback: '140' },
+  { service: 'Programming', revenue: '₱543,120', inquiry: '120', feedback: '110' },
+  { service: 'Graphic Design', revenue: '₱412,185', inquiry: '100', feedback: '95' },
+  { service: 'Paperworks', revenue: '₱322,230', inquiry: '80', feedback: '75' },
+  { service: 'Database Management', revenue: '₱154,980', inquiry: '50', feedback: '45' },
 ]
 
 const Utils = {
@@ -284,13 +285,29 @@ const Day18 = () => {
       <section className="bg-[#202020] flex">
         {/* Sidebar */}
         <aside
-          className={`fixed overflow-auto h-screen bg-[#202020] w-64 space-y-4 transition-transform lg:pt-0 pt-11 transform z-50 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          className={`fixed overflow-auto h-screen bg-[#202020] w-64 space-y-4 transition-transform transform z-50 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             } lg:translate-x-0`}
         >
-          <a className="inline-block pl-8 pt-12" href="#">
-            <span className="sr-only">Home</span>
-            <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
-          </a>
+          <div className='pl-6 pt-6 space-y-6'>
+            <button
+              className="lg:hidden py-2 size-9 flex justify-center items-center bg-neutral-600/50 backdrop-blur-sm hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out"
+              onClick={toggleSidebar}
+            >
+              {isSidebarOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                </svg>
+              )}
+            </button>
+            <a className="inline-block" href="#">
+              <span className="sr-only">Home</span>
+              <img src={fmUILogo} alt="fmUI Logo" className='w-16 h-auto' />
+            </a>
+          </div>
           <div className='space-y-5 p-3'>
             {/* First Links */}
             <ul className='space-y-1.5'>
@@ -362,7 +379,7 @@ const Day18 = () => {
           <div className='bg-neutral-800 lg:rounded-xl rounded-none lg:p-6 p-0'>
             {/* Sidebar Toggle Button for Medium Screens */}
             <button
-              className="lg:hidden py-2 size-9 flex fixed justify-center items-center bg-neutral-600/50 backdrop-blur-sm hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out"
+              className="lg:hidden py-2 size-9 flex justify-center items-center bg-neutral-600/50 backdrop-blur-sm hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out"
               onClick={toggleSidebar}
             >
               {isSidebarOpen ? (
@@ -375,9 +392,83 @@ const Day18 = () => {
                 </svg>
               )}
             </button>
-            <div className='grid grid-cols-3 gap-5'>
+            {/* Header */}
+            <div className='flex justify-between items-start lg:mt-0 mt-4'>
+              <div className='space-y-1'>
+                <h1 className="text-2xl font-medium text-neutral-200 sm:text-3xl md:text-4xl">
+                  Welcome back, Fred!
+                </h1>
+                <p className="text-neutral-400 text-sm">
+                  As of October 15, 9:13AM
+                </p>
+              </div>
+              <div className='flex items-center gap-3'>
+                {[
+                  "M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0",
+                  ['M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z', 'M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'],
+                  "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                ].map((button) => (
+                  <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                      {Array.isArray(button) ? (
+                        button.map((d, i) => <path key={i} strokeLinecap="round" strokeLinejoin="round" d={d} />)
+                      ) : (
+                        <path fillRule="evenodd" clipRule="evenodd" d={button} />
+                      )}
+                    </svg>
+                  </button>
+                ))}
+                <img
+                  className="size-8 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
+                  src="https://avatars.githubusercontent.com/u/823537?v=4"
+                  alt="Bot Avatar"
+                />
+              </div>
+            </div>
+            {/* Actions */}
+            <div className='flex flex-wrap gap-4 justify-between items-end mt-8'>
+              <div className='lg:max-w-md w-full max-w-xs relative'>
+                <input
+                  id="search"
+                  type='text'
+                  placeholder='Search data or information'
+                  className={`w-full rounded-md bg-neutral-700/20 border border-neutral-600/60 py-2.5 px-3 pe-10 text-sm transition duration-300 ease-in-out focus:ring-neutral-400 focus:border-neutral-400 focus:ring-1 text-neutral-200 placeholder:text-neutral-400/70`}
+                  required={false}
+                />
+                <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 text-neutral-300">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </div>
+              </div>
+              <div className='flex items-center gap-3'>
+                <Button
+                  styles={'flex items-center gap-2.5 font-thin text-neutral-200 bg-neutral-700/50 hover:bg-neutral-700 border-none focus:ring-neutral-600/60'}
+                  label={'Date'}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                  </svg>
+                </Button>
+                <Button
+                  styles={'flex items-center gap-2.5 font-thin text-neutral-200 bg-neutral-700/50 hover:bg-neutral-700 border-none focus:ring-neutral-600/60'}
+                  label={'Export'}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
+                  </svg>
+                </Button>
+                <button className='p-3 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            {/* Main Content */}
+            <div className='grid md:grid-cols-3 grid-cols-1 gap-5 mt-6'>
               {/* Transaction Activity */}
-              <div className='col-span-2 h-80 w-full'>
+              <div className='md:col-span-2 col-span-1 h-80 w-full'>
                 <div className='rounded-lg bg-neutral-700/20 w-full h-full py-4 px-5 space-y-3'>
                   <div className='flex justify-between items-start'>
                     <div>
@@ -428,17 +519,22 @@ const Day18 = () => {
                 </div>
               </div>
             </div>
-            <div className='grid grid-cols-2 mt-5 gap-5'>
+            <div className='grid md:grid-cols-2 grid-cols-1 mt-5 gap-5'>
               {/* Table */}
-              <div className='col-span-1 h-auto w-full space-y-3'>
-                <h3 className="text-neutral-200 text-lg md:text-xl">
+              <div className='col-span-1 h-auto w-full space-y-2'>
+                <h3 className="text-neutral-200 text-md md:text-lg">
                   Top Services
                 </h3>
-                <div className="overflow-x-auto rounded-lg border border-neutral-700/60">
+                <div className="overflow-x-auto custom-scrollbar rounded-lg border border-neutral-700/60">
                   <table className="min-w-full divide-y divide-neutral-700">
                     <thead className="bg-neutral-900/40">
                       <tr>
-                        <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
+                        <th scope='col' className='px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider'>
+                          <Checkbox
+                            id="na"
+                          />
+                        </th>
+                        <th scope="col" className="pr-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
                           Service
                         </th>
                         <th scope="col" className="px-6 py-4 text-left text-xs font-medium text-neutral-200 uppercase tracking-wider">
@@ -455,7 +551,12 @@ const Day18 = () => {
                     <tbody className="bg-neutral-700/10 divide-y divide-neutral-700/60">
                       {tableData.map((row, index) => (
                         <tr key={index}>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-300">{row.service}</td>
+                          <td className="pl-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-300">
+                            <Checkbox
+                              id="na"
+                            />
+                          </td>
+                          <td className="pr-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-300">{row.service}</td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.revenue}</td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.inquiry}</td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-400">{row.feedback}</td>
