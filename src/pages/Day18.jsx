@@ -408,8 +408,8 @@ const Day18 = () => {
                   "M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0",
                   ['M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z', 'M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'],
                   "M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
-                ].map((button) => (
-                  <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out'>
+                ].map((button, index) => (
+                  <button className='size-9 shrink-0 flex justify-center items-center hover:bg-neutral-700/70 rounded-md focus:ring-2 focus:ring-neutral-700 text-neutral-400 z-50 transition duration-300 ease-in-out' key={index}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                       {Array.isArray(button) ? (
                         button.map((d, i) => <path key={i} strokeLinecap="round" strokeLinejoin="round" d={d} />)
@@ -466,8 +466,41 @@ const Day18 = () => {
                 </button>
               </div>
             </div>
+            {/* Computations */}
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-6'>
+              {/* Container */}
+              {[
+                { title: "Gross Revenue", number: "2,458,019", percent: "12.24%", trending: true, date: "From Jan 1, 2024 - October 15, 2024" },
+                { title: "Avg. Availed Service", number: "321,845", percent: "-2.17%", trending: false, date: "From Jan 1, 2024 - October 15, 2024" },
+                { title: "Total Availed Service", number: "52,684", percent: "7.82%", trending: true, date: "From Jan 1, 2024 - October 15, 2024" },
+              ].map((container, index) => (
+                <div className='border border-neutral-700 p-2 rounded-xl' key={index}>
+                  <div className='flex justify-between items-start p-4'>
+                    <div className='space-y-2'>
+                      <p className="text-neutral-300 text-sm">
+                        {container.title}
+                      </p>
+                      <h3 className="text-neutral-200 text-2xl md:text-3xl">
+                        <span className='text-green-500'>₱</span> {container.number}
+                      </h3>
+                    </div>
+                    <span className={`flex items-center gap-2.5 ${container.trending ? 'text-green-500 bg-green-400/10' : 'text-yellow-500 bg-yellow-400/10'} px-2 py-1 rounded-lg`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="shrink-0 size-4">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                      </svg>
+                      {container.percent}
+                    </span>
+                  </div>
+                  <div className='bg-neutral-700/50 py-2 px-4 rounded-md'>
+                    <p className="text-neutral-400">
+                      {container.date}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
             {/* Main Content */}
-            <div className='grid md:grid-cols-3 grid-cols-1 gap-5 mt-6'>
+            <div className='grid md:grid-cols-3 grid-cols-1 gap-5 mt-4'>
               {/* Transaction Activity */}
               <div className='md:col-span-2 col-span-1 h-80 w-full'>
                 <div className='rounded-lg bg-neutral-700/20 w-full h-full py-4 px-5 space-y-3'>
