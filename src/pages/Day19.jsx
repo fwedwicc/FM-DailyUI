@@ -52,88 +52,88 @@ const Day19 = () => {
       streak: 65
     },
     {
-      link: "",
-      banner: "",
-      profile: "",
-      name: "",
-      username: "",
-      level: null,
-      days: null,
-      date: "",
-      exercises: null,
-      xp: null,
-      badges: null,
-      streak: null
+      link: "https://www.codedex.io/@banhmipan",
+      banner: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/profile-banner%2Fzjgog8oSQOPvfQks4yWUXZpMGvo1%2Fpenguin%20banner%20(4).png?alt=media&token=6e97671f-2c17-49bb-a212-3c5b7edc436c",
+      profile: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/avatars%2Fzjgog8oSQOPvfQks4yWUXZpMGvo1%2Fprofile.jpg?alt=media&token=1768c59c-4cc6-44c8-9004-2d51e61a4171",
+      name: "Brendon Tran",
+      username: "@banhmipan",
+      level: 12,
+      days: 161,
+      date: "May 03, 2024",
+      exercises: 245,
+      xp: 4175,
+      badges: 36,
+      streak: 7
     },
     {
-      link: "",
-      banner: "",
-      profile: "",
-      name: "",
-      username: "",
-      level: null,
-      days: null,
-      date: "",
-      exercises: null,
-      xp: null,
-      badges: null,
-      streak: null
+      link: "https://www.codedex.io/@0xkonstantin",
+      banner: "https://www.codedex.io/images/css/banner-v2.png",
+      profile: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/avatars%2F2RpWZxCK9BN3hyl8xt4ahnMV1BD3%2Fprofile.png?alt=media&token=ac57eda0-d863-410f-8285-d72788147d9d",
+      name: "Konstantin Levin",
+      username: "@0xkonstantin",
+      level: 11,
+      days: 134,
+      date: "July 06, 2024",
+      exercises: 201,
+      xp: 3615,
+      badges: 28,
+      streak: 135
     },
     {
-      link: "",
-      banner: "",
-      profile: "",
-      name: "",
-      username: "",
-      level: null,
-      days: null,
-      date: "",
-      exercises: null,
-      xp: null,
-      badges: null,
-      streak: null
+      link: "https://www.codedex.io/@pokemika",
+      banner: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/profile-banner%2FDgIBCGuFNzSh0A4fuDQ5CJ2rvRo1%2F8_bit_pixel_art_city_by_alextendo_dcs6lfa2.jpg?alt=media&token=6eb493c4-98cf-4602-b693-8520bbe07f7d",
+      profile: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/avatars%2FDgIBCGuFNzSh0A4fuDQ5CJ2rvRo1%2Fprofile.jpg?alt=media&token=25b6ac25-cbbb-4e36-94b1-34c9d235e993",
+      name: "Mika",
+      username: "@pokemika",
+      level: 11,
+      days: 114,
+      date: "July 26, 2024",
+      exercises: 225,
+      xp: 3563,
+      badges: 33,
+      streak: 115
     },
     {
-      link: "",
-      banner: "",
-      profile: "",
-      name: "",
-      username: "",
-      level: null,
-      days: null,
-      date: "",
-      exercises: null,
-      xp: null,
-      badges: null,
-      streak: null
+      link: "https://www.codedex.io/@M3R14M",
+      banner: "https://www.codedex.io/images/css/banner-v2.png",
+      profile: "https://avatars.githubusercontent.com/u/86663811?v=4",
+      name: "Mer",
+      username: "@M3R14M",
+      level: 13,
+      days: 113,
+      date: "July 27, 2024",
+      exercises: 301,
+      xp: 4795,
+      badges: 51,
+      streak: 144
     },
     {
-      link: "",
-      banner: "",
-      profile: "",
-      name: "",
-      username: "",
-      level: null,
-      days: null,
-      date: "",
-      exercises: null,
-      xp: null,
-      badges: null,
-      streak: null
+      link: "https://www.codedex.io/@martijnkuik82",
+      banner: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/profile-banner%2FspzbJgvyzKd6ugFfvEh81FNGefv1%2Fimg-e8B6fCrITL0Teacm23YIP.jpeg?alt=media&token=aa4170fb-9a55-4318-a84b-525c8f47e0c4",
+      profile: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/avatars%2FspzbJgvyzKd6ugFfvEh81FNGefv1%2Fprofile.jpg?alt=media&token=77ddec89-53b8-43e8-ae86-54a2799407a9",
+      name: "Martijn Kuik",
+      username: "@martijnkuik82",
+      level: 11,
+      days: 68,
+      date: "July 22, 2024",
+      exercises: 221,
+      xp: 3730,
+      badges: 34,
+      streak: 2
     },
     {
-      link: "",
-      banner: "",
-      profile: "",
-      name: "",
-      username: "",
-      level: null,
-      days: null,
-      date: "",
-      exercises: null,
-      xp: null,
-      badges: null,
-      streak: null
+      link: "https://www.codedex.io/@Adrian7",
+      banner: "https://www.codedex.io/images/css/banner-v2.png",
+      profile: "https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/avatars%2FQu1BRtPYz3NqfbdAx33CRiyXAq42%2Fprofile.jpg?alt=media&token=01224c62-9ff3-4a49-a9be-b8e21f552c60",
+      name: "Adrian",
+      username: "@Adrian7",
+      level: 5,
+      days: 60,
+      date: "May 30, 2024",
+      exercises: 60,
+      xp: 845,
+      badges: 9,
+      streak: 0
     },
   ]
 
@@ -154,7 +154,7 @@ const Day19 = () => {
           </p>
         </div>
         {/* Information */}
-        <div className='mt-16 px-5'>
+        <div className='mt-[4.2rem] px-5 pb-3'>
           <div>
             <h1 className='flex items-center gap-1.5 text-neutral-200 group-hover:text-green-500 text-xl transition duration-300 ease-in-out'>{props.name} <span className='leading-relaxed text-neutral-400 text-sm'>{props.username}</span></h1>
             <p className="flex items-center gap-1 text-neutral-200">
@@ -218,19 +218,24 @@ const Day19 = () => {
                     <p className='text-neutral-300 text-2xl font-bold'>Codédex's</p>
                     <h1 className='text-neutral-200 text-3xl md:text-5xl'>#30NitesOfCode</h1>
                   </div>
-                  <p className='text-neutral-400 w-full max-w-xl'>#30NitesOfCode is a habit-building challenge for those who want to commit to 30 days of learning and building. You start by choosing an virtual pet and it will be your companion for the journey. This challenge can be done via Twitter and in our Community.</p>
+                  <p className='text-neutral-400 w-full max-w-xl'>#30NitesOfCode is a habit-building challenge for those who want to commit to 30 days of learning and building. You start by choosing an virtual pet and it will be your companion for the journey.</p>
                 </div>
-                <div className='mt-4 flex items-center gap-8'>
+                <div className='mt-4 flex lg:justify-start justify-center items-center gap-12'>
                   {[
-                    { label: "Members", data: 398 },
-                    { label: "New Posts", data: 78 },
-                    { label: "Upcoming Events", data: 3 },
+                    { icon: "M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z", label: "Members", data: 398 },
+                    { icon: "M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z", label: "New Posts", data: 78 },
+                    { icon: "M11 9H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6m0-6v6m0-6 5.419-3.87A1 1 0 0 1 18 5.942v12.114a1 1 0 0 1-1.581.814L11 15m7 0a3 3 0 0 0 0-6M6 15h3v5H6v-5Z", label: "Upcoming Events", data: 3 },
                   ].map((stats, index) => (
                     <div key={index}>
-                      <p className="text-neutral-400">
-                        {stats.label}
-                      </p>
-                      <p className={`${index === 0 ? 'text-blue-400' : index === 1 ? 'text-orange-400' : index === 2 ? 'text-green-400' : 'text-indigo-400'} font-semibold text-xl`}>{stats.data}</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-7 text-neutral-400">
+                        <path strokeLinecap="round" strokeLinejoin="round" d={stats.icon} />
+                      </svg>
+                      <div className='space-y-2.5'>
+                        <p className="text-neutral-400">
+                          {stats.label}
+                        </p>
+                        <p className={`${index === 0 ? 'text-blue-400' : index === 1 ? 'text-orange-400' : index === 2 ? 'text-green-400' : 'text-indigo-400'} font-semibold text-2xl md:text-4xl`}>{stats.data}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
