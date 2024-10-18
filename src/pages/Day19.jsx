@@ -1,7 +1,8 @@
 import React from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
-import { m, motion } from 'framer-motion'
+import { ThirtyNitesOfCode } from '../assets/day19'
+import { motion } from 'framer-motion'
 
 const Day19 = () => {
   useLenisScroll();
@@ -174,7 +175,7 @@ const Day19 = () => {
                 </p>
               </div>
             </div>
-            <div className='size-8 flex items-center justify-center bg-green-600 rounded-full text-white font-bold'>{props.top}</div>
+            <div className={`size-8 flex items-center justify-center bg-green-600 rounded-full text-white font-bold`}>{props.top}</div>
           </div>
           {/* Stats */}
           <div className='mt-4 flex items-center gap-8'>
@@ -204,12 +205,42 @@ const Day19 = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 lg:py-12 py-8 overflow-x-hidden">
+      <section className="bg-neutral-800 min-h-screen flex items-center justify-center p-12 md:px-12 px-8 lg:py-20 py-8 overflow-x-hidden">
         {/* Main Container */}
-        <div className="max-w-[95rem] border gap-4 w-full">
-          {/* Challengers Profiles */}
+        <div className="max-w-[95rem] gap-4 w-full">
           <div className='flex flex-col min-w-5xl w-full z-10 space-y-4 p-1'>
-            <h1 className='text-neutral-200 text-3xl'>Top 9 Challengers of Codedex's 30NitesOfCode</h1>
+            {/* Header */}
+            <div className='flex justify-center lg:items-start items-center lg:flex-row flex-col mb-8 md:gap-8 gap-4'>
+              <img src={ThirtyNitesOfCode} alt="30NitesOfCode from Codédex" className='w-[40rem] h-auto rounded-xl' />
+              <div className='space-y-6'>
+                <div className='space-y-4'>
+                  <div>
+                    <p className='text-neutral-300 text-2xl font-bold'>Codédex's</p>
+                    <h1 className='text-neutral-200 text-3xl md:text-5xl'>#30NitesOfCode</h1>
+                  </div>
+                  <p className='text-neutral-400 w-full max-w-xl'>#30NitesOfCode is a habit-building challenge for those who want to commit to 30 days of learning and building. You start by choosing an virtual pet and it will be your companion for the journey. This challenge can be done via Twitter and in our Community.</p>
+                </div>
+                <div className='mt-4 flex items-center gap-8'>
+                  {[
+                    { label: "Members", data: 398 },
+                    { label: "New Posts", data: 78 },
+                    { label: "Upcoming Events", data: 3 },
+                  ].map((stats, index) => (
+                    <div key={index}>
+                      <p className="text-neutral-400">
+                        {stats.label}
+                      </p>
+                      <p className={`${index === 0 ? 'text-blue-400' : index === 1 ? 'text-orange-400' : index === 2 ? 'text-green-400' : 'text-indigo-400'} font-semibold text-xl`}>{stats.data}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {/* Challengers Profiles */}
+            <div className='pb-2'>
+              <h1 className='text-neutral-200 text-3xl'>Hall of Fame Leaderboard</h1>
+              <p className='text-neutral-400'>Top 9 Challengers of Codédex's 30NitesOfCode</p>
+            </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5'>
               {ChallengersData.map((creator, index) => (
                 <ProfileCard
@@ -234,8 +265,11 @@ const Day19 = () => {
           </div>
           {/* Footer */}
           <div className='mt-14 flex flex-col justify-center items-center w-full'>
-            <a href="https://www.codedex.io/" className='text-green-500 underline' target='_blank' rel='noopener noreferrer'>View all at 30NitesOfCode</a>
-            <img src="https://www.codedex.io/images/codedex-bot-logo-compressed.gif" alt="Codédex Logo" className='w-24 h-auto mt-10' />
+            <div>
+              <p className='text-center text-neutral-400'>View all at</p>
+              <a href="https://www.codedex.io/30-nites-of-code" className='text-green-500 underline' target='_blank' rel='noopener noreferrer'>30NitesOfCode</a>
+              <img src="https://www.codedex.io/images/codedex-bot-logo-compressed.gif" alt="Codédex Logo" className='w-24 h-auto mt-10' />
+            </div>
             <h1 className='text-neutral-200 text-3xl'>Explore <a href="https://www.codedex.io/" className='hover:text-green-500 transition duration-300 ease-in-out' target='_blank' rel='noopener noreferrer'>Codédex!</a></h1>
             <p className="text-neutral-400 w-full max-w-lg text-xs text-center mt-3">
               Codédex offers an exciting way to learn coding through interactive challenges in Python, HTML, CSS, and JavaScript. Earn XP, unlock regions, and collect badges. Start your adventure today!
