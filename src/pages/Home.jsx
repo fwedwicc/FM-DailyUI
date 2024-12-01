@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { FMLogo } from '../assets'
 import { motion } from 'framer-motion'
 import useLenisScroll from '../hooks/useLenisScroll'
@@ -10,6 +11,40 @@ import useScrollRestoration from '../hooks/useScrollRestoration';
 const Home = () => {
   useLenisScroll();
   useScrollRestoration();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sectionRef = useRef(null);
+  const cardsPerPage = 10;
+
+  const [isPaginationTriggered, setIsPaginationTriggered] = useState(false);
+
+  // Get current page from URL, default to 1
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+
+  // Cards to display
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = Cards.slice(indexOfFirstCard, indexOfLastCard);
+
+  // Total number of pages
+  const totalPages = Math.ceil(Cards.length / cardsPerPage);
+
+  // Scroll to the section only when triggered by pagination
+  useEffect(() => {
+    if (isPaginationTriggered && sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+
+      setIsPaginationTriggered(false);
+    }
+  }, [currentPage, isPaginationTriggered]);
+
+  const handlePageChange = (page) => {
+    setIsPaginationTriggered(true);
+    setSearchParams({ page });
+  };
 
   const Hero = () => {
     return (
@@ -153,22 +188,74 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-16 md:px-12 px-6 py-12'>
-        {Cards.map((card, index) => (
-          <Card
-            key={index}
-            day={card.day}
-            title={card.title}
-            desc={card.desc}
-            link={card.link}
-            img={card.img}
-          />
-        ))}
+
+
+      {/* Specific section for cards */}
+      <div ref={sectionRef} className='flex flex-col items-center'>
+        {/* Card Grid */}
+        <div
+          className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-16 md:px-12 px-6 py-12'
+          key={currentPage} // Key for smooth transition
+        >
+          {currentCards.map((card, index) => (
+            <Card
+              key={index}
+              day={card.day}
+              title={card.title}
+              desc={card.desc}
+              link={card.link}
+              img={card.img}
+            />
+          ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <div className='flex flex-wrap items-center justify-center gap-2 mt-6 px-6'>
+          {/* Previous Button */}
+          <button
+            className={`md:px-4 px-3 py-2 rounded-md md:text-sm text-xs ${currentPage === 1
+              ? 'bg-neutral-700/50 text-neutral-400 cursor-not-allowed opacity-40'
+              : 'bg-neutral-200 text-neutral-800 hover:bg-neutral-100 transition duration-300 ease-in-out'
+              }`}
+            onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          {/* Page Numbers */}
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              className={`flex items-center justify-center md:size-9 size-8 md:text-sm text-xs rounded-md ${currentPage === index + 1
+                ? 'bg-green-500 text-white'
+                : 'bg-neutral-700/50 text-neutral-300 hover:bg-neutral-700/50'
+                } transition-all duration-300`}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          {/* Next Button */}
+          <button
+            className={`md:px-4 px-3 py-2 rounded-md md:text-sm text-xs ${currentPage === totalPages
+              ? 'bg-neutral-700/50 text-neutral-400 cursor-not-allowed opacity-40'
+              : 'bg-neutral-200 text-neutral-800 hover:bg-neutral-100 transition duration-300 ease-in-out'
+              }`}
+            onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
       </div>
+
+
       <div className='md:py-12 py-7 px-12 flex justify-center items-center'>
         <div className='w-full max-w-lg space-y-7'>
           <p className="text-sm leading-relaxed text-center text-green-50/80">
-            So you've reached this far! I don't think many viewers did either. Please consider giving this <a href="https://github.com/fwedwicc/FM-DailyUI" className='underline text-green-500' target='_blank' rel='noopener noreferrer'>GitHub repository</a> a star. Your support means a lot. <span className='inline-flex items-center gap-1'>
+            Please consider giving this <a href="https://github.com/fwedwicc/FM-DailyUI" className='underline text-green-500' target='_blank' rel='noopener noreferrer'>GitHub repository</a> a star. Your support means a lot. <span className='inline-flex items-center gap-1'>
               Thank you so much for your appreciation!
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">
                 <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
