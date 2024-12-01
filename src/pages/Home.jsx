@@ -27,6 +27,9 @@ const Home = () => {
   // Total number of pages
   const totalPages = Math.ceil(Cards.length / cardsPerPage);
 
+  const firstChallenge = indexOfFirstCard + 1;
+  const lastChallenge = Math.min(indexOfLastCard, Cards.length);
+
   // Scroll to the section only when triggered by pagination
   useEffect(() => {
     if (isPaginationTriggered && sectionRef.current) {
@@ -187,7 +190,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* Specific section for cards */}
       <div ref={sectionRef} className='flex flex-col items-center'>
         {/* Card Grid */}
@@ -207,6 +209,12 @@ const Home = () => {
           ))}
         </div>
 
+        <div className="flex flex-col items-center text-center mb-3">
+          <p className='text-md text-neutral-300/90'>Page {currentPage}</p>
+          <p className="md:text-sm text-xs font-medium text-neutral-400">
+            Challenge {firstChallenge} to {lastChallenge}
+          </p>
+        </div>
         {/* Pagination Controls */}
         <div className='flex flex-wrap items-center justify-center gap-2 mt-6 px-6'>
           {/* Previous Button */}
