@@ -89,21 +89,69 @@ const Day20 = () => {
                       </button>
                     </div>
                     <div className='flex items-center gap-3 mt-2'>
-                      <button className='flex justify-center items-center gap-1.5 text-neutral-300 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-md px-2 py-1 focus:ring-2 focus:ring-neutral-500 transition duration-300 ease-in-out text-xs'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                        </svg>
-                        All modes selected
-                      </button>
-                      <button className='flex justify-center items-center gap-1.5 text-neutral-300 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-md px-2 py-1 focus:ring-2 focus:ring-neutral-500 transition duration-300 ease-in-out text-xs'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        Leaving now
-                      </button>
+                      {[
+                        { label: 'All modes selected', icon: 'M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z' },
+                        { label: 'Leaving now', icon: 'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' },
+                      ].map((item, index) => (
+                        <button className='flex justify-center items-center gap-1.5 text-neutral-300 bg-neutral-600/50 hover:bg-neutral-200/20 rounded-md px-2 py-1 focus:ring-2 focus:ring-neutral-500 transition duration-300 ease-in-out text-xs' key={index}>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
+                            <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                          </svg>
+                          {item.label}
+                        </button>
+                      ))}
                     </div>
                     {/*  */}
-                    <div></div>
+                    <div className='mt-2 space-y-1.5'>
+                      <p className='text-neutral-300 text-xs truncate'>Suggested Journeys</p>
+                      {/* Card Component */}
+                      <div className='p-2 border bg-neutral-700/20 rounded-md space-y-2'>
+                        <div className='flex items-start justify-between'>
+                          <div className='flex items-center gap-1.5'>
+                            {[
+                              { name: 'Bus', icon: 'M5 6V15.8C5 16.9201 5 17.4802 5.21799 17.908C5.40973 18.2843 5.71569 18.5903 6.09202 18.782C6.51984 19 7.07989 19 8.2 19H15.8C16.9201 19 17.4802 19 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C19 17.4802 19 16.9201 19 15.8V6M5 6C5 6 5 3 12 3C19 3 19 6 19 6M5 6H19M5 13H19M17 21V19M7 21V19M8 16H8.01M16 16H16.01' },
+                              { name: 'Train', icon: 'M5 11H19M9 18L6 21M15 18L18 21M12 11V4M8 15H8.01M16 15H16.01M8.2 18H15.8C16.9201 18 17.4802 18 17.908 17.782C18.2843 17.5903 18.5903 17.2843 18.782 16.908C19 16.4802 19 15.9201 19 14.8V6.2C19 5.0799 19 4.51984 18.782 4.09202C18.5903 3.71569 18.2843 3.40973 17.908 3.21799C17.4802 3 16.9201 3 15.8 3H8.2C7.0799 3 6.51984 3 6.09202 3.21799C5.71569 3.40973 5.40973 3.71569 5.21799 4.09202C5 4.51984 5 5.07989 5 6.2V14.8C5 15.9201 5 16.4802 5.21799 16.908C5.40973 17.2843 5.71569 17.5903 6.09202 17.782C6.51984 18 7.07989 18 8.2 18Z' },
+                            ].map((item, index) => (
+                              <div className='flex flex-col items-center' key={index}>
+                                <div className='flex items-center justify-center p-1 rounded-full bg-green-500 text-white'>
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                                  </svg>
+                                </div>
+                                <p className='text-neutral-300 text-[10px]'>{item.name}</p>
+                              </div>
+                            ))}
+                          </div>
+                          <div className='flex flex-col gap-1 items-end text-xs leading-none'>
+                            <span className='text-green-500'>P20.50</span>
+                            <span className='text-neutral-300 text-[10px]'>10 mins walk</span>
+                          </div>
+                        </div>
+                        <div className='relative w-full h-1 bg-neutral-700 rounded-full'>
+                          <div className='absolute flex items-center'>
+                            <div className='ms-[1.5px] size-1 rounded-full bg-green-500'></div>
+                            <div className='ms-[1.5px] size-1 rounded-full bg-green-500'></div>
+                          </div>
+                          <div className='absolute flex items-center left-12 h-1 rounded-full'>
+                            <div className='size-2 rounded-full bg-green-500'></div>
+                            <div className='h-1 w-28 bg-green-500 rounded-full'></div>
+                            <div className='ms-[1.5px] size-1 rounded-full bg-green-500'></div>
+                            <div className='ms-[1.5px] size-1 rounded-full bg-green-500'></div>
+                          </div>
+                          <div className='absolute flex items-center left-52 h-1 rounded-full'>
+                            <div className='size-2 rounded-full bg-green-500'></div>
+                            <div className='h-1 w-10 bg-green-500 rounded-full'></div>
+                            <div className='h-2.5 w-1 rounded-full bg-green-500'></div>
+                          </div>
+                        </div>
+                        <div className='flex justify-between items-center text-neutral-300 text-[10px]'>
+                          {['06:21 PM', '1 hr 15 mins', '7:36 PM'].map((item, index) => (
+                            <span key={index}>{item}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
               </div>
