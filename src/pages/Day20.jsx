@@ -1,6 +1,7 @@
 import React from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
+import { map01, map02 } from '../assets/day20'
 import { motion } from 'framer-motion'
 
 const Day20 = () => {
@@ -27,7 +28,7 @@ const Day20 = () => {
           {/* Phone Header */}
           <div className={`absolute w-full flex justify-between items-center pt-2.5 px-3.5 text-white`}>
             <p className="leading-relaxed text-xs font-semibold">
-              4:17
+              2:19
             </p>
             <div className='flex items-center gap-1.5'>
               {[
@@ -50,8 +51,8 @@ const Day20 = () => {
   const FirstContent = () => {
     return (
       <div className='mt-5 px-2'>
-        <div className='border flex items-center justify-between px-2'>
-          <div className='flex items-center gap-2.5'>
+        <div className='flex items-center justify-between px-2'>
+          <div className='flex items-center gap-2.5 py-1.5'>
             <div className='flex flex-col items-center justify-center h-10 py-1'>
               <div className='shrink-0 size-2 rounded-full bg-green-500'></div>
               <div className='w-[2px] h-full bg-green-500'></div>
@@ -142,7 +143,7 @@ const Day20 = () => {
               offTime: '7:30 PM',
             },
           ].map((item, index) => (
-            <div className='p-2 border bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out rounded-md space-y-2 cursor-pointer' key={index}>
+            <div className={`p-2 ${index === 1 ? 'rounded-b-[2.3rem]' : ''} bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out rounded-md space-y-2 cursor-pointer`} key={index}>
               <div className='flex items-start justify-between'>
                 <div className='flex items-center gap-1.5'>
                   {[
@@ -211,7 +212,7 @@ const Day20 = () => {
             offTime: '7:28 PM',
           },
         ].map((item, index) => (
-          <div className='p-2 border bg-neutral-700/20 rounded-md space-y-2' key={index}>
+          <div className='p-2 bg-neutral-700/20 rounded-md space-y-2' key={index}>
             <div className='flex items-start justify-between'>
               <div className='flex items-center gap-1.5'>
                 {[
@@ -244,8 +245,8 @@ const Day20 = () => {
         {/*  */}
         <p className='text-neutral-300 text-[10px] truncate text-center'>Tap on any card below to see more detail.</p>
         {/*  */}
-        <div className='flex items-center border rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
-          <div className='w-12 h-10 flex items-center justify-center bg-green-500 text-white rounded-[2.8px]'>
+        <div className='flex items-center rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
+          <div className='w-12 h-10 flex items-center justify-center bg-green-500 text-white rounded-[5px]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
               <path d="M13 6C14.1046 6 15 5.10457 15 4C15 2.89543 14.1046 2 13 2C11.8955 2 11 2.89543 11 4C11 5.10457 11.8955 6 13 6ZM11.0528 6.60557C11.3841 6.43992 11.7799 6.47097 12.0813 6.68627L13.0813 7.40056C13.3994 7.6278 13.5559 8.01959 13.482 8.40348L12.4332 13.847L16.8321 20.4453C17.1384 20.9048 17.0143 21.5257 16.5547 21.8321C16.0952 22.1384 15.4743 22.0142 15.168 21.5547L10.5416 14.6152L9.72611 13.3919C9.58336 13.1778 9.52866 12.9169 9.57338 12.6634L10.1699 9.28309L8.38464 10.1757L7.81282 13.0334C7.70445 13.575 7.17759 13.9261 6.63604 13.8178C6.09449 13.7094 5.74333 13.1825 5.85169 12.641L6.51947 9.30379C6.58001 9.00123 6.77684 8.74356 7.05282 8.60557L11.0528 6.60557ZM16.6838 12.9487L13.8093 11.9905L14.1909 10.0096L17.3163 11.0513C17.8402 11.226 18.1234 11.7923 17.9487 12.3162C17.7741 12.8402 17.2078 13.1234 16.6838 12.9487ZM6.12844 20.5097L9.39637 14.7001L9.70958 15.1699L10.641 16.5669L7.87159 21.4903C7.60083 21.9716 6.99111 22.1423 6.50976 21.8716C6.0284 21.6008 5.85768 20.9911 6.12844 20.5097Z" />
             </svg>
@@ -256,8 +257,8 @@ const Day20 = () => {
           </div>
         </div>
         {/*  */}
-        <div className='flex border rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
-          <div className='w-12 flex flex-grow justify-center pt-2 bg-green-500 text-white rounded-[2.8px]'>
+        <div className='flex rounded-b-[1.8rem] rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
+          <div className='w-12 flex flex-grow rounded-bl-[0.6rem] justify-center pt-2 bg-green-500 text-white rounded-[5px]'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
               <path strokeLinecap="round" strokeLinejoin="round" d='M5 6V15.8C5 16.9201 5 17.4802 5.21799 17.908C5.40973 18.2843 5.71569 18.5903 6.09202 18.782C6.51984 19 7.07989 19 8.2 19H15.8C16.9201 19 17.4802 19 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C19 17.4802 19 16.9201 19 15.8V6M5 6C5 6 5 3 12 3C19 3 19 6 19 6M5 6H19M5 13H19M17 21V19M7 21V19M8 16H8.01M16 16H16.01' />
             </svg>
@@ -313,20 +314,29 @@ const Day20 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* 1st */}
           {[
-            { map: '', content: <FirstContent /> },
-            { map: '', content: <SecondContent /> },
+            { map: map01, content: <FirstContent /> },
+            { map: map02, content: <SecondContent /> },
           ].map((item, index) => (
             <PhoneMockup key={index}>
               <div className='h-full pt-12 overflow-hidden'>
-                <div className='h-full relative border'>
+                <div className='h-full relative'>
                   {/* Map */}
                   <div className='relative w-full h-72'>
+                    <div className='absolute z-20 left-1.5 top-1.5 flex flex-col gap-1.5'>
+                      {['M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12', 'M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15', 'M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'].map((item, index) => (
+                        <button className='size-8 flex justify-center items-center text-green-500 bg-neutral-600 hover:bg-neutral-700 rounded-full focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out' key={index}>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d={item} />
+                          </svg>
+                        </button>
+                      ))}
+                    </div>
                     <img src={item.map} alt="Sample Map" className='border h-full w-full object-cover rounded-t-3xl' />
                   </div>
                   {/* Drawer */}
-                  <div className='absolute bottom-0 border bg-neutral-800 w-full h-80 rounded-3xl'>
+                  <div className='absolute bottom-0 border-t border-neutral-600 bg-neutral-800 w-full h-80 rounded-3xl'>
                     {/* Drawer indicator */}
-                    <div className='absolute top-1.5 h-1.5 w-12 rounded-full border transform left-1/2 -translate-x-1/2 cursor-grab'></div>
+                    <div className='absolute top-1.5 h-1 w-12 rounded-full bg-neutral-700 transform left-1/2 -translate-x-1/2 cursor-grab'></div>
                     {/* Content */}
                     {item.content}
                   </div>
