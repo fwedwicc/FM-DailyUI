@@ -179,8 +179,84 @@ const Day20 = () => {
 
   const SecondContent = () => {
     return (
-      <div className='mt-5 px-2'>
-        Test
+      <div className='mt-5 px-2 space-y-1.5'>
+        {/* Card Component */}
+        {[
+          {
+            textColor: 'text-green-500',
+            bgColor: 'bg-green-500',
+            price: '₱35.25',
+            walk: '8 mins walk',
+            timeline: (
+              <div className='relative w-full h-1 bg-neutral-700 rounded-full'>
+                <div className='absolute flex items-center'>
+                  <div className={`ms-[1.5px] size-1 rounded-full bg-green-500`}></div>
+                  <div className={`ms-[1.5px] size-1 rounded-full bg-green-500`}></div>
+                </div>
+                <div className='absolute flex items-center left-12 h-1 rounded-full'>
+                  <div className={`size-2 rounded-full bg-green-500`}></div>
+                  <div className={`h-1 w-28 rounded-full bg-green-500`}></div>
+                  <div className={`ms-[1.5px] size-1 rounded-full bg-green-500`}></div>
+                  <div className={`ms-[1.5px] size-1 rounded-full bg-green-500`}></div>
+                </div>
+                <div className='absolute flex items-center left-52 h-1 rounded-full'>
+                  <div className={`size-2 rounded-full bg-green-500`}></div>
+                  <div className={`h-1 w-10 rounded-full bg-green-500`}></div>
+                  <div className={`h-2.5 w-1 rounded-full bg-green-500`}></div>
+                </div>
+              </div>
+            ),
+            onTime: '05:54 PM',
+            duration: '1 hr 34 mins',
+            offTime: '7:28 PM',
+          },
+        ].map((item, index) => (
+          <div className='p-2 border bg-neutral-700/20 rounded-md space-y-2' key={index}>
+            <div className='flex items-start justify-between'>
+              <div className='flex items-center gap-1.5'>
+                {[
+                  { name: 'Bus', color: item.bgColor, icon: 'M5 6V15.8C5 16.9201 5 17.4802 5.21799 17.908C5.40973 18.2843 5.71569 18.5903 6.09202 18.782C6.51984 19 7.07989 19 8.2 19H15.8C16.9201 19 17.4802 19 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C19 17.4802 19 16.9201 19 15.8V6M5 6C5 6 5 3 12 3C19 3 19 6 19 6M5 6H19M5 13H19M17 21V19M7 21V19M8 16H8.01M16 16H16.01' },
+                  { name: 'Train', color: item.bgColor, icon: 'M5 11H19M9 18L6 21M15 18L18 21M12 11V4M8 15H8.01M16 15H16.01M8.2 18H15.8C16.9201 18 17.4802 18 17.908 17.782C18.2843 17.5903 18.5903 17.2843 18.782 16.908C19 16.4802 19 15.9201 19 14.8V6.2C19 5.0799 19 4.51984 18.782 4.09202C18.5903 3.71569 18.2843 3.40973 17.908 3.21799C17.4802 3 16.9201 3 15.8 3H8.2C7.0799 3 6.51984 3 6.09202 3.21799C5.71569 3.40973 5.40973 3.71569 5.21799 4.09202C5 4.51984 5 5.07989 5 6.2V14.8C5 15.9201 5 16.4802 5.21799 16.908C5.40973 17.2843 5.71569 17.5903 6.09202 17.782C6.51984 18 7.07989 18 8.2 18Z' },
+                ].map((item, index) => (
+                  <div className='flex flex-col items-center' key={index}>
+                    <div className={`flex items-center justify-center p-1 rounded-full text-white ${item.color}`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                      </svg>
+                    </div>
+                    <p className='text-neutral-300 text-[10px]'>{item.name}</p>
+                  </div>
+                ))}
+              </div>
+              <div className='flex flex-col gap-1 items-end text-xs leading-none'>
+                <span className={`${item.textColor}`}>{item.price}</span>
+                <span className='text-neutral-300 text-[10px]'>{item.walk}</span>
+              </div>
+            </div>
+            {item.timeline}
+            <div className='flex justify-between items-center text-neutral-300 text-[10px]'>
+              {[item.onTime, item.duration, item.offTime].map((item, index) => (
+                <span key={index}>{item}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+        {/*  */}
+        <p className='text-neutral-300 text-xs truncate text-center'>Tap on any card below to see more detail.</p>
+        {/*  */}
+        <div className='flex items-center border rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
+          <div className='w-12 h-10 flex items-center justify-center bg-green-500 text-white rounded-[2.8px]'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+              <path d="M13 6C14.1046 6 15 5.10457 15 4C15 2.89543 14.1046 2 13 2C11.8955 2 11 2.89543 11 4C11 5.10457 11.8955 6 13 6ZM11.0528 6.60557C11.3841 6.43992 11.7799 6.47097 12.0813 6.68627L13.0813 7.40056C13.3994 7.6278 13.5559 8.01959 13.482 8.40348L12.4332 13.847L16.8321 20.4453C17.1384 20.9048 17.0143 21.5257 16.5547 21.8321C16.0952 22.1384 15.4743 22.0142 15.168 21.5547L10.5416 14.6152L9.72611 13.3919C9.58336 13.1778 9.52866 12.9169 9.57338 12.6634L10.1699 9.28309L8.38464 10.1757L7.81282 13.0334C7.70445 13.575 7.17759 13.9261 6.63604 13.8178C6.09449 13.7094 5.74333 13.1825 5.85169 12.641L6.51947 9.30379C6.58001 9.00123 6.77684 8.74356 7.05282 8.60557L11.0528 6.60557ZM16.6838 12.9487L13.8093 11.9905L14.1909 10.0096L17.3163 11.0513C17.8402 11.226 18.1234 11.7923 17.9487 12.3162C17.7741 12.8402 17.2078 13.1234 16.6838 12.9487ZM6.12844 20.5097L9.39637 14.7001L9.70958 15.1699L10.641 16.5669L7.87159 21.4903C7.60083 21.9716 6.99111 22.1423 6.50976 21.8716C6.0284 21.6008 5.85768 20.9911 6.12844 20.5097Z" />
+            </svg>
+          </div>
+          <div className='flex justify-between items-center w-full px-3'>
+            <p className='text-neutral-300 text-[10px] w-full max-w-[9rem]'>Walk (251 m) towards <span className='font-semibold'>Langit Road</span></p>
+            <p className='text-neutral-300 text-[10px] text-nowrap'>3 mins</p>
+          </div>
+        </div>
+        {/*  */}
+
       </div>
     )
   }
