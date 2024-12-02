@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail, day18Thumbnail, day19Thumbnail,
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail, day18Thumbnail, day19Thumbnail, day20Thumbnail,
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -25,6 +25,7 @@ const titles = [
   'Analytics Chart', // Day18
   'Leaderboard', // Day19
   'Location Tracker', // Day20
+  'Home Monitoring Dashboard', // Day21
 ];
 
 const descriptions = [
@@ -47,7 +48,8 @@ const descriptions = [
   "What was purchased? On what date? How much was the item? And from what source and vendor? Consider other elements such as a customer support info, a tracking number or receipt number, business location/phone number/website, pictures if needed, and any other related elements.", // Day17
   "Is it to be used for web or app usage, a health monitor, e-commerce or traffic analytics? Is it tracking sports or stock market performance?", // Day18
   "Is it for gaming, sports, racing, politics, top sellers, the highest grossing movies, or something else? Consider the important statistics to show, percentages, points, avatar pictures or logos, and the most critical elements.", // Day19
-  "Consider the icon, placement, and purpose of the location. Are you mapping something? Is it a tracking beacon to find a friend or a tracking device such as a phone? Is the NSA or FBI tracking you?" // Day20
+  "Consider the icon, placement, and purpose of the location. Are you mapping something? Is it a tracking beacon to find a friend or a tracking device such as a phone? Is the NSA or FBI tracking you?", // Day20
+  "Design a home monitoring dashboard. Be creative! What would make a dashboard visually appealing and fun to use, while also being mindful of its function? Try to make it a realistic exercise as if it were your own dashboard.", // Day21
 ];
 
 const images = [
@@ -70,6 +72,7 @@ const images = [
   day17Thumbnail, // Day17
   day18Thumbnail, // Day18
   day19Thumbnail, // Day19
+  day20Thumbnail, // Day20
 ];
 
 const defaultImage = defaultThumbnail;
