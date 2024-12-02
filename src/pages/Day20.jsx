@@ -242,7 +242,7 @@ const Day20 = () => {
           </div>
         ))}
         {/*  */}
-        <p className='text-neutral-300 text-xs truncate text-center'>Tap on any card below to see more detail.</p>
+        <p className='text-neutral-300 text-[10px] truncate text-center'>Tap on any card below to see more detail.</p>
         {/*  */}
         <div className='flex items-center border rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
           <div className='w-12 h-10 flex items-center justify-center bg-green-500 text-white rounded-[2.8px]'>
@@ -256,8 +256,49 @@ const Day20 = () => {
           </div>
         </div>
         {/*  */}
-
-      </div>
+        <div className='flex border rounded-md p-1.5 bg-neutral-700/20 hover:bg-neutral-700/40 transition duration-300 ease-in-out cursor-pointer'>
+          <div className='w-12 flex flex-grow justify-center pt-2 bg-green-500 text-white rounded-[2.8px]'>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d='M5 6V15.8C5 16.9201 5 17.4802 5.21799 17.908C5.40973 18.2843 5.71569 18.5903 6.09202 18.782C6.51984 19 7.07989 19 8.2 19H15.8C16.9201 19 17.4802 19 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C19 17.4802 19 16.9201 19 15.8V6M5 6C5 6 5 3 12 3C19 3 19 6 19 6M5 6H19M5 13H19M17 21V19M7 21V19M8 16H8.01M16 16H16.01' />
+            </svg>
+          </div>
+          <div className='px-3 w-full'>
+            <div className='grid grid-cols-3 items-end border-b border-neutral-700 pt-1 pb-1.5'>
+              <p className='text-neutral-300 leading-none text-[11px] font-semibold text-nowrap'>Jeep</p>
+              <p className='text-neutral-300 leading-none text-[10px] text-nowrap'>₱35.25</p>
+              <p className='text-neutral-300 leading-none text-[10px] text-nowrap'>42 mins</p>
+            </div>
+            <div className='grid grid-cols-3 pt-3 gap-y-2.5'>
+              <div className='col-span-1'>
+                <div className='flex items-start gap-2.5'>
+                  <div className='h-2.5 w-1 bg-blue-500 rounded-full'></div>
+                  <p className='text-neutral-300 leading-none text-[11px] font-semibold'>Route</p>
+                </div>
+              </div>
+              <div className='col-span-2'>
+                <p className='text-neutral-300 leading-none text-[10px]'>T123: Novaliches-Shelterville via Camarin Road</p>
+              </div>
+              <div className='col-span-1'>
+                <div className='flex items-center gap-2'>
+                  <div className='flex flex-col items-center justify-center h-12 py-[4px]'>
+                    <div className='shrink-0 size-1.5 rounded-full bg-blue-500'></div>
+                    <div className='w-[1.5px] h-full bg-blue-500'></div>
+                    <div className='shrink-0 size-1.5 rounded-full bg-green-500'></div>
+                  </div>
+                  <div className='space-y-5'>
+                    <p className='text-neutral-300 leading-none text-[10px]'>Get on</p>
+                    <p className='text-neutral-300 leading-none text-[10px]'>Get off</p>
+                  </div>
+                </div>
+              </div>
+              <div className='col-span-2 space-y-3'>
+                <p className='text-neutral-300 leading-none text-[10px]'>Lacson, Langit Road, Caloocan City</p>
+                <p className='text-neutral-300 leading-none text-[10px]'>Shelterville Jeepney Terminal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div >
     )
   }
 
