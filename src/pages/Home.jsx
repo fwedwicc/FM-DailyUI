@@ -5,12 +5,15 @@ import { motion } from 'framer-motion'
 import useLenisScroll from '../hooks/useLenisScroll'
 import { glowEllipse, fmUIMockup } from '../assets/home'
 import { Card } from '../components'
-import { Cards } from '../data'
+import { Cards, titles } from '../data'
 import useScrollRestoration from '../hooks/useScrollRestoration';
 
 const Home = () => {
   useLenisScroll();
   useScrollRestoration();
+
+  const currentChallengeIndex = titles.length - 1
+  const currentChallengeNumber = currentChallengeIndex + 1
 
   const [searchParams, setSearchParams] = useSearchParams();
   const sectionRef = useRef(null);
@@ -191,7 +194,11 @@ const Home = () => {
       </div>
 
       {/* Specific section for cards */}
-      <div ref={sectionRef} className='flex flex-col items-center'>
+      <div ref={sectionRef} className='flex flex-col'>
+        <div className='lg:px-16 md:px-12 px-6 md:pt-0 pt-14'>
+          <p className='text-sm leading-relaxed text-green-50/80'>Frederick is currently working on:</p>
+          <p className='leading-relaxed text-green-500'>Challenge #{currentChallengeNumber}</p>
+        </div>
         {/* Card Grid */}
         <div
           className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 lg:px-16 md:px-12 px-6 py-12'
