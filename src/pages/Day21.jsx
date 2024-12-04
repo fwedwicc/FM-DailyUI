@@ -1,6 +1,7 @@
 import React from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
+import { fmUILogo } from '../assets'
 import { Button } from '../components';
 import { motion } from 'framer-motion'
 
@@ -51,8 +52,32 @@ const Day21 = () => {
     >
       <main className="bg-neutral-800">
         {/* WEB: Sidebar */}
-        <aside className='md:block hidden fixed h-full w-24 p-3 border'>
-          <div className='w-full h-full border rounded-md'></div>
+        <aside className='md:block hidden fixed h-full w-24 p-3'>
+          <div className='flex flex-col items-center justify-between p-1.5 w-full h-full border border-neutral-700 bg-neutral-700/30 rounded-xl'>
+            <div className='space-y-2'>
+              <a className="size-12 flex items-center justify-center rounded-full mb-5" href="#">
+                <span className="sr-only">Home</span>
+                <img src={fmUILogo} alt="fmUI Logo" className='w-14 h-auto' />
+              </a>
+              {[
+                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+              ].map((item, index) => (
+                <button className={`size-12 rounded-full transition duration-300 ease-in-out text-white flex items-center justify-center ${index === 0 ? 'bg-green-500 text-white' : 'bg-neutral-700 hover:bg-neutral-600/70'}`} key={index}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={item} />
+                  </svg>
+                </button>
+              ))}
+            </div>
+            <button className='size-12 rounded-full bg-red-200/5 hover:bg-neutral-600/70 transition duration-300 ease-in-out text-red-500 flex items-center justify-center'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+              </svg>
+            </button>
+          </div>
         </aside>
         <section className='sm:ml-[6.5rem]'>
           <div className='sm:pl-0 p-6 space-y-5'>
@@ -84,31 +109,41 @@ const Day21 = () => {
             </header>
             {/* Main Content */}
             <div className='space-y-3'>
-              <div className='grid grid-cols-4'>
-                <div className='border'>
-                  <p className='text-white'>1</p>
+              <div className='grid grid-cols-4 gap-3'>
+                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <div className='flex items-center gap-3'>
+                    <div className='inline-flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className='text-neutral-200 text-2xl font-semibold'>23 C</h3>
+                      <p className='text-neutral-400 leading-none'>Lorem ipsum dolor</p>
+                    </div>
+                  </div>
                 </div>
-                <div className='border'>
-                  <p className='text-white'>2</p>
+                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
-                <div className='border col-span-2'>
-                  <p className='text-white'>3</p>
+                <div className='col-span-2 border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
               </div>
-              <div className='grid grid-cols-2'>
-                <div className='border'>
-                  <p className='text-white'>1</p>
+              <div className='grid grid-cols-2 gap-3'>
+                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
-                <div className='border'>
-                  <p className='text-white'>2</p>
+                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
               </div>
-              <div className='grid grid-cols-2'>
-                <div className='border'>
-                  <p className='text-white'>1</p>
+              <div className='grid grid-cols-2 gap-3'>
+                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
-                <div className='border'>
-                  <p className='text-white'>2</p>
+                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
               </div>
             </div>
