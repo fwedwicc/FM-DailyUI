@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { fmUILogo } from '../assets'
+import { LivingRoom } from '../assets/day21'
 import { Button, Toggle } from '../components';
 import { motion } from 'framer-motion'
+import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(ArcElement, PointElement, LineElement, Filler, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Day21 = () => {
   useLenisScroll();
@@ -13,6 +18,101 @@ const Day21 = () => {
   // Toggle dropdowns logic
   const toggleNavDropdown = () => {
     setNavDropdownOpen(!NavDropdownOpen);
+  };
+
+  const Utils = {
+    months: ({ count }) => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].slice(0, count),
+    numbers: ({ count, min, max }) => Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min),
+    CHART_COLORS: {
+      red: 'rgba(255, 99, 132, 1)',
+      green: 'rgba(34, 197, 94, 1)',
+      darkGreen: 'rgba(22, 101, 52, 1)',
+      yellow: 'rgba(22, 101, 52, 1)',
+      blue: 'rgba(96, 165, 250, 1)'
+    },
+    transparentize: (color, opacity) => color.replace('1)', `${opacity})`)
+  };
+
+  // Line Chart Component
+  const inputs = {
+    min: 0,
+    max: 170,
+    count: 12,
+    decimals: 2,
+    continuity: 1
+  };
+
+  const generateLabels = () => {
+    return Utils.months({ count: inputs.count });
+  };
+
+  const generateData = () => {
+    return Utils.numbers(inputs);
+  };
+
+  const LineChart = () => {
+    const data = {
+      labels: generateLabels(),
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: generateData(),
+          borderColor: Utils.CHART_COLORS.green,   // Line color
+          backgroundColor: Utils.transparentize(Utils.CHART_COLORS.green, 0.2),
+          fill: 'start',
+          tension: 0.3,
+        },
+        {
+          label: 'Dataset 2',
+          data: generateData(),
+          borderColor: Utils.CHART_COLORS.darkGreen,   // Line color
+          backgroundColor: Utils.transparentize(Utils.CHART_COLORS.darkGreen, 0.1),
+          fill: 'start',
+          tension: 0.3,
+        },
+      ]
+    };
+
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        filler: {
+          propagate: false,
+        },
+        legend: {
+          display: false,
+        },
+        title: {
+          display: false,
+        }
+      },
+      scales: {
+        y: {
+          ticks: {
+            color: 'rgba(173, 172, 172, 0.2)',
+          },
+          grid: {
+            color: 'rgba(173, 172, 172, 0.1)',
+            borderColor: 'rgba(255, 69, 0, 0.8)',
+          },
+        },
+        x: {
+          ticks: {
+            color: 'rgba(173, 172, 172, 0.4)',
+          },
+          grid: {
+            color: 'rgba(173, 172, 172, 0.1)',
+            borderColor: 'rgba(255, 69, 0, 0.8)',
+          },
+        },
+      },
+      interaction: {
+        intersect: false,
+      },
+    };
+
+    return <Line data={data} options={options} />;
   };
 
   // Input
@@ -316,8 +416,35 @@ const Day21 = () => {
               </div>
               {/*  */}
               <div className='grid lg:grid-cols-2 grid-cols-1 gap-3'>
-                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl lg:max-h-[20rem] max-h-[30rem] h-full'>
-                  <img src="https://placehold.co/50x50" alt="" className='object-cover w-full h-full rounded-xl' />
+                <div className='relative border border-neutral-700 bg-neutral-700/30 rounded-xl lg:max-h-[20rem] max-h-[30rem] h-full cursor-pointer group'>
+                  <img src={LivingRoom} alt="Living Room Cam" className='object-cover w-full h-full rounded-xl' />
+                  {/* Play Hover */}
+                  <div className='group-hover:opacity-100 opacity-0 transition-opacity duration-300 ease-in-out z-40 absolute transform -translate-x-1/2 left-1/2 -translate-y-1/2 top-1/2 rounded-full bg-green-500 text-white p-4'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                      <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  {/* Gradient Filter Effect */}
+                  <div className='top-0 absolute w-full h-full bg-gradient-to-r from-neutral-950 to-neutral-50/5 rounded-xl'></div>
+                  {/* Live label & Date */}
+                  <div className='absolute top-4 left-4 z-20 space-y-1.5'>
+                    <div className='flex items-center gap-2 text-neutral-200'>
+                      <span className='inline-block size-2 rounded-full bg-red-500'></span>
+                      Live • Living Room
+                    </div>
+                    <h4 className='text-neutral-300 text-xs leading-none'>February 19, 2023 | 4:43 PM</h4>
+                  </div>
+                  {/*  */}
+                  <div className='absolute bottom-4 left-4 flex items-end gap-6'>
+                    <div>
+                      <h3 className='text-neutral-200 text-lg'>23C</h3>
+                      <p className='text-neutral-400 text-xs leading-none'>Temperature</p>
+                    </div>
+                    <div>
+                      <h3 className='text-neutral-200 text-lg'>23C</h3>
+                      <p className='text-neutral-400 text-xs leading-none'>Temperature</p>
+                    </div>
+                  </div>
                 </div>
                 <div className='grid grid-cols-2 gap-3'>
                   {[
@@ -390,11 +517,69 @@ const Day21 = () => {
                 </div>
               </div>
               <div className='grid grid-cols-2 gap-3'>
-                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
-                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
+                <div className='space-y-3'>
+                  <div>
+                    <h3 className='text-neutral-200 text-lg'>Device Power Consumption</h3>
+                    <p className='text-neutral-400 text-xs leading-none'>As of 2024</p>
+                  </div>
+                  <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3 h-64'>
+                    <div className='h-full'>
+                      <LineChart />
+                    </div>
+                  </div>
                 </div>
-                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
-                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
+                <div className='flex flex-col gap-3 self-start'>
+                  <div>
+                    <h3 className='text-neutral-200 text-lg'>Power Consumption Summary</h3>
+                    <p className='text-neutral-400 text-xs leading-none'>As of 2024</p>
+                  </div>
+                  <div className='grid grid-cols-3 gap-3'>
+                    {[
+                      { value: '23kWh', label: 'Today' },
+                      { value: '523kWh', label: 'This month' },
+                      { value: '41923kWh', label: 'This year' },
+                    ].map((item, index) => (
+                      <div className='flex gap-3 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3' key={index}>
+                        <div className='flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                          </svg>
+                        </div>
+                        <div className='space-y-2'>
+                          <p className='text-neutral-200 text-lg leading-none'>{item.value}</p>
+                          <p className='text-neutral-400 leading-none'>{item.label}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className='grid grid-cols-2 gap-3 mt-4'>
+                    {[
+                      { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                      { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                      { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                      { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                    ].map((item, index) => (
+                      <div key={index}>
+                        <div className='flex items-center justify-between pr-3'>
+                          <div className='flex items-center gap-3'>
+                            <div className='inline-flex items-center justify-center p-2 border border-neutral-600/50 text-neutral-400 bg-neutral-600/30 rounded-full'>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 className='text-neutral-200'>{item.brand}</h3>
+                              <p className='text-neutral-400 text-xs leading-none'>{item.type}</p>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className='text-neutral-200 text-end'>{item.brand}</h3>
+                            <p className='text-neutral-400 text-end text-xs leading-none'>{item.type}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
