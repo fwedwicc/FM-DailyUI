@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { fmUILogo } from '../assets'
@@ -8,6 +8,32 @@ import { motion } from 'framer-motion'
 const Day21 = () => {
   useLenisScroll();
   useScrollToTop();
+
+  const [NavDropdownOpen, setNavDropdownOpen] = useState(false);
+  // Toggle dropdowns logic
+  const toggleNavDropdown = () => {
+    setNavDropdownOpen(!NavDropdownOpen);
+  };
+
+  const Navigations = () => {
+    return (
+      <>
+        {[
+          'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
+          'm21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25',
+          'M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z',
+          'M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3',
+          'M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495',
+        ].map((item, index) => (
+          <button className={`size-12 rounded-full transition duration-300 ease-in-out text-neutral-400 flex items-center justify-center ${index === 0 ? 'bg-green-500 text-white' : 'bg-neutral-700 hover:bg-neutral-600/70'}`} key={index}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d={item} />
+            </svg>
+          </button>
+        ))}
+      </>
+    )
+  }
 
   const CustomTab = () => {
     const label = [
@@ -52,38 +78,60 @@ const Day21 = () => {
     >
       <main className="bg-neutral-800">
         {/* WEB: Sidebar */}
-        <aside className='md:block hidden fixed h-full w-24 p-3'>
+        <aside className='lg:block hidden fixed h-full w-24 p-3'>
           <div className='flex flex-col items-center justify-between p-1.5 w-full h-full border border-neutral-700 bg-neutral-700/30 rounded-xl'>
             <div className='space-y-2'>
               <a className="size-12 flex items-center justify-center rounded-full mb-5" href="#">
                 <span className="sr-only">Home</span>
-                <img src={fmUILogo} alt="fmUI Logo" className='w-14 h-auto' />
+                <img src={fmUILogo} alt="fmUI Logo" className='w-10 h-auto' />
               </a>
-              {[
-                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
-                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
-                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
-                'm2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25',
-              ].map((item, index) => (
-                <button className={`size-12 rounded-full transition duration-300 ease-in-out text-white flex items-center justify-center ${index === 0 ? 'bg-green-500 text-white' : 'bg-neutral-700 hover:bg-neutral-600/70'}`} key={index}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={item} />
-                  </svg>
-                </button>
-              ))}
+              {/* WEB: Navigation Buttons */}
+              <Navigations />
             </div>
-            <button className='size-12 rounded-full bg-red-200/5 hover:bg-neutral-600/70 transition duration-300 ease-in-out text-red-500 flex items-center justify-center'>
+            <button className='size-12 rounded-full bg-red-300/10 hover:bg-red-400/10 transition duration-300 ease-in-out text-red-500 flex items-center justify-center'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
               </svg>
             </button>
           </div>
         </aside>
-        <section className='sm:ml-[6.5rem]'>
-          <div className='sm:pl-0 p-6 space-y-5'>
+        <section className='lg:ml-[6.5rem]'>
+          <div className='lg:pl-0 p-6 space-y-5'>
             {/* Header */}
             <header className='flex justify-between items-start'>
-              <CustomTab />
+              <div className='relative lg:hidden block'>
+                <button
+                  className='flex items-center p-2 rounded-md hover:bg-neutral-700 justify-center text-neutral-300 transition duration-300 ease-in-out focus:outline-none' onClick={toggleNavDropdown}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 6h15m-15 6h15m-15 6h15" />
+                  </svg>
+                </button>
+                {/*  */}
+                <div
+                  className={`absolute left-0 w-[4rem] transform transition-all duration-300 ease-in-out ${NavDropdownOpen ? 'mt-3 opacity-100' : '-mt-1 opacity-0 pointer-events-none'
+                    }`}
+                >
+                  <div className='flex flex-col items-center justify-between rounded-xl py-4 px-3 gap-2 bg-neutral-800 border border-neutral-700/70'>
+                    {/* Logo */}
+                    <a className="size-12 flex items-center justify-center rounded-full mb-2" href="#">
+                      <span className="sr-only">Home</span>
+                      <img src={fmUILogo} alt="fmUI Logo" className='w-8 h-auto' />
+                    </a>
+                    {/* MOB: Navigation Buttons */}
+                    <Navigations />
+                    <button className='size-12 rounded-full bg-red-300/10 hover:bg-red-400/10 transition duration-300 ease-in-out text-red-500 flex items-center justify-center'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {/* WEB: Tab Components */}
+              <div className='lg:block hidden'>
+                <CustomTab />
+              </div>
+              {/* Buttosn and User */}
               <div className='flex items-center gap-3'>
                 {[
                   "M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0",
@@ -109,7 +157,11 @@ const Day21 = () => {
             </header>
             {/* Main Content */}
             <div className='space-y-3'>
-              <div className='grid grid-cols-4 gap-3'>
+              <div className='block lg:hidden'>
+                <CustomTab />
+              </div>
+              <div className='grid md:grid-cols-4 grid-cols-2 gap-3'>
+                {/* First Container */}
                 <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <div className='flex items-center gap-3'>
                     <div className='inline-flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
@@ -123,7 +175,7 @@ const Day21 = () => {
                     </div>
                   </div>
                   {/*  */}
-                  <div className='grid grid-cols-2 mt-6 gap-3'>
+                  <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-3'>
                     {[
                       {
                         icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
@@ -173,7 +225,7 @@ const Day21 = () => {
                     </div>
                   </div>
                   {/*  */}
-                  <div className='grid grid-cols-2 mt-6 gap-3'>
+                  <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-3'>
                     {[
                       {
                         icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
