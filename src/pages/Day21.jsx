@@ -110,7 +110,7 @@ const Day21 = () => {
             {/* Main Content */}
             <div className='space-y-3'>
               <div className='grid grid-cols-4 gap-3'>
-                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <div className='flex items-center gap-3'>
                     <div className='inline-flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
@@ -160,7 +160,7 @@ const Day21 = () => {
                     ))}
                   </div>
                 </div>
-                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <div className='flex items-center gap-3'>
                     <div className='inline-flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
@@ -205,23 +205,23 @@ const Day21 = () => {
                     ))}
                   </div>
                 </div>
-                <div className='col-span-2 border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='col-span-2 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
               </div>
               <div className='grid grid-cols-2 gap-3'>
-                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
-                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
               </div>
               <div className='grid grid-cols-2 gap-3'>
-                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
-                <div className='border bg-neutral-700/40 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
                   <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/FM-DailyUI">
       <Routes>
         {routes.map((route, index) => (
           route.index ? (
