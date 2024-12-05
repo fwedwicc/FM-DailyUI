@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { fmUILogo } from '../assets'
-import { Button } from '../components';
+import { Button, Toggle } from '../components';
 import { motion } from 'framer-motion'
 
 const Day21 = () => {
@@ -14,6 +14,9 @@ const Day21 = () => {
   const toggleNavDropdown = () => {
     setNavDropdownOpen(!NavDropdownOpen);
   };
+
+  // Input
+  const [value, setValue] = useState(50)
 
   const Navigations = () => {
     return (
@@ -175,7 +178,7 @@ const Day21 = () => {
                     </div>
                   </div>
                   {/*  */}
-                  <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-3'>
+                  <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-x-3 gap-y-6'>
                     {[
                       {
                         icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
@@ -199,13 +202,13 @@ const Day21 = () => {
                       }
                     ].map((item, index) => (
                       <div className='flex items-center gap-3' key={index}>
-                        <div className='inline-flex items-center justify-center p-2 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                        <div className='inline-flex items-center justify-center p-2 border border-neutral-600/50 rounded-full text-neutral-400 bg-neutral-600/30'>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                           </svg>
                         </div>
                         <div>
-                          <h3 className='text-neutral-200 font-semibold'>{item.value}</h3>
+                          <h3 className='text-neutral-200'>{item.value}</h3>
                           <p className='text-neutral-400 leading-none text-sm'>{item.label}</p>
                         </div>
                       </div>
@@ -225,7 +228,7 @@ const Day21 = () => {
                     </div>
                   </div>
                   {/*  */}
-                  <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-3'>
+                  <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-x-3 gap-y-6'>
                     {[
                       {
                         icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
@@ -244,29 +247,146 @@ const Day21 = () => {
                       }
                     ].map((item, index) => (
                       <div className='flex items-center gap-3' key={index}>
-                        <div className='inline-flex items-center justify-center p-2 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                        <div className='inline-flex items-center justify-center p-2 border border-neutral-600/50 rounded-full text-neutral-400 bg-neutral-600/30'>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                           </svg>
                         </div>
                         <div>
-                          <h3 className='text-neutral-200 font-semibold'>{item.value}</h3>
+                          <h3 className='text-neutral-200'>{item.value}</h3>
                           <p className='text-neutral-400 leading-none text-sm'>{item.label}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className='col-span-2 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
-                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
+                <div className='col-span-2 border border-neutral-700 bg-neutral-700/30 rounded-xl p-3 space-y-3'>
+                  {/*  */}
+                  <div className='flex items-center justify-between pr-5'>
+                    <div className='flex items-center gap-3'>
+                      <div className='inline-flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className='text-neutral-200 text-lg font-semibold'>Xiaomi Airclean</h3>
+                        <p className='text-neutral-400 leading-none'>Air Purifier</p>
+                      </div>
+                    </div>
+                    <Toggle />
+                  </div>
+                  {/*  */}
+                  <div className='flex items-center gap-2'>
+                    {['M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z'].map((item, index) => (
+                      <button className={`inline-flex items-center justify-center hover:bg-neutral-600/40 transition duration-300 ease-in-out p-3 rounded-full text-neutral-300 ${index === 0 ? 'bg-neutral-600/40' : 'bg-none'}`} key={index}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={item} />
+                        </svg>
+                      </button>
+                    ))}
+                  </div>
+                  {/*  */}
+                  <div className='grid grid-cols-2 gap-3'>
+                    {[
+                      { value: "24C", label: "Temperature", rangeValue: 40 },
+                      { value: "24C", label: "Temperature", rangeValue: 20 },
+                    ].map((item, index) => (
+                      <div className='p-4 rounded-xl bg-neutral-700/40' key={index}>
+                        <div className='flex items-center justify-between'>
+                          <h3 className='text-neutral-200 font-medium'>{item.value}</h3>
+                          <p className='text-neutral-400 text-sm'>{item.label}</p>
+                        </div>
+                        <input
+                          id="range-input"
+                          type="range"
+                          min="0"
+                          max="100"
+                          value={item.rangeValue}
+                          onChange={(e) => setValue(e.target.item.rangeValue)}
+                          className="w-full h-1.5 rounded-lg appearance-none focus:outline-none range-thumb-green"
+                          style={{
+                            background: `linear-gradient(to right, #22c55e ${item.rangeValue}%, #737373 ${item.rangeValue}%)`,
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className='grid grid-cols-2 gap-3'>
-                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
-                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
+              {/*  */}
+              <div className='grid lg:grid-cols-2 grid-cols-1 gap-3'>
+                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl lg:max-h-[20rem] max-h-[30rem] h-full'>
+                  <img src="https://placehold.co/50x50" alt="" className='object-cover w-full h-full rounded-xl' />
                 </div>
-                <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3'>
-                  <p className='text-white leading-relaxed'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro animi provident facilis, itaque, quisquam repudiandae impedit placeat fugit dolor possimus aperiam, cumque distinctio! Delectus quaerat repellat necessitatibus hic. Nemo, harum!</p>
+                <div className='grid grid-cols-2 gap-3'>
+                  {[
+                    { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                    { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                    { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                    { icon: 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', brand: 'Xiaomi Airclean', type: 'Air Purifier' },
+                  ].map((item, index) => (
+                    <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3' key={index}>
+                      <div className='flex items-center justify-between pr-3'>
+                        <div className='flex items-center gap-3'>
+                          <div className='inline-flex items-center justify-center p-2 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                              <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 className='text-neutral-200 text-lg'>{item.brand}</h3>
+                            <p className='text-neutral-400 leading-none'>{item.type}</p>
+                          </div>
+                        </div>
+                        <Toggle />
+                      </div>
+                    </div>
+                  ))}
+                  <div className='col-span-full border border-neutral-700 bg-neutral-700/30 rounded-xl p-3 space-y-4'>
+                    <div className='flex items-center justify-between pr-3'>
+                      <div className='flex items-center gap-3'>
+                        <div className='inline-flex items-center justify-center p-2 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d='M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z' />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className='text-neutral-200 text-lg'>asdfas</h3>
+                          <p className='text-neutral-400 leading-none'>asdfasdf</p>
+                        </div>
+                      </div>
+                      <Toggle />
+                    </div>
+                    {/* Music Player */}
+                    <div className='flex gap-3'>
+                      <div className='relative size-[4.5rem] border rounded-md'>
+                        <img src="https://placehold.co/30x30" alt="" className='object-cover w-full h-full' />
+                      </div>
+                      <div className='flex-grow flex flex-col justify-between'>
+                        <div>
+                          <p className='text-neutral-400'>asdfas</p>
+                          <p className='text-neutral-200 text-lg leading-none'>asdfasdf</p>
+                        </div>
+                        <div className='flex items-center gap-2'>
+                          <p className='text-neutral-400 text-xs'>2:13</p>
+                          <input
+                            id="range-input"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                            className="w-full h-1 rounded-lg appearance-none focus:outline-none range-thumb-green"
+                            style={{
+                              background: `linear-gradient(to right, #22c55e ${value}%, #737373 ${value}%)`,
+                            }}
+                          />
+                          <p className='text-neutral-400 text-xs'>3:33</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className='grid grid-cols-2 gap-3'>

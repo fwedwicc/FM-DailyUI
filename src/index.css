@@ -63,3 +63,33 @@ input[type="range"].custom-range::-ms-thumb {
   [&::-webkit-scrollbar-thumb]:rounded-full
   [&::-webkit-scrollbar-thumb]:bg-neutral-500/40;
 }
+
+/* Custom styles for range thumb */
+.range-thumb-green::-webkit-slider-thumb {
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  background-color: #22c55e; /* Tailwind green-500 */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.range-thumb-green::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  background-color: #22c55e; /* Tailwind green-500 */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.range-thumb-green::-ms-thumb {
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  background-color: #22c55e; /* Tailwind green-500 */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
