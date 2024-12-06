@@ -273,32 +273,32 @@ const Day21 = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className='text-neutral-200 text-2xl font-semibold'>23 C</h3>
-                      <p className='text-neutral-400 leading-none'>Lorem ipsum dolor</p>
+                      <h3 className='text-green-500 text-2xl font-semibold'>23 °C</h3>
+                      <p className='text-neutral-400 leading-none'>Sunny Cloudy</p>
                     </div>
                   </div>
                   {/*  */}
                   <div className='grid lg:grid-cols-2 grid-cols-1 mt-6 gap-x-3 gap-y-6'>
                     {[
                       {
-                        icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
-                        value: "23C",
-                        label: "Lorem ipsum dolor"
+                        icon: "M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z",
+                        value: "5",
+                        label: "UV Index"
                       },
                       {
-                        icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
-                        value: "23C",
-                        label: "Lorem ipsum dolor"
+                        icon: "M19 13.8C19 17.7764 15.866 21 12 21C8.13401 21 5 17.7764 5 13.8C5 12.8452 5.18069 11.9338 5.50883 11.1C6.54726 8.46135 12 3 12 3C12 3 17.4527 8.46135 18.4912 11.1C18.8193 11.9338 19 12.8452 19 13.8Z",
+                        value: "70%",
+                        label: "Humidity"
                       },
                       {
-                        icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
-                        value: "23C",
-                        label: "Lorem ipsum dolor"
+                        icon: "M7 12H17M8 8.5C8 8.5 9 9 10 9C11.5 9 12.5 8 14 8C15 8 16 8.5 16 8.5M8 15.5C8 15.5 9 16 10 16C11.5 16 12.5 15 14 15C15 15 16 15.5 16 15.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z",
+                        value: "19 km/h",
+                        label: "Wind Speed"
                       },
                       {
-                        icon: "M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z",
-                        value: "23C",
-                        label: "Lorem ipsum dolor"
+                        icon: "M10.5 21L12 18M14.5 21L16 18M6.5 21L8 18M8.8 15C6.14903 15 4 12.9466 4 10.4137C4 8.31435 5.6 6.375 8 6C8.75283 4.27403 10.5346 3 12.6127 3C15.2747 3 17.4504 4.99072 17.6 7.5C19.0127 8.09561 20 9.55741 20 11.1402C20 13.2719 18.2091 15 16 15L8.8 15Z",
+                        value: "60%",
+                        label: "Rain Changes"
                       }
                     ].map((item, index) => (
                       <div className='flex items-center gap-3' key={index}>
@@ -366,7 +366,7 @@ const Day21 = () => {
                     <div className='flex items-center gap-3'>
                       <div className='inline-flex items-center justify-center p-3 border border-green-800 rounded-full text-green-500 bg-green-700/30'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.1299 3V5M15.1299 5V9.98468M15.1299 5L14.1299 4M15.1299 5L16.1299 4M15.1299 9.98468V10.0153M15.1299 9.98468L13.5 9.04366M15.1299 9.98468L15.1564 10M15.1299 10.0153V15M15.1299 10.0153L15.1564 10M15.1299 10.0153L13.5 10.9562M15.1299 15V17M15.1299 15L14.1299 16M15.1299 15L16.1299 16M15.1564 10L19.3998 12.4499M15.1564 10L19.3997 7.55001M19.3998 12.4499L21.2186 13.5M19.3998 12.4499L19.9121 14.3624M19.3998 12.4499L21.3119 11.9376M21.2183 6.5L19.3997 7.55001M19.3997 7.55001L19.9121 5.63757M19.3997 7.55001L21.3123 8.06241M7 15.9998C6.44772 15.9998 6 16.4475 6 16.9998C6 17.5521 6.44772 17.9998 7 17.9998C7.55228 17.9998 8 17.5521 8 16.9998C8 16.4475 7.55228 15.9998 7 15.9998ZM7 15.9998L7.00707 14M7 16.9998L7.00707 17.0069M11 16.9998C11 19.209 9.20914 20.9998 7 20.9998C4.79086 20.9998 3 19.209 3 16.9998C3 15.9854 3.37764 15.0591 4 14.354L4 6C4 4.34315 5.34315 3 7 3C8.65685 3 10 4.34315 10 6V14.354C10.6224 15.0591 11 15.9854 11 16.9998Z" />
                         </svg>
                       </div>
                       <div>
@@ -378,7 +378,7 @@ const Day21 = () => {
                   </div>
                   {/*  */}
                   <div className='flex items-center gap-2'>
-                    {['M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z', 'M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z'].map((item, index) => (
+                    {['M12 3V21M9.99995 4L12 6L14 4M9.99995 20L12 18L14 20M4.23218 7.5L19.8206 16.5M4.11133 9.50885L6.57017 8.85L5.91133 6.39115M18.141 17.6089L17.4821 15.15L19.941 14.4912M19.8205 7.5L4.232 16.5M18.1413 6.39115L17.4825 8.85L19.9413 9.50885M4.11166 14.4911L6.57051 15.15L5.91166 17.6088', 'M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z'].map((item, index) => (
                       <button className={`inline-flex items-center justify-center hover:bg-neutral-600/40 transition duration-300 ease-in-out p-3 rounded-full text-neutral-300 ${index === 0 ? 'bg-neutral-600/40' : 'bg-none'}`} key={index}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                           <path strokeLinecap="round" strokeLinejoin="round" d={item} />
@@ -389,8 +389,8 @@ const Day21 = () => {
                   {/*  */}
                   <div className='grid grid-cols-2 gap-3'>
                     {[
-                      { value: "24C", label: "Temperature", rangeValue: 40 },
-                      { value: "24C", label: "Temperature", rangeValue: 20 },
+                      { value: "56%", label: "Humidity", rangeValue: 40 },
+                      { value: "19 °C", label: "Temperature", rangeValue: 20 },
                     ].map((item, index) => (
                       <div className='p-4 rounded-xl bg-neutral-700/40' key={index}>
                         <div className='flex items-center justify-between'>
