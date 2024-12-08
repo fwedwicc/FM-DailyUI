@@ -199,7 +199,7 @@ const Day21 = () => {
           </div>
         </aside>
         <section className='lg:ml-[6.5rem]'>
-          <div className='lg:pl-0 p-6 space-y-5'>
+          <div className='lg:pl-0 p-5 space-y-5'>
             {/* Header */}
             <header className='flex justify-between items-start'>
               <div className='relative lg:hidden block'>
@@ -522,7 +522,7 @@ const Day21 = () => {
                     <h3 className='text-neutral-200 text-lg'>Device Power Consumption</h3>
                     <p className='text-neutral-400 text-xs leading-none'>As of 2024</p>
                   </div>
-                  <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3 h-64'>
+                  <div className='border border-neutral-700 bg-neutral-700/30 rounded-xl p-3 h-[14.3rem]'>
                     <div className='h-full'>
                       <LineChart />
                     </div>
