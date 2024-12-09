@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion'
