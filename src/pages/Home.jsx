@@ -194,8 +194,8 @@ const Home = () => {
       </div>
 
       {/* Specific section for cards */}
-      <div ref={sectionRef} className='flex flex-col'>
-        <div className='lg:px-16 md:px-12 px-6 md:pt-0 pt-14'>
+      <div ref={sectionRef} className='flex flex-col md:pt-10 pt-14'>
+        <div className='lg:px-16 md:px-12 px-6'>
           <p className='text-sm leading-relaxed text-green-50/80'>Frederick is currently working on:</p>
           <p className='leading-relaxed text-green-500'>Challenge #{currentChallengeNumber}</p>
         </div>

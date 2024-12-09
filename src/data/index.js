@@ -26,6 +26,7 @@ export const titles = [
   'Leaderboard', // Day19
   'Location Tracker', // Day20
   'Home Monitoring Dashboard', // Day21
+  'Search', // Day22
 ];
 
 const descriptions = [
@@ -50,6 +51,7 @@ const descriptions = [
   "Is it for gaming, sports, racing, politics, top sellers, the highest grossing movies, or something else? Consider the important statistics to show, percentages, points, avatar pictures or logos, and the most critical elements.", // Day19
   "Consider the icon, placement, and purpose of the location. Are you mapping something? Is it a tracking beacon to find a friend or a tracking device such as a phone? Is the NSA or FBI tracking you?", // Day20
   "Design a home monitoring dashboard. Be creative! What would make a dashboard visually appealing and fun to use, while also being mindful of its function? Try to make it a realistic exercise as if it were your own dashboard.", // Day21
+  "Design something search related. It could be a search bar, an advanced search window, or a search function. It could even be a page to search for hotel rooms, homes for sale, plane tickets, concert seats, or something else.", // Day22 
 ];
 
 const images = [
