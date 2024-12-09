@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FMLogo } from '../assets'
+import { FMLogo, UICompilation } from '../assets'
+import { Link } from 'react-router-dom';
 
 const NoPage = () => {
 
@@ -65,8 +66,23 @@ const NoPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <main className='min-h-screen flex items-center justify-center'>
-        <h1 className='text-neutral-300 text-3xl font-medium'>404 Page.</h1>
+      <main className='h-screen flex items-center justify-center'>
+        <img src={UICompilation} alt="UI Compliation" className='absolute object-cover h-full w-full' />
+        {/* Filter Fade Effect */}
+        <div className='absolute w-full h-full bg-gradient-to-t from-neutral-800 to-neutral-800/5'></div>
+        <div className='z-20 flex flex-col items-center justify-center md:gap-3 gap-1'>
+          <img src={FMLogo} alt="FM Logo" className='mb-10 md:w-8 w-5 h-auto' />
+          <h1 className='text-neutral-300 md:text-5xl text-3xl font-medium'>404</h1>
+          <p className="md:text-sm text-xs text-center font-medium text-neutral-400">Oops! Welcome to nowhere! <br /> The page you're looking for doesn't exist.</p>
+          <Link to={'/home'}>
+            <span className='flex items-center gap-1 text-green-500 text-sm'>
+              Back to home
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </Link>
+        </div>
         <Footer />
       </main>
     </motion.div>
