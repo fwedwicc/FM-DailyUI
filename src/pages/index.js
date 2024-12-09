@@ -1,5 +1,6 @@
 import Home from './Home'
 import UpcomingChallenge from './UpcomingChallenge'
+import NoPage from './NoPage'
 import Day01 from './Day01'
 import Day02 from './Day02'
 import Day03 from './Day03'
@@ -26,6 +27,7 @@ import Day22 from './Day22'
 export {
   Home,
   UpcomingChallenge,
+  NoPage,
   Day01,
   Day02,
   Day03,

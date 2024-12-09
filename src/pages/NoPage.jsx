@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { FMLogo } from '../assets'
 
-const UpcomingChallenge = () => {
+const NoPage = () => {
 
   const Footer = () => {
     return (
@@ -66,11 +66,11 @@ const UpcomingChallenge = () => {
       transition={{ duration: 0.5 }}
     >
       <main className='min-h-screen flex items-center justify-center'>
-        <h1 className='text-neutral-300 text-3xl font-medium'>Upcoming Challenge.</h1>
+        <h1 className='text-neutral-300 text-3xl font-medium'>404 Page.</h1>
         <Footer />
       </main>
     </motion.div>
   )
 }
 
-export default UpcomingChallenge
+export default NoPage

@@ -16,7 +16,7 @@ const Day22 = () => {
     >
       <main className="bg-neutral-800">
         <section className='h-screen flex justify-center items-center'>
-          <h1 className='text-neutral-300 text-3xl font-medium'>Welcome to nowhere.</h1>
+          <h1 className='text-neutral-300 text-3xl font-medium'>Currently Crafting.</h1>
         </section>
       </main>
     </motion.div>
