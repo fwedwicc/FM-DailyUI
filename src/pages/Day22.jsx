@@ -17,7 +17,7 @@ const Day22 = () => {
     >
       <main className="bg-neutral-800">
         <section className='h-screen flex flex-col justify-center items-center'>
-          <img src={VrGlass} alt="VR Glass Illustration" />
+          <img src={VrGlass} alt="VR Glass Illustration" className='grayscale' />
           <h1 className='absolute bottom-1/3 text-neutral-400 font-medium'>Currently Crafting...</h1>
         </section>
       </main>
