@@ -269,6 +269,40 @@ const Draft = () => {
                 <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
               </svg>
             </h3>
+            {/*  */}
+            <div className='grid grid-cols-2 grid-rows-2 mt-4 w-full h-48'>
+              <div className='border-2 row-span-full border-neutral-300'>
+                <img src="https://placehold.co/40x40" alt="Sample Image" className='object-cover w-full h-full' />
+              </div>
+              <div className='border-2 border-neutral-300 h-full w-full'>
+                <img src="https://placehold.co/40x40" alt="Sample Image" className='object-cover w-full h-full' />
+              </div>
+              <div className='border-2 border-neutral-300 h-full w-full'>
+                <img src="https://placehold.co/40x40" alt="Sample Image" className='object-cover w-full h-full' />
+              </div>
+            </div>
+            {/*  */}
+            <div className='mt-4'>
+            <p className='text-sm leading-5 text-neutral-300'>A "Hello, World!" program is generally a simple computer program that emits to the screen a message similar to "Hello, World!". A small piece of code in most general-purpose programming languages, this program is used to illustrate a language's basic syntax. <span className='cursor-pointer text-blue-500 hover:underline'>Wikipedia</span></p>
+            </div>
+            {/*  */}
+            <div className='flex items-center gap-2 mt-4 py-4 border-t'>
+              {['https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30'].map((item, index) => (
+                <a href='#' className='size-10 flex items-center justify-center hover:bg-neutral-500 border rounded-md' key={index}>
+                  <img src={item} alt="Sample Image Links" className='w-5 h-auto' />
+                </a>
+              ))}
+            </div>
+            {/*  */}
+            <div className='flex items-center gap-2'>
+              <span className='flex-1 text-xs text-nowrap text-neutral-400'>Data from <a href='#' className='hover:underline'>Wikipedia</a></span>
+              <div className='flex-grow h-[0.5px] w-full bg-neutral-600'></div>
+              <button className='size-6 flex-shrink-0 flex items-center justify-center rounded-md hover:bg-neutral-700/20 text-neutral-400'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-4">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+</svg>
+              </button>
+            </div>
           </div>
         </section>
         <footer className='bg-neutral-900'>
