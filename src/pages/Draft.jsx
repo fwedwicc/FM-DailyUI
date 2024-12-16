@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'
 import useLenisScroll from '../hooks/useLenisScroll'
 import useScrollToTop from '../hooks/useScrollToTop'
 import { InputField, Checkbox, Button } from '../components'
@@ -8,6 +8,58 @@ import { motion } from 'framer-motion'
 const Draft = () => {
   useLenisScroll();
   useScrollToTop();
+
+  const Accordion = ({ title, svg, children, isOpen, onClick, styles }) => {
+    return (
+      <div className={`w-full overflow-hidden`}>
+        <button
+          className={`${styles} w-full flex justify-between items-center text-neutral-400 py-2 font-medium focus:outline-none`}
+          onClick={onClick}
+        >
+          <span className={`md:text-base text-sm ${isOpen ? 'text-neutral-200' : 'text-neutral-400'}`}>{title}</span>
+          <span className='size-10 flex items-center justify-center rounded-full bg-neutral-700/20'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={`shrink-0 size-4 transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180' : ''}`}>
+              <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clipRule="evenodd" />
+            </svg>
+          </span>
+        </button>
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="overflow-hidden"
+        >
+          <div className="pt-4">
+            {children}
+          </div>
+        </motion.div>
+      </div>
+    );
+  };
+
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const handleAccordionClick = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index);
+  };
+
+  const faqsData = [
+    {
+      title: 'What services does Tech-Commr offer?',
+      content:
+        'Tech-Commr offers a range of services, including programming, web development, database management, graphic design, and paper works for both professional and academic purposes.',
+    },
+    {
+      title: 'How do I request a service?',
+      content:
+        'You can request a service by filling out the inquiry form on our website or by contacting us directly via our social media platforms. Include details about your project, deadline, and any specific requirements.',
+    },
+    {
+      title: 'Do you require a deposit for services?',
+      content:
+        'Yes, a deposit or down payment is required before we start the service. This is to avoid cancellation and refund and usually only required for new clients.',
+    },
+  ];
 
   const Content = () => {
     return (
@@ -106,14 +158,50 @@ const Draft = () => {
         <section className='flex flex-wrap border lg:px-[14.6rem] w-full'>
           {/* Left */}
           <div className='border w-full lg:max-w-3xl max-w-full space-y-8'>
+            {/* Contents */}
             <Content />
             <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
-            <Content />
+            {/*  */}
+            <div className='space-y-3 divide-y-2'>
+              <h3 className='text-neutral-200 text-xl flex items-center gap-2'>
+                People also search for
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 cursor-pointer">
+                  <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+                </svg>
+              </h3>
+              {faqsData.map((accordion, index) => (
+                <Accordion
+                  key={index}
+                  title={accordion.title}
+                  isOpen={openIndex === index}
+                  styles={''}
+                  onClick={() => handleAccordionClick(index)}
+                >
+                  <div className='text-sm leading-5 text-neutral-300'>
+                    {accordion.content}
+                  </div>
+                </Accordion>
+              ))}
+            </div>
+            {/* "People also search for" Section */}
+            <div className='space-y-3'>
+              <h3 className='text-neutral-200 text-xl flex items-center gap-2'>
+                People also search for
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 cursor-pointer">
+                  <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+                </svg>
+              </h3>
+              <div className='grid grid-cols-2 gap-2'>
+                {['meaning', 'program', 'code', '(song)', 'anime', 'download', 'C++', 'app'].map((item, index) => (
+                  <div key={index} className='flex items-center justify-between group border border-neutral-700 w-full px-4 py-3 rounded-md cursor-pointer hover:bg-neutral-700/20 transition duration-300 ease-in-out'>
+                    <p className='text-neutral-300/90 group-hover:underline'>Hello World {item}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 text-neutral-600">
+                      <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           {/* Right */}
           <div className='flex-1 border'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio incidunt eligendi, quo impedit est sequi voluptatum natus dolores iste id repellat magni neque consequatur, deserunt quidem ex, sint dignissimos? Placeat!</div>
