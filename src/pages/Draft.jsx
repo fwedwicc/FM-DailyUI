@@ -45,19 +45,72 @@ const Draft = () => {
 
   const faqsData = [
     {
-      title: 'What services does Tech-Commr offer?',
+      title: 'Why is Hello World so popular?',
       content:
-        'Tech-Commr offers a range of services, including programming, web development, database management, graphic design, and paper works for both professional and academic purposes.',
+        <div className='space-y-3'>
+          <p className='text-sm leading-5 text-neutral-300'>The answer lies in its <span className='bg-blue-500/30 text-neutral-200'>simplicity and universal applicability</span>. By writing a program that displays “Hello World,” programmers can quickly verify that their development environment is correctly configured and that they have successfully grasped the basics of a new programming language. <span className='text-[9px]'>Jan 15, 2024</span></p>
+          <div className='flex gap-3 w-full'>
+            <div className='size-9 flex-shrink-0'>
+              <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-[12px]' />
+            </div>
+            <div className='leading-none'>
+              <h4 className='text-neutral-200'>GitHub</h4>
+              <p className='text-neutral-400/90 line-clamp-1 text-sm'>docs.github.com › get-started › quickstart › hello-world</p>
+            </div>
+          </div>
+          <h5 className='text-blue-500 text-xl group-hover:underline'>Hello world</h5>
+        </div>,
     },
     {
-      title: 'How do I request a service?',
+      title: 'What is the Hello World phrase?',
       content:
-        'You can request a service by filling out the inquiry form on our website or by contacting us directly via our social media platforms. Include details about your project, deadline, and any specific requirements.',
+        <div className='space-y-3'>
+          <p className='text-sm leading-5 text-neutral-300'>The answer lies in its <span className='bg-blue-500/30 text-neutral-200'>simplicity and universal applicability</span>. By writing a program that displays “Hello World,” programmers can quickly verify that their development environment is correctly configured and that they have successfully grasped the basics of a new programming language. <span className='text-[9px]'>Jan 15, 2024</span></p>
+          <div className='flex gap-3 w-full'>
+            <div className='size-9 flex-shrink-0'>
+              <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-[12px]' />
+            </div>
+            <div className='leading-none'>
+              <h4 className='text-neutral-200'>GitHub</h4>
+              <p className='text-neutral-400/90 line-clamp-1 text-sm'>docs.github.com › get-started › quickstart › hello-world</p>
+            </div>
+          </div>
+          <h5 className='text-blue-500 text-xl group-hover:underline'>Hello world</h5>
+        </div>,
     },
     {
-      title: 'Do you require a deposit for services?',
+      title: 'What did the ending of Hello World mean?',
       content:
-        'Yes, a deposit or down payment is required before we start the service. This is to avoid cancellation and refund and usually only required for new clients.',
+        <div className='space-y-3'>
+          <p className='text-sm leading-5 text-neutral-300'>The answer lies in its <span className='bg-blue-500/30 text-neutral-200'>simplicity and universal applicability</span>. By writing a program that displays “Hello World,” programmers can quickly verify that their development environment is correctly configured and that they have successfully grasped the basics of a new programming language. <span className='text-[9px]'>Jan 15, 2024</span></p>
+          <div className='flex gap-3 w-full'>
+            <div className='size-9 flex-shrink-0'>
+              <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-[12px]' />
+            </div>
+            <div className='leading-none'>
+              <h4 className='text-neutral-200'>GitHub</h4>
+              <p className='text-neutral-400/90 line-clamp-1 text-sm'>docs.github.com › get-started › quickstart › hello-world</p>
+            </div>
+          </div>
+          <h5 className='text-blue-500 text-xl group-hover:underline'>Hello world</h5>
+        </div>,
+    },
+    {
+      title: 'What is the story behind Hello World?',
+      content:
+        <div className='space-y-3'>
+          <p className='text-sm leading-5 text-neutral-300'>The answer lies in its <span className='bg-blue-500/30 text-neutral-200'>simplicity and universal applicability</span>. By writing a program that displays “Hello World,” programmers can quickly verify that their development environment is correctly configured and that they have successfully grasped the basics of a new programming language. <span className='text-[9px]'>Jan 15, 2024</span></p>
+          <div className='flex gap-3 w-full'>
+            <div className='size-9 flex-shrink-0'>
+              <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-[12px]' />
+            </div>
+            <div className='leading-none'>
+              <h4 className='text-neutral-200'>GitHub</h4>
+              <p className='text-neutral-400/90 line-clamp-1 text-sm'>docs.github.com › get-started › quickstart › hello-world</p>
+            </div>
+          </div>
+          <h5 className='text-blue-500 text-xl group-hover:underline'>Hello world</h5>
+        </div>,
     },
   ];
 
@@ -155,15 +208,15 @@ const Draft = () => {
           </header>
         </div>
         {/* Content */}
-        <section className='flex flex-wrap border lg:px-[14.6rem] w-full'>
+        <section className='flex flex-wrap gap-4 border lg:px-[14.6rem] w-full'>
           {/* Left */}
           <div className='border w-full lg:max-w-3xl max-w-full space-y-8'>
             {/* Contents */}
             <Content />
             <Content />
             {/*  */}
-            <div className='space-y-3 divide-y-2'>
-              <h3 className='text-neutral-200 text-xl flex items-center gap-2'>
+            <div className='divide-y-2 divide-neutral-700/30'>
+              <h3 className='text-neutral-200 text-xl flex items-center gap-2 m-2'>
                 People also search for
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 cursor-pointer">
                   <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
@@ -177,12 +230,16 @@ const Draft = () => {
                   styles={''}
                   onClick={() => handleAccordionClick(index)}
                 >
-                  <div className='text-sm leading-5 text-neutral-300'>
+                  <div className='pb-3'>
                     {accordion.content}
                   </div>
                 </Accordion>
               ))}
             </div>
+            <Content />
+            <Content />
+            <Content />
+            <Content />
             {/* "People also search for" Section */}
             <div className='space-y-3'>
               <h3 className='text-neutral-200 text-xl flex items-center gap-2'>
@@ -204,7 +261,15 @@ const Draft = () => {
             </div>
           </div>
           {/* Right */}
-          <div className='flex-1 border'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio incidunt eligendi, quo impedit est sequi voluptatum natus dolores iste id repellat magni neque consequatur, deserunt quidem ex, sint dignissimos? Placeat!</div>
+          <div className='flex-1 border'>
+            <h1 className='text-neutral-300 text-3xl'>"Hello, World!" program</h1>
+            <h3 className='text-neutral-400 text-md flex items-center gap-2'>
+              Computer program
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4 cursor-pointer">
+                <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+              </svg>
+            </h3>
+          </div>
         </section>
         <footer className='bg-neutral-900'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati aliquam asperiores ea facere sint sunt, dolor veritatis, dicta dignissimos quaerat quo voluptatibus et architecto, ex sequi vel inventore eaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, eveniet vitae! Tempora ut vel assumenda sapiente nobis, aliquam velit enim eius dolorem maxime modi labore magnam. Adipisci dolore asperiores tempora.
