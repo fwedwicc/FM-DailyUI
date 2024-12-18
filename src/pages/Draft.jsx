@@ -103,15 +103,15 @@ const Draft = () => {
         <div className='space-y-3'>
           <p className='text-sm leading-5 text-neutral-300'>The answer lies in its <span className='bg-blue-500/30 text-neutral-200'>simplicity and universal applicability</span>. By writing a program that displays “Hello World,” programmers can quickly verify that their development environment is correctly configured and that they have successfully grasped the basics of a new programming language. <span className='text-[9px]'>Jan 15, 2024</span></p>
           <div className='flex gap-3 w-full'>
-            <div className='size-9 flex-shrink-0'>
-              <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-[12px]' />
+            <div className='size-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-neutral-100'>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeUlEQVR4AWNwL/ChCDM4dZ+SBOIJ5GCYAZuBWB5kEIlYFYhXM4AIcp0PNwBN0AeESTcAgWHe8iHPAITkaZAh5LogBxTKlITBBDSX7IDiHAIGEMbUNmAzigHQFLYDJEEIQ72WAzUAEerk5IUdUM2S5GYmH0pyI8XZGQBFUlxD9c3VgwAAAABJRU5ErkJggg==" alt="Website Icon" className='object-cover w-6 h-auto rounded-md' />
             </div>
             <div className='leading-none'>
-              <h4 className='text-neutral-200'>GitHub</h4>
-              <p className='text-neutral-400/90 line-clamp-1 text-sm'>docs.github.com › get-started › quickstart › hello-world</p>
+              <h4 className='text-neutral-200'>CodeInterview</h4>
+              <p className='text-neutral-400/90 line-clamp-1 text-sm'>https://codeinterview.io › the-history-of-hello-world-a-brief-overview</p>
             </div>
           </div>
-          <h5 className='text-blue-500 text-xl group-hover:underline'>Hello world</h5>
+          <h5 className='text-blue-500 text-xl group-hover:underline'>The History of Hello World: A Brief Overview - CodeInterview Blog</h5>
         </div>,
     },
     {
@@ -167,37 +167,41 @@ const Draft = () => {
     },
   ];
 
-  const Content = () => {
+  const Content = ({ link, icon, website, title, desc, sublinks = [], img }) => {
     return (
-      <div className='space-y-1 cursor-pointer border'>
+      <article className='space-y-1 cursor-pointer border'>
         {/*  */}
         <div className='flex gap-3 w-full'>
-          <div className='size-9 flex-shrink-0'>
-            <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-[12px]' />
+          <div className='size-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-neutral-100'>
+            <img src={icon} alt="Website Icon" className='object-cover w-6 h-auto rounded-md' />
           </div>
           <div className='leading-none'>
-            <h4 className='text-neutral-200'>GitHub</h4>
-            <p className='text-neutral-400/90 line-clamp-1 text-sm'>docs.github.com › get-started › quickstart › hello-world</p>
+            <h4 className='text-neutral-200'>{website}</h4>
+            <p className='text-neutral-400/90 line-clamp-1 text-sm'>{link}</p>
           </div>
         </div>
         {/*  */}
-        <div className='flex group'>
+        <div className='flex group gap-2'>
           <div className='space-y-1'>
             {/*  */}
-            <h5 className='text-blue-500 text-xl group-hover:underline'>Hello world</h5>
+            <h5 className='text-blue-500 text-xl group-hover:underline'>{title}</h5>
             {/*  */}
-            <p className='text-sm leading-5 text-neutral-300 line-clamp-3'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum corporis adipisci quibusdam aspernatur explicabo unde dolorum accusamus veniam, distinctio odio atque. Rem, facere? Illum aliquam explicabo consequuntur dicta corporis commodi.</p>
-            <ul className='flex gap-2 text-sm text-blue-500 cursor-pointer'>
-              <li>link</li>
-              <li>link</li>
-              <li>link</li>
-            </ul>
+            <p className='text-sm leading-5 text-neutral-300 line-clamp-3'>{desc}</p>
+            {sublinks && (
+              <ul className={`${!sublinks ? 'hidden' : 'flex gap-4 text-sm text-blue-500 cursor-pointer'} `}>
+                {sublinks.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            )}
           </div>
-          <div className='w-44 h-28 flex-shrink-0'>
-            <img src="https://placehold.co/30x30" alt="Sample" className='object-cover w-full h-full rounded-lg' />
+          <div className={`w-44 h-28 flex-shrink-0 ${!img ? 'hidden' : ''}`}>
+            {img && (
+              <img src={img} alt={`${title} Preview`} className='object-cover w-full h-full rounded-lg' />
+            )}
           </div>
         </div>
-      </div>
+      </article>
     )
   }
 
@@ -309,8 +313,22 @@ const Draft = () => {
           {/* Left */}
           <div className='border w-full lg:max-w-3xl max-w-full space-y-8'>
             {/* Contents */}
-            <Content />
-            <Content />
+            <Content
+              link={`en.wikipedia.org › wiki › "Hello,_World!"_program`}
+              icon="https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+              website="Wikipedia"
+              title={`"Hello, World!" program - Wikipedia`}
+              desc={`1 week ago - A "Hello, World!" program is generally a simple computer program that emits (or displays) to the screen (often the console) a message similar to "Hello, World!". A small piece of code in most general-purpose programming languages, this program is used to`}
+              sublinks={['Hello World', 'Time to Hello World', 'Programming Languages', 'Coding']}
+              img="https://assets.hongkiat.com/uploads/hello-world-different-programming-languages/kotlin.jpg"
+            />
+            <Content
+              link={`helloworld.org`}
+              icon="https://static-00.iconduck.com/assets.00/globe-icon-512x512-0i6hmjdv.png"
+              website="Helloworld"
+              title={`Hello World - Simple source code examples`}
+              desc={`A "Hello world" program is a computer program that outputs "Hello World" (or some variant) on a display device. The first known version of this program comes from Brian Kernighan's paper A Tutorial Introduction to the Language B from 1972 (chapter 7).`}
+            />
             {/*  */}
             <div className='divide-y-2 divide-neutral-700/30'>
               <h3 className='text-neutral-200 text-xl flex items-center gap-2 mb-2 border'>
@@ -333,10 +351,41 @@ const Draft = () => {
                 </Accordion>
               ))}
             </div>
-            <Content />
-            <Content />
-            <Content />
-            <Content />
+            <Content
+              link="stackoverflow.blog › 2020 › 03 › 05 › a-modern-hello-world-program-needs-more-than-just-code"
+              icon="https://imgs.search.brave.com/nHSlmEoUbL41OIgI1Gz6bkrt7aSMVybujjhQXpfM4-c/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDgyNjY2MTMx/MGMzYmRlZGI5N2I0/NzkxZjhjMTZlNzI0/M2Q3ZjEzY2JhNjZh/ODc0NDYzYzg3MDI3/OTU3ZjU5ZS9zdGFj/a292ZXJmbG93LmJs/b2cv"
+              website="Stackoverflow"
+              title="A modern 'Hello, World' program needs more than just code"
+              desc={`May 3, 2020 - Engage the world’s technology talent with your employer brand. ... The tradition of a "Hello, World" program goes back at least to 1978.`}
+              img="https://imgs.search.brave.com/1xo6xkTxPOna1PgfYvx8nCjk5h8shViB4FjeQYwAHII/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/c3RhY2tvdmVyZmxv/dy5jby9pbWFnZXMv/am83bjRrOHMvcHJv/ZHVjdGlvbi8wYWRi/MWQ4MWM0YWQ3ZjRh/YTkyNmEzZmU0NDgz/M2E4NjA0MTNjZWM5/LTIwMDB4MTUwMC5q/cGc_dz0xMjAwJmZt/PXBuZyZhdXRvPWZv/cm1hdA"
+            />
+            <Content
+              link={`en.wikipedia.org › wiki › "Hello,_World!"_program`}
+              icon="https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+              website="Wikipedia"
+              title={`"Hello, World!" program - Wikipedia`}
+              desc={`1 week ago - A "Hello, World!" program is generally a simple computer program that emits (or displays) to the screen (often the console) a message similar to "Hello, World!". A small piece of code in most general-purpose programming languages, this program is used to`}
+              sublinks={['Hello World', 'Time to Hello World', 'Programming Languages', 'Coding']}
+              img="https://assets.hongkiat.com/uploads/hello-world-different-programming-languages/kotlin.jpg"
+            />
+            <Content
+              link={`en.wikipedia.org › wiki › "Hello,_World!"_program`}
+              icon="https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+              website="Wikipedia"
+              title={`"Hello, World!" program - Wikipedia`}
+              desc={`1 week ago - A "Hello, World!" program is generally a simple computer program that emits (or displays) to the screen (often the console) a message similar to "Hello, World!". A small piece of code in most general-purpose programming languages, this program is used to`}
+              sublinks={['Hello World', 'Time to Hello World', 'Programming Languages', 'Coding']}
+              img="https://assets.hongkiat.com/uploads/hello-world-different-programming-languages/kotlin.jpg"
+            />
+            <Content
+              link={`en.wikipedia.org › wiki › "Hello,_World!"_program`}
+              icon="https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+              website="Wikipedia"
+              title={`"Hello, World!" program - Wikipedia`}
+              desc={`1 week ago - A "Hello, World!" program is generally a simple computer program that emits (or displays) to the screen (often the console) a message similar to "Hello, World!". A small piece of code in most general-purpose programming languages, this program is used to`}
+              sublinks={['Hello World', 'Time to Hello World', 'Programming Languages', 'Coding']}
+              img="https://assets.hongkiat.com/uploads/hello-world-different-programming-languages/kotlin.jpg"
+            />
             {/* "People also search for" Section */}
             <div className='space-y-3'>
               <h3 className='text-neutral-200 text-xl flex items-center gap-2'>
@@ -391,9 +440,9 @@ const Draft = () => {
               <p className='text-sm leading-5 text-neutral-300'>A "Hello, World!" program is generally a simple computer program that emits to the screen a message similar to "Hello, World!". A small piece of code in most general-purpose programming languages, this program is used to illustrate a language's basic syntax. <span className='cursor-pointer text-blue-500 hover:underline'>Wikipedia</span></p>
             </div>
             {/*  */}
-            <div className='flex items-center gap-2 mt-4 py-4 border-t'>
-              {['https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30', 'https://placehold.co/30x30'].map((item, index) => (
-                <a href='#' className='size-10 flex items-center justify-center hover:bg-neutral-500 border rounded-md' key={index}>
+            <div className='flex items-center gap-2 mt-4 py-4 border-t border-neutral-600'>
+              {['https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw', 'https://imgs.search.brave.com/8vIq-V97PH8S0N-pyaeHgq_gFHOA8hXjBunynHio-Uw/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYzdkMGIyYTky/OTJjN2RjNDEyNWYx/MGQxNjAzNmZlNDk4/ZTRmNDczNjk0ZTZl/N2IxZjI0NTVkMGE3/YTBiYjEzYi93d3cu/d2lraWRhdGEub3Jn/Lw', 'https://imgs.search.brave.com/ziBoeT-vbddluUgaXgpzpt8sMTFHk2J6QYwJzrtjhUs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYmJiMDNmODRi/NDE5NGQxOTY4MGEz/Njc2YzM2NDMyNWQy/NjU4MTIxNmIyZTY4/MzUxMWZmMDdlYmIx/Mjk0OWUyYS9kaWMu/bmljb3ZpZGVvLmpw/Lw', 'https://imgs.search.brave.com/9MNMiyljxUutGLrMWTij9dnbJ8Y-o7tmn6QLS6l4L_w/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYzMzZTc3ZTJj/ZjRmODc4OGM5NzBm/MGNlMTQ4MWQyZDEw/OGI3MjVlMmNmYWUz/MGE5NDAxMjIzNjBk/MGJlOTgwNi9yb3Nl/dHRhY29kZS5vcmcv', 'https://imgs.search.brave.com/PNggrjlAaaATe0COVLB_BwSxvlNjWXtl6y7ZhPFXBRA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDlkNGNkNzcy/NGU3MmQzMzViNjky/ZjE3ODRmZDZjOWJl/Yjk3NDBmMWM2YmJh/NjdkMGU1NTA2YjUw/ZjNiYTYwYi9iYWJl/bG5ldC5vcmcv'].map((item, index) => (
+                <a href='#' className='size-10 flex items-center justify-center hover:bg-neutral-700 border border-neutral-600 rounded-md transition duration-300 ease-in-out' key={index}>
                   <img src={item} alt="Sample Image Links" className='w-5 h-auto' />
                 </a>
               ))}
