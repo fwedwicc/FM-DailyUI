@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail, day18Thumbnail, day19Thumbnail, day20Thumbnail, day21Thumbnail,
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail, day18Thumbnail, day19Thumbnail, day20Thumbnail, day21Thumbnail, day22Thumbnail,
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -27,6 +27,7 @@ export const titles = [
   'Location Tracker', // Day20
   'Home Monitoring Dashboard', // Day21
   'Search', // Day22
+  'Onboarding', // Day23
 ];
 
 const descriptions = [
@@ -52,6 +53,7 @@ const descriptions = [
   "Consider the icon, placement, and purpose of the location. Are you mapping something? Is it a tracking beacon to find a friend or a tracking device such as a phone? Is the NSA or FBI tracking you?", // Day20
   "Design a home monitoring dashboard. Be creative! What would make a dashboard visually appealing and fun to use, while also being mindful of its function? Try to make it a realistic exercise as if it were your own dashboard.", // Day21
   "Design something search related. It could be a search bar, an advanced search window, or a search function. It could even be a page to search for hotel rooms, homes for sale, plane tickets, concert seats, or something else.", // Day22 
+  "Are you recruiting people for an organization? Are people signing up for a new service or website? Is it welcoming people into a mobile app? Onboarding might seem trivial, but it's the first experience your users have with your product or service. It's like the first page of a book and it can instantly excite them. If not implemented well, a bad onboarding experience could turn someone off of a brand completely.", // Day23
 ];
 
 const images = [
@@ -76,6 +78,7 @@ const images = [
   day19Thumbnail, // Day19
   day20Thumbnail, // Day20
   day21Thumbnail, // Day21
+  day22Thumbnail, // Day22
 ];
 
 const defaultImage = defaultThumbnail;
