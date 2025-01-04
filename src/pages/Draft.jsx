@@ -30,8 +30,12 @@ const Draft = () => {
                 </a>
                 {/* Action Buttons */}
                 <div className='flex items-center gap-3'>
-                  <a href="#" className='underline text-sm text-neutral-300'>Login</a>
-                  <a href="#" className='underline text-sm text-neutral-300'>Sign Up</a>
+                  <a href="#" className='flex items-center gap-1 text-sm text-green-500'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    Back to home
+                  </a>
                 </div>
               </div>
               {/* Stepper */}
@@ -58,7 +62,7 @@ const Draft = () => {
                 </p>
               </div>
               {/* Radio Options */}
-              <div className='grid lg:grid-cols-4 grid-cols-2 gap-3'>
+              <div className='grid lg:grid-cols-4 grid-cols-2 gap-5'>
                 {[
                   { id: 'option-1', name: 'Health Care', icon: "M16 7V6.2C16 5.0799 16 4.51984 15.782 4.09202C15.5903 3.71569 15.2843 3.40973 14.908 3.21799C14.4802 3 13.9201 3 12.8 3H11.2C10.0799 3 9.51984 3 9.09202 3.21799C8.71569 3.40973 8.40973 3.71569 8.21799 4.09202C8 4.51984 8 5.0799 8 6.2V7M7 7V21M17 7V21M10 14H14M12 12V16M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V11.8C21 10.1198 21 9.27976 20.673 8.63803C20.3854 8.07354 19.9265 7.6146 19.362 7.32698C18.7202 7 17.8802 7 16.2 7H7.8C6.11984 7 5.27976 7 4.63803 7.32698C4.07354 7.6146 3.6146 8.07354 3.32698 8.63803C3 9.27976 3 10.1198 3 11.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z" },
                   { id: 'option-2', name: 'Finance', icon: "M16 7V6.2C16 5.0799 16 4.51984 15.782 4.09202C15.5903 3.71569 15.2843 3.40973 14.908 3.21799C14.4802 3 13.9201 3 12.8 3H11.2C10.0799 3 9.51984 3 9.09202 3.21799C8.71569 3.40973 8.40973 3.71569 8.21799 4.09202C8 4.51984 8 5.0799 8 6.2V7M7 7V21M17 7V21M10 14H14M12 12V16M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V11.8C21 10.1198 21 9.27976 20.673 8.63803C20.3854 8.07354 19.9265 7.6146 19.362 7.32698C18.7202 7 17.8802 7 16.2 7H7.8C6.11984 7 5.27976 7 4.63803 7.32698C4.07354 7.6146 3.6146 8.07354 3.32698 8.63803C3 9.27976 3 10.1198 3 11.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z" },
@@ -101,9 +105,38 @@ const Draft = () => {
           </div>
           {/* Right Content */}
           <div className='lg:col-span-2 md:col-span-2 md:pl-0 md:pt-4 pt-0 p-4 col-span-1'>
-            <div className='flex flex-col justify-between h-full border border-neutral-700/40 rounded-lg md:p-6 p-4'>
+            <div className='flex flex-col justify-between gap-8 h-full bg-neutral-700/10 border border-neutral-700/40 rounded-lg md:p-8 p-5'>
               {/* Main Content */}
-              <div className='border'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda accusamus, itaque dolorum corporis quod nam culpa at! Inventore illo quam aut distinctio debitis, molestias, fuga sit ipsam nobis sed dignissimos.</div>
+              <div className='flex flex-col'>
+                <h1 className="mb-9 text-xl font-medium text-neutral-200 sm:text-2xl md:text-3xl text-nowrap">
+                  Getting Started!
+                </h1>
+                {[
+                  { icon: "m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z", title: "Your Details", description: "Provide necessary information" },
+                  { icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z", title: "Industry you're in", description: "Select the industry that describes your business" },
+                  { icon: "M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z", title: "Invite your team", description: "Start collaborating with you team" },
+                  { icon: "M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z", title: "Welcome Aboard!", description: "Get up and running in 3 minutes" },
+                ].map((item, index) => (
+                  <>
+                    <div className={`flex items-center gap-5 ${index === 2 || index === 3 ? 'opacity-50' : ''}`} key={index}>
+                      <div className={`size-11 flex justify-center items-center shrink-0 border rounded-lg ${index === 0 ? ' bg-green-500/20 border-green-500/40' : 'bg-neutral-700/40 border-neutral-700'}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`size-6 ${index === 0 ? 'text-green-500' : 'text-neutral-300'}`}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="leading-relaxed text-neutral-200">
+                          {item.title}
+                        </p>
+                        <p className="leading-none text-neutral-400">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className={`ml-[22px] h-9 w-[1px] ${index === 0 ? 'bg-green-500/60' : 'bg-neutral-700'} ${index === 3 ? 'hidden' : ''}`}></div>
+                  </>
+                ))}
+              </div>
               {/* Footer */}
               <div className='space-y-1'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="size-9 text-neutral-300">
@@ -115,7 +148,12 @@ const Draft = () => {
                 <p className="leading-6 py-2 text-neutral-400 w-full max-w-xs">
                   Feel free to contact us and we will always help you through the process.
                 </p>
-                <a href="#" className='underline text-sm text-neutral-300'>Contact Us</a>
+                <a href="#" className='flex items-center gap-1 text-sm text-green-500'>
+                  Contact us
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
