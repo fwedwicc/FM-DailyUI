@@ -28,6 +28,7 @@ export const titles = [
   'Home Monitoring Dashboard', // Day21
   'Search', // Day22
   'Onboarding', // Day23
+  'Boarding Pass', // Day24
 ];
 
 const descriptions = [
@@ -54,6 +55,7 @@ const descriptions = [
   "Design a home monitoring dashboard. Be creative! What would make a dashboard visually appealing and fun to use, while also being mindful of its function? Try to make it a realistic exercise as if it were your own dashboard.", // Day21
   "Design something search related. It could be a search bar, an advanced search window, or a search function. It could even be a page to search for hotel rooms, homes for sale, plane tickets, concert seats, or something else.", // Day22 
   "Are you recruiting people for an organization? Are people signing up for a new service or website? Is it welcoming people into a mobile app? Onboarding might seem trivial, but it's the first experience your users have with your product or service. It's like the first page of a book and it can instantly excite them. If not implemented well, a bad onboarding experience could turn someone off of a brand completely.", // Day23
+  "Consider the origin, the destination, gates, seats, the airline, etc. Is it for a multi - stop trip, round - trip, or one - way journey ? Boarding passes are sometimes used to promote additional information such as credit card offers, frequent flyer programs, or partner deals with local hotels and resorts.", // Day24
 ];
 
 const images = [
