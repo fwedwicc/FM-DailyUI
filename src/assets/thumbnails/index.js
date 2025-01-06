@@ -21,6 +21,7 @@ import day19Thumbnail from './day19-thumbnail.png'
 import day20Thumbnail from './day20-thumbnail.png'
 import day21Thumbnail from './day21-thumbnail.png'
 import day22Thumbnail from './day22-thumbnail.png'
+import day23Thumbnail from './day23-thumbnail.png'
 
 export {
   defaultThumbnail,
@@ -46,4 +47,5 @@ export {
   day20Thumbnail,
   day21Thumbnail,
   day22Thumbnail,
+  day23Thumbnail,
 }
