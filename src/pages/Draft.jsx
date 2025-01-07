@@ -49,23 +49,6 @@ const Draft = () => {
     );
   };
 
-  const AppHeader = () => {
-    return (
-      <div className='flex justify-between items-center pl-2'>
-        <img
-          className="size-8 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
-          src="https://avatars.githubusercontent.com/u/943537?v=4"
-          alt="Bot Avatar"
-        />
-        <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-          </svg>
-        </button>
-      </div>
-    )
-  }
-
   const AppNav = ({ active }) => {
     return (
       <div className='absolute flex items-center justify-between w-full bottom-0 left-1/2 transform -translate-x-1/2 rounded-t-[1.6rem] rounded-b-[1.6rem] pb-6 p-1 gap-1 bg-neutral-700'>
@@ -108,7 +91,23 @@ const Draft = () => {
           <PhoneMockup>
             <div className='relative h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
-              <AppHeader />
+              <div className='flex justify-between items-center'>
+                <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                  </svg>
+                </button>
+                <img
+                  className="size-8 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
+                  src="https://avatars.githubusercontent.com/u/943537?v=4"
+                  alt="Bot Avatar"
+                />
+                <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                  </svg>
+                </button>
+              </div>
               {/* Content */}
 
               {/* Bottom Navigation */}
@@ -119,12 +118,91 @@ const Draft = () => {
           <PhoneMockup>
             <div className='relative h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
-              <AppHeader />
+              <div className='flex justify-between items-center border'>
+                <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <p className="text-neutral-300 text-sm">
+                  Boarding Pass
+                </p>
+                <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                  </svg>
+                </button>
+              </div>
               {/* Content */}
-              <section>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut maxime blanditiis rerum, ea animi ipsum laboriosam, sapiente fugiat non esse doloribus quae a nemo recusandae necessitatibus consequatur architecto eos fuga!
+              <section className='mt-4 border'>
+                {/* Ticket Container */}
+                <div className='p-3 rounded-2xl border bg-neutral-700/40'>
+                  {/* Header */}
+                  <div className='flex justify-between items-center'>
+                    <div className='flex items-center gap-1.5'>
+                      <div className='size-5 border'>
+                        <img src="https://placehold.co/50x50" alt="" className='object-cover rounded-full' />
+                      </div>
+                      <p className="text-neutral-300 font-medium text-xs">Philippine Airlines</p>
+                    </div>
+                    <p className="text-neutral-400 text-xs">
+                      PH1-7598672
+                    </p>
+                  </div>
+                  {/* Ticket Informations */}
+                  <div className='grid grid-cols-2 gap-3 mt-4'>
+                    {[
+                      { label: 'Flight', value: 'PR127' },
+                      { label: 'Flight', value: 'PR127' },
+                      { label: 'Flight', value: 'PR127' },
+                      { label: 'Flight', value: 'PR127' },
+                      { label: 'Flight', value: 'PR127' },
+                      { label: 'Flight', value: 'PR127' },
+                    ].map((item, index) => (
+                      <div className='' key={index}>
+                        <p className="text-neutral-400 text-xs">{item.label}</p>
+                        <p className="text-neutral-300 text-lg">{item.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Additional Informations */}
+                  <div className='border-t border-neutral-600/70 mt-4 pt-4'>
+                    <div className='flex justify-between items-center'>
+                      <p className="text-neutral-400 text-xs">From</p>
+                      <p className="text-neutral-400 text-xs">From</p>
+                    </div>
+                    <div className='flex justify-between items-center gap-2'>
+                      <h1 className='text-green-500 text-3xl'>CGK</h1>
+                      <div className='relative w-full'>
+                        <div className='w-full border border-neutral-600 border-dashed'></div>
+                        <div className='absolute transform -translate-y-1/2 top-1/2 flex justify-between items-center w-full'>
+                          <span className='bg-neutral-500 rounded-full size-1.5'></span>
+                          <span className='bg-green-500 rounded-full size-1.5'></span>
+                          <span className='bg-neutral-500 rounded-full size-1.5'></span>
+                        </div>
+                      </div>
+                      <h1 className='text-green-500 text-3xl'>LGA</h1>
+                    </div>
+                    <div className='flex justify-between items-center'>
+                      <p className="text-neutral-300 text-sm">Jakarta</p>
+                      <p className="text-neutral-300 text-sm">New York</p>
+                    </div>
+                    <div className='flex justify-between items-center'>
+                      <p className="text-neutral-400 text-xs">00:45</p>
+                      <p className="text-neutral-300 text-xs">21h 45min</p>
+                      <p className="text-neutral-400 text-xs">23:30</p>
+                    </div>
+                  </div>
+                  {/* Ticket Divider */}
+                  <div className='relative flex justify-between items-center my-4 -mx-[29px]'>
+                    <span className='shrink-0 bg-[#313131] rounded-full size-8'></span>
+                    <div className='w-full border border-neutral-600 border-dashed'></div>
+                    <span className='shrink-0 bg-[#313131] rounded-full size-8'></span>
+                  </div>
+                  {/* Bar Code */}
+                  <div className='border'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nostrum odit rem excepturi odio ullam optio animi, dolore eligendi,</div>
+                </div>
               </section>
-
             </div>
           </PhoneMockup>
         </div>
