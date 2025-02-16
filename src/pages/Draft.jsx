@@ -127,20 +127,105 @@ const Draft = () => {
                   ))}
                 </div>
                 {/* Container */}
-                <div className='border rounded-2xl p-2.5 grid grid-cols-2 gap-2'>
-                  <div className='p-1.5 border col-span-full'>test</div>
-                  <div className='p-1.5 border col-span-full'>test</div>
-                  <div className='p-1.5 border'>test</div>
-                  <div className='p-1.5 border'>test</div>
-                  <div className='p-1.5 border'>test</div>
-                  <div className='p-1.5 border'>test</div>
+                <div className='border rounded-2xl bg-neutral-700/40 p-3.5 grid grid-cols-2 gap-3'>
+                  <div className='relative col-span-full flex flex-col gap-3'>
+                    {/* From */}
+                    <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
+                      <p className="-top-1.5 left-3 absolute px-1.5 text-neutral-300/80 text-xs leading-none bg-neutral-700 rounded-full">From</p>
+                      <div className='flex items-center gap-1.5'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8 text-neutral-300">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                        </svg>
+                        <div className='flex flex-col'>
+                          <p className="text-neutral-200 text-md leading-none">Jakarta <span className='text-neutral-300/80 text-sm'>CGK</span></p>
+                          <p className="text-neutral-300/80 text-xs leading-none">item.value asdf asd </p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* To */}
+                    <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
+                      <p className="-top-1.5 left-3 absolute px-1.5 text-neutral-300/80 text-xs leading-none bg-neutral-700 rounded-full">To</p>
+                      <div className='flex items-center gap-1.5'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8 text-neutral-300">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                        </svg>
+                        <div className='flex flex-col'>
+                          <p className="text-neutral-200 text-md leading-none">Jakarta <span className='text-neutral-300/80 text-sm'>CGK</span></p>
+                          <p className="text-neutral-300/80 text-xs leading-none">item.value asdf asd </p>
+                        </div>
+                      </div>
+                    </div>
+                    <span className='absolute transform right-5 -translate-y-1/2 top-1/2 flex items-center justify-center size-9 rounded-full border border-neutral-600 bg-neutral-700'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-green-500 size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                      </svg>
+                    </span>
+                  </div>
+                  {/* Departure */}
+                  <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
+                    <p className="-top-1.5 left-3 absolute px-1.5 text-neutral-300/80 text-xs leading-none bg-neutral-700 rounded-full">Departure</p>
+                    <div className='flex items-center gap-1'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 text-neutral-300">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                      </svg>
+                      <p className="text-neutral-200 text-sm leading-none">19 Feb 2025</p>
+                    </div>
+                  </div>
+                  {/* Return */}
+                  <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
+                    <p className="-top-1.5 left-3 absolute px-1.5 text-neutral-300/80 text-xs leading-none bg-neutral-700 rounded-full">Return</p>
+                    <div className='flex items-center gap-1'>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 text-neutral-300">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                      </svg>
+                      <p className="text-neutral-200 text-sm leading-none">19 Feb 2025</p>
+                    </div>
+                  </div>
+                  {/* Traveller */}
+                  <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
+                    <p className="-top-1.5 left-3 absolute px-1.5 text-neutral-300/80 text-xs leading-none bg-neutral-700 rounded-full">Traveller</p>
+                    <p className="text-neutral-200 text-sm leading-none">19 Feb 2025</p>
+                  </div>
+                  {/* Class */}
+                  <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
+                    <p className="-top-1.5 left-3 absolute px-1.5 text-neutral-300/80 text-xs leading-none bg-neutral-700 rounded-full">Class</p>
+                    <p className="text-neutral-200 text-sm leading-none">Regular</p>
+                  </div>
+                  {/* Search Button */}
                   <button className='col-span-full mt-1.5 text-neutral-800 text-xs bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60 inline-block shrink-0 px-4 py-1.5 transition duration-300 ease-in-out border font-semibold rounded-md focus:outline-none focus:ring-2 active:scale-95'>
                     Search
                   </button>
                 </div>
+                {/* Today's Flight */}
+                <p className="text-neutral-300 text-sm leading-none">Today's Flight</p>
                 {/*  */}
-                <p className="text-neutral-300 text-sm leading-none">item.value</p>
-                {/*  */}
+                <div className=''>
+                  <div className='flex justify-between items-center'>
+                    <p className="text-neutral-400 text-xs">From</p>
+                    <p className="text-neutral-400 text-xs">From</p>
+                  </div>
+                  <div className='flex justify-between items-center gap-2'>
+                    <h1 className='text-green-500 text-3xl'>CGK</h1>
+                    <div className='relative w-full'>
+                      <div className='w-full border border-neutral-600 border-dashed'></div>
+                      <div className='absolute transform -translate-y-1/2 top-1/2 flex justify-between items-center w-full'>
+                        <span className='bg-neutral-500 rounded-full size-1.5'></span>
+                        <span className='bg-green-500 rounded-full size-1.5'></span>
+                        <span className='bg-neutral-500 rounded-full size-1.5'></span>
+                      </div>
+                    </div>
+                    <h1 className='text-green-500 text-3xl'>LGA</h1>
+                  </div>
+                  <div className='flex justify-between items-center'>
+                    <p className="text-neutral-300 text-sm">Jakarta</p>
+                    <p className="text-neutral-300 text-sm">New York</p>
+                  </div>
+                  <div className='flex justify-between items-center'>
+                    <p className="text-neutral-400 text-xs">00:45</p>
+                    <p className="text-neutral-300 text-xs">21h 45min</p>
+                    <p className="text-neutral-400 text-xs">23:30</p>
+                  </div>
+                </div>
               </section>
               {/* Bottom Navigation */}
               <AppNav active={'task'} />
