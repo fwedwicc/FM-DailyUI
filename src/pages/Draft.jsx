@@ -91,25 +91,57 @@ const Draft = () => {
           <PhoneMockup>
             <div className='relative h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
-              <div className='flex justify-between items-center'>
+              <div className='flex justify-between items-center border'>
                 <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
                   </svg>
                 </button>
-                <img
-                  className="size-8 border-2 ring-2 ring-green-500 border-neutral-700 rounded-full cursor-pointer"
-                  src="https://avatars.githubusercontent.com/u/943537?v=4"
-                  alt="Bot Avatar"
-                />
+                {/*  */}
+                <div className='flex flex-col items-center border'>
+                  <p className="block text-neutral-300 font-medium text-xs">Thursday, 19 Feb 25</p>
+                  <div className='flex items-center gap-1 text-neutral-400'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">
+                      <path fillRule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clipRule="evenodd" />
+                    </svg>
+                    <p className="block text-xs">Philippines, Manila</p>
+                  </div>
+                </div>
                 <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
                   </svg>
                 </button>
               </div>
               {/* Content */}
-
+              <section className='mt-4 border space-y-3'>
+                {/* Greetings */}
+                <div>
+                  <h1 className='text-neutral-300 text-2xl leading-none'>Discover a new place.</h1>
+                  <p className="text-neutral-400 text-xs">Explore, Journey, Discover, and Adventure.</p>
+                </div>
+                {/* Options */}
+                <div className='border border-neutral-600/70 p-1.5 inline-flex gap-1.5 rounded-xl'>
+                  {['One-way', 'Rouned trip', 'Multi-way'].map((item, index) => (
+                    <span className={`text-xs rounded-md text-neutral-300 ${index === 0 ? 'bg-neutral-200 text-neutral-800' : 'bg-neutral-700/70'} px-2.5 py-1.5 cursor-pointer`} key={index}>{item}</span>
+                  ))}
+                </div>
+                {/* Container */}
+                <div className='border rounded-2xl p-2.5 grid grid-cols-2 gap-2'>
+                  <div className='p-1.5 border col-span-full'>test</div>
+                  <div className='p-1.5 border col-span-full'>test</div>
+                  <div className='p-1.5 border'>test</div>
+                  <div className='p-1.5 border'>test</div>
+                  <div className='p-1.5 border'>test</div>
+                  <div className='p-1.5 border'>test</div>
+                  <button className='col-span-full mt-1.5 text-neutral-800 text-xs bg-neutral-200 hover:bg-neutral-300 border-neutral-50 focus:ring-neutral-200/60 inline-block shrink-0 px-4 py-1.5 transition duration-300 ease-in-out border font-semibold rounded-md focus:outline-none focus:ring-2 active:scale-95'>
+                    Search
+                  </button>
+                </div>
+                {/*  */}
+                <p className="text-neutral-300 text-sm leading-none">item.value</p>
+                {/*  */}
+              </section>
               {/* Bottom Navigation */}
               <AppNav active={'task'} />
             </div>
