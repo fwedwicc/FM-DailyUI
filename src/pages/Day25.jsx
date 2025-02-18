@@ -4,7 +4,7 @@ import useScrollToTop from '../hooks/useScrollToTop'
 import { VrGlass } from '../assets'
 import { motion } from 'framer-motion'
 
-const Day22 = () => {
+const Day25 = () => {
   useLenisScroll()
   useScrollToTop()
 
@@ -25,4 +25,4 @@ const Day22 = () => {
   )
 }
 
-export default Day22
+export default Day25

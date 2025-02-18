@@ -1,5 +1,5 @@
 import {
-  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail, day18Thumbnail, day19Thumbnail, day20Thumbnail, day21Thumbnail, day22Thumbnail, day23Thumbnail,
+  defaultThumbnail, day01Thumbnail, day02Thumbnail, day03Thumbnail, day04Thumbnail, day05Thumbnail, day06Thumbnail, day07Thumbnail, day08Thumbnail, day09Thumbnail, day10Thumbnail, day11Thumbnail, day12Thumbnail, day13Thumbnail, day14Thumbnail, day15Thumbnail, day16Thumbnail, day17Thumbnail, day18Thumbnail, day19Thumbnail, day20Thumbnail, day21Thumbnail, day22Thumbnail, day23Thumbnail, day24Thumbnail
 } from '../assets/thumbnails';
 
 export const Cards = [];
@@ -29,6 +29,7 @@ export const titles = [
   'Search', // Day22
   'Onboarding', // Day23
   'Boarding Pass', // Day24
+  'TV App', // Day25
 ];
 
 const descriptions = [
@@ -56,6 +57,7 @@ const descriptions = [
   "Design something search related. It could be a search bar, an advanced search window, or a search function. It could even be a page to search for hotel rooms, homes for sale, plane tickets, concert seats, or something else.", // Day22 
   "Are you recruiting people for an organization? Are people signing up for a new service or website? Is it welcoming people into a mobile app? Onboarding might seem trivial, but it's the first experience your users have with your product or service. It's like the first page of a book and it can instantly excite them. If not implemented well, a bad onboarding experience could turn someone off of a brand completely.", // Day23
   "Consider the origin, the destination, gates, seats, the airline, etc. Is it for a multi - stop trip, round - trip, or one - way journey ? Boarding passes are sometimes used to promote additional information such as credit card offers, frequent flyer programs, or partner deals with local hotels and resorts.", // Day24
+  "What type of app is it? What are the features/controls such as volume, favorites, closed captions, or other languages? Does it have a carousel selection feature? Would it be important to have a “Continue Watching” area? Or other recommendations such as most viewed, recently added, etc.?", // Day25
 ];
 
 const images = [
@@ -82,6 +84,7 @@ const images = [
   day21Thumbnail, // Day21
   day22Thumbnail, // Day22
   day23Thumbnail, // Day23
+  day24Thumbnail, // Day24
 ];
 
 const defaultImage = defaultThumbnail;

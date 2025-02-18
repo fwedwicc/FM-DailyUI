@@ -85,16 +85,16 @@ const Day24 = () => {
         <div className='flex items-center justify-center md:flex-nowrap flex-wrap gap-12 lg:gap-20'>
           {/* First Mockup */}
           <PhoneMockup>
-            <div className='relative h-full px-3.5 pt-12 overflow-hidden border'>
+            <div className='relative h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
-              <div className='flex justify-between items-center border'>
+              <div className='flex justify-between items-center'>
                 <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
                   </svg>
                 </button>
                 {/*  */}
-                <div className='flex flex-col items-center border'>
+                <div className='flex flex-col items-center'>
                   <p className="block text-neutral-300 font-medium text-xs">Thursday, 19 Feb 25</p>
                   <div className='flex items-center gap-1 text-neutral-400'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">
@@ -110,7 +110,7 @@ const Day24 = () => {
                 </button>
               </div>
               {/* Content */}
-              <section className='mt-4 border space-y-3'>
+              <section className='mt-4 space-y-3'>
                 {/* Greetings */}
                 <div>
                   <h1 className='text-neutral-300 text-2xl leading-none'>Discover a new place.</h1>
@@ -123,7 +123,7 @@ const Day24 = () => {
                   ))}
                 </div>
                 {/* Container */}
-                <div className='border rounded-2xl bg-neutral-700/40 p-3.5 grid grid-cols-2 gap-3'>
+                <div className='rounded-2xl bg-neutral-700/40 p-3.5 grid grid-cols-2 gap-3'>
                   <div className='relative col-span-full flex flex-col gap-3'>
                     {/* From */}
                     <div className='relative p-2 border border-neutral-600/70 rounded-md space-y-1'>
@@ -233,9 +233,9 @@ const Day24 = () => {
           </PhoneMockup>
           {/* Second Mockup */}
           <PhoneMockup>
-            <div className='relative h-full px-3.5 pt-12 overflow-hidden border'>
+            <div className='relative h-full px-3.5 pt-12 overflow-hidden'>
               {/* Header */}
-              <div className='flex justify-between items-center border'>
+              <div className='flex justify-between items-center'>
                 <button className='size-8 flex justify-center items-center text-neutral-200 hover:bg-neutral-200/20 rounded-md focus:ring-2 focus:ring-neutral-500 z-50 transition duration-300 ease-in-out'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -251,13 +251,13 @@ const Day24 = () => {
                 </button>
               </div>
               {/* Content */}
-              <section className='mt-4 border'>
+              <section className='mt-4'>
                 {/* Ticket Container */}
-                <div className='p-3 rounded-2xl border bg-neutral-700/40'>
+                <div className='p-3 rounded-2xl bg-neutral-700/40'>
                   {/* Header */}
                   <div className='flex justify-between items-start'>
                     <div className='flex items-center gap-2'>
-                      <div className='flex items-center justify-center size-8 border bg-neutral-800 rounded-lg'>
+                      <div className='flex items-center justify-center size-9 border border-neutral-600 bg-neutral-800 rounded-lg'>
                         <img src={logoIpsum} alt="LogoIpsum" className='w-4 h-auto' />
                       </div>
                       <div>
@@ -322,10 +322,10 @@ const Day24 = () => {
                     <span className='shrink-0 bg-[#313131] rounded-full size-8'></span>
                   </div>
                   {/* Bar Code */}
-                  <div className='border space-y-3'>
+                  <div className='space-y-3'>
                     <p className="text-neutral-400 text-xs text-center">Show the bar code at <br />the boarding gate</p>
                     <div className='relative w-full h-20'>
-                      <img src={barCode} alt="Sample Bar Code" className='absolute object-cover w-[90rem] h-full' />
+                      <img src={barCode} alt="Sample Bar Code" className='absolute object-cover w-[90rem] h-full px-3 pb-3 opacity-80' />
                     </div>
                   </div>
                 </div>
