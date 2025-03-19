@@ -71,10 +71,10 @@ const Home = () => {
                 </span>
                 <div className='space-y-3.5'>
                   <h1 className="text-2xl font-bold text-green-50 sm:text-3xl md:text-4xl">
-                    <a href="https://www.dailyui.co/" className='underline hover:text-green-500 transition duration-300 ease-in-out' target='_blank' rel='noopener noreferrer'>Daily UI</a> Challenges with <a href='https://fwedwicc.github.io/fmUI/' className='text-green-500'>fmUI</a>: <br /> 100 Days of Innovation
+                    <a href="https://www.dailyui.co/" className='underline hover:text-green-500 transition duration-300 ease-in-out' target='_blank' rel='noopener noreferrer'>Daily UI</a> Challenges with <a href='https://fwedwicc.github.io/fmUI/' className='text-green-500'>fmUI</a>: <br /> 25 Days of Innovation
                   </h1>
                   <p className="text-sm leading-relaxed text-green-50/80">
-                    Join me on a creative journey through 100 days of Daily UI challenges, each crafted with my custom design system, fmUI. Explore innovative and inspiring UI designs that will elevate your web development skills and ignite your imagination.
+                    Join me on a creative journey through 100 days of Daily UI challenges, with the first 25 (Series 1) crafted with my custom design system, fmUI. Explore innovative and inspiring UI designs that will elevate your web development skills and ignite your imagination.
                   </p>
                 </div>
               </div>
@@ -173,6 +173,53 @@ const Home = () => {
       className='bg-neutral-900'
     >
       <Hero />
+
+      {/* Series Links */}
+      <div className='md:py-10 py-6 px-5 flex items-center justify-center'>
+        <div className='w-full max-w-2xl grid grid-cols-2 md:gap-4 gap-3'>
+          <p className="leading-relaxed col-span-full text-green-50/80">
+            FM Daily UI Series:
+          </p>
+          {/* Series 1 */}
+          <div className='relative bg-green-600/5 px-5 py-4 rounded-xl ring-1 ring-green-500 cursor-pointer'>
+            <p className="leading-relaxed text-sm text-green-50/80">
+              FM Daily UI
+            </p>
+            <div className='mt-2 -space-y-1'>
+              <h3 className="leading-relaxed text-xl md:text-2xl text-green-500">
+                Series 1
+              </h3>
+              <p className="leading-relaxed text-green-100/80">
+                Challenge 1 to 25
+              </p>
+            </div>
+          </div>
+          {/* Series 2 to 4, Waley pa links */}
+          {[
+            { series: '2', challenge: '26 to 50' },
+            { series: '3', challenge: '51 to 75' },
+            { series: '4', challenge: '76 to 100' }
+          ].map((item, index) => (
+            <div className='relative bg-neutral-800/30 px-5 py-4 rounded-xl opacity-60 cursor-not-allowed' key={index}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-14 absolute transform top-1/2 -translate-y-1/2 right-6 text-neutral-600/40">
+                <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clipRule="evenodd" />
+              </svg>
+              <p className="leading-relaxed text-sm text-green-50/80">
+                FM Daily UI
+              </p>
+              <div className='mt-2 -space-y-1'>
+                <h3 className="leading-relaxed text-xl md:text-2xl text-green-500">
+                  Series {item.series}
+                </h3>
+                <p className="leading-relaxed text-green-100/80">
+                  Challenge {item.challenge}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className='md:py-12 px-12 flex justify-center items-center'>
         <div className='w-full max-w-2xl space-y-7'>
           <div className='flex items-center gap-5 justify-center'>
@@ -197,7 +244,7 @@ const Home = () => {
       <div ref={sectionRef} className='flex flex-col md:pt-10 pt-14'>
         <div className='lg:px-16 md:px-12 px-6'>
           <p className='text-sm leading-relaxed text-green-50/80'>Frederick is currently working on:</p>
-          <p className='leading-relaxed text-green-500'>Challenge #{currentChallengeNumber}</p>
+          <p className='leading-relaxed text-green-500'>Series 2 (Challenge 26 to 50)</p>
         </div>
         {/* Card Grid */}
         <div

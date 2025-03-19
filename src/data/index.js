@@ -30,7 +30,6 @@ export const titles = [
   'Onboarding', // Day23
   'Boarding Pass', // Day24
   'TV App', // Day25
-  'Subscribe', // Day26
 ];
 
 const descriptions = [
@@ -59,7 +58,6 @@ const descriptions = [
   "Are you recruiting people for an organization? Are people signing up for a new service or website? Is it welcoming people into a mobile app? Onboarding might seem trivial, but it's the first experience your users have with your product or service. It's like the first page of a book and it can instantly excite them. If not implemented well, a bad onboarding experience could turn someone off of a brand completely.", // Day23
   "Consider the origin, the destination, gates, seats, the airline, etc. Is it for a multi - stop trip, round - trip, or one - way journey ? Boarding passes are sometimes used to promote additional information such as credit card offers, frequent flyer programs, or partner deals with local hotels and resorts.", // Day24
   "What type of app is it? What are the features/controls such as volume, favorites, closed captions, or other languages? Does it have a carousel selection feature? Would it be important to have a “Continue Watching” area? Or other recommendations such as most viewed, recently added, etc.?", // Day25
-  "What is a person subscribing to? A streaming service, a video course, or a consultation service? Is it just a button or a widget? What type of information are you looking to capture from the user? Their name and email? Their country, state, or postal code? Age consent? Something else?", // Day25
 ];
 
 const images = [
@@ -92,7 +90,7 @@ const images = [
 
 const defaultImage = defaultThumbnail;
 
-for (let day = 1; day <= 100; day++) {
+for (let day = 1; day <= 25; day++) {
   const titleIndex = day - 1;
   const descIndex = day - 1;
   const imgIndex = day - 1;
