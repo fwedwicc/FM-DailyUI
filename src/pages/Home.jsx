@@ -183,7 +183,7 @@ const Home = () => {
           {/* Series 1 */}
           <div className='relative bg-green-600/5 px-5 py-4 rounded-xl ring-1 ring-green-500 cursor-pointer'>
             <p className="leading-relaxed text-sm text-green-50/80">
-              FM Daily UI
+              FM Daily UI S1
             </p>
             <div className='mt-2 -space-y-1'>
               <h3 className="leading-relaxed text-xl md:text-2xl text-green-500">
@@ -194,9 +194,22 @@ const Home = () => {
               </p>
             </div>
           </div>
+          {/* Series 2 */}
+          <a href='https://fwedwicc.github.io/FM-DailyUI-S2/' target='_blank' rel='noopener noreferrer' className='relative bg-neutral-800/30 hover:bg-green-600/5 px-5 py-4 rounded-xl hover:ring-1 hover:ring-green-500 transition-all duration-300 ease-in-out cursor-pointer'>
+            <p className="leading-relaxed text-sm text-green-50/80">
+              FM Daily UI S2
+            </p>
+            <div className='mt-2 -space-y-1'>
+              <h3 className="leading-relaxed text-xl md:text-2xl text-green-500">
+                Series 2
+              </h3>
+              <p className="leading-relaxed text-green-100/80">
+                Challenge 26 to 50
+              </p>
+            </div>
+          </a>
           {/* Series 2 to 4, Waley pa links */}
           {[
-            { series: '2', challenge: '26 to 50' },
             { series: '3', challenge: '51 to 75' },
             { series: '4', challenge: '76 to 100' }
           ].map((item, index) => (
